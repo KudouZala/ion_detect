@@ -1,0 +1,43 @@
+# ---------- output 规则 ----------
+# 先忽略 output 下所有第一层
+/output/*
+忽略 datasets 下所有第一层
+/datasets/*
+!/datasets/.gitkeep
+# 放行两个父目录（否则下面的子目录无法被重新包含）
+!/output/trained_model_save
+!/output/inference_results
+
+# 重新忽略这两个父目录下的所有内容（为“只放行某个版本”做准备）
+/output/trained_model_save/*
+/output/inference_results/*
+
+# # 只放行 20251108a 这两个具体版本及其所有内容
+
+
+# !/output/trained_model_save/20251208a
+# !/output/trained_model_save/20251208a/**
+
+# !/output/inference_results/20251208a
+# !/output/inference_results/20251208a/**
+
+
+# ---------- data 规则 ----------
+# 忽略 data 第一层
+/data/*
+
+# 放行 scripts 目录及全部内容
+!/data/scripts
+!/data/scripts/**
+
+# 只忽略 data/logs 的内容，但保留目录（需要用占位文件让目录被跟踪）
+/data/logs/**
+!/data/logs/.gitkeep
+
+
+# ---------- 其他 ----------
+scripts/machine_learning_code/*.log
+scripts/save_three_system
+/logs/**
+scripts/machine_learning_code/logs/*
+

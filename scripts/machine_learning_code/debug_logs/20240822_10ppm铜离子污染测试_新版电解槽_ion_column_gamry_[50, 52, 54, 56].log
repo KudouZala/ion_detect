@@ -1,0 +1,14 @@
+❌ 文件处理出错:
+Traceback (most recent call last):
+  File "/home/cagalii/Application/ion_detect/scripts/machine_learning_code/20251003b.py", line 107, in process_single_file
+    correct, predict, truth = test_single_xlsx_and_generate_explanations_three_system_1004(xlsx_path=xlsx_path_str, model=model, device=device, num_time_points=num_time_points, num_freq_points=num_freq_points, folder_name=folder_name)
+  File "/home/cagalii/Application/ion_detect/scripts/machine_learning_code/model_test.py", line 479, in test_single_xlsx_and_generate_explanations_three_system_1004
+    prob_output, predicted_voltage, predicted_conc,wuxing, cls_attn_mean, raw_prob_output, yingxiang, param_attn_mean, freq_attn, freq_attn_param = model(volt_tensor, impe_tensor, env_param,electrolyzer_parameters,concentration)
+  File "/home/cagalii/miniforge3/envs/ion_detect/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/cagalii/miniforge3/envs/ion_detect/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/cagalii/Application/ion_detect/scripts/machine_learning_code/model_models.py", line 1442, in forward
+    freq_base_input = self.freq_values_tensor.view(F, 1)        # (64,1)
+RuntimeError: shape '[54, 1]' is invalid for input of size 63
+=== 处理失败 ===

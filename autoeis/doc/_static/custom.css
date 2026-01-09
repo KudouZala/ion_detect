@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
+
+body {
+    font-family: 'Noto Sans', sans-serif !important;
+}
+
+img.sidebar-logo {
+    width: 80%;
+}
+
+p.admonition-title,
+.admonition>p {
+    font-size: 0.9rem !important;
+}
+
+p.admonition-title {
+    font-weight: bold !important;
+}
+
+.admonition {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+a.reference.internal {
+    /* truncate if more than one line */
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+img {
+    height: auto !important;
+}
+
+img.fig-ecm {
+    width: 600px;
+    padding: 25px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+div.input_area {
+    border-radius: 5px !important;
+}
+
+pre {
+    margin: 10px !important;
+    font-size: var(--code-font-size);
+}
+
+.widget-dropdown>select {
+    border-radius: 5px !important;
+}
+
+div.input_area {
+    margin-bottom: 10px !important;
+}
+
+@media (max-width: 800px) {
+    img#banner {
+        display: none;
+    }
+}
+
+img#banner {
+    width: 100%;
+    padding: 25px 25px 0;
+}

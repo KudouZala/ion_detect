@@ -1,0 +1,120 @@
+# Experiment configuration converted from 20251212c.py
+# Usage:
+#   python main.py --config 20251212c.yaml --train>&20251212c.log
+#   python main.py --config 20251212c.yaml --test
+#   python main.py --config 20251212c.yaml --search
+
+experiment:
+  name: "20251213c"          # used for output folder naming and auto test split subfolder
+  seed: 42
+
+data:
+  num_freq_points: 63
+  num_time_points: 4
+
+train:
+  batch_size: 8
+  num_epochs: 2000
+  learning_rate: 1e-4
+  weight_decay: 1e-4
+
+  # stage-based sampling weights in SlidingWindowPairDataset
+  sampler:
+    base_weight: 1.0
+    rapid_weight: 3.0
+
+  # Trainer_ThreeSystem_1117 loss weights / knobs
+  trainer:
+    alpha: 0.05
+    beta: 1.0
+    gamma: 6.0e-5
+    lambda_rule: 5.0e-4
+    lambda_group: 5.0e-4
+    lambda_tree: 5.0e-4
+    lambda_band: 2.0e-3
+    save_every: 10
+    label_smoothing: 0.05
+
+  train_pairs:
+    lambda_consistency: 5.0e-5
+    eps: 1.0e-9
+    use_log_space: true
+    lambda_monodec: 5.0e-5
+    lambda_polarity: 2.0e-5
+    weight_ratio: 3.0
+
+test:
+  # multi-process testing uses CPU by default (kept from original script)
+  device_str: "cpu"
+  max_workers_factor: 0.5   # use CPU_COUNT * factor (rounded down, min 1)
+
+paths:
+  # base_dir is computed as: main.py所在目录的 parent.parent.parent (same as original),
+  # so below are relative to base_dir.
+  data_folder: "datasets/datasets_for_ion_train"
+  test_folder: "datasets/datasets_for_ion_test"    # if this folder name is datasets_for_all_test => auto split
+  model_save_root: "output/trained_model_save"
+  stats_file: "datasets/stats_dataset.json"
+  label_mapping_json: "label_mapping.json"
+  debug_log_dir: "output/debug_logs"
+  tensorboard_root: "output/tensorboard"
+
+dataset:
+  # SlidingWindowPairDataset options
+  keep_unpaired: "self"
+  debug: true
+  focus_prefix_contains: "20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_"
+  max_print: 0
+
+model:
+  # These match the original hard-coded Model_three_system_1117 kwargs (except num_freq_points/time_points come from data.*)
+  volt_input_dim: 1
+  volt_mlp_hidden_dims: [64]
+  mlp_output_dims: 64
+  volt_mlp_num_layers: 1
+
+  impe_input_dim: 2
+  impe_mlp_hidden_dims: [64]
+  impe_mlp_num_layers: 1
+
+  transformer_d_model: 64
+  nhead: 4
+  transformer_num_layers: 1
+  param_transformer_num_layers: 1
+
+  physic_mlp_hidden_dims: [64]
+  physic_mlp_num_layers: 1
+
+  ion_attr_embed_hidden_dims: [64]
+  ion_attr_embed_num_layers: 1
+  ion_encoder_num_layers: 1
+  ion_post_hidden_dims: [64]
+  ion_post_num_layers: 1
+
+  probMLP_input_dims: 64
+  probMLP_hidden_dims: [64]
+  probMLP_num_layers: 1
+
+  param_mlp_hidden_dims: [64]
+  param_mlp_num_layers: 1
+
+  freq_encoder_hidden_dims: [64]
+  freq_encoder_num_layers: 1
+  time_encoder_hidden_dims: [64]
+  time_encoder_num_layers: 1
+
+  cross_transformer_num_layers: 1
+
+  param_embed_hidden_dims: [64]
+  param_embed_num_layers: 0
+  physic_embed_hidden_dims: [64]
+  physic_embed_num_layers: 0
+
+  envMLP_input_dim: 3
+  env_mlp_hidden_dims: [64]
+  env_mlp_num_layers: 1
+  ep_input_dim: 8
+  ep_mlp_hidden_dims: [64]
+  ep_mlp_num_layers: 1
+
+  Z_encoder_num_layers: 1

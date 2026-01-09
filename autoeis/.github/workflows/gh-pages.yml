@@ -1,0 +1,64 @@
+name: Deploy Documentation
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy-docs:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Set up Julia
+        uses: julia-actions/setup-julia@v2
+        with:
+          version: "1.10"
+
+      - name: Cache Julia
+        uses: julia-actions/cache@v2
+        with:
+          cache-name: "macos-latest-test-1.10-3.10"
+          cache-packages: true
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: "**/pyproject.toml"
+
+      - name: Set up Python 3.10
+        run: uv python install 3.10
+
+      - name: Install Pandoc and TeXLive
+        run: |
+          brew install pandoc  # Required by nbsphinx
+          brew install mactex  # Required by lcapy
+          eval "$(/usr/libexec/path_helper)"
+          echo "$(dirname "$(which pdflatex)")" >> $GITHUB_PATH
+
+      - name: Install AutoEIS
+        run: |
+          uv sync --dev --all-extras
+          # Install Julia dependencies at first import
+          uv run python -c "import autoeis"
+
+      - name: Build the documentation
+        run: |
+          uv run jupyter nbconvert \
+            --ExecutePreprocessor.timeout=3600 \
+            --to notebook --execute --inplace examples/*.ipynb
+          cd doc
+          uv run make html
+
+      - name: GitHub Pages action
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./doc/_build/html

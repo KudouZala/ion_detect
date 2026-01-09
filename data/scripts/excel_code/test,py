@@ -1,0 +1,5 @@
+fc1=10
+fc2=5
+sorted_values = sorted([(1, 2, 3), (4, 5, 6)], key=lambda x: fc1 if x == (1, 2, 3) else fc2) 
+ 
+print(sorted_values)

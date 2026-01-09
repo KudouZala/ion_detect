@@ -1,0 +1,107 @@
+[project]
+name = "autoeis"
+dynamic = ["version"]
+description = "A tool for automated EIS analysis by proposing statistically plausible ECMs."
+readme = "README.md"
+requires-python = ">=3.10, <3.13"
+license = "MIT"
+authors = [
+    { name = "Runze Zhang", email = "runzee.zhang@mail.utoronto.ca" },
+    { name = "Amin Sadeghi", email = "amin.sadeghi@live.com" },
+    { name = "Robert Black", email = "robert.black@nrc-cnrc.gc.ca" },
+    { name = "Jason Hattrick-Simpers", email = "jason.hattrick.simpers@utoronto.ca" },
+]
+maintainers = [{ name = "Amin Sadeghi", email = "amin.sadeghi@live.com" }]
+keywords = [
+    "bayesian inference",
+    "electrochemical impedance spectroscopy",
+    "equivalent circuit model",
+    "evolutionary algorithm",
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "arviz",
+    "click",
+    "deprecated",
+    "dill",
+    "impedance",
+    # "impedance @ git+https://github.com/ma-sadeghi/impedance.py@fix-numpy2",
+    "ipython",
+    "ipykernel",
+    "ipywidgets",
+    "jax",
+    "jinja2>=3.1.2",
+    "juliacall",
+    "juliapkg",
+    "matplotlib",
+    "mpire[dill]",
+    "numpy<2",
+    "numpyro",
+    "pandas",
+    "python-box",
+    "psutil",
+    "pyparsing>=3",
+    "rich",
+    "scikit-learn>=1.4",
+    "seaborn",
+    "tqdm",
+]
+[project.optional-dependencies]
+lcapy = ["lcapy"]
+[project.urls]
+"Homepage" = "https://github.com/AUTODIAL/AutoEIS"
+Repository = "https://github.com/AUTODIAL/AutoEIS"
+"Bug Tracker" = "https://github.com/AUTODIAL/AutoEIS/issues"
+Documentation = "https://autodial.github.io/AutoEIS"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/autoeis/version.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["src/autoeis"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -vv --durations=5 --assert=plain"
+python_files = "*.py"
+python_classes = "*Test"
+python_functions = "test_*"
+testpaths = ["tests", "integration"]
+norecursedirs = [".git", ".github", ".ipynb_checkpoints", "build", "dist"]
+
+[tool.ruff]
+exclude = [".git", ".github", ".venv", "build"]
+line-length = 92
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402", "F401", "F403"]
+
+[tool.uv]
+dev-dependencies = [
+    "hatch>=1.12.0",
+    "pytest>=8.3.2",
+    "pytest-sugar>=1.0.0",
+    "furo>=2024.8.6",
+    "sphinx>=8.0.2",
+    "sphinx-autobuild>=2024.4.16",
+    "sphinx-autodoc2>=0.5.0",
+    "sphinx-copybutton>=0.5.2",
+    "linkify-it-py>=2.0.3",
+    "myst-nb>=1.1.1",
+    "myst-parser>=4.0.0",
+    "jupyterlab>=4.2.5",
+    "nbmake>=1.5.4",
+    "nbsphinx>=0.9.5",
+    "nbconvert>=7.16.4",
+    "pre-commit>=4.2.0",
+]

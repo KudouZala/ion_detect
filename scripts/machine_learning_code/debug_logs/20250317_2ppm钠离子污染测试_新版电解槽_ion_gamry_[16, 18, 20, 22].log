@@ -1,0 +1,8 @@
+❌ 文件处理出错:
+Traceback (most recent call last):
+  File "/home/cagalii/Application/ion_detect/scripts/machine_learning_code/20251111a.py", line 108, in process_single_file
+    correct, predict, truth = test_single_xlsx_and_generate_explanations_three_system_1004(xlsx_path=xlsx_path_str, model=model, device=device, num_time_points=num_time_points, num_freq_points=num_freq_points, folder_name=folder_name)
+  File "/home/cagalii/Application/ion_detect/scripts/machine_learning_code/model_test.py", line 388, in test_single_xlsx_and_generate_explanations_three_system_1004
+    impe_tensor = torch.stack(impe_list).unsqueeze(0).to(device)  # shape: (1, 4, freq, 2)
+RuntimeError: stack expects each tensor to be equal size, but got [63, 2] at entry 0 and [61, 2] at entry 3
+=== 处理失败 ===
