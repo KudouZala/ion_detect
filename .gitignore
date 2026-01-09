@@ -1,9 +1,11 @@
 # ---------- output 规则 ----------
-# 先忽略 output 下所有第一层
+# 忽略 output 下所有第一层内容
 /output/*
-忽略 datasets 下所有第一层
-/datasets/*
-!/datasets/.gitkeep
+
+# 允许 output 目录本身被跟踪
+!/output
+!/output/.gitkeep
+
 # 放行两个父目录（否则下面的子目录无法被重新包含）
 !/output/trained_model_save
 !/output/inference_results
@@ -12,14 +14,14 @@
 /output/trained_model_save/*
 /output/inference_results/*
 
-# # 只放行 20251108a 这两个具体版本及其所有内容
 
+# ---------- datasets 规则 ----------
+# 忽略 datasets 下所有第一层内容
+/datasets/*
 
-# !/output/trained_model_save/20251208a
-# !/output/trained_model_save/20251208a/**
-
-# !/output/inference_results/20251208a
-# !/output/inference_results/20251208a/**
+# 允许 datasets 目录本身被跟踪
+!/datasets
+!/datasets/.gitkeep
 
 
 # ---------- data 规则 ----------
@@ -30,8 +32,9 @@
 !/data/scripts
 !/data/scripts/**
 
-# 只忽略 data/logs 的内容，但保留目录（需要用占位文件让目录被跟踪）
+# 只忽略 data/logs 的内容，但保留目录（需要占位文件）
 /data/logs/**
+!/data/logs
 !/data/logs/.gitkeep
 
 
