@@ -3,6 +3,8 @@
 [![Hugging Face Dataset](https://img.shields.io/badge/🤗%20Hugging%20Face%20Dataset-FFD21E?logo=huggingface&logoColor=black&labelColor=fff3b0&style=flat-square)](https://huggingface.co/datasets/KudouZala/PEM_electrolyzer-ion_detect)
 
 
+
+
 # File Description
 
 - The `data` folder contains the raw voltage and impedance measurement data. `firecloud` and `gamry` are the impedance measurement devices.Each experiment's details.txt file describes the materials and procedures used in the experiment.If an edx folder exists, then it contains the edx data for this experiment.
@@ -301,3 +303,11 @@ Requires datasets containing `[0,2,4,6]` and `[6,8,10,12]`.
 The plots can be compared with impedance fitting results for the same three time points.
 
 ![AI H2SO4 recovery analysis](./github_png/ai_H2SO4.png)
+
+
+# Acknowledgement
+This project includes code adapted from AutoEIS
+(https://github.com/AUTODIAL/AutoEIS),
+licensed under the MIT License.
+
+Copyright (c) AutoEIS contributors.

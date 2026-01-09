@@ -359,3 +359,9 @@ python scripts/ml_analysis_code/h2so4_analysis.py --load_run=20251213b
 
 ---
 
+# Acknowledgement
+This project includes code adapted from AutoEIS
+(https://github.com/AUTODIAL/AutoEIS),
+licensed under the MIT License.
+
+Copyright (c) AutoEIS contributors.
