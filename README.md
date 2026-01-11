@@ -14,9 +14,8 @@
 - The `scripts` folder stores all source code.
 
 
-The full experimental dataset will be released upon acceptance.
-During review, representative samples and processing scripts are provided
-to ensure reproducibility of the proposed framework.
+The experimental data and dataset will be released upon acceptance.
+
 
 # Usage Instructions
 
