@@ -23,8 +23,7 @@
 !/datasets
 !/datasets/.gitkeep
 
-# 再全部放行（递归）
-!/datasets/**
+
 # ---------- data 规则 ----------
 # 忽略 data 第一层
 /data/*

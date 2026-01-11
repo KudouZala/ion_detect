@@ -15,6 +15,11 @@
 * `output` 文件夹包含训练好的模型和推理输出，包括 `Attn_heatmap`、`IG`、`Saliency` 以及机器学习分析结果。
 * `scripts` 文件夹存储所有源代码。
 
+The full experimental dataset will be released upon acceptance.
+During review, representative samples and processing scripts are provided
+to ensure reproducibility of the proposed framework.
+
+
 # 使用说明
 
 本仓库是为配套研究论文而设计的，支持对整个工作流进行完整复现。

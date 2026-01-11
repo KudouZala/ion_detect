@@ -13,6 +13,11 @@
 - The `output` folder contains trained models and inference outputs, including `Attn_heatmap`, `IG`, `Saliency`, and ML analysis results.
 - The `scripts` folder stores all source code.
 
+
+The full experimental dataset will be released upon acceptance.
+During review, representative samples and processing scripts are provided
+to ensure reproducibility of the proposed framework.
+
 # Usage Instructions
 
 This repository is designed to accompany the research paper and allows full reproduction of the workflow.
