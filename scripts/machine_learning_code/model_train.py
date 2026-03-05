@@ -251,9 +251,9 @@ def compute_attention_focus_loss(freq_attn, top_k=3):
 
 
 
-class Trainer_ThreeSystem_1117(BaseTrainer):
+class Trainer_ThreeSystem_plus(BaseTrainer):
     """
-    Trainer_ThreeSystem_1117
+    Trainer_ThreeSystem_plus
 
     Pairwise training for the three-system model with:
     - voltage regression (physics-based voltage),

@@ -20,9 +20,9 @@ import pandas as pd
 
 # ==== 项目内部模块（保持不变） ====
 from model_datasets import Dataset_2_Stable_plus
-from model_models_schemeB import Model_three_system_1117
+from model_models import Model_three_system_plus
 from model_test import test_single_xlsx_and_generate_explanations_three_system_1117
-from model_train import Trainer_ThreeSystem_1117
+from model_train import Trainer_ThreeSystem_plus
 from paired_dataset import SlidingWindowPairDataset, collate_pairs
 
 
@@ -243,7 +243,7 @@ def build_model(device: torch.device, cfg: dict):
     d = cfg["data"]
     m = cfg["model"]
 
-    model = Model_three_system_1117(
+    model = Model_three_system_plus(
         volt_input_dim=m["volt_input_dim"],
         volt_mlp_hidden_dims=m["volt_mlp_hidden_dims"],
         mlp_output_dims=m["mlp_output_dims"],
@@ -459,7 +459,7 @@ def run_train(device: torch.device, paths: dict, cfg: dict):
     writer = SummaryWriter(log_dir=str(tb_log_dir))
 
     tr = tcfg["trainer"]
-    trainer = Trainer_ThreeSystem_1117(
+    trainer = Trainer_ThreeSystem_plus(
         model=model,
         optimizer=optimizer,
         device=device,

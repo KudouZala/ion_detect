@@ -252,7 +252,7 @@ python data/scripts/excel_code/label_machine_learning_excel_export_firecloud_ran
 
 你可以在 `/ion_detect/scripts/machine_learning_code/` 下创建自己的训练脚本，例如 `20251213b.yaml`，然后运行训练：
 ```bash
-python scripts/machine_learning_code/main.py --config 20251213b.yaml --train
+python scripts/machine_learning_code/main.py --config scripts/machine_learning_code/20251213b.yaml --train
 
 ```
 

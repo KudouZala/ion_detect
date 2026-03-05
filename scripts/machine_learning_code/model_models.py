@@ -16,19 +16,20 @@ json_path = current_dir / "ion_attributes_dict.jsonc"
 # 读取 JSON 文件
 with open(json_path, "r", encoding="utf-8") as f:
     ion_attr_dict = json5.load(f)
+
+
 # 例如按以下顺序固定排列
 ion_order_plus = ["Ca2+", "Na+", "Ni2+", "Cr3+", "Cu2+", "Fe3+","no_ion"]
-ion_attr_list_plus = [ion_attr_dict[ion] for ion in ion_order_plus]
+json_path_plus = current_dir / "ion_attributes_dict_plus.jsonc"
+with open(json_path_plus, "r", encoding="utf-8") as f:
+    ion_attr_dict_plus = json5.load(f)
+ion_attr_list_plus = [ion_attr_dict_plus[ion] for ion in ion_order_plus]
 
-json_path_1117 = current_dir / "ion_attributes_dict_1117.jsonc"
-# 读取 JSON 文件
-with open(json_path_1117, "r", encoding="utf-8") as f:
-    ion_attr_dict_1117 = json5.load(f)
-ion_attr_list_plus_1117 = [ion_attr_dict_1117[ion] for ion in ion_order_plus]
 
-ion_order = ["Ca2+", "Na+", "Ni2+", "Cr3+", "Cu2+", "Fe3+"]
-ion_attr_list = [ion_attr_dict[ion] for ion in ion_order]
-ion_attr_list_1117 = [ion_attr_dict_1117[ion] for ion in ion_order]
+# ion_order = ["Ca2+", "Na+", "Ni2+", "Cr3+", "Cu2+", "Fe3+"]
+# ion_attr_list = [ion_attr_dict[ion] for ion in ion_order]
+# ion_attr_list_plus = [ion_attr_dict_plus[ion] for ion in ion_order]
+
 
 
 def load_ion_rule_prototypes(cfg_path: str):
@@ -279,8 +280,8 @@ def calculate_predicted_voltage(theta_ca, phi_ca, theta_an, phi_an, psi, tempera
     def safe_arcsinh(x):
         return torch.log(x + torch.sqrt(x ** 2 + 1) + epsilon)
     #--------------------- 下面计算V_act
-    V_act = R * T / (theta_ca * alpha_ca * F) * safe_arcsinh(current / (2 * i_0ca * (1 - phi_ca) + epsilon)) + \
-            R * T / (theta_an * alpha_an * F) * safe_arcsinh(current / (2 * i_0an * (1 - phi_an)+ epsilon))
+    V_act = R * T / ((1-theta_ca) * alpha_ca * F) * safe_arcsinh(current / (2 * i_0ca * (1 - phi_ca) + epsilon)) + \
+            R * T / ((1-theta_an) * alpha_an * F) * safe_arcsinh(current / (2 * i_0an * (1 - phi_an)+ epsilon))
 
     # ---------------------下面计算V_diff
     V_diff = 0
@@ -327,8 +328,8 @@ def calculate_predicted_voltage_plus(theta_ca, phi_ca, theta_an, phi_an, psi, te
     def safe_arcsinh(x):
         return torch.log(x + torch.sqrt(x ** 2 + 1) + epsilon)
     #--------------------- 下面计算V_act
-    V_act = R * T / (theta_ca * alpha_ca * F) * safe_arcsinh(current / (2 * i_0ca * (1 - phi_ca) + epsilon)) + \
-            R * T / (theta_an * alpha_an * F) * safe_arcsinh(current / (2 * i_0an * (1 - phi_an)+ epsilon))#注意：该公式里的current是电流密度A/cm^2
+    V_act = R * T / ((1-theta_ca) * alpha_ca * F) * safe_arcsinh(current / (2 * i_0ca * (1 - phi_ca) + epsilon)) + \
+            R * T / ((1-theta_an) * alpha_an * F) * safe_arcsinh(current / (2 * i_0an * (1 - phi_an)+ epsilon))#注意：该公式里的current是电流密度A/cm^2
 
     # ---------------------下面计算V_diff
     V_diff = 0
@@ -365,7 +366,7 @@ def calculate_predicted_voltage_plus(theta_ca, phi_ca, theta_an, phi_an, psi, te
 
 
 # 定义完整模型
-class Model_three_system_1117(nn.Module):#三系统架构
+class Model_three_system_plus(nn.Module):#三系统架构
     def __init__(self, volt_input_dim, volt_mlp_hidden_dims,mlp_output_dims, volt_mlp_num_layers,
                  impe_input_dim,impe_mlp_hidden_dims,  impe_mlp_num_layers,
                  transformer_d_model, nhead, transformer_num_layers,param_transformer_num_layers,
@@ -386,7 +387,7 @@ class Model_three_system_1117(nn.Module):#三系统架构
                  num_freq_points,num_time_points):
         
         
-        super(Model_three_system_1117, self).__init__()
+        super(Model_three_system_plus, self).__init__()
         self.voltMLP = AdjustableMLP(volt_input_dim, volt_mlp_hidden_dims, mlp_output_dims, volt_mlp_num_layers)
         self.impeMLP = AdjustableMLP(impe_input_dim, impe_mlp_hidden_dims, mlp_output_dims, impe_mlp_num_layers)
         self.transformer = MyTransformerWithAttn(d_model=transformer_d_model, nhead=nhead, num_layers=transformer_num_layers)
@@ -401,7 +402,7 @@ class Model_three_system_1117(nn.Module):#三系统架构
         self.param_transformer =  MyTransformerWithAttn(d_model=transformer_d_model, nhead=nhead, num_layers=param_transformer_num_layers )
         self.paramMLP = AdjustableMLP(transformer_d_model,param_mlp_hidden_dims, 5*transformer_d_model, param_mlp_num_layers)
         self.norm = nn.LayerNorm(transformer_d_model)
-        self.ion_attr_embed = AdjustableMLP(input_dim=len(ion_attr_list_plus_1117[0]), hidden_dims=ion_attr_embed_hidden_dims, output_dim=transformer_d_model, num_layers=ion_attr_embed_num_layers)  # 可学习离子嵌入器
+        self.ion_attr_embed = AdjustableMLP(input_dim=len(ion_attr_list_plus[0]), hidden_dims=ion_attr_embed_hidden_dims, output_dim=transformer_d_model, num_layers=ion_attr_embed_num_layers)  # 可学习离子嵌入器
         self.ion_encoder = MyTransformerWithAttn(d_model=transformer_d_model, nhead=nhead, num_layers=ion_encoder_num_layers)
         self.ion_postMLP = AdjustableMLP(input_dim=transformer_d_model, hidden_dims=ion_post_hidden_dims, output_dim=transformer_d_model, num_layers=ion_post_num_layers)  
 
@@ -458,14 +459,31 @@ class Model_three_system_1117(nn.Module):#三系统架构
         # 归一化到 对数坐标系[0, 1]
         freq_values_log = torch.log10(freq_values_hz)  # log10变换
         freq_values_norm = (freq_values_log - freq_values_log.min()) / (freq_values_log.max() - freq_values_log.min())
-        self.register_buffer("freq_values_tensor", freq_values_norm)     
+        
+        self.register_buffer("freq_values_tensor", freq_values_norm)
 
-        # 定义 frequency encoder MLP,将频率数据变为和MLP同样的大小，这样可以对阻抗数据进行频率编码
+        # ===== 基于频段的 EIS 全局特征 =====
+        band_edges = [20000.0, 1000.0, 100.0, 10.0, 1.0, 0.1, 0.0]
+        num_bands = len(band_edges) - 1
+        self.num_bands = num_bands
+        freq_values_hz_tensor = freq_values_hz
+        freq_band_ids = torch.zeros_like(freq_values_hz_tensor, dtype=torch.long)
+        for k in range(num_bands):
+            high = band_edges[k]
+            low = band_edges[k + 1]
+            if low > 0.0:
+                mask = (freq_values_hz_tensor <= high) & (freq_values_hz_tensor > low)
+            else:
+                mask = (freq_values_hz_tensor <= high) & (freq_values_hz_tensor >= low)
+            freq_band_ids[mask] = k
+        self.register_buffer("freq_band_ids", freq_band_ids)
+        self.band_feat_proj = nn.Linear(num_bands, transformer_d_model)
+# 定义 frequency encoder MLP,将频率数据变为和MLP同样的大小，这样可以对阻抗数据进行频率编码
         self.freq_encoder = AdjustableMLP(1, freq_encoder_hidden_dims, mlp_output_dims, freq_encoder_num_layers)#(64，1)->(64,32)
         # 时间编码器
         self.time_embedding = AdjustableMLP(1, time_encoder_hidden_dims, mlp_output_dims, time_encoder_num_layers)  # nn.Embedding 默认只能处理离散索引（如 0、1、2、3），它并不会显式捕捉到这些时间点在物理上是“连续且间隔为2小时”的。那为什么还会用 nn.Embedding 表示时间？这是因为在很多场景下（特别是在 Transformer 等结构中），时间点只作为一个“位置标识符”存在，例如第几个时间步，它本身的绝对含义并不那么重要。
         
-        ion_attr_tensor = torch.tensor(ion_attr_list_plus_1117, dtype=torch.float32)
+        ion_attr_tensor = torch.tensor(ion_attr_list_plus, dtype=torch.float32)
         self.register_buffer("ion_attr_tensor", ion_attr_tensor)
         
         self.ion_attr_dim = 7#7个基本属性，还有8个规则属性
@@ -488,6 +506,7 @@ class Model_three_system_1117(nn.Module):#三系统架构
 
     def forward(self, volt_data, impe_data, env_params,electrolyzer_parameters,concentration):
         B, T, F, C = impe_data.shape  # (B,4,64,2)
+        # print("model T length:",T)
         B2,T2,C2 = volt_data.shape
          # ==== 添加断言检查 ====
         assert B == B2, f"Batch size mismatch: impe_data B={B}, volt_data B={B2}"
@@ -574,6 +593,24 @@ class Model_three_system_1117(nn.Module):#三系统架构
         freq_attn = cls_attn_mean[:, num_time_points:-1]  # (B, T*F)
         freq_attn = freq_attn.view(B, T, F)  # (B, T, F)
 
+        # ===== 方案B：根据 EIS 频段构造 6 维全局 band 特征 =====
+        # 使用阻抗幅值在各个频段上的平均值，再在时间维上取平均，得到 (B, num_bands) 全局特征
+        mag = impe_data[..., 0]  # (B, T, F)
+        band_ids = self.freq_band_ids  # (F,)
+        num_bands = int(self.num_bands)
+        band_feats = []
+        for k in range(num_bands):
+            mask = (band_ids == k).view(1, 1, -1).to(device)  # (1, 1, F)
+            mask_f = mask.float()
+            # 对该频段上的幅值做平均
+            band_mag = (mag * mask_f).sum(dim=2) / (mask_f.sum(dim=2) + 1e-8)  # (B, T)
+            band_mag_global = band_mag.mean(dim=1)  # (B,)
+            band_feats.append(band_mag_global)
+        band_feats = torch.stack(band_feats, dim=1)  # (B, num_bands)
+        band_emb = self.band_feat_proj(band_feats)    # (B, D)
+        enhanced_last_output = last_output + band_emb
+
+
 
         # =============== 用于预测五个初始状态的物理参数 ===============
         # =============== 5️⃣ 使用主分支embedding预测初始物理参数 ===============
@@ -612,7 +649,7 @@ class Model_three_system_1117(nn.Module):#三系统架构
 
 
         # ========== 2️⃣ 物理影响因子部分 ==========
-        raw_physic_output = self.physicMLP(last_output)  # (B, 160)
+        raw_physic_output = self.physicMLP(enhanced_last_output)  # (B, 160)
         raw_physic_output = raw_physic_output.view(B, 5, self.transformer_d_model)
 
 
@@ -628,26 +665,27 @@ class Model_three_system_1117(nn.Module):#三系统架构
         sigmoid = torch.nn.Sigmoid()
         
         # # ------------------- 行为影响因子（physic_output） -------------------
-        theta_min, theta_max = 0.001, 0.999
-        phi_min, phi_max     = 0.001, 0.999
+        theta_min, theta_max = 0, 1
+        phi_min, phi_max     = 0,1
+        psi_min,psi_max = 0,1
 
         theta_ca = theta_min + (theta_max - theta_min) * sigmoid(influence_values[:, 0:1])
         phi_ca   = phi_min   + (phi_max   - phi_min)   * sigmoid(influence_values[:, 1:2])
         theta_an = theta_min + (theta_max - theta_min) * sigmoid(influence_values[:, 2:3])
         phi_an   = phi_min   + (phi_max   - phi_min)   * sigmoid(influence_values[:, 3:4])
-        psi      = phi_min   + (phi_max   - phi_min)   * sigmoid(influence_values[:, 4:5])  # 同样限制
+        psi      = psi_min   + (psi_max   - psi_min)   * sigmoid(influence_values[:, 4:5])  # 同样限制
 
 
         # ------------------- 固有物性参数（param_output） -------------------
-        sigma_min, sigma_max = 0.01, 2  # S/cm
+        sigma_min, sigma_max = 0.01, 2  
         sigma_mem = sigma_min + (sigma_max - sigma_min) * sigmoid(param_values[:, 0:1])
 
-        alpha_min, alpha_max = 0.01, 2# S/cm
+        alpha_min, alpha_max = 0.2, 0.9
         alpha_ca = alpha_min + (alpha_max - alpha_min) * sigmoid(param_values[:, 1:2])
         alpha_an = alpha_min + (alpha_max - alpha_min) * sigmoid(param_values[:, 2:3])
 
-        log_i0ca_min, log_i0ca_max = -9, 0# S/cm
-        log_i0an_min, log_i0an_max = -9, 0# S/cm
+        log_i0ca_min, log_i0ca_max = -9, 0
+        log_i0an_min, log_i0an_max = -9, 0
         log_i0ca = log_i0ca_min + (log_i0ca_max - log_i0ca_min) * sigmoid(param_values[:, 3:4])
         log_i0an = log_i0an_min + (log_i0an_max - log_i0an_min) * sigmoid(param_values[:, 4:5])
         i_0ca = torch.pow(10, log_i0ca)
