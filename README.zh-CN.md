@@ -298,6 +298,33 @@ python scripts/machine_learning_code/main.py --config 20251213b.yaml --test > ./
 
 ---
 
+### 基线方法比较（论文审稿用）
+
+为与 SWC-PSWM 做定量对比，可在**相同数据与划分**下运行以下基线，并得到准确率、精确率、召回率和 F1 分数：
+
+1. **传统机器学习**：SVM、随机森林，使用从 EIS 与电压数据中提取的工程特征；
+2. **传统深度学习**：LSTM、CNN、标准 Transformer（无物理约束）。
+
+使用方式（与 `main.py` 共用同一配置文件）：
+
+```bash
+# 运行全部基线（传统 ML + 深度学习），结果会写入 output/trained_model_save/<实验名>/baseline_metrics.csv
+python scripts/machine_learning_code/run_baselines.py --config scripts/machine_learning_code/20251213b.yaml
+```
+
+可选参数：
+
+- `--epochs 100`：深度学习基线训练轮数（默认 100）
+- `--batch_size 32`：深度学习 batch 大小
+- `--lr 1e-3`：深度学习学习率
+- `--out_csv path/to/baseline_metrics.csv`：指定指标输出 CSV 路径（便于制表）
+- `--no_dl`：仅运行 SVM、随机森林
+- `--no_sklearn`：仅运行 LSTM、CNN、Transformer
+
+输出 CSV 包含各方法的 **accuracy、precision、recall、f1**（macro），可直接用于论文中的基线比较表格。
+
+---
+
 ### AI 辅助离子效应分析
 
 1. 可视化 0-6h 内不同 2ppm 离子的 `attn_heatmap`、`saliency` 和 `IG`：

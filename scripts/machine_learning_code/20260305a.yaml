@@ -4,12 +4,12 @@
 #   python main.py --config xxx.yaml --search
 
 experiment:
-  name: "20251213b"          # used for output folder naming and auto test split subfolder
+  name: "20260305a"          # used for output folder naming and auto test split subfolder
   seed: 42
 
 data:
   num_freq_points: 63
-  num_time_points: 4
+  num_time_points: 2
 
 train:
   batch_size: 8
@@ -51,10 +51,10 @@ paths:
   # base_dir is computed as: main.py所在目录的 parent.parent.parent (same as original),
   # so below are relative to base_dir.
   data_folder: "datasets/datasets_for_all"
-  # test_folder: "datasets/datasets_for_all_test"    # if this folder name is datasets_for_all_test => auto split
+  test_folder: "datasets/datasets_for_all_test"    # if this folder name is datasets_for_all_test => auto split
   # test_folder: "datasets/datasets_for_0_6_2ppm"
   # test_folder: "datasets/datasets_for_range_ion_0_12_2ppm"
-  test_folder: "datasets/datasets_for_all_2ppm"
+  # test_folder: "datasets/datasets_for_all_2ppm"
   model_save_root: "output/trained_model_save"
   stats_file: "datasets/stats_dataset.json"
   label_mapping_json: "label_mapping.json"
