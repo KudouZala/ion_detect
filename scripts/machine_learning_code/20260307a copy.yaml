@@ -24,7 +24,7 @@ train:
 
   # Trainer_ThreeSystem_1117 loss weights / knobs
   trainer:
-    alpha: 0.05
+    alpha: 0.2
     beta: 1.0
     gamma: 6.0e-5
     lambda_rule: 5.0e-4
@@ -35,10 +35,10 @@ train:
     label_smoothing: 0.05
 
   train_pairs:
-    lambda_consistency: 5.0e-4
+    lambda_consistency: 5e-3
     eps: 1.0e-9
     use_log_space: true
-    lambda_monodec: 5.0e-4
+    lambda_monodec: 1e-3
     lambda_polarity: 2.0e-4
     weight_ratio: 3.0
 
