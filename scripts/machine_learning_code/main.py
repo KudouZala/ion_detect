@@ -176,10 +176,113 @@ def is_valid_xlsx_for_model(xlsx_path: Path, num_time_points: int, num_freq_poin
     return True
 
 
+# 解析文件名中的 xxx 与时间窗口 []，用于 no_overlap 划分。(prefix, window_tuple) 唯一标识一个样本
+_NO_OVERLAP_REGEX = re.compile(r"^(?P<prefix>.*?_\[)(?P<times>\d+(?:\s*,\s*\d+)*)\]\s*(?:\.\w+)?$")
+
+
+def _parse_no_overlap_key(fname: str):
+    """解析文件名，返回 (prefix, window_tuple) 或 None。"""
+    m = _NO_OVERLAP_REGEX.match(fname.strip())
+    if not m:
+        return None
+    times_str = m.group("times")
+    try:
+        window = tuple(sorted(int(t.strip()) for t in times_str.split(",")))
+    except ValueError:
+        return None
+    return (m.group("prefix"), window)
+
+
+def _prepare_no_overlap_split(paths: dict, num_time_points: int, num_freq_points: int, seed: int) -> bool:
+    """
+    当 data_folder 为 datasets_for_all_no_overlap 且 test_folder 为 datasets_for_all_test_no_overlap 时：
+    从 datasets/datasets_for_all 中选出 50 个做测试集（其中含 ion_column 的样本最多占 3/10），
+    训练集为其余样本，且排除：与某测试样本前缀相同且 [] 中含该测试样本前 num_time_points 个时间点中任意一个的样本。
+    不删磁盘文件，仅将最终训练/测试文件复制到对应目录，并更新 paths。返回 True 表示已处理。
+    """
+    data_folder: Path = paths["data_folder"]
+    base_test_folder: Path = paths["test_folder_path"]
+    if data_folder.name != "datasets_for_all_no_overlap" or base_test_folder.name != "datasets_for_all_test_no_overlap":
+        return False
+
+    base_dir: Path = paths["base_dir"]
+    exp_name: str = (paths["exp_name"] or "no_overlap").strip() or "no_overlap"
+    source_dir = base_dir / "datasets" / "datasets_for_all"
+    if not source_dir.exists():
+        print(f"⚠️ no_overlap 模式需要存在目录: {source_dir}")
+        return False
+
+    all_xlsx = list(source_dir.glob("*.xlsx"))
+    parsed = []
+    for p in all_xlsx:
+        key = _parse_no_overlap_key(p.name)
+        if key is None:
+            continue
+        parsed.append((p, key[0], key[1]))
+
+    parsed_ion = [x for x in parsed if "ion_column" in x[0].name]
+    parsed_no_ion = [x for x in parsed if "ion_column" not in x[0].name]
+    n_ion_max = int(50 * 3 / 10)  # 最多 45 个 ion_column
+    if len(parsed_ion) + len(parsed_no_ion) < 50:
+        print(f"⚠️ no_overlap: 可解析样本数 {len(parsed)} < 50，无法按 50 测试集划分")
+        return False
+
+    random.seed(int(seed))
+    random.shuffle(parsed_ion)
+    random.shuffle(parsed_no_ion)
+    test_ion = parsed_ion[: min(n_ion_max, len(parsed_ion))]
+    n_rest = 50 - len(test_ion)
+    test_no_ion = parsed_no_ion[: min(n_rest, len(parsed_no_ion))]
+    test_selected = test_ion + test_no_ion
+    test_keys = {(x[1], x[2]) for x in test_selected}
+
+    # 每个测试样本取前 num_time_points 个时间点，用于排除训练集中同前缀且 [] 含任一时间点的样本
+    prefix_to_active_times: dict = {}
+    for (_, prefix, window) in test_selected:
+        active = set(sorted(window)[:num_time_points])
+        if prefix not in prefix_to_active_times:
+            prefix_to_active_times[prefix] = set(active)
+        else:
+            prefix_to_active_times[prefix] |= active
+
+    def excluded_from_train(item):
+        (_, prefix, window) = item
+        if (prefix, window) in test_keys:
+            return True
+        if prefix not in prefix_to_active_times:
+            return False
+        return bool(set(window) & prefix_to_active_times[prefix])
+
+    train_selected = [x for x in parsed if not excluded_from_train(x)]
+
+    train_dir = base_dir / "datasets" / "datasets_for_all_train_no_overlap" / exp_name
+    test_dir = base_dir / "datasets" / "datasets_for_all_test_no_overlap" / exp_name
+    for d in (train_dir, test_dir):
+        if d.exists():
+            shutil.rmtree(d)
+    train_dir.mkdir(parents=True, exist_ok=True)
+    test_dir.mkdir(parents=True, exist_ok=True)
+
+    for (p, _, _) in train_selected:
+        shutil.copy2(str(p), str(train_dir / p.name))
+    for (p, _, _) in test_selected:
+        shutil.copy2(str(p), str(test_dir / p.name))
+
+    n_ion_in_test = sum(1 for x in test_selected if "ion_column" in x[0].name)
+    print(f"✅ no_overlap 划分: 测试集 {len(test_selected)} 个（ion_column {n_ion_in_test} 个，≤3/10）-> {test_dir}，训练集 {len(train_selected)} 个 -> {train_dir}（已排除同前缀且窗口含测试前 {num_time_points} 个时间点的样本）")
+    paths["data_folder"] = train_dir
+    paths["test_folder_path"] = test_dir
+    return True
+
+
 def prepare_test_folder(paths: dict, label_mapping: dict, num_time_points: int, num_freq_points: int, seed: int):
     data_folder: Path = paths["data_folder"]
     base_test_folder: Path = paths["test_folder_path"]
     exp_name: str = paths["exp_name"]
+
+    # no_overlap 模式：data_folder=datasets_for_all_no_overlap 且 test_folder=datasets_for_all_test_no_overlap
+    if _prepare_no_overlap_split(paths, num_time_points, num_freq_points, seed):
+        return
 
     # 固定测试目录模式：test_folder 的目录名不是 datasets_for_all_test
     if base_test_folder.name != "datasets_for_all_test":
@@ -476,6 +579,8 @@ def run_train(device: torch.device, paths: dict, cfg: dict):
     )
 
     tp = tcfg["train_pairs"]
+    eval_every = int(tcfg.get("eval_every", 100))
+    num_classes = 7
     trainer.train_pairs(
         train_loader,
         num_epochs=int(tcfg["num_epochs"]),
@@ -485,6 +590,9 @@ def run_train(device: torch.device, paths: dict, cfg: dict):
         lambda_monodec=float(tp["lambda_monodec"]),
         lambda_polarity=float(tp["lambda_polarity"]),
         weight_ratio=float(tp["weight_ratio"]),
+        val_loader=val_loader,
+        eval_every=eval_every,
+        num_classes=num_classes,
     )
 
     writer.close()

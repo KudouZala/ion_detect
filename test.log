@@ -1,51 +1,539 @@
-📂 检测到已有测试样本（共 21 个），直接使用：/home/cagalii/Application/ion_detect/datasets/datasets_for_all_test/20260305a
+✅ no_overlap 划分: 测试集 50 个（ion_column 15 个，≤3/10）-> /home/cagalii/Application/ion_detect/datasets/datasets_for_all_test_no_overlap/20260307a，训练集 1114 个 -> /home/cagalii/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/20260307a（已排除同前缀且窗口含测试前 3 个时间点的样本）
+✅ 当前使用设备: cuda
+📂 训练集目录: /home/cagalii/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/20260307a
+📂 测试/验证集目录: /home/cagalii/Application/ion_detect/datasets/datasets_for_all_test_no_overlap/20260307a
+🧪 experiment: 20260307a
+🚀 进入训练模式 (--train)
 Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[54, 56, 58, 60].xlsx: impedance points 54 < 63
 Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[48, 50, 52, 54].xlsx: impedance points 54 < 63
 Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[40, 42, 44, 46].xlsx: impedance points 54 < 63
 Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[32, 34, 36, 38].xlsx: impedance points 54 < 63
 Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[30, 32, 34, 36].xlsx: impedance points 54 < 63
-Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[28, 30, 32, 34].xlsx: impedance points 54 < 63
 Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[52, 54, 56, 58].xlsx: impedance points 54 < 63
 Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[42, 44, 46, 48].xlsx: impedance points 54 < 63
 Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[38, 40, 42, 44].xlsx: impedance points 54 < 63
-Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[22, 24, 26, 28].xlsx: impedance points 54 < 63
-Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[20, 22, 24, 26].xlsx: impedance points 54 < 63
 Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[34, 36, 38, 40].xlsx: impedance points 54 < 63
 Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[44, 46, 48, 50].xlsx: impedance points 54 < 63
 Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[56, 58, 60, 62].xlsx: impedance points 54 < 63
-Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[26, 28, 30, 32].xlsx: impedance points 54 < 63
-Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[24, 26, 28, 30].xlsx: impedance points 54 < 63
 Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[36, 38, 40, 42].xlsx: impedance points 54 < 63
 Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[46, 48, 50, 52].xlsx: impedance points 54 < 63
 Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[50, 52, 54, 56].xlsx: impedance points 54 < 63
+[LEAK-CHECK] overlap(train, val) = 0
+[DEBUG] data_folder = /home/cagalii/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/20260307a
+[DEBUG] base_train.file_names[:10] =
+   20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[18, 20, 22, 24].xlsx
+   20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx
+   20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[10, 12, 14, 16].xlsx
+   20241229_10ppm钠离子污染及恢复测试_新版电解槽_ion_column_renew_H2SO4_gamry_[6, 8, 10, 12].xlsx
+   20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_column_gamry_[10, 12, 14, 16].xlsx
+   20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[0, 2, 4, 6].xlsx
+   20240910_10ppm钙离子污染测试_新版电解槽_ion_gamry_[38, 40, 42, 44].xlsx
+   20240831_10ppm镍离子污染测试_新版电解槽_ion_column_gamry_[4, 6, 8, 10].xlsx
+   20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[10, 12, 14, 16].xlsx
+   20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_gamry_[2, 4, 6, 8].xlsx
+[DEBUG] exist check (first 10):
+   /home/cagalii/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/20260307a/20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[18, 20, 22, 24].xlsx exists= True
+   /home/cagalii/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/20260307a/20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx exists= True
+   /home/cagalii/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/20260307a/20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[10, 12, 14, 16].xlsx exists= True
+   /home/cagalii/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/20260307a/20241229_10ppm钠离子污染及恢复测试_新版电解槽_ion_column_renew_H2SO4_gamry_[6, 8, 10, 12].xlsx exists= True
+   /home/cagalii/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/20260307a/20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_column_gamry_[10, 12, 14, 16].xlsx exists= True
+   /home/cagalii/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/20260307a/20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[0, 2, 4, 6].xlsx exists= True
+   /home/cagalii/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/20260307a/20240910_10ppm钙离子污染测试_新版电解槽_ion_gamry_[38, 40, 42, 44].xlsx exists= True
+   /home/cagalii/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/20260307a/20240831_10ppm镍离子污染测试_新版电解槽_ion_column_gamry_[4, 6, 8, 10].xlsx exists= True
+   /home/cagalii/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/20260307a/20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[10, 12, 14, 16].xlsx exists= True
+   /home/cagalii/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/20260307a/20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_gamry_[2, 4, 6, 8].xlsx exists= True
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[20, 22, 24, 26].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[24, 26, 28, 30].xlsx: impedance points 54 < 63
 
---- 详细测试结果 (样本名, 真实, 预测, 正确) ---
-  20240827_10ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[12, 14, 16, 18].xlsx	Cr3+_ion	Cr3+_ion	是
-  20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[0, 2, 4, 6].xlsx	Ni2+_ion	Fe3+_ion	否
-  20240907_10ppm铁离子污染测试_新版电解槽_ion_gamry_[12, 14, 16, 18].xlsx	Fe3+_ion	Fe3+_ion	是
-  20240823_10ppm钙离子污染和恢复测试_新版电解槽_ion_gamry_[0, 2, 4, 6].xlsx	Ca2+_ion	Ca2+_ion	是
-  20240907_10ppm铁离子污染测试_新版电解槽_ion_gamry_[0, 2, 4, 6].xlsx	Fe3+_ion	no_ion	否
-  20240822_10ppm铜离子污染测试_新版电解槽_ion_gamry_[12, 14, 16, 18].xlsx	Cu2+_ion	Cu2+_ion	是
-  20240822_10ppm铜离子污染测试_新版电解槽_ion_gamry_[0, 2, 4, 6].xlsx	Cu2+_ion	Cu2+_ion	是
-  20240827_10ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[10, 12, 14, 16].xlsx	Cr3+_ion	Cr3+_ion	是
-  20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[0, 2, 4, 6].xlsx	no_ion	no_ion	是
-  20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[10, 12, 14, 16].xlsx	Ni2+_ion	Cu2+_ion	否
-  20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[10, 12, 14, 16].xlsx	Na+_ion	Na+_ion	是
-  20240822_10ppm铜离子污染测试_新版电解槽_ion_gamry_[10, 12, 14, 16].xlsx	Cu2+_ion	Cu2+_ion	是
-  20240907_10ppm铁离子污染测试_新版电解槽_ion_gamry_[10, 12, 14, 16].xlsx	Fe3+_ion	Fe3+_ion	是
-  20240827_10ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[0, 2, 4, 6].xlsx	Cr3+_ion	Cr3+_ion	是
-  20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[12, 14, 16, 18].xlsx	no_ion	no_ion	是
-  20240823_10ppm钙离子污染和恢复测试_新版电解槽_ion_gamry_[12, 14, 16, 18].xlsx	Ca2+_ion	Ni2+_ion	否
-  20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[0, 2, 4, 6].xlsx	Na+_ion	no_ion	否
-  20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx	Na+_ion	Na+_ion	是
-  20240823_10ppm钙离子污染和恢复测试_新版电解槽_ion_gamry_[10, 12, 14, 16].xlsx	Ca2+_ion	Ca2+_ion	是
-  20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[12, 14, 16, 18].xlsx	Ni2+_ion	Cu2+_ion	否
-  20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[10, 12, 14, 16].xlsx	no_ion	no_ion	是
+[PairDataset][Example pairs] (show up to 50)
+  [1] A(idx=898) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=1071) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=False
+  [2] A(idx=280) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=488) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]  dummy=False
+  [3] A(idx=1071) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]
+      → B(idx=91) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]  dummy=False
+  [4] A(idx=488) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]
+      → B(idx=903) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]  dummy=False
+  [5] A(idx=91) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]
+      → B(idx=411) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]  dummy=False
+  [6] A(idx=903) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]
+      → B(idx=1027) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=False
+  [7] A(idx=411) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]
+      → B(idx=668) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]  dummy=False
+  [8] A(idx=1027) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=0) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]  dummy=False
+  [9] A(idx=668) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]
+      → B(idx=487) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]  dummy=False
+  [10] A(idx=0) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]
+      → B(idx=15) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]  dummy=False
+  [11] A(idx=487) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]
+      → B(idx=115) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[24, 26, 28, 30].xlsx  times=[24, 26, 28, 30]  dummy=False
+  [12] A(idx=15) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]
+      → B(idx=857) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]  dummy=False
+  [13] A(idx=115) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[24, 26, 28, 30].xlsx  times=[24, 26, 28, 30]
+      → B(idx=136) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]  dummy=False
+  [14] A(idx=857) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]
+      → B(idx=390) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]  dummy=False
+  [15] A(idx=136) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]
+      → B(idx=66) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[32, 34, 36, 38].xlsx  times=[32, 34, 36, 38]  dummy=False
+  [16] A(idx=390) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]
+      → B(idx=247) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]  dummy=False
+  [17] A(idx=66) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[32, 34, 36, 38].xlsx  times=[32, 34, 36, 38]
+      → B(idx=373) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]  dummy=False
+  [18] A(idx=247) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]
+      → B(idx=1012) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]  dummy=False
+  [19] A(idx=373) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]
+      → B(idx=1091) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[40, 42, 44, 46].xlsx  times=[40, 42, 44, 46]  dummy=False
+  [20] A(idx=1012) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]
+      → B(idx=1012) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]  dummy=True
+  [21] A(idx=1091) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[40, 42, 44, 46].xlsx  times=[40, 42, 44, 46]
+      → B(idx=1091) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[40, 42, 44, 46].xlsx  times=[40, 42, 44, 46]  dummy=True
+  [22] A(idx=334) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=814) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=False
+  [23] A(idx=318) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=387) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]  dummy=False
+  [24] A(idx=814) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]
+      → B(idx=965) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]  dummy=False
+  [25] A(idx=387) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]
+      → B(idx=656) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]  dummy=False
+  [26] A(idx=965) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]
+      → B(idx=1) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]  dummy=False
+  [27] A(idx=656) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]
+      → B(idx=687) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=False
+  [28] A(idx=1) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]
+      → B(idx=753) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]  dummy=False
+  [29] A(idx=687) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=139) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]  dummy=False
+  [30] A(idx=753) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]
+      → B(idx=994) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]  dummy=False
+  [31] A(idx=139) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]
+      → B(idx=935) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]  dummy=False
+  [32] A(idx=994) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]
+      → B(idx=906) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[24, 26, 28, 30].xlsx  times=[24, 26, 28, 30]  dummy=False
+  [33] A(idx=935) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]
+      → B(idx=311) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]  dummy=False
+  [34] A(idx=906) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[24, 26, 28, 30].xlsx  times=[24, 26, 28, 30]
+      → B(idx=340) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]  dummy=False
+  [35] A(idx=311) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]
+      → B(idx=781) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]  dummy=False
+  [36] A(idx=340) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]
+      → B(idx=705) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[32, 34, 36, 38].xlsx  times=[32, 34, 36, 38]  dummy=False
+  [37] A(idx=781) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]
+      → B(idx=52) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]  dummy=False
+  [38] A(idx=705) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[32, 34, 36, 38].xlsx  times=[32, 34, 36, 38]
+      → B(idx=861) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]  dummy=False
+  [39] A(idx=52) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]
+      → B(idx=629) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]  dummy=False
+  [40] A(idx=861) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]
+      → B(idx=325) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[40, 42, 44, 46].xlsx  times=[40, 42, 44, 46]  dummy=False
+  [41] A(idx=629) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]
+      → B(idx=988) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[42, 44, 46, 48].xlsx  times=[42, 44, 46, 48]  dummy=False
+  [42] A(idx=325) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[40, 42, 44, 46].xlsx  times=[40, 42, 44, 46]
+      → B(idx=1051) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[44, 46, 48, 50].xlsx  times=[44, 46, 48, 50]  dummy=False
+  [43] A(idx=988) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[42, 44, 46, 48].xlsx  times=[42, 44, 46, 48]
+      → B(idx=988) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[42, 44, 46, 48].xlsx  times=[42, 44, 46, 48]  dummy=True
+  [44] A(idx=1051) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[44, 46, 48, 50].xlsx  times=[44, 46, 48, 50]
+      → B(idx=1051) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[44, 46, 48, 50].xlsx  times=[44, 46, 48, 50]  dummy=True
+  [45] A(idx=672) 20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=851) 20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=False
+  [46] A(idx=275) 20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=996) 20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]  dummy=False
+  [47] A(idx=851) 20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]
+      → B(idx=299) 20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]  dummy=False
+  [48] A(idx=996) 20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]
+      → B(idx=2) 20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]  dummy=False
+  [49] A(idx=299) 20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]
+      → B(idx=1006) 20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]  dummy=False
+  [50] A(idx=2) 20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]
+      → B(idx=64) 20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=False
 
---- SVM 基线 (EIS+电压 工程特征) ---
-  准确率 (Accuracy):  0.7143
-  精确率 (Precision): 0.6952
-  召回率 (Recall):    0.7143
-  F1 分数 (F1):       0.6810
+[PairDataset][Summary]
+- total files:        1100
+- parsed OK:          1100
+- regex fail:         0
+- parse times fail:   0
+- empty times:        0
+- total pairs:        1100  (keep_unpaired=self)
+- distinct prefixes:  98
+- prefixes coverage (first few):
+  [1] 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[* -> windows=21, adj_pairs=18/20
+  [2] 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[* -> windows=23, adj_pairs=20/22
+  [3] 20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[* -> windows=17, adj_pairs=11/16
+  [4] 20241229_10ppm钠离子污染及恢复测试_新版电解槽_ion_column_renew_H2SO4_gamry_[* -> windows=16, adj_pairs=13/15
+  [5] 20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_column_gamry_[* -> windows=8, adj_pairs=5/7
+  [6] 20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[* -> windows=8, adj_pairs=5/7
+  [7] 20240910_10ppm钙离子污染测试_新版电解槽_ion_gamry_[* -> windows=17, adj_pairs=14/16
+  [8] 20240831_10ppm镍离子污染测试_新版电解槽_ion_column_gamry_[* -> windows=8, adj_pairs=5/7
+  [9] 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[* -> windows=8, adj_pairs=5/7
+  [10] 20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_gamry_[* -> windows=19, adj_pairs=16/18
+- unadjacent gaps samples: 220 (showing first 0)
 
-  详细结果已保存: output/svm_test_results.csv
+[PairDataset][Explain] focus_prefix_contains='20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_'
+  - PREFIX: 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[* windows=1
+    windows (sorted by first,last):
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx  -> times=[12, 14, 16, 18]  first=12 last=18
+
+[PairDataset][Example pairs] (show up to 50)
+  [1] A(idx=4) 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]
+      → B(idx=4) 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]  dummy=True
+  [2] A(idx=0) 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]
+      → B(idx=0) 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]  dummy=True
+  [3] A(idx=1) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_column_renew_H2SO4_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]
+      → B(idx=1) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_column_renew_H2SO4_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=True
+  [4] A(idx=21) 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=21) 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=True
+  [5] A(idx=2) 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]
+      → B(idx=2) 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]  dummy=True
+  [6] A(idx=17) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=17) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]  dummy=True
+  [7] A(idx=3) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[32, 34, 36, 38].xlsx  times=[32, 34, 36, 38]
+      → B(idx=6) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]  dummy=False
+  [8] A(idx=6) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]
+      → B(idx=6) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]  dummy=True
+  [9] A(idx=29) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]
+      → B(idx=29) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]  dummy=True
+  [10] A(idx=10) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=10) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=True
+  [11] A(idx=5) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[40, 42, 44, 46].xlsx  times=[40, 42, 44, 46]
+      → B(idx=5) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[40, 42, 44, 46].xlsx  times=[40, 42, 44, 46]  dummy=True
+  [12] A(idx=7) 20241006_2ppm铬离子污染测试_新版电解槽_ion_gamry_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]
+      → B(idx=7) 20241006_2ppm铬离子污染测试_新版电解槽_ion_gamry_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]  dummy=True
+  [13] A(idx=8) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]
+      → B(idx=25) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]  dummy=False
+  [14] A(idx=25) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]
+      → B(idx=25) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]  dummy=True
+  [15] A(idx=44) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=44) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=True
+  [16] A(idx=39) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]
+      → B(idx=39) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]  dummy=True
+  [17] A(idx=37) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[24, 26, 28, 30].xlsx  times=[24, 26, 28, 30]
+      → B(idx=37) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[24, 26, 28, 30].xlsx  times=[24, 26, 28, 30]  dummy=True
+  [18] A(idx=20) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]
+      → B(idx=20) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]  dummy=True
+  [19] A(idx=9) 20241003_2ppm镍离子污染测试_旧版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=9) 20241003_2ppm镍离子污染测试_旧版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]  dummy=True
+  [20] A(idx=11) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]
+      → B(idx=11) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]  dummy=True
+  [21] A(idx=12) 20250103_无离子污染测试_新版电解槽_ion_column_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=12) 20250103_无离子污染测试_新版电解槽_ion_column_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]  dummy=True
+  [22] A(idx=13) 20240822_10ppm铜离子污染测试_新版电解槽_ion_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]
+      → B(idx=13) 20240822_10ppm铜离子污染测试_新版电解槽_ion_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]  dummy=True
+  [23] A(idx=14) 20240918_2ppm钙离子污染测试_新版电解槽_ion_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]
+      → B(idx=14) 20240918_2ppm钙离子污染测试_新版电解槽_ion_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]  dummy=True
+  [24] A(idx=24) 20240918_2ppm钙离子污染测试_新版电解槽_ion_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=24) 20240918_2ppm钙离子污染测试_新版电解槽_ion_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=True
+  [25] A(idx=15) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]
+      → B(idx=15) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]  dummy=True
+  [26] A(idx=16) 20240827_10ppm铬离子污染和恢复测试_新版电解槽_ion_column_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=16) 20240827_10ppm铬离子污染和恢复测试_新版电解槽_ion_column_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]  dummy=True
+  [27] A(idx=18) 20250101_10ppm铬离子污染及恢复测试_旧版电解槽_ion_gamry_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]
+      → B(idx=18) 20250101_10ppm铬离子污染及恢复测试_旧版电解槽_ion_gamry_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]  dummy=True
+  [28] A(idx=28) 20250101_10ppm铬离子污染及恢复测试_旧版电解槽_ion_gamry_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]
+      → B(idx=28) 20250101_10ppm铬离子污染及恢复测试_旧版电解槽_ion_gamry_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]  dummy=True
+  [29] A(idx=19) 20241003_2ppm镍离子污染测试_旧版电解槽_ion_column_firecloud_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=19) 20241003_2ppm镍离子污染测试_旧版电解槽_ion_column_firecloud_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]  dummy=True
+  [30] A(idx=22) 20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]
+      → B(idx=22) 20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]  dummy=True
+  [31] A(idx=23) 20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=23) 20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=True
+  [32] A(idx=26) 20240910_10ppm钙离子污染测试_新版电解槽_ion_gamry_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]
+      → B(idx=26) 20240910_10ppm钙离子污染测试_新版电解槽_ion_gamry_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]  dummy=True
+  [33] A(idx=27) 20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]
+      → B(idx=27) 20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]  dummy=True
+  [34] A(idx=30) 20241122_2ppm钠离子污染及恢复测试300mlmin_旧版电解槽_ion_column_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=30) 20241122_2ppm钠离子污染及恢复测试300mlmin_旧版电解槽_ion_column_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]  dummy=True
+  [35] A(idx=46) 20241201_2ppm铜离子污染及恢复测试_新版电解槽_ion_firecloud_[24, 26, 28, 30].xlsx  times=[24, 26, 28, 30]
+      → B(idx=31) 20241201_2ppm铜离子污染及恢复测试_新版电解槽_ion_firecloud_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]  dummy=False
+  [36] A(idx=31) 20241201_2ppm铜离子污染及恢复测试_新版电解槽_ion_firecloud_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]
+      → B(idx=31) 20241201_2ppm铜离子污染及恢复测试_新版电解槽_ion_firecloud_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]  dummy=True
+  [37] A(idx=32) 20241101_2ppm钙离子污染和恢复测试_新版电解槽_ion_firecloud_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]
+      → B(idx=32) 20241101_2ppm钙离子污染和恢复测试_新版电解槽_ion_firecloud_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]  dummy=True
+  [38] A(idx=33) 20241229_10ppm钠离子污染及恢复测试_新版电解槽_ion_column_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]
+      → B(idx=33) 20241229_10ppm钠离子污染及恢复测试_新版电解槽_ion_column_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=True
+  [39] A(idx=34) 20250317_2ppm钠离子污染测试_新版电解槽_ion_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]
+      → B(idx=34) 20250317_2ppm钠离子污染测试_新版电解槽_ion_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=True
+  [40] A(idx=35) 20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_column_renew_H2SO4_firecloud_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=35) 20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_column_renew_H2SO4_firecloud_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]  dummy=True
+  [41] A(idx=36) 20241001_2ppm铁离子污染测试_新版电解槽_ion_column_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=36) 20241001_2ppm铁离子污染测试_新版电解槽_ion_column_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]  dummy=True
+  [42] A(idx=38) 20241010_2ppm钠离子污染测试_新版电解槽_ion_column_firecloud_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=38) 20241010_2ppm钠离子污染测试_新版电解槽_ion_column_firecloud_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=True
+  [43] A(idx=40) 20240918_2ppm钙离子污染测试_新版电解槽_ion_column_gamry_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]
+      → B(idx=40) 20240918_2ppm钙离子污染测试_新版电解槽_ion_column_gamry_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]  dummy=True
+  [44] A(idx=41) 20241117_2ppm钠离子污染及恢复测试10mlmin_旧版电解槽_ion_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]
+      → B(idx=41) 20241117_2ppm钠离子污染及恢复测试10mlmin_旧版电解槽_ion_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=True
+  [45] A(idx=42) 20240915_2ppm铜离子污染测试_新版电解槽_ion_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]
+      → B(idx=42) 20240915_2ppm铜离子污染测试_新版电解槽_ion_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]  dummy=True
+  [46] A(idx=43) 20241112_2ppm镍离子污染及恢复测试_旧版电解槽_ion_gamry_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]
+      → B(idx=43) 20241112_2ppm镍离子污染及恢复测试_旧版电解槽_ion_gamry_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]  dummy=True
+  [47] A(idx=45) 20241201_2ppm铜离子污染及恢复测试_新版电解槽_ion_column_renew_H2SO4_firecloud_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=45) 20241201_2ppm铜离子污染及恢复测试_新版电解槽_ion_column_renew_H2SO4_firecloud_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]  dummy=True
+  [48] A(idx=47) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_column_gamry_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]
+      → B(idx=47) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_column_gamry_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]  dummy=True
+
+[PairDataset][Summary]
+- total files:        48
+- parsed OK:          48
+- regex fail:         0
+- parse times fail:   0
+- empty times:        0
+- total pairs:        48  (keep_unpaired=self)
+- distinct prefixes:  34
+- prefixes coverage (first few):
+  [1] 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[* -> windows=2, adj_pairs=0/1
+  [2] 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_column_renew_H2SO4_gamry_[* -> windows=1, adj_pairs=0/0
+  [3] 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[* -> windows=2, adj_pairs=0/1
+  [4] 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[* -> windows=3, adj_pairs=0/2
+  [5] 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[* -> windows=3, adj_pairs=1/2
+  [6] 20241006_2ppm铬离子污染测试_新版电解槽_ion_gamry_[* -> windows=1, adj_pairs=0/0
+  [7] 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[* -> windows=6, adj_pairs=1/5
+  [8] 20241003_2ppm镍离子污染测试_旧版电解槽_ion_firecloud_[* -> windows=1, adj_pairs=0/0
+  [9] 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[* -> windows=1, adj_pairs=0/0
+  [10] 20250103_无离子污染测试_新版电解槽_ion_column_gamry_[* -> windows=1, adj_pairs=0/0
+- unadjacent gaps samples: 45 (showing first 0)
+num base train samples: 1100
+num base val   samples: 48
+num pair train samples: 1100
+num pair val   samples: 48
+dummy_mask[0] = False
+📝 TensorBoard 日志目录: /home/cagalii/Application/ion_detect/output/tensorboard/20260307a
+[Pairs] Epoch 1/20000 | total: 3.4354 | voltage: 4.6442 | classify: 3.1550 | conc: 0.0003 | consistency: 0.5060 | consist_valid: 6.3043 | consist_dummy: 1.6667 | loss_i0_polarity: 3.0486 | loss_wuxing_diff: 0.0008 | rule: 88.0121 | group: 1.5752 | tree: 4.5790 | band: 0.0007
+[Pairs] Epoch 2/20000 | total: 2.9519 | voltage: 2.1791 | classify: 2.7945 | conc: 0.0002 | consistency: 0.4109 | consist_valid: 6.3841 | consist_dummy: 1.5870 | loss_i0_polarity: 3.1980 | loss_wuxing_diff: 0.0010 | rule: 88.8777 | group: 1.4692 | tree: 4.3882 | band: 0.0006
+[Pairs] Epoch 3/20000 | total: 2.8378 | voltage: 1.3024 | classify: 2.7317 | conc: 0.0003 | consistency: 0.3657 | consist_valid: 6.3986 | consist_dummy: 1.5725 | loss_i0_polarity: 3.2191 | loss_wuxing_diff: 0.0006 | rule: 74.2304 | group: 1.3890 | tree: 4.1732 | band: 0.0008
+[Pairs] Epoch 4/20000 | total: 2.7150 | voltage: 0.8844 | classify: 2.6215 | conc: 0.0002 | consistency: 0.3306 | consist_valid: 6.2319 | consist_dummy: 1.7391 | loss_i0_polarity: 3.1843 | loss_wuxing_diff: 0.0004 | rule: 90.7847 | group: 1.3372 | tree: 4.2928 | band: 0.0010
+[Pairs] Epoch 5/20000 | total: 2.4784 | voltage: 0.6295 | classify: 2.4000 | conc: 0.0002 | consistency: 0.3125 | consist_valid: 6.4493 | consist_dummy: 1.5217 | loss_i0_polarity: 3.0411 | loss_wuxing_diff: 0.0004 | rule: 86.8052 | group: 1.2404 | tree: 3.8523 | band: 0.0014
+[Pairs] Epoch 6/20000 | total: 2.5611 | voltage: 0.5289 | classify: 2.4837 | conc: 0.0002 | consistency: 0.2933 | consist_valid: 6.4710 | consist_dummy: 1.5000 | loss_i0_polarity: 3.1538 | loss_wuxing_diff: 0.0004 | rule: 94.6629 | group: 1.1897 | tree: 3.9591 | band: 0.0019
+[Pairs] Epoch 7/20000 | total: 2.6103 | voltage: 0.4166 | classify: 2.5402 | conc: 0.0004 | consistency: 0.2794 | consist_valid: 6.3841 | consist_dummy: 1.5870 | loss_i0_polarity: 3.2038 | loss_wuxing_diff: 0.0008 | rule: 91.0081 | group: 1.3030 | tree: 4.1012 | band: 0.0023
+[Pairs] Epoch 8/20000 | total: 2.5952 | voltage: 0.3760 | classify: 2.5364 | conc: 0.0003 | consistency: 0.2730 | consist_valid: 6.2826 | consist_dummy: 1.6884 | loss_i0_polarity: 3.0561 | loss_wuxing_diff: 0.0034 | rule: 72.8191 | group: 1.2092 | tree: 3.9074 | band: 0.0029
+[Pairs] Epoch 9/20000 | total: 2.2304 | voltage: 0.3159 | classify: 2.1753 | conc: 0.0003 | consistency: 0.2690 | consist_valid: 6.3261 | consist_dummy: 1.6449 | loss_i0_polarity: 2.9989 | loss_wuxing_diff: 0.0144 | rule: 71.8231 | group: 1.1318 | tree: 3.5812 | band: 0.0045
+[Pairs] Epoch 10/20000 | total: 2.5283 | voltage: 0.2616 | classify: 2.4750 | conc: 0.0003 | consistency: 0.2605 | consist_valid: 6.4710 | consist_dummy: 1.5000 | loss_i0_polarity: 2.9333 | loss_wuxing_diff: 0.0221 | rule: 73.4355 | group: 1.1627 | tree: 3.7851 | band: 0.0053
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_10.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_10.csv
+[Pairs] Epoch 11/20000 | total: 2.1307 | voltage: 0.2523 | classify: 2.0833 | conc: 0.0003 | consistency: 0.2565 | consist_valid: 6.3841 | consist_dummy: 1.5870 | loss_i0_polarity: 2.9876 | loss_wuxing_diff: 0.0292 | rule: 63.0110 | group: 1.0986 | tree: 3.4966 | band: 0.0049
+[Pairs] Epoch 12/20000 | total: 2.2416 | voltage: 0.2313 | classify: 2.1759 | conc: 0.0002 | consistency: 0.2577 | consist_valid: 6.4203 | consist_dummy: 1.5507 | loss_i0_polarity: 2.9998 | loss_wuxing_diff: 0.0351 | rule: 101.3935 | group: 1.1375 | tree: 3.8152 | band: 0.0067
+[Pairs] Epoch 13/20000 | total: 2.1072 | voltage: 0.1894 | classify: 2.0656 | conc: 0.0002 | consistency: 0.2617 | consist_valid: 6.4348 | consist_dummy: 1.5362 | loss_i0_polarity: 2.7670 | loss_wuxing_diff: 0.0389 | rule: 58.0305 | group: 1.0950 | tree: 3.3208 | band: 0.0077
+[Pairs] Epoch 14/20000 | total: 2.1665 | voltage: 0.1591 | classify: 2.1017 | conc: 0.0003 | consistency: 0.2562 | consist_valid: 6.3116 | consist_dummy: 1.6594 | loss_i0_polarity: 2.8327 | loss_wuxing_diff: 0.0594 | rule: 107.3214 | group: 1.0749 | tree: 3.3997 | band: 0.0087
+[Pairs] Epoch 15/20000 | total: 1.9860 | voltage: 0.1682 | classify: 1.9395 | conc: 0.0002 | consistency: 0.2524 | consist_valid: 6.4203 | consist_dummy: 1.5507 | loss_i0_polarity: 2.8008 | loss_wuxing_diff: 0.0629 | rule: 69.6410 | group: 1.0894 | tree: 3.4869 | band: 0.0083
+[Pairs] Epoch 16/20000 | total: 2.0373 | voltage: 0.1620 | classify: 1.9830 | conc: 0.0002 | consistency: 0.2614 | consist_valid: 6.4275 | consist_dummy: 1.5435 | loss_i0_polarity: 2.9672 | loss_wuxing_diff: 0.0816 | rule: 85.9595 | group: 1.0487 | tree: 3.3831 | band: 0.0076
+[Pairs] Epoch 17/20000 | total: 1.9166 | voltage: 0.1353 | classify: 1.8651 | conc: 0.0004 | consistency: 0.2622 | consist_valid: 6.4565 | consist_dummy: 1.5145 | loss_i0_polarity: 2.7969 | loss_wuxing_diff: 0.1057 | rule: 82.6697 | group: 1.1001 | tree: 3.5052 | band: 0.0084
+[Pairs] Epoch 18/20000 | total: 1.9065 | voltage: 0.1050 | classify: 1.8535 | conc: 0.0002 | consistency: 0.2594 | consist_valid: 6.3188 | consist_dummy: 1.6522 | loss_i0_polarity: 2.7698 | loss_wuxing_diff: 0.0710 | rule: 89.4036 | group: 1.0366 | tree: 3.1576 | band: 0.0092
+[Pairs] Epoch 19/20000 | total: 1.9216 | voltage: 0.1010 | classify: 1.8673 | conc: 0.0003 | consistency: 0.2638 | consist_valid: 6.3696 | consist_dummy: 1.6014 | loss_i0_polarity: 2.6327 | loss_wuxing_diff: 0.0842 | rule: 91.8214 | group: 1.0763 | tree: 3.3693 | band: 0.0099
+[Pairs] Epoch 20/20000 | total: 1.7041 | voltage: 0.1047 | classify: 1.6462 | conc: 0.0003 | consistency: 0.2786 | consist_valid: 6.2681 | consist_dummy: 1.7029 | loss_i0_polarity: 2.5771 | loss_wuxing_diff: 0.1026 | rule: 99.1269 | group: 1.0221 | tree: 3.0279 | band: 0.0100
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_20.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_20.csv
+[Pairs] Epoch 21/20000 | total: 1.5498 | voltage: 0.0961 | classify: 1.5021 | conc: 0.0002 | consistency: 0.2843 | consist_valid: 6.4565 | consist_dummy: 1.5145 | loss_i0_polarity: 2.5615 | loss_wuxing_diff: 0.1112 | rule: 79.7934 | group: 0.9672 | tree: 2.9968 | band: 0.0097
+[Pairs] Epoch 22/20000 | total: 1.6424 | voltage: 0.0754 | classify: 1.5979 | conc: 0.0003 | consistency: 0.2884 | consist_valid: 6.3696 | consist_dummy: 1.6014 | loss_i0_polarity: 2.6687 | loss_wuxing_diff: 0.1181 | rule: 75.4726 | group: 0.9631 | tree: 3.0501 | band: 0.0100
+[Pairs] Epoch 23/20000 | total: 1.6548 | voltage: 0.0731 | classify: 1.5894 | conc: 0.0003 | consistency: 0.2979 | consist_valid: 6.4058 | consist_dummy: 1.5652 | loss_i0_polarity: 2.5106 | loss_wuxing_diff: 0.1347 | rule: 117.7106 | group: 0.9496 | tree: 2.9719 | band: 0.0106
+[Pairs] Epoch 24/20000 | total: 1.7114 | voltage: 0.0664 | classify: 1.6619 | conc: 0.0002 | consistency: 0.3027 | consist_valid: 6.3116 | consist_dummy: 1.6594 | loss_i0_polarity: 2.4377 | loss_wuxing_diff: 0.1553 | rule: 86.3940 | group: 0.9981 | tree: 2.8793 | band: 0.0109
+[Pairs] Epoch 25/20000 | total: 1.2670 | voltage: 0.0577 | classify: 1.2307 | conc: 0.0003 | consistency: 0.2899 | consist_valid: 6.2609 | consist_dummy: 1.7101 | loss_i0_polarity: 2.4332 | loss_wuxing_diff: 0.1340 | rule: 61.1507 | group: 0.8528 | tree: 2.6874 | band: 0.0115
+[Pairs] Epoch 26/20000 | total: 1.6338 | voltage: 0.0541 | classify: 1.6002 | conc: 0.0003 | consistency: 0.2926 | consist_valid: 6.3043 | consist_dummy: 1.6667 | loss_i0_polarity: 2.1396 | loss_wuxing_diff: 0.1201 | rule: 56.4252 | group: 0.9908 | tree: 2.5091 | band: 0.0102
+[Pairs] Epoch 27/20000 | total: 1.5818 | voltage: 0.0480 | classify: 1.5336 | conc: 0.0003 | consistency: 0.3071 | consist_valid: 6.3913 | consist_dummy: 1.5797 | loss_i0_polarity: 2.1827 | loss_wuxing_diff: 0.1425 | rule: 86.0412 | group: 1.0175 | tree: 2.6072 | band: 0.0110
+[Pairs] Epoch 28/20000 | total: 1.5459 | voltage: 0.0478 | classify: 1.5059 | conc: 0.0002 | consistency: 0.3254 | consist_valid: 6.2899 | consist_dummy: 1.6812 | loss_i0_polarity: 2.2078 | loss_wuxing_diff: 0.1557 | rule: 69.6076 | group: 0.9940 | tree: 2.7957 | band: 0.0121
+[Pairs] Epoch 29/20000 | total: 1.5296 | voltage: 0.0475 | classify: 1.4794 | conc: 0.0002 | consistency: 0.3430 | consist_valid: 6.4130 | consist_dummy: 1.5580 | loss_i0_polarity: 2.2607 | loss_wuxing_diff: 0.1839 | rule: 90.0069 | group: 0.9568 | tree: 2.7371 | band: 0.0127
+[Pairs] Epoch 30/20000 | total: 1.4427 | voltage: 0.0403 | classify: 1.4043 | conc: 0.0003 | consistency: 0.3198 | consist_valid: 6.3406 | consist_dummy: 1.6304 | loss_i0_polarity: 2.2860 | loss_wuxing_diff: 0.1620 | rule: 67.3607 | group: 0.8998 | tree: 2.5113 | band: 0.0130
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_30.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_30.csv
+[Pairs] Epoch 31/20000 | total: 1.3532 | voltage: 0.0363 | classify: 1.3153 | conc: 0.0002 | consistency: 0.3143 | consist_valid: 6.5362 | consist_dummy: 1.4348 | loss_i0_polarity: 2.0802 | loss_wuxing_diff: 0.1634 | rule: 67.0173 | group: 0.9152 | tree: 2.4524 | band: 0.0131
+[Pairs] Epoch 32/20000 | total: 1.2542 | voltage: 0.0355 | classify: 1.2248 | conc: 0.0002 | consistency: 0.3432 | consist_valid: 6.3043 | consist_dummy: 1.6667 | loss_i0_polarity: 2.1551 | loss_wuxing_diff: 0.1717 | rule: 49.9028 | group: 0.8804 | tree: 2.4614 | band: 0.0146
+[Pairs] Epoch 33/20000 | total: 1.4330 | voltage: 0.0332 | classify: 1.3828 | conc: 0.0002 | consistency: 0.3444 | consist_valid: 6.2826 | consist_dummy: 1.6884 | loss_i0_polarity: 2.0441 | loss_wuxing_diff: 0.2148 | rule: 91.5176 | group: 0.9818 | tree: 2.6589 | band: 0.0158
+[Pairs] Epoch 34/20000 | total: 1.2639 | voltage: 0.0310 | classify: 1.2268 | conc: 0.0003 | consistency: 0.3300 | consist_valid: 6.3188 | consist_dummy: 1.6522 | loss_i0_polarity: 2.0162 | loss_wuxing_diff: 0.1476 | rule: 65.7626 | group: 0.8660 | tree: 2.4211 | band: 0.0163
+[Pairs] Epoch 35/20000 | total: 1.2550 | voltage: 0.0315 | classify: 1.2008 | conc: 0.0003 | consistency: 0.3677 | consist_valid: 6.3116 | consist_dummy: 1.6594 | loss_i0_polarity: 1.9351 | loss_wuxing_diff: 0.2177 | rule: 99.9478 | group: 0.9039 | tree: 2.3976 | band: 0.0177
+[Pairs] Epoch 36/20000 | total: 1.2346 | voltage: 0.0296 | classify: 1.1940 | conc: 0.0002 | consistency: 0.3459 | consist_valid: 6.3696 | consist_dummy: 1.6014 | loss_i0_polarity: 1.9144 | loss_wuxing_diff: 0.1630 | rule: 73.1745 | group: 0.8466 | tree: 2.4107 | band: 0.0182
+[Pairs] Epoch 37/20000 | total: 1.2783 | voltage: 0.0266 | classify: 1.2402 | conc: 0.0002 | consistency: 0.3221 | consist_valid: 6.5362 | consist_dummy: 1.4348 | loss_i0_polarity: 1.8000 | loss_wuxing_diff: 0.1532 | rule: 68.6518 | group: 0.9090 | tree: 2.3387 | band: 0.0182
+[Pairs] Epoch 38/20000 | total: 1.2673 | voltage: 0.0294 | classify: 1.2192 | conc: 0.0002 | consistency: 0.3780 | consist_valid: 6.2101 | consist_dummy: 1.7609 | loss_i0_polarity: 1.8326 | loss_wuxing_diff: 0.2141 | rule: 88.0646 | group: 0.8759 | tree: 2.4112 | band: 0.0170
+[Pairs] Epoch 39/20000 | total: 1.2936 | voltage: 0.0304 | classify: 1.2473 | conc: 0.0002 | consistency: 0.3677 | consist_valid: 6.4130 | consist_dummy: 1.5580 | loss_i0_polarity: 1.8655 | loss_wuxing_diff: 0.2124 | rule: 84.5381 | group: 0.9371 | tree: 2.3917 | band: 0.0175
+[Pairs] Epoch 40/20000 | total: 1.2581 | voltage: 0.0271 | classify: 1.2212 | conc: 0.0002 | consistency: 0.3651 | consist_valid: 6.1667 | consist_dummy: 1.8043 | loss_i0_polarity: 1.7735 | loss_wuxing_diff: 0.1819 | rule: 66.2492 | group: 0.8753 | tree: 2.2349 | band: 0.0178
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_40.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_40.csv
+[Pairs] Epoch 41/20000 | total: 1.1557 | voltage: 0.0328 | classify: 1.0966 | conc: 0.0002 | consistency: 0.3371 | consist_valid: 6.3623 | consist_dummy: 1.6087 | loss_i0_polarity: 1.8176 | loss_wuxing_diff: 0.1649 | rule: 109.9561 | group: 0.9067 | tree: 2.2281 | band: 0.0187
+[Pairs] Epoch 42/20000 | total: 1.2665 | voltage: 0.0279 | classify: 1.2322 | conc: 0.0002 | consistency: 0.3587 | consist_valid: 6.4783 | consist_dummy: 1.4928 | loss_i0_polarity: 1.6322 | loss_wuxing_diff: 0.2195 | rule: 60.7625 | group: 0.9447 | tree: 2.2933 | band: 0.0177
+[Pairs] Epoch 43/20000 | total: 1.1506 | voltage: 0.0242 | classify: 1.1110 | conc: 0.0002 | consistency: 0.3627 | consist_valid: 6.3768 | consist_dummy: 1.5942 | loss_i0_polarity: 1.6129 | loss_wuxing_diff: 0.2025 | rule: 71.9872 | group: 0.9048 | tree: 2.1734 | band: 0.0189
+[Pairs] Epoch 44/20000 | total: 1.1293 | voltage: 0.0220 | classify: 1.0880 | conc: 0.0003 | consistency: 0.3825 | consist_valid: 6.3551 | consist_dummy: 1.6159 | loss_i0_polarity: 1.4938 | loss_wuxing_diff: 0.2516 | rule: 75.4781 | group: 0.7711 | tree: 2.2272 | band: 0.0183
+[Pairs] Epoch 45/20000 | total: 1.1393 | voltage: 0.0216 | classify: 1.0967 | conc: 0.0003 | consistency: 0.3763 | consist_valid: 6.2319 | consist_dummy: 1.7391 | loss_i0_polarity: 1.5083 | loss_wuxing_diff: 0.2510 | rule: 78.1155 | group: 0.9097 | tree: 2.1483 | band: 0.0179
+[Pairs] Epoch 46/20000 | total: 1.1125 | voltage: 0.0269 | classify: 1.0759 | conc: 0.0001 | consistency: 0.3718 | consist_valid: 6.2536 | consist_dummy: 1.7174 | loss_i0_polarity: 1.3754 | loss_wuxing_diff: 0.2151 | rule: 66.1186 | group: 0.8868 | tree: 2.1669 | band: 0.0186
+[Pairs] Epoch 47/20000 | total: 1.2056 | voltage: 0.0279 | classify: 1.1686 | conc: 0.0002 | consistency: 0.3720 | consist_valid: 6.1957 | consist_dummy: 1.7754 | loss_i0_polarity: 1.2540 | loss_wuxing_diff: 0.2605 | rule: 66.5807 | group: 0.8539 | tree: 2.1944 | band: 0.0184
+[Pairs] Epoch 48/20000 | total: 1.0208 | voltage: 0.0248 | classify: 0.9780 | conc: 0.0002 | consistency: 0.3821 | consist_valid: 6.5942 | consist_dummy: 1.3768 | loss_i0_polarity: 1.3536 | loss_wuxing_diff: 0.2279 | rule: 78.6487 | group: 0.8906 | tree: 1.9968 | band: 0.0198
+[Pairs] Epoch 49/20000 | total: 1.1904 | voltage: 0.0250 | classify: 1.1548 | conc: 0.0003 | consistency: 0.3945 | consist_valid: 6.1812 | consist_dummy: 1.7899 | loss_i0_polarity: 1.2429 | loss_wuxing_diff: 0.2497 | rule: 63.9755 | group: 0.8111 | tree: 2.1901 | band: 0.0195
+[Pairs] Epoch 50/20000 | total: 1.1462 | voltage: 0.0218 | classify: 1.1032 | conc: 0.0003 | consistency: 0.3517 | consist_valid: 6.2826 | consist_dummy: 1.6884 | loss_i0_polarity: 1.2380 | loss_wuxing_diff: 0.1881 | rule: 79.0854 | group: 0.9685 | tree: 2.0478 | band: 0.0196
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_50.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_50.csv
+[Pairs] Epoch 51/20000 | total: 1.0887 | voltage: 0.0230 | classify: 1.0520 | conc: 0.0003 | consistency: 0.3837 | consist_valid: 6.3551 | consist_dummy: 1.6159 | loss_i0_polarity: 1.0924 | loss_wuxing_diff: 0.2387 | rule: 66.4436 | group: 0.8357 | tree: 2.1730 | band: 0.0189
+[Pairs] Epoch 52/20000 | total: 0.9857 | voltage: 0.0206 | classify: 0.9494 | conc: 0.0002 | consistency: 0.3808 | consist_valid: 6.2536 | consist_dummy: 1.7174 | loss_i0_polarity: 1.0080 | loss_wuxing_diff: 0.2420 | rule: 66.1325 | group: 0.8247 | tree: 2.1052 | band: 0.0191
+[Pairs] Epoch 53/20000 | total: 1.0654 | voltage: 0.0236 | classify: 1.0247 | conc: 0.0002 | consistency: 0.3737 | consist_valid: 6.3116 | consist_dummy: 1.6594 | loss_i0_polarity: 1.0646 | loss_wuxing_diff: 0.1866 | rule: 74.5844 | group: 0.8743 | tree: 2.0559 | band: 0.0193
+[Pairs] Epoch 54/20000 | total: 1.0080 | voltage: 0.0244 | classify: 0.9638 | conc: 0.0003 | consistency: 0.3711 | consist_valid: 6.1304 | consist_dummy: 1.8406 | loss_i0_polarity: 0.9076 | loss_wuxing_diff: 0.1696 | rule: 81.5559 | group: 0.8852 | tree: 1.9736 | band: 0.0197
+[Pairs] Epoch 55/20000 | total: 0.9404 | voltage: 0.0257 | classify: 0.9099 | conc: 0.0002 | consistency: 0.4091 | consist_valid: 6.2391 | consist_dummy: 1.7319 | loss_i0_polarity: 0.7894 | loss_wuxing_diff: 0.2206 | rule: 54.0206 | group: 0.8756 | tree: 1.9026 | band: 0.0202
+[Pairs] Epoch 56/20000 | total: 0.9297 | voltage: 0.0236 | classify: 0.8945 | conc: 0.0002 | consistency: 0.3887 | consist_valid: 6.3188 | consist_dummy: 1.6522 | loss_i0_polarity: 0.7088 | loss_wuxing_diff: 0.2191 | rule: 63.9268 | group: 0.8842 | tree: 1.8265 | band: 0.0194
+[Pairs] Epoch 57/20000 | total: 0.9578 | voltage: 0.0220 | classify: 0.9274 | conc: 0.0002 | consistency: 0.3647 | consist_valid: 6.3478 | consist_dummy: 1.6232 | loss_i0_polarity: 0.6278 | loss_wuxing_diff: 0.1854 | rule: 54.4703 | group: 0.8288 | tree: 1.9351 | band: 0.0191
+[Pairs] Epoch 58/20000 | total: 1.0403 | voltage: 0.0196 | classify: 1.0093 | conc: 0.0001 | consistency: 0.3502 | consist_valid: 6.4928 | consist_dummy: 1.4783 | loss_i0_polarity: 0.6435 | loss_wuxing_diff: 0.2122 | rule: 56.0806 | group: 0.8385 | tree: 1.9808 | band: 0.0194
+[Pairs] Epoch 59/20000 | total: 1.1229 | voltage: 0.0201 | classify: 1.0839 | conc: 0.0003 | consistency: 0.4008 | consist_valid: 6.1667 | consist_dummy: 1.8043 | loss_i0_polarity: 0.8090 | loss_wuxing_diff: 0.2124 | rule: 71.5247 | group: 0.8825 | tree: 2.0206 | band: 0.0209
+[Pairs] Epoch 60/20000 | total: 1.0274 | voltage: 0.0219 | classify: 0.9877 | conc: 0.0002 | consistency: 0.3740 | consist_valid: 6.3623 | consist_dummy: 1.6087 | loss_i0_polarity: 0.7012 | loss_wuxing_diff: 0.1993 | rule: 72.9960 | group: 0.8464 | tree: 2.0509 | band: 0.0208
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_60.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_60.csv
+[Pairs] Epoch 61/20000 | total: 0.9431 | voltage: 0.0197 | classify: 0.9130 | conc: 0.0001 | consistency: 0.3816 | consist_valid: 6.4203 | consist_dummy: 1.5507 | loss_i0_polarity: 0.5416 | loss_wuxing_diff: 0.2171 | rule: 54.2997 | group: 0.8561 | tree: 1.8523 | band: 0.0197
+[Pairs] Epoch 62/20000 | total: 0.9289 | voltage: 0.0203 | classify: 0.8979 | conc: 0.0002 | consistency: 0.3423 | consist_valid: 6.3406 | consist_dummy: 1.6304 | loss_i0_polarity: 0.5655 | loss_wuxing_diff: 0.1553 | rule: 56.0754 | group: 0.8634 | tree: 1.9181 | band: 0.0205
+[Pairs] Epoch 63/20000 | total: 0.9281 | voltage: 0.0200 | classify: 0.9001 | conc: 0.0002 | consistency: 0.3863 | consist_valid: 6.3986 | consist_dummy: 1.5725 | loss_i0_polarity: 0.5915 | loss_wuxing_diff: 0.1905 | rule: 50.0672 | group: 0.7687 | tree: 1.8372 | band: 0.0214
+[Pairs] Epoch 64/20000 | total: 0.9330 | voltage: 0.0184 | classify: 0.9023 | conc: 0.0002 | consistency: 0.3732 | consist_valid: 6.3116 | consist_dummy: 1.6594 | loss_i0_polarity: 0.4291 | loss_wuxing_diff: 0.2131 | rule: 55.7644 | group: 0.7853 | tree: 1.7826 | band: 0.0217
+[Pairs] Epoch 65/20000 | total: 0.9607 | voltage: 0.0201 | classify: 0.9310 | conc: 0.0003 | consistency: 0.3743 | consist_valid: 6.4348 | consist_dummy: 1.5362 | loss_i0_polarity: 0.4877 | loss_wuxing_diff: 0.1891 | rule: 53.4589 | group: 0.8784 | tree: 1.7539 | band: 0.0206
+[Pairs] Epoch 66/20000 | total: 0.9750 | voltage: 0.0178 | classify: 0.9531 | conc: 0.0002 | consistency: 0.3645 | consist_valid: 6.1159 | consist_dummy: 1.8551 | loss_i0_polarity: 0.3805 | loss_wuxing_diff: 0.1867 | rule: 38.3400 | group: 0.7860 | tree: 1.8300 | band: 0.0205
+[Pairs] Epoch 67/20000 | total: 0.9172 | voltage: 0.0196 | classify: 0.8902 | conc: 0.0001 | consistency: 0.3548 | consist_valid: 6.3768 | consist_dummy: 1.5942 | loss_i0_polarity: 0.3430 | loss_wuxing_diff: 0.1724 | rule: 48.6136 | group: 0.8195 | tree: 1.6902 | band: 0.0201
+[Pairs] Epoch 68/20000 | total: 0.9178 | voltage: 0.0180 | classify: 0.8868 | conc: 0.0002 | consistency: 0.3524 | consist_valid: 6.3768 | consist_dummy: 1.5942 | loss_i0_polarity: 0.3236 | loss_wuxing_diff: 0.1796 | rule: 56.5566 | group: 0.8436 | tree: 1.8215 | band: 0.0219
+[Pairs] Epoch 69/20000 | total: 0.8944 | voltage: 0.0183 | classify: 0.8640 | conc: 0.0002 | consistency: 0.3187 | consist_valid: 6.2391 | consist_dummy: 1.7319 | loss_i0_polarity: 0.2878 | loss_wuxing_diff: 0.1352 | rule: 55.3308 | group: 0.8073 | tree: 1.6885 | band: 0.0210
+[Pairs] Epoch 70/20000 | total: 0.9795 | voltage: 0.0199 | classify: 0.9440 | conc: 0.0002 | consistency: 0.3606 | consist_valid: 6.3913 | consist_dummy: 1.5797 | loss_i0_polarity: 0.3640 | loss_wuxing_diff: 0.1801 | rule: 65.0230 | group: 0.8473 | tree: 1.9719 | band: 0.0207
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_70.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_70.csv
+[Pairs] Epoch 71/20000 | total: 0.9360 | voltage: 0.0176 | classify: 0.9017 | conc: 0.0002 | consistency: 0.3721 | consist_valid: 6.3623 | consist_dummy: 1.6087 | loss_i0_polarity: 0.3716 | loss_wuxing_diff: 0.2016 | rule: 63.0454 | group: 0.7566 | tree: 1.7095 | band: 0.0214
+[Pairs] Epoch 72/20000 | total: 1.0653 | voltage: 0.0172 | classify: 1.0400 | conc: 0.0001 | consistency: 0.3254 | consist_valid: 6.2681 | consist_dummy: 1.7029 | loss_i0_polarity: 0.3209 | loss_wuxing_diff: 0.1465 | rule: 45.3803 | group: 0.7565 | tree: 1.7908 | band: 0.0199
+[Pairs] Epoch 73/20000 | total: 0.8556 | voltage: 0.0194 | classify: 0.8254 | conc: 0.0002 | consistency: 0.3607 | consist_valid: 6.1377 | consist_dummy: 1.8333 | loss_i0_polarity: 0.3014 | loss_wuxing_diff: 0.1888 | rule: 54.7227 | group: 0.7937 | tree: 1.7227 | band: 0.0215
+[Pairs] Epoch 74/20000 | total: 0.9406 | voltage: 0.0174 | classify: 0.9098 | conc: 0.0002 | consistency: 0.3761 | consist_valid: 6.3623 | consist_dummy: 1.6087 | loss_i0_polarity: 0.3060 | loss_wuxing_diff: 0.1948 | rule: 56.0592 | group: 0.8325 | tree: 1.8115 | band: 0.0213
+[Pairs] Epoch 75/20000 | total: 0.8610 | voltage: 0.0183 | classify: 0.8314 | conc: 0.0002 | consistency: 0.3629 | consist_valid: 6.4275 | consist_dummy: 1.5435 | loss_i0_polarity: 0.2747 | loss_wuxing_diff: 0.1713 | rule: 53.7954 | group: 0.8169 | tree: 1.6890 | band: 0.0229
+[Pairs] Epoch 76/20000 | total: 0.8524 | voltage: 0.0160 | classify: 0.8211 | conc: 0.0002 | consistency: 0.3419 | consist_valid: 6.2319 | consist_dummy: 1.7391 | loss_i0_polarity: 0.2788 | loss_wuxing_diff: 0.1542 | rule: 57.5239 | group: 0.7947 | tree: 1.7400 | band: 0.0240
+[Pairs] Epoch 77/20000 | total: 0.8723 | voltage: 0.0158 | classify: 0.8395 | conc: 0.0002 | consistency: 0.3585 | consist_valid: 6.3841 | consist_dummy: 1.5870 | loss_i0_polarity: 0.2782 | loss_wuxing_diff: 0.1864 | rule: 60.4597 | group: 0.8423 | tree: 1.6583 | band: 0.0232
+[Pairs] Epoch 78/20000 | total: 0.8563 | voltage: 0.0183 | classify: 0.8254 | conc: 0.0002 | consistency: 0.3867 | consist_valid: 6.3696 | consist_dummy: 1.6014 | loss_i0_polarity: 0.2973 | loss_wuxing_diff: 0.1774 | rule: 56.3525 | group: 0.8274 | tree: 1.6447 | band: 0.0231
+[Pairs] Epoch 79/20000 | total: 0.8019 | voltage: 0.0164 | classify: 0.7687 | conc: 0.0002 | consistency: 0.3581 | consist_valid: 6.3333 | consist_dummy: 1.6377 | loss_i0_polarity: 0.2761 | loss_wuxing_diff: 0.1837 | rule: 61.2063 | group: 0.7910 | tree: 1.7307 | band: 0.0231
+[Pairs] Epoch 80/20000 | total: 0.9065 | voltage: 0.0172 | classify: 0.8799 | conc: 0.0002 | consistency: 0.3383 | consist_valid: 6.5362 | consist_dummy: 1.4348 | loss_i0_polarity: 0.2398 | loss_wuxing_diff: 0.1393 | rule: 47.7501 | group: 0.7852 | tree: 1.8286 | band: 0.0228
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_80.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_80.csv
+[Pairs] Epoch 81/20000 | total: 0.7978 | voltage: 0.0172 | classify: 0.7692 | conc: 0.0002 | consistency: 0.3341 | consist_valid: 6.1812 | consist_dummy: 1.7899 | loss_i0_polarity: 0.2015 | loss_wuxing_diff: 0.1328 | rule: 52.2297 | group: 0.7558 | tree: 1.5885 | band: 0.0235
+[Pairs] Epoch 82/20000 | total: 0.8147 | voltage: 0.0162 | classify: 0.7803 | conc: 0.0002 | consistency: 0.3603 | consist_valid: 6.4638 | consist_dummy: 1.5072 | loss_i0_polarity: 0.2021 | loss_wuxing_diff: 0.1885 | rule: 63.6669 | group: 0.8022 | tree: 1.7308 | band: 0.0229
+[Pairs] Epoch 83/20000 | total: 0.8736 | voltage: 0.0147 | classify: 0.8426 | conc: 0.0002 | consistency: 0.3436 | consist_valid: 6.2754 | consist_dummy: 1.6957 | loss_i0_polarity: 0.1853 | loss_wuxing_diff: 0.1444 | rule: 56.9766 | group: 0.7783 | tree: 1.6127 | band: 0.0223
+[Pairs] Epoch 84/20000 | total: 0.8344 | voltage: 0.0156 | classify: 0.8008 | conc: 0.0001 | consistency: 0.3318 | consist_valid: 6.5072 | consist_dummy: 1.4638 | loss_i0_polarity: 0.1771 | loss_wuxing_diff: 0.1545 | rule: 62.1785 | group: 0.8359 | tree: 1.7284 | band: 0.0230
+[Pairs] Epoch 85/20000 | total: 0.7219 | voltage: 0.0168 | classify: 0.7005 | conc: 0.0001 | consistency: 0.3327 | consist_valid: 6.4058 | consist_dummy: 1.5652 | loss_i0_polarity: 0.1916 | loss_wuxing_diff: 0.1201 | rule: 37.8657 | group: 0.7641 | tree: 1.5675 | band: 0.0226
+[Pairs] Epoch 86/20000 | total: 0.8107 | voltage: 0.0172 | classify: 0.7904 | conc: 0.0002 | consistency: 0.3336 | consist_valid: 6.4710 | consist_dummy: 1.5000 | loss_i0_polarity: 0.1488 | loss_wuxing_diff: 0.1374 | rule: 35.5695 | group: 0.7431 | tree: 1.7131 | band: 0.0239
+[Pairs] Epoch 87/20000 | total: 0.8413 | voltage: 0.0185 | classify: 0.8079 | conc: 0.0002 | consistency: 0.4017 | consist_valid: 6.3116 | consist_dummy: 1.6594 | loss_i0_polarity: 0.1328 | loss_wuxing_diff: 0.2279 | rule: 61.4174 | group: 0.7896 | tree: 1.6248 | band: 0.0235
+[Pairs] Epoch 88/20000 | total: 0.8866 | voltage: 0.0153 | classify: 0.8508 | conc: 0.0002 | consistency: 0.3451 | consist_valid: 6.2681 | consist_dummy: 1.7029 | loss_i0_polarity: 0.1456 | loss_wuxing_diff: 0.1601 | rule: 66.7347 | group: 0.7386 | tree: 1.7313 | band: 0.0236
+[Pairs] Epoch 89/20000 | total: 0.8499 | voltage: 0.0166 | classify: 0.8154 | conc: 0.0003 | consistency: 0.3525 | consist_valid: 6.2754 | consist_dummy: 1.6957 | loss_i0_polarity: 0.1381 | loss_wuxing_diff: 0.1672 | rule: 63.4874 | group: 0.7691 | tree: 1.7384 | band: 0.0240
+[Pairs] Epoch 90/20000 | total: 0.8231 | voltage: 0.0167 | classify: 0.7928 | conc: 0.0002 | consistency: 0.3445 | consist_valid: 6.3116 | consist_dummy: 1.6594 | loss_i0_polarity: 0.1692 | loss_wuxing_diff: 0.1573 | rule: 55.3545 | group: 0.7508 | tree: 1.7183 | band: 0.0238
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_90.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_90.csv
+[Pairs] Epoch 91/20000 | total: 0.8371 | voltage: 0.0168 | classify: 0.8132 | conc: 0.0002 | consistency: 0.3401 | consist_valid: 6.3986 | consist_dummy: 1.5725 | loss_i0_polarity: 0.1557 | loss_wuxing_diff: 0.1328 | rule: 42.5281 | group: 0.8477 | tree: 1.5860 | band: 0.0241
+[Pairs] Epoch 92/20000 | total: 0.7826 | voltage: 0.0134 | classify: 0.7555 | conc: 0.0002 | consistency: 0.2973 | consist_valid: 6.5072 | consist_dummy: 1.4638 | loss_i0_polarity: 0.1420 | loss_wuxing_diff: 0.1189 | rule: 49.5544 | group: 0.7719 | tree: 1.7315 | band: 0.0219
+[Pairs] Epoch 93/20000 | total: 0.7838 | voltage: 0.0163 | classify: 0.7522 | conc: 0.0003 | consistency: 0.3379 | consist_valid: 6.2536 | consist_dummy: 1.7174 | loss_i0_polarity: 0.1111 | loss_wuxing_diff: 0.1407 | rule: 57.9257 | group: 0.8084 | tree: 1.6186 | band: 0.0245
+[Pairs] Epoch 94/20000 | total: 0.8173 | voltage: 0.0176 | classify: 0.7929 | conc: 0.0002 | consistency: 0.3364 | consist_valid: 6.3478 | consist_dummy: 1.6232 | loss_i0_polarity: 0.1040 | loss_wuxing_diff: 0.1231 | rule: 43.6730 | group: 0.7631 | tree: 1.6469 | band: 0.0227
+[Pairs] Epoch 95/20000 | total: 0.8201 | voltage: 0.0189 | classify: 0.7867 | conc: 0.0002 | consistency: 0.3890 | consist_valid: 6.1594 | consist_dummy: 1.8116 | loss_i0_polarity: 0.1005 | loss_wuxing_diff: 0.1487 | rule: 61.4259 | group: 0.8390 | tree: 1.7188 | band: 0.0240
+[Pairs] Epoch 96/20000 | total: 0.8013 | voltage: 0.0147 | classify: 0.7705 | conc: 0.0002 | consistency: 0.3483 | consist_valid: 6.2826 | consist_dummy: 1.6884 | loss_i0_polarity: 0.0979 | loss_wuxing_diff: 0.1107 | rule: 57.0070 | group: 0.7969 | tree: 1.4591 | band: 0.0240
+[Pairs] Epoch 97/20000 | total: 0.7495 | voltage: 0.0154 | classify: 0.7172 | conc: 0.0002 | consistency: 0.3662 | consist_valid: 6.3478 | consist_dummy: 1.6232 | loss_i0_polarity: 0.0904 | loss_wuxing_diff: 0.1571 | rule: 59.5814 | group: 0.8016 | tree: 1.6031 | band: 0.0237
+[Pairs] Epoch 98/20000 | total: 0.8679 | voltage: 0.0136 | classify: 0.8291 | conc: 0.0002 | consistency: 0.3622 | consist_valid: 6.3841 | consist_dummy: 1.5870 | loss_i0_polarity: 0.0715 | loss_wuxing_diff: 0.1785 | rule: 72.7127 | group: 0.8082 | tree: 1.6279 | band: 0.0239
+[Pairs] Epoch 99/20000 | total: 0.7492 | voltage: 0.0147 | classify: 0.7231 | conc: 0.0001 | consistency: 0.3187 | consist_valid: 6.3116 | consist_dummy: 1.6594 | loss_i0_polarity: 0.0805 | loss_wuxing_diff: 0.1295 | rule: 47.4624 | group: 0.7990 | tree: 1.6310 | band: 0.0231
+[Pairs] Epoch 100/20000 | total: 0.7924 | voltage: 0.0178 | classify: 0.7573 | conc: 0.0002 | consistency: 0.3290 | consist_valid: 6.4130 | consist_dummy: 1.5580 | loss_i0_polarity: 0.0685 | loss_wuxing_diff: 0.1656 | rule: 65.1767 | group: 0.7669 | tree: 1.5250 | band: 0.0248
+--- SWC-PSWM 验证集 [epoch 100] ---
+  准确率 (Accuracy):  0.7708
+  精确率 (Precision): 0.8046
+  召回率 (Recall):    0.7679
+  F1 分数 (F1):       0.7505
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_100.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_100.csv
+[Pairs] Epoch 101/20000 | total: 0.7638 | voltage: 0.0168 | classify: 0.7396 | conc: 0.0002 | consistency: 0.3384 | consist_valid: 6.2826 | consist_dummy: 1.6884 | loss_i0_polarity: 0.0646 | loss_wuxing_diff: 0.1108 | rule: 43.3554 | group: 0.8301 | tree: 1.5721 | band: 0.0247
+[Pairs] Epoch 102/20000 | total: 0.6997 | voltage: 0.0178 | classify: 0.6744 | conc: 0.0002 | consistency: 0.3405 | consist_valid: 6.3768 | consist_dummy: 1.5942 | loss_i0_polarity: 0.0496 | loss_wuxing_diff: 0.1503 | rule: 45.5048 | group: 0.7496 | tree: 1.5644 | band: 0.0240
+[Pairs] Epoch 103/20000 | total: 0.7337 | voltage: 0.0140 | classify: 0.7013 | conc: 0.0002 | consistency: 0.3549 | consist_valid: 6.2029 | consist_dummy: 1.7681 | loss_i0_polarity: 0.0588 | loss_wuxing_diff: 0.1578 | rule: 59.7268 | group: 0.7813 | tree: 1.6299 | band: 0.0251
+[Pairs] Epoch 104/20000 | total: 0.7923 | voltage: 0.0161 | classify: 0.7651 | conc: 0.0002 | consistency: 0.3345 | consist_valid: 6.4348 | consist_dummy: 1.5362 | loss_i0_polarity: 0.0508 | loss_wuxing_diff: 0.1283 | rule: 49.1373 | group: 0.8819 | tree: 1.5885 | band: 0.0253
+[Pairs] Epoch 105/20000 | total: 0.8189 | voltage: 0.0152 | classify: 0.7932 | conc: 0.0002 | consistency: 0.3124 | consist_valid: 6.3696 | consist_dummy: 1.6014 | loss_i0_polarity: 0.0603 | loss_wuxing_diff: 0.0990 | rule: 46.3777 | group: 0.7951 | tree: 1.6806 | band: 0.0244
+[Pairs] Epoch 106/20000 | total: 0.7113 | voltage: 0.0126 | classify: 0.6834 | conc: 0.0001 | consistency: 0.3227 | consist_valid: 6.2609 | consist_dummy: 1.7101 | loss_i0_polarity: 0.0793 | loss_wuxing_diff: 0.1216 | rule: 51.4479 | group: 0.7852 | tree: 1.5860 | band: 0.0247
+[Pairs] Epoch 107/20000 | total: 0.7613 | voltage: 0.0135 | classify: 0.7306 | conc: 0.0002 | consistency: 0.3129 | consist_valid: 6.3841 | consist_dummy: 1.5870 | loss_i0_polarity: 0.0720 | loss_wuxing_diff: 0.0978 | rule: 56.8774 | group: 0.7352 | tree: 1.5590 | band: 0.0250
+[Pairs] Epoch 108/20000 | total: 0.8300 | voltage: 0.0136 | classify: 0.8025 | conc: 0.0002 | consistency: 0.3227 | consist_valid: 6.4203 | consist_dummy: 1.5507 | loss_i0_polarity: 0.0570 | loss_wuxing_diff: 0.1156 | rule: 50.4860 | group: 0.6959 | tree: 1.6160 | band: 0.0250
+[Pairs] Epoch 109/20000 | total: 0.6971 | voltage: 0.0139 | classify: 0.6751 | conc: 0.0002 | consistency: 0.3098 | consist_valid: 6.3913 | consist_dummy: 1.5797 | loss_i0_polarity: 0.0401 | loss_wuxing_diff: 0.0893 | rule: 39.6722 | group: 0.7185 | tree: 1.3902 | band: 0.0254
+[Pairs] Epoch 110/20000 | total: 0.6626 | voltage: 0.0147 | classify: 0.6372 | conc: 0.0002 | consistency: 0.3312 | consist_valid: 6.3841 | consist_dummy: 1.5870 | loss_i0_polarity: 0.0494 | loss_wuxing_diff: 0.1037 | rule: 46.2672 | group: 0.7766 | tree: 1.4507 | band: 0.0267
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_110.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_110.csv
+[Pairs] Epoch 111/20000 | total: 0.7562 | voltage: 0.0186 | classify: 0.7288 | conc: 0.0002 | consistency: 0.3302 | consist_valid: 6.1667 | consist_dummy: 1.8043 | loss_i0_polarity: 0.0415 | loss_wuxing_diff: 0.1380 | rule: 49.6313 | group: 0.7405 | tree: 1.6944 | band: 0.0266
+[Pairs] Epoch 112/20000 | total: 0.7160 | voltage: 0.0149 | classify: 0.6943 | conc: 0.0002 | consistency: 0.3158 | consist_valid: 6.3551 | consist_dummy: 1.6159 | loss_i0_polarity: 0.0375 | loss_wuxing_diff: 0.1061 | rule: 38.7340 | group: 0.6642 | tree: 1.6263 | band: 0.0258
+[Pairs] Epoch 113/20000 | total: 0.8712 | voltage: 0.0145 | classify: 0.8417 | conc: 0.0002 | consistency: 0.3210 | consist_valid: 6.3986 | consist_dummy: 1.5725 | loss_i0_polarity: 0.0367 | loss_wuxing_diff: 0.1066 | rule: 54.1280 | group: 0.8236 | tree: 1.6132 | band: 0.0254
+[Pairs] Epoch 114/20000 | total: 0.7612 | voltage: 0.0140 | classify: 0.7399 | conc: 0.0002 | consistency: 0.3443 | consist_valid: 6.4928 | consist_dummy: 1.4783 | loss_i0_polarity: 0.0625 | loss_wuxing_diff: 0.1365 | rule: 38.0415 | group: 0.7174 | tree: 1.5001 | band: 0.0262
+[Pairs] Epoch 115/20000 | total: 0.7480 | voltage: 0.0120 | classify: 0.7188 | conc: 0.0002 | consistency: 0.3116 | consist_valid: 6.4203 | consist_dummy: 1.5507 | loss_i0_polarity: 0.0526 | loss_wuxing_diff: 0.1100 | rule: 53.7567 | group: 0.7854 | tree: 1.6182 | band: 0.0270
+[Pairs] Epoch 116/20000 | total: 0.7079 | voltage: 0.0132 | classify: 0.6879 | conc: 0.0002 | consistency: 0.3289 | consist_valid: 6.2536 | consist_dummy: 1.7174 | loss_i0_polarity: 0.0403 | loss_wuxing_diff: 0.1343 | rule: 35.3709 | group: 0.7340 | tree: 1.5322 | band: 0.0261
+[Pairs] Epoch 117/20000 | total: 0.7231 | voltage: 0.0150 | classify: 0.7028 | conc: 0.0002 | consistency: 0.3281 | consist_valid: 6.3043 | consist_dummy: 1.6667 | loss_i0_polarity: 0.0588 | loss_wuxing_diff: 0.1220 | rule: 35.8559 | group: 0.7141 | tree: 1.5223 | band: 0.0258
+[Pairs] Epoch 118/20000 | total: 0.6682 | voltage: 0.0138 | classify: 0.6466 | conc: 0.0002 | consistency: 0.3240 | consist_valid: 6.4493 | consist_dummy: 1.5217 | loss_i0_polarity: 0.0373 | loss_wuxing_diff: 0.1184 | rule: 38.8409 | group: 0.7708 | tree: 1.4278 | band: 0.0263
+[Pairs] Epoch 119/20000 | total: 0.6734 | voltage: 0.0126 | classify: 0.6538 | conc: 0.0001 | consistency: 0.3315 | consist_valid: 6.2609 | consist_dummy: 1.7101 | loss_i0_polarity: 0.0426 | loss_wuxing_diff: 0.1191 | rule: 35.0227 | group: 0.6937 | tree: 1.3776 | band: 0.0264
+[Pairs] Epoch 120/20000 | total: 0.6941 | voltage: 0.0150 | classify: 0.6733 | conc: 0.0002 | consistency: 0.3206 | consist_valid: 6.4275 | consist_dummy: 1.5435 | loss_i0_polarity: 0.0343 | loss_wuxing_diff: 0.1137 | rule: 36.9054 | group: 0.7295 | tree: 1.5110 | band: 0.0270
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_120.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_120.csv
+[Pairs] Epoch 121/20000 | total: 0.7667 | voltage: 0.0133 | classify: 0.7447 | conc: 0.0002 | consistency: 0.3099 | consist_valid: 6.1522 | consist_dummy: 1.8188 | loss_i0_polarity: 0.0402 | loss_wuxing_diff: 0.1216 | rule: 39.5272 | group: 0.7919 | tree: 1.4710 | band: 0.0261
+[Pairs] Epoch 122/20000 | total: 0.7135 | voltage: 0.0138 | classify: 0.6938 | conc: 0.0002 | consistency: 0.3321 | consist_valid: 6.4058 | consist_dummy: 1.5652 | loss_i0_polarity: 0.0340 | loss_wuxing_diff: 0.1384 | rule: 34.9447 | group: 0.7496 | tree: 1.3501 | band: 0.0268
+[Pairs] Epoch 123/20000 | total: 0.6606 | voltage: 0.0141 | classify: 0.6383 | conc: 0.0002 | consistency: 0.3291 | consist_valid: 6.4275 | consist_dummy: 1.5435 | loss_i0_polarity: 0.0309 | loss_wuxing_diff: 0.1228 | rule: 39.9413 | group: 0.7432 | tree: 1.4498 | band: 0.0259
+[Pairs] Epoch 124/20000 | total: 0.6213 | voltage: 0.0132 | classify: 0.6016 | conc: 0.0001 | consistency: 0.3128 | consist_valid: 6.3116 | consist_dummy: 1.6594 | loss_i0_polarity: 0.0364 | loss_wuxing_diff: 0.1164 | rule: 35.0852 | group: 0.7107 | tree: 1.4261 | band: 0.0269
+[Pairs] Epoch 125/20000 | total: 0.6295 | voltage: 0.0159 | classify: 0.6028 | conc: 0.0002 | consistency: 0.3077 | consist_valid: 6.2971 | consist_dummy: 1.6739 | loss_i0_polarity: 0.0322 | loss_wuxing_diff: 0.1186 | rule: 48.6804 | group: 0.7944 | tree: 1.4407 | band: 0.0272
+[Pairs] Epoch 126/20000 | total: 0.7282 | voltage: 0.0120 | classify: 0.7058 | conc: 0.0001 | consistency: 0.3120 | consist_valid: 6.2681 | consist_dummy: 1.7029 | loss_i0_polarity: 0.0458 | loss_wuxing_diff: 0.1018 | rule: 40.5248 | group: 0.7668 | tree: 1.4810 | band: 0.0263
+[Pairs] Epoch 127/20000 | total: 0.6677 | voltage: 0.0142 | classify: 0.6516 | conc: 0.0001 | consistency: 0.3024 | consist_valid: 6.2899 | consist_dummy: 1.6812 | loss_i0_polarity: 0.0394 | loss_wuxing_diff: 0.1154 | rule: 27.6665 | group: 0.7049 | tree: 1.5247 | band: 0.0275
+[Pairs] Epoch 128/20000 | total: 0.7146 | voltage: 0.0145 | classify: 0.6963 | conc: 0.0001 | consistency: 0.3261 | consist_valid: 6.5217 | consist_dummy: 1.4493 | loss_i0_polarity: 0.0307 | loss_wuxing_diff: 0.1307 | rule: 32.2807 | group: 0.7197 | tree: 1.4856 | band: 0.0281
+[Pairs] Epoch 129/20000 | total: 0.6918 | voltage: 0.0146 | classify: 0.6697 | conc: 0.0001 | consistency: 0.3174 | consist_valid: 6.3406 | consist_dummy: 1.6304 | loss_i0_polarity: 0.0448 | loss_wuxing_diff: 0.1111 | rule: 39.6472 | group: 0.7622 | tree: 1.3355 | band: 0.0276
+[Pairs] Epoch 130/20000 | total: 0.7662 | voltage: 0.0119 | classify: 0.7383 | conc: 0.0001 | consistency: 0.3403 | consist_valid: 6.3623 | consist_dummy: 1.6087 | loss_i0_polarity: 0.0459 | loss_wuxing_diff: 0.1270 | rule: 51.5187 | group: 0.7167 | tree: 1.4368 | band: 0.0277
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_130.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_130.csv
+[Pairs] Epoch 131/20000 | total: 0.6823 | voltage: 0.0138 | classify: 0.6556 | conc: 0.0001 | consistency: 0.3233 | consist_valid: 6.2899 | consist_dummy: 1.6812 | loss_i0_polarity: 0.0429 | loss_wuxing_diff: 0.1305 | rule: 48.8027 | group: 0.7705 | tree: 1.5247 | band: 0.0293
+[Pairs] Epoch 132/20000 | total: 0.6860 | voltage: 0.0124 | classify: 0.6635 | conc: 0.0001 | consistency: 0.3078 | consist_valid: 6.4420 | consist_dummy: 1.5290 | loss_i0_polarity: 0.0669 | loss_wuxing_diff: 0.1209 | rule: 40.6155 | group: 0.7749 | tree: 1.5611 | band: 0.0278
+[Pairs] Epoch 133/20000 | total: 0.6323 | voltage: 0.0130 | classify: 0.6141 | conc: 0.0001 | consistency: 0.3094 | consist_valid: 6.1884 | consist_dummy: 1.7826 | loss_i0_polarity: 0.0570 | loss_wuxing_diff: 0.1374 | rule: 32.3429 | group: 0.7329 | tree: 1.3456 | band: 0.0273
+[Pairs] Epoch 134/20000 | total: 0.7165 | voltage: 0.0127 | classify: 0.6978 | conc: 0.0001 | consistency: 0.2940 | consist_valid: 6.2609 | consist_dummy: 1.7101 | loss_i0_polarity: 0.0537 | loss_wuxing_diff: 0.1220 | rule: 32.9868 | group: 0.7735 | tree: 1.5486 | band: 0.0277
+[Pairs] Epoch 135/20000 | total: 0.6415 | voltage: 0.0107 | classify: 0.6242 | conc: 0.0002 | consistency: 0.2988 | consist_valid: 6.1522 | consist_dummy: 1.8188 | loss_i0_polarity: 0.0636 | loss_wuxing_diff: 0.1214 | rule: 30.5769 | group: 0.7435 | tree: 1.3721 | band: 0.0290
+[Pairs] Epoch 136/20000 | total: 0.6341 | voltage: 0.0128 | classify: 0.6132 | conc: 0.0001 | consistency: 0.3084 | consist_valid: 6.4855 | consist_dummy: 1.4855 | loss_i0_polarity: 0.0355 | loss_wuxing_diff: 0.1261 | rule: 37.4804 | group: 0.7259 | tree: 1.3499 | band: 0.0282
+[Pairs] Epoch 137/20000 | total: 0.6360 | voltage: 0.0154 | classify: 0.6195 | conc: 0.0002 | consistency: 0.2941 | consist_valid: 6.3261 | consist_dummy: 1.6449 | loss_i0_polarity: 0.0397 | loss_wuxing_diff: 0.1071 | rule: 28.2858 | group: 0.7367 | tree: 1.5181 | band: 0.0292
+[Pairs] Epoch 138/20000 | total: 0.6528 | voltage: 0.0150 | classify: 0.6353 | conc: 0.0001 | consistency: 0.2842 | consist_valid: 6.1594 | consist_dummy: 1.8116 | loss_i0_polarity: 0.0432 | loss_wuxing_diff: 0.0921 | rule: 30.5968 | group: 0.6903 | tree: 1.4621 | band: 0.0285
+[Pairs] Epoch 139/20000 | total: 0.6474 | voltage: 0.0134 | classify: 0.6279 | conc: 0.0001 | consistency: 0.3078 | consist_valid: 6.4420 | consist_dummy: 1.5290 | loss_i0_polarity: 0.0478 | loss_wuxing_diff: 0.1165 | rule: 34.7841 | group: 0.7299 | tree: 1.4079 | band: 0.0295
+[Pairs] Epoch 140/20000 | total: 0.6255 | voltage: 0.0121 | classify: 0.6087 | conc: 0.0001 | consistency: 0.2802 | consist_valid: 6.0797 | consist_dummy: 1.8913 | loss_i0_polarity: 0.0357 | loss_wuxing_diff: 0.0987 | rule: 29.4445 | group: 0.7212 | tree: 1.4693 | band: 0.0286
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_140.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_140.csv
+[Pairs] Epoch 141/20000 | total: 0.6298 | voltage: 0.0112 | classify: 0.6124 | conc: 0.0001 | consistency: 0.3017 | consist_valid: 6.4855 | consist_dummy: 1.4855 | loss_i0_polarity: 0.0285 | loss_wuxing_diff: 0.1207 | rule: 30.6749 | group: 0.6744 | tree: 1.4314 | band: 0.0286
+[Pairs] Epoch 142/20000 | total: 0.7516 | voltage: 0.0130 | classify: 0.7335 | conc: 0.0001 | consistency: 0.2928 | consist_valid: 6.0797 | consist_dummy: 1.8913 | loss_i0_polarity: 0.0347 | loss_wuxing_diff: 0.1173 | rule: 31.7902 | group: 0.7311 | tree: 1.4541 | band: 0.0293
+[Pairs] Epoch 143/20000 | total: 0.7047 | voltage: 0.0112 | classify: 0.6843 | conc: 0.0001 | consistency: 0.2812 | consist_valid: 6.3551 | consist_dummy: 1.6159 | loss_i0_polarity: 0.0621 | loss_wuxing_diff: 0.0980 | rule: 36.6168 | group: 0.7489 | tree: 1.5424 | band: 0.0286
+[Pairs] Epoch 144/20000 | total: 0.6054 | voltage: 0.0110 | classify: 0.5908 | conc: 0.0001 | consistency: 0.2995 | consist_valid: 6.3043 | consist_dummy: 1.6667 | loss_i0_polarity: 0.0482 | loss_wuxing_diff: 0.1153 | rule: 25.2605 | group: 0.7086 | tree: 1.3404 | band: 0.0305
+[Pairs] Epoch 145/20000 | total: 0.6514 | voltage: 0.0126 | classify: 0.6326 | conc: 0.0001 | consistency: 0.2937 | consist_valid: 6.3261 | consist_dummy: 1.6449 | loss_i0_polarity: 0.0451 | loss_wuxing_diff: 0.1177 | rule: 33.4391 | group: 0.7174 | tree: 1.3425 | band: 0.0293
+[Pairs] Epoch 146/20000 | total: 0.6193 | voltage: 0.0109 | classify: 0.6020 | conc: 0.0002 | consistency: 0.2699 | consist_valid: 6.5145 | consist_dummy: 1.4565 | loss_i0_polarity: 0.0429 | loss_wuxing_diff: 0.0945 | rule: 30.7209 | group: 0.7151 | tree: 1.4033 | band: 0.0293
+[Pairs] Epoch 147/20000 | total: 0.6423 | voltage: 0.0135 | classify: 0.6299 | conc: 0.0001 | consistency: 0.2747 | consist_valid: 6.3043 | consist_dummy: 1.6667 | loss_i0_polarity: 0.0395 | loss_wuxing_diff: 0.0847 | rule: 20.6253 | group: 0.6648 | tree: 1.3675 | band: 0.0288
+[Pairs] Epoch 148/20000 | total: 0.7180 | voltage: 0.0134 | classify: 0.6961 | conc: 0.0002 | consistency: 0.2927 | consist_valid: 6.2464 | consist_dummy: 1.7246 | loss_i0_polarity: 0.0535 | loss_wuxing_diff: 0.1207 | rule: 39.4086 | group: 0.7285 | tree: 1.4824 | band: 0.0311
+[Pairs] Epoch 149/20000 | total: 0.6675 | voltage: 0.0138 | classify: 0.6481 | conc: 0.0002 | consistency: 0.2815 | consist_valid: 6.3986 | consist_dummy: 1.5725 | loss_i0_polarity: 0.0449 | loss_wuxing_diff: 0.1039 | rule: 34.1861 | group: 0.7794 | tree: 1.4078 | band: 0.0307
+[Pairs] Epoch 150/20000 | total: 0.6025 | voltage: 0.0123 | classify: 0.5874 | conc: 0.0001 | consistency: 0.2780 | consist_valid: 6.2899 | consist_dummy: 1.6812 | loss_i0_polarity: 0.0498 | loss_wuxing_diff: 0.1066 | rule: 26.3538 | group: 0.7185 | tree: 1.3190 | band: 0.0296
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_150.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_150.csv
+[Pairs] Epoch 151/20000 | total: 0.6327 | voltage: 0.0137 | classify: 0.6125 | conc: 0.0002 | consistency: 0.2609 | consist_valid: 6.2029 | consist_dummy: 1.7681 | loss_i0_polarity: 0.0489 | loss_wuxing_diff: 0.1010 | rule: 35.8769 | group: 0.7236 | tree: 1.4932 | band: 0.0305
+[Pairs] Epoch 152/20000 | total: 0.6707 | voltage: 0.0135 | classify: 0.6569 | conc: 0.0001 | consistency: 0.2970 | consist_valid: 6.5145 | consist_dummy: 1.4565 | loss_i0_polarity: 0.0456 | loss_wuxing_diff: 0.1020 | rule: 23.4584 | group: 0.7049 | tree: 1.3277 | band: 0.0295
+[Pairs] Epoch 153/20000 | total: 0.6139 | voltage: 0.0113 | classify: 0.5977 | conc: 0.0002 | consistency: 0.2856 | consist_valid: 6.2681 | consist_dummy: 1.7029 | loss_i0_polarity: 0.0285 | loss_wuxing_diff: 0.1037 | rule: 28.2568 | group: 0.7398 | tree: 1.3411 | band: 0.0305
+[Pairs] Epoch 154/20000 | total: 0.6789 | voltage: 0.0138 | classify: 0.6586 | conc: 0.0002 | consistency: 0.2807 | consist_valid: 6.4348 | consist_dummy: 1.5362 | loss_i0_polarity: 0.0278 | loss_wuxing_diff: 0.0914 | rule: 36.1086 | group: 0.7881 | tree: 1.4287 | band: 0.0311
+[Pairs] Epoch 155/20000 | total: 0.6115 | voltage: 0.0126 | classify: 0.5905 | conc: 0.0001 | consistency: 0.2887 | consist_valid: 6.3623 | consist_dummy: 1.6087 | loss_i0_polarity: 0.0388 | loss_wuxing_diff: 0.0938 | rule: 37.7007 | group: 0.7421 | tree: 1.3822 | band: 0.0307
+[Pairs] Epoch 156/20000 | total: 0.6000 | voltage: 0.0123 | classify: 0.5812 | conc: 0.0001 | consistency: 0.2779 | consist_valid: 6.3333 | consist_dummy: 1.6377 | loss_i0_polarity: 0.0523 | loss_wuxing_diff: 0.0901 | rule: 33.2763 | group: 0.7198 | tree: 1.4153 | band: 0.0301
+[Pairs] Epoch 157/20000 | total: 0.6458 | voltage: 0.0116 | classify: 0.6291 | conc: 0.0002 | consistency: 0.2739 | consist_valid: 6.4203 | consist_dummy: 1.5507 | loss_i0_polarity: 0.0414 | loss_wuxing_diff: 0.0996 | rule: 29.3400 | group: 0.7095 | tree: 1.3748 | band: 0.0318
+[Pairs] Epoch 158/20000 | total: 0.5895 | voltage: 0.0114 | classify: 0.5765 | conc: 0.0002 | consistency: 0.2732 | consist_valid: 6.3768 | consist_dummy: 1.5942 | loss_i0_polarity: 0.0394 | loss_wuxing_diff: 0.0879 | rule: 22.0559 | group: 0.7226 | tree: 1.2317 | band: 0.0289
+[Pairs] Epoch 159/20000 | total: 0.6193 | voltage: 0.0102 | classify: 0.6041 | conc: 0.0002 | consistency: 0.2579 | consist_valid: 6.2536 | consist_dummy: 1.7174 | loss_i0_polarity: 0.0557 | loss_wuxing_diff: 0.0889 | rule: 26.5511 | group: 0.6266 | tree: 1.3690 | band: 0.0309
+[Pairs] Epoch 160/20000 | total: 0.7955 | voltage: 0.0124 | classify: 0.7805 | conc: 0.0002 | consistency: 0.2704 | consist_valid: 6.3623 | consist_dummy: 1.6087 | loss_i0_polarity: 0.0323 | loss_wuxing_diff: 0.0910 | rule: 26.0494 | group: 0.6691 | tree: 1.3171 | band: 0.0286
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_160.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_160.csv
+[Pairs] Epoch 161/20000 | total: 0.6545 | voltage: 0.0132 | classify: 0.6399 | conc: 0.0001 | consistency: 0.2997 | consist_valid: 6.3913 | consist_dummy: 1.5797 | loss_i0_polarity: 0.0670 | loss_wuxing_diff: 0.1039 | rule: 24.9829 | group: 0.7105 | tree: 1.3604 | band: 0.0284
+[Pairs] Epoch 162/20000 | total: 0.6286 | voltage: 0.0120 | classify: 0.6135 | conc: 0.0002 | consistency: 0.2930 | consist_valid: 6.3551 | consist_dummy: 1.6159 | loss_i0_polarity: 0.0708 | loss_wuxing_diff: 0.1078 | rule: 26.0244 | group: 0.6880 | tree: 1.4175 | band: 0.0302
+[Pairs] Epoch 163/20000 | total: 0.6689 | voltage: 0.0127 | classify: 0.6561 | conc: 0.0002 | consistency: 0.2835 | consist_valid: 6.4638 | consist_dummy: 1.5072 | loss_i0_polarity: 0.0550 | loss_wuxing_diff: 0.0942 | rule: 21.4085 | group: 0.7384 | tree: 1.3490 | band: 0.0302
+[Pairs] Epoch 164/20000 | total: 0.5812 | voltage: 0.0106 | classify: 0.5668 | conc: 0.0001 | consistency: 0.2573 | consist_valid: 6.3043 | consist_dummy: 1.6667 | loss_i0_polarity: 0.0382 | loss_wuxing_diff: 0.0951 | rule: 25.1056 | group: 0.6898 | tree: 1.3074 | band: 0.0289
+[Pairs] Epoch 165/20000 | total: 0.6074 | voltage: 0.0114 | classify: 0.5914 | conc: 0.0001 | consistency: 0.2701 | consist_valid: 6.3116 | consist_dummy: 1.6594 | loss_i0_polarity: 0.0391 | loss_wuxing_diff: 0.0968 | rule: 28.0579 | group: 0.6611 | tree: 1.3827 | band: 0.0288
+[Pairs] Epoch 166/20000 | total: 0.6190 | voltage: 0.0121 | classify: 0.6027 | conc: 0.0002 | consistency: 0.2604 | consist_valid: 6.1739 | consist_dummy: 1.7971 | loss_i0_polarity: 0.0418 | loss_wuxing_diff: 0.0795 | rule: 28.5301 | group: 0.7221 | tree: 1.3297 | band: 0.0314
+[Pairs] Epoch 167/20000 | total: 0.6558 | voltage: 0.0137 | classify: 0.6359 | conc: 0.0002 | consistency: 0.2736 | consist_valid: 6.3188 | consist_dummy: 1.6522 | loss_i0_polarity: 0.0380 | loss_wuxing_diff: 0.0781 | rule: 35.6182 | group: 0.7478 | tree: 1.2829 | band: 0.0310
+[Pairs] Epoch 168/20000 | total: 0.6007 | voltage: 0.0117 | classify: 0.5896 | conc: 0.0002 | consistency: 0.2694 | consist_valid: 6.3623 | consist_dummy: 1.6087 | loss_i0_polarity: 0.0422 | loss_wuxing_diff: 0.0900 | rule: 18.1599 | group: 0.6264 | tree: 1.3540 | band: 0.0296
+[Pairs] Epoch 169/20000 | total: 0.7016 | voltage: 0.0105 | classify: 0.6855 | conc: 0.0001 | consistency: 0.2419 | consist_valid: 6.3188 | consist_dummy: 1.6522 | loss_i0_polarity: 0.0466 | loss_wuxing_diff: 0.0895 | rule: 28.2427 | group: 0.7315 | tree: 1.4281 | band: 0.0308
+[Pairs] Epoch 170/20000 | total: 0.8549 | voltage: 0.0128 | classify: 0.8408 | conc: 0.0002 | consistency: 0.2640 | consist_valid: 6.3551 | consist_dummy: 1.6159 | loss_i0_polarity: 0.0412 | loss_wuxing_diff: 0.0944 | rule: 24.0014 | group: 0.6851 | tree: 1.3177 | band: 0.0295
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_170.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_170.csv
+[Pairs] Epoch 171/20000 | total: 0.7546 | voltage: 0.0128 | classify: 0.7398 | conc: 0.0001 | consistency: 0.2686 | consist_valid: 6.2826 | consist_dummy: 1.6884 | loss_i0_polarity: 0.0734 | loss_wuxing_diff: 0.0834 | rule: 25.6275 | group: 0.6734 | tree: 1.2381 | band: 0.0298
+[Pairs] Epoch 172/20000 | total: 0.6607 | voltage: 0.0110 | classify: 0.6400 | conc: 0.0001 | consistency: 0.2637 | consist_valid: 6.4928 | consist_dummy: 1.4783 | loss_i0_polarity: 0.0671 | loss_wuxing_diff: 0.0874 | rule: 37.4599 | group: 0.7137 | tree: 1.3475 | band: 0.0296
+[Pairs] Epoch 173/20000 | total: 0.6251 | voltage: 0.0120 | classify: 0.6110 | conc: 0.0001 | consistency: 0.2494 | consist_valid: 6.2826 | consist_dummy: 1.6884 | loss_i0_polarity: 0.0434 | loss_wuxing_diff: 0.0790 | rule: 24.2730 | group: 0.6792 | tree: 1.3060 | band: 0.0302
+[Pairs] Epoch 174/20000 | total: 0.6372 | voltage: 0.0126 | classify: 0.6190 | conc: 0.0002 | consistency: 0.2703 | consist_valid: 6.3986 | consist_dummy: 1.5725 | loss_i0_polarity: 0.0385 | loss_wuxing_diff: 0.0975 | rule: 32.1503 | group: 0.7209 | tree: 1.2667 | band: 0.0311
+[Pairs] Epoch 175/20000 | total: 0.5960 | voltage: 0.0122 | classify: 0.5810 | conc: 0.0002 | consistency: 0.2474 | consist_valid: 6.4783 | consist_dummy: 1.4928 | loss_i0_polarity: 0.0379 | loss_wuxing_diff: 0.0731 | rule: 26.0039 | group: 0.6773 | tree: 1.2748 | band: 0.0295
+[Pairs] Epoch 176/20000 | total: 0.6477 | voltage: 0.0119 | classify: 0.6316 | conc: 0.0001 | consistency: 0.2626 | consist_valid: 6.1594 | consist_dummy: 1.8116 | loss_i0_polarity: 0.0473 | loss_wuxing_diff: 0.0897 | rule: 28.1445 | group: 0.7241 | tree: 1.3763 | band: 0.0308
+[Pairs] Epoch 177/20000 | total: 0.6280 | voltage: 0.0127 | classify: 0.6129 | conc: 0.0002 | consistency: 0.2556 | consist_valid: 6.4638 | consist_dummy: 1.5072 | loss_i0_polarity: 0.0477 | loss_wuxing_diff: 0.0883 | rule: 26.0105 | group: 0.6719 | tree: 1.2637 | band: 0.0321
+[Pairs] Epoch 178/20000 | total: 0.6338 | voltage: 0.0113 | classify: 0.6155 | conc: 0.0002 | consistency: 0.2617 | consist_valid: 6.2246 | consist_dummy: 1.7464 | loss_i0_polarity: 0.0376 | loss_wuxing_diff: 0.0836 | rule: 32.7275 | group: 0.7236 | tree: 1.2531 | band: 0.0306
+[Pairs] Epoch 179/20000 | total: 0.5776 | voltage: 0.0134 | classify: 0.5649 | conc: 0.0001 | consistency: 0.2789 | consist_valid: 6.4348 | consist_dummy: 1.5362 | loss_i0_polarity: 0.0366 | loss_wuxing_diff: 0.0933 | rule: 21.3502 | group: 0.6787 | tree: 1.3124 | band: 0.0301
+[Pairs] Epoch 180/20000 | total: 0.6236 | voltage: 0.0103 | classify: 0.6076 | conc: 0.0002 | consistency: 0.2576 | consist_valid: 6.2899 | consist_dummy: 1.6812 | loss_i0_polarity: 0.0434 | loss_wuxing_diff: 0.0713 | rule: 28.1255 | group: 0.6056 | tree: 1.3286 | band: 0.0315
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_180.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_180.csv
+[Pairs] Epoch 181/20000 | total: 0.6162 | voltage: 0.0110 | classify: 0.6023 | conc: 0.0001 | consistency: 0.2486 | consist_valid: 6.2754 | consist_dummy: 1.6957 | loss_i0_polarity: 0.0352 | loss_wuxing_diff: 0.0815 | rule: 24.0663 | group: 0.6061 | tree: 1.2818 | band: 0.0303
+[Pairs] Epoch 182/20000 | total: 0.6434 | voltage: 0.0118 | classify: 0.6289 | conc: 0.0001 | consistency: 0.2713 | consist_valid: 6.3478 | consist_dummy: 1.6232 | loss_i0_polarity: 0.0355 | loss_wuxing_diff: 0.1020 | rule: 25.1427 | group: 0.7155 | tree: 1.2489 | band: 0.0309
+[Pairs] Epoch 183/20000 | total: 0.7708 | voltage: 0.0115 | classify: 0.7538 | conc: 0.0001 | consistency: 0.2604 | consist_valid: 6.3188 | consist_dummy: 1.6522 | loss_i0_polarity: 0.0547 | loss_wuxing_diff: 0.0808 | rule: 30.1068 | group: 0.6541 | tree: 1.4215 | band: 0.0310
+[Pairs] Epoch 184/20000 | total: 0.5863 | voltage: 0.0109 | classify: 0.5732 | conc: 0.0001 | consistency: 0.2477 | consist_valid: 6.4058 | consist_dummy: 1.5652 | loss_i0_polarity: 0.0428 | loss_wuxing_diff: 0.0826 | rule: 22.3697 | group: 0.7268 | tree: 1.3833 | band: 0.0311
+[Pairs] Epoch 185/20000 | total: 0.6010 | voltage: 0.0115 | classify: 0.5836 | conc: 0.0001 | consistency: 0.2560 | consist_valid: 6.3841 | consist_dummy: 1.5870 | loss_i0_polarity: 0.0301 | loss_wuxing_diff: 0.0872 | rule: 30.9949 | group: 0.6915 | tree: 1.3348 | band: 0.0308
+[Pairs] Epoch 186/20000 | total: 0.6295 | voltage: 0.0142 | classify: 0.6132 | conc: 0.0002 | consistency: 0.2510 | consist_valid: 6.3551 | consist_dummy: 1.6159 | loss_i0_polarity: 0.0309 | loss_wuxing_diff: 0.0904 | rule: 28.4820 | group: 0.7353 | tree: 1.3010 | band: 0.0308
+[Pairs] Epoch 187/20000 | total: 0.6477 | voltage: 0.0114 | classify: 0.6289 | conc: 0.0002 | consistency: 0.2478 | consist_valid: 6.1594 | consist_dummy: 1.8116 | loss_i0_polarity: 0.0237 | loss_wuxing_diff: 0.0693 | rule: 33.5328 | group: 0.7511 | tree: 1.3401 | band: 0.0318
+[Pairs] Epoch 188/20000 | total: 0.6111 | voltage: 0.0113 | classify: 0.5984 | conc: 0.0001 | consistency: 0.2397 | consist_valid: 6.3841 | consist_dummy: 1.5870 | loss_i0_polarity: 0.0292 | loss_wuxing_diff: 0.0745 | rule: 21.6898 | group: 0.6968 | tree: 1.3080 | band: 0.0296
+[Pairs] Epoch 189/20000 | total: 0.6007 | voltage: 0.0115 | classify: 0.5854 | conc: 0.0002 | consistency: 0.2604 | consist_valid: 6.1812 | consist_dummy: 1.7899 | loss_i0_polarity: 0.0419 | loss_wuxing_diff: 0.0854 | rule: 26.6228 | group: 0.6767 | tree: 1.2553 | band: 0.0312
+[Pairs] Epoch 190/20000 | total: 0.6028 | voltage: 0.0118 | classify: 0.5860 | conc: 0.0002 | consistency: 0.2583 | consist_valid: 6.2754 | consist_dummy: 1.6957 | loss_i0_polarity: 0.0422 | loss_wuxing_diff: 0.0726 | rule: 29.7188 | group: 0.6775 | tree: 1.2471 | band: 0.0321
+✅ 模型已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/trained_model_epoch_190.pth
+📁 损失值已保存到 /home/cagalii/Application/ion_detect/output/trained_model_save/20260307a/training_loss_epoch_190.csv
+[Pairs] Epoch 191/20000 | total: 0.5757 | voltage: 0.0105 | classify: 0.5641 | conc: 0.0001 | consistency: 0.2316 | consist_valid: 6.2826 | consist_dummy: 1.6884 | loss_i0_polarity: 0.0333 | loss_wuxing_diff: 0.0712 | rule: 19.5190 | group: 0.6888 | tree: 1.1823 | band: 0.0305
+[Pairs] Epoch 192/20000 | total: 0.5630 | voltage: 0.0124 | classify: 0.5521 | conc: 0.0001 | consistency: 0.2436 | consist_valid: 6.3623 | consist_dummy: 1.6087 | loss_i0_polarity: 0.0422 | loss_wuxing_diff: 0.0792 | rule: 17.8294 | group: 0.7403 | tree: 1.2644 | band: 0.0304
+[Pairs] Epoch 193/20000 | total: 0.5834 | voltage: 0.0101 | classify: 0.5690 | conc: 0.0002 | consistency: 0.2496 | consist_valid: 6.2754 | consist_dummy: 1.6957 | loss_i0_polarity: 0.0316 | loss_wuxing_diff: 0.0778 | rule: 25.0248 | group: 0.6972 | tree: 1.2863 | band: 0.0316
+[Pairs] Epoch 194/20000 | total: 0.5797 | voltage: 0.0120 | classify: 0.5671 | conc: 0.0001 | consistency: 0.2533 | consist_valid: 6.3116 | consist_dummy: 1.6594 | loss_i0_polarity: 0.0328 | loss_wuxing_diff: 0.0874 | rule: 21.4520 | group: 0.6701 | tree: 1.1963 | band: 0.0303
+[Pairs] Epoch 195/20000 | total: 0.6615 | voltage: 0.0115 | classify: 0.6455 | conc: 0.0002 | consistency: 0.2468 | consist_valid: 6.4565 | consist_dummy: 1.5145 | loss_i0_polarity: 0.0307 | loss_wuxing_diff: 0.0702 | rule: 27.9846 | group: 0.6937 | tree: 1.2993 | band: 0.0312
+[Pairs] Epoch 196/20000 | total: 0.5883 | voltage: 0.0123 | classify: 0.5746 | conc: 0.0001 | consistency: 0.2500 | consist_valid: 6.3188 | consist_dummy: 1.6522 | loss_i0_polarity: 0.0302 | loss_wuxing_diff: 0.0803 | rule: 23.5307 | group: 0.6637 | tree: 1.2517 | band: 0.0319
+[Pairs] Epoch 197/20000 | total: 0.6106 | voltage: 0.0134 | classify: 0.5988 | conc: 0.0002 | consistency: 0.2527 | consist_valid: 6.3841 | consist_dummy: 1.5870 | loss_i0_polarity: 0.0385 | loss_wuxing_diff: 0.0786 | rule: 19.6331 | group: 0.6552 | tree: 1.1769 | band: 0.0305

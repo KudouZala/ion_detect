@@ -5,10 +5,14 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import torch.nn.functional as F
 from torch.utils.tensorboard import SummaryWriter
-#
 import yaml
 from pathlib import Path
-import torch
+import numpy as np
+try:
+    from sklearn.metrics import accuracy_score, precision_recall_fscore_support
+except ImportError:
+    accuracy_score = None
+    precision_recall_fscore_support = None
 class BaseTrainer:
     def __init__(self, model, optimizer, device, model_save_folder, scheduler=None, save_every=100):
         self.model = model.to(device)
@@ -953,6 +957,36 @@ class Trainer_ThreeSystem_plus(BaseTrainer):
         return total, log_dict
 
     # =========================================================================
+    # Validation on val_loader (classification metrics)
+    # =========================================================================
+    def _eval_val_loader(self, val_loader, num_classes: int = 7):
+        """在 val_loader 上跑一遍，收集预测与真实标签，返回 (acc, prec, rec, f1)。"""
+        if accuracy_score is None or precision_recall_fscore_support is None:
+            return None
+        self.model.eval()
+        all_pred, all_true = [], []
+        with torch.no_grad():
+            for batchA, batchB, _ in val_loader:
+                batchB = [b.to(self.device) if hasattr(b, "to") and callable(b.to) else b for b in batchB]
+                out = self.model(
+                    batchB[0], batchB[1], batchB[2],
+                    batchB[5], batchB[6],
+                )
+                probB = out[0]
+                pred = probB.argmax(dim=1).cpu().numpy()
+                label = batchB[3].cpu().numpy()
+                all_pred.append(pred)
+                all_true.append(label)
+        self.model.train()
+        y_pred = np.concatenate(all_pred, axis=0)
+        y_true = np.concatenate(all_true, axis=0)
+        acc = accuracy_score(y_true, y_pred)
+        prec, rec, f1, _ = precision_recall_fscore_support(
+            y_true, y_pred, labels=range(num_classes), average="macro", zero_division=0
+        )
+        return acc, prec, rec, f1
+
+    # =========================================================================
     # Training loop for pair-wise data (A, B)
     # =========================================================================
     def train_pairs(
@@ -964,8 +998,10 @@ class Trainer_ThreeSystem_plus(BaseTrainer):
         use_log_space: bool = True,
         lambda_monodec: float = 0.2,
         lambda_polarity: float = 0.5,
-        weight_ratio=5
-        
+        weight_ratio=5,
+        val_loader=None,
+        eval_every: int = 100,
+        num_classes: int = 7,
     ) -> None:
         """
         Training loop using pair-wise data (batchA, batchB, dummy_mask).
@@ -981,6 +1017,12 @@ class Trainer_ThreeSystem_plus(BaseTrainer):
             Number of epochs for pair-wise training.
         lambda_consistency, eps, use_log_space, lambda_monodec, lambda_polarity :
             Passed directly to `compute_loss_pairs`.
+        val_loader : optional
+            If given, every eval_every epochs run validation and print Accuracy/Precision/Recall/F1.
+        eval_every : int
+            Print validation metrics every this many epochs.
+        num_classes : int
+            For macro precision/recall/F1.
         """
         for epoch in range(num_epochs):
             self.model.train()
@@ -1034,6 +1076,17 @@ class Trainer_ThreeSystem_plus(BaseTrainer):
             # Console print
             msg = " | ".join([f"{k}: {v:.4f}" for k, v in avg.items()])
             print(f"[Pairs] Epoch {epoch + 1}/{num_epochs} | {msg}")
+
+            # Periodic validation metrics (Accuracy / Precision / Recall / F1)
+            if val_loader is not None and eval_every > 0 and (epoch + 1) % eval_every == 0:
+                metrics = self._eval_val_loader(val_loader, num_classes=num_classes)
+                if metrics is not None:
+                    acc, prec, rec, f1 = metrics
+                    print(f"--- SWC-PSWM 验证集 [epoch {epoch + 1}] ---")
+                    print(f"  准确率 (Accuracy):  {acc:.4f}")
+                    print(f"  精确率 (Precision): {prec:.4f}")
+                    print(f"  召回率 (Recall):    {rec:.4f}")
+                    print(f"  F1 分数 (F1):       {f1:.4f}")
 
             # Periodic checkpoint saving
             if (epoch + 1) % self.save_every == 0:

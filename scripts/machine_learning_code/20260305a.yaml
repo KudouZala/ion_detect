@@ -9,11 +9,11 @@ experiment:
 
 data:
   num_freq_points: 63
-  num_time_points: 2
+  num_time_points: 4
 
 train:
   batch_size: 8
-  num_epochs: 2000
+  num_epochs: 20000
   learning_rate: 1e-4
   weight_decay: 1e-4
 

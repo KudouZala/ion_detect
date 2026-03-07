@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-LSTM 基线：使用 model_datasets.Dataset_2_Stable_plus 的数据（与 main.py 相同的数据与划分），
-将电压+阻抗按时序输入 LSTM 编码，再经分类头得到类别。编码后的分类方式可在下方 LSTM 模型中修改。
+Transformer 基线（仅 self-attention，无 cross-attention）：使用 model_datasets.Dataset_2_Stable_plus 的数据
+（与 main.py 相同的数据与划分），将电压+阻抗按时序输入，经线性投影 + 位置编码 + Transformer 编码器（纯 self-attn）
+得到序列表示，再池化后分类，输出准确率、精确率、召回率、F1。
 
 训练集/测试集：由 --config 指定的 YAML 中 paths.data_folder 与 paths.test_folder 决定（与 main.py 一致）。
 当 test_folder 为 datasets_for_all_test 时：从 data_folder 中按规则选出若干样本【复制】到
@@ -29,27 +30,37 @@ def sample_to_sequence(volt, impe):
     return np.concatenate([v, i], axis=1).astype(np.float32)
 
 
-class LSTMForClassification(nn.Module):
+class TransformerForClassification(nn.Module):
     """
-    LSTM 编码 + 分类头。
-    编码后的表示如何用于分类可在此修改（例如改为 attention pooling、多加几层 MLP 等）。
+    仅 self-attention 的 Transformer 编码器 + 分类头，无 cross-attention。
+    输入 (B, T, D) -> 投影到 d_model -> 位置编码 -> TransformerEncoder -> 时间维 mean -> 线性 -> num_classes。
     """
-    def __init__(self, input_dim, hidden_size=64, num_layers=1, num_classes=7, dropout=0.2):
+    def __init__(self, input_dim, d_model=64, nhead=4, num_layers=2, num_classes=7, dropout=0.2, max_len=32):
         super().__init__()
-        self.lstm = nn.LSTM(
-            input_dim,
-            hidden_size,
-            num_layers=num_layers,
+        self.d_model = d_model
+        self.proj = nn.Linear(input_dim, d_model)
+        self.pos_embed = nn.Parameter(torch.randn(1, max_len, d_model) * 0.02)
+        encoder_layer = nn.TransformerEncoderLayer(
+            d_model=d_model,
+            nhead=nhead,
+            dim_feedforward=d_model * 4,
+            dropout=dropout,
+            activation="relu",
             batch_first=True,
-            dropout=dropout if num_layers > 1 else 0,
+            norm_first=False,
         )
+        self.transformer = nn.TransformerEncoder(encoder_layer, num_layers=num_layers)
         self.drop = nn.Dropout(dropout)
-        self.fc = nn.Linear(hidden_size, num_classes)
+        self.fc = nn.Linear(d_model, num_classes)
 
     def forward(self, x):
-        _, (h_n, _) = self.lstm(x)
-        last_h = h_n[-1]
-        return self.fc(self.drop(last_h))
+        # x: (B, T, D)
+        B, T, _ = x.shape
+        x = self.proj(x)
+        x = x + self.pos_embed[:, :T, :]
+        x = self.transformer(x)
+        x = x.mean(dim=1)
+        return self.fc(self.drop(x))
 
 
 class SeqDataset(torch.utils.data.Dataset):
@@ -69,14 +80,14 @@ class SeqDataset(torch.utils.data.Dataset):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="LSTM 基线（使用 model_datasets 数据）")
+    parser = argparse.ArgumentParser(description="Transformer 基线（仅 self-attn，使用 model_datasets 数据）")
     parser.add_argument("--config", type=str, required=True, help="与 main.py 相同的 YAML 配置路径（训练/测试集由其中 paths 指定）")
     parser.add_argument("--epochs", type=int, default=100, help="训练轮数")
-    parser.add_argument("--eval_every", type=int, default=100, help="每 N 个 epoch 在测试集上评估并打印一次准确率/精确率/召回率/F1")
     parser.add_argument("--batch_size", type=int, default=32, help="batch size")
     parser.add_argument("--lr", type=float, default=1e-3, help="学习率")
-    parser.add_argument("--hidden", type=int, default=64, help="LSTM hidden size")
-    parser.add_argument("--layers", type=int, default=1, help="LSTM 层数")
+    parser.add_argument("--d_model", type=int, default=64, help="Transformer 隐藏维度")
+    parser.add_argument("--nhead", type=int, default=4, help="attention 头数")
+    parser.add_argument("--num_layers", type=int, default=2, help="Transformer 编码器层数")
     parser.add_argument("--out_csv", type=str, default="", help="可选：详细测试结果保存的 CSV 路径（列：样本名, 真实, 预测, 正确）")
     args = parser.parse_args()
 
@@ -87,8 +98,6 @@ def main():
     d = cfg["data"]
     num_t, num_f = int(d["num_time_points"]), int(d.get("num_freq_points", 63))
     seed = int(cfg["experiment"].get("seed", 42))
-    # 与 main.py 一致：test_folder=datasets_for_all_test 时，将选中样本【复制】到
-    # datasets_for_all_test/<exp_name>/，不删除 data_folder 中的原文件；训练时用 exclude_fnames 排除这些文件名。
     prepare_test_folder(paths, label_mapping, num_t, num_f, seed)
 
     test_fnames = {p.name for p in Path(paths["test_folder_path"]).glob("*.xlsx")}
@@ -124,16 +133,17 @@ def main():
     train_loader = DataLoader(seq_train, batch_size=args.batch_size, shuffle=True, num_workers=0)
     val_loader = DataLoader(seq_val, batch_size=args.batch_size, shuffle=False)
 
-    model = LSTMForClassification(
+    model = TransformerForClassification(
         input_dim=input_dim,
-        hidden_size=args.hidden,
-        num_layers=args.layers,
+        d_model=args.d_model,
+        nhead=args.nhead,
+        num_layers=args.num_layers,
         num_classes=num_classes,
         dropout=0.2,
+        max_len=32,
     ).to(device)
     opt = torch.optim.Adam(model.parameters(), lr=args.lr)
     criterion = nn.CrossEntropyLoss()
-    eval_every = max(1, int(args.eval_every))
 
     for ep in range(args.epochs):
         model.train()
@@ -144,27 +154,6 @@ def main():
             loss = criterion(logits, lab)
             loss.backward()
             opt.step()
-
-        if (ep + 1) % eval_every == 0:
-            model.eval()
-            all_p, all_t = [], []
-            with torch.no_grad():
-                for seq, lab in val_loader:
-                    logits = model(seq.to(device))
-                    pred = logits.argmax(dim=1).cpu().numpy()
-                    all_p.extend(pred)
-                    all_t.extend(lab.numpy().tolist())
-            y_p = np.array(all_p)
-            y_t = np.array(all_t)
-            acc = accuracy_score(y_t, y_p)
-            prec, rec, f1, _ = precision_recall_fscore_support(
-                y_t, y_p, labels=range(num_classes), average="macro", zero_division=0
-            )
-            print(f"\n--- LSTM 基线 (EIS+电压 时序) [epoch {ep + 1}] ---")
-            print(f"  准确率 (Accuracy):  {acc:.4f}")
-            print(f"  精确率 (Precision): {prec:.4f}")
-            print(f"  召回率 (Recall):    {rec:.4f}")
-            print(f"  F1 分数 (F1):       {f1:.4f}")
 
     model.eval()
     all_pred, all_true = [], []
@@ -195,7 +184,7 @@ def main():
     prec, rec, f1, _ = precision_recall_fscore_support(
         y_val, y_pred, labels=range(num_classes), average="macro", zero_division=0
     )
-    print("\n--- LSTM 基线 (EIS+电压 时序) ---")
+    print("\n--- Transformer 基线 (仅 self-attn, EIS+电压 时序) ---")
     print(f"  准确率 (Accuracy):  {acc:.4f}")
     print(f"  精确率 (Precision): {prec:.4f}")
     print(f"  召回率 (Recall):    {rec:.4f}")
