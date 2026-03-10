@@ -44,3 +44,16 @@ scripts/save_three_system
 /logs/**
 scripts/machine_learning_code/logs/*
 
+# Python cache / bytecode
+**/__pycache__/
+*.pyc
+*.pyo
+
+# Root runtime artifacts
+/*.log
+/exp_new_*.log
+/run_all.log
+/test.log
+/exp_new_.zip
+/exp_new_/
+

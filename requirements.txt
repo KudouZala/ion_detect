@@ -1,5 +1,5 @@
 openpyxl
-scikit-learn   # 基线比较脚本 run_baselines.py 需要（SVM、随机森林）
+scikit-learn   # 传统机器学习基线（SVM、随机森林）依赖
 # captum
 json5
 plotly

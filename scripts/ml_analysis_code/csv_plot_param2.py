@@ -64,12 +64,7 @@ ION_ORDER = ["Ca", "Na", "Ni","Cr","Fe","Cu"]
 
 INIT_PARAM_KEYS = ["sigma_mem", "alpha_ca", "alpha_an", "i_0ca", "i_0an"]
 
-WINDOW_PATTERNS = {
-    0: re.compile(r"\[\s*0\s*,\s*2\s*,\s*4\s*,\s*6\s*\]"),
-    2: re.compile(r"\[\s*2\s*,\s*4\s*,\s*6\s*,\s*8\s*\]"),
-    4: re.compile(r"\[\s*4\s*,\s*6\s*,\s*8\s*,\s*10\s*\]"),
-    6: re.compile(r"\[\s*6\s*,\s*8\s*,\s*10\s*,\s*12\s*\]"),
-}
+_window_regex = re.compile(r"\[\s*(\d+(?:\s*,\s*\d+)*)\s*\]")
 
 def parse_args():
     ap = argparse.ArgumentParser(description="Aggregate initial-parameter time series (0–6h) per ion and plot, with correct delta averaging.")
@@ -126,11 +121,20 @@ def extract_params_from_df(df: pd.DataFrame, keys: list[str]) -> dict[str, list[
                             res[p].append(v)
     return res
 
+def parse_time_window(name: str) -> list[int] | None:
+    m = _window_regex.search(name)
+    if not m:
+        return None
+    try:
+        return [int(x.strip()) for x in m.group(1).split(",")]
+    except Exception:
+        return None
+
 def match_time_bucket(name: str) -> int | None:
-    for t, pat in WINDOW_PATTERNS.items():
-        if pat.search(name):
-            return t
-    return None
+    times = parse_time_window(name)
+    if not times:
+        return None
+    return times[0]
 
 def detect_ion(name: str) -> str | None:
     if "ion_column" in name:
@@ -140,14 +144,55 @@ def detect_ion(name: str) -> str | None:
             return abbr
     return None
 
-# For pairing 0h and 6h belonging to the same sample
-_strip_window_regex = re.compile(
-    r"\[\s*0\s*,\s*2\s*,\s*4\s*,\s*6\s*\]|\[\s*2\s*,\s*4\s*,\s*6\s*,\s*8\s*\]|\[\s*4\s*,\s*6\s*,\s*8\s*,\s*10\s*\]|\[\s*6\s*,\s*8\s*,\s*10\s*,\s*12\s*\]"
-)
+# For pairing different windows belonging to the same sample
+_strip_window_regex = re.compile(r"\[\s*\d+(?:\s*,\s*\d+)*\s*\]")
 def base_key_from_filename(name: str) -> str:
     s = _strip_window_regex.sub("", name)
     s = s.replace("__", "_")
     return s
+
+def infer_num_time_points_from_outputs(target_dir: Path) -> int | None:
+    attn_files = sorted(target_dir.glob("*_attn_pred*.csv"))
+    for f in attn_files:
+        try:
+            sample = pd.read_csv(f, header=None)
+            token_count = sample.shape[1] if sample.shape[0] == 1 else sample.shape[0]
+            for freq_points in (64, 63):
+                for t in (8, 7, 6, 5, 4, 3, 2, 1):
+                    if token_count == t * (freq_points + 1) + 1:
+                        return t
+        except Exception:
+            continue
+    return None
+
+def infer_step_hours(files: list[Path]) -> float:
+    diffs = []
+    for f in files:
+        window = parse_time_window(f.name)
+        if not window or len(window) < 2:
+            continue
+        for i in range(len(window) - 1):
+            d = window[i + 1] - window[i]
+            if d > 0:
+                diffs.append(float(d))
+    if not diffs:
+        return 2.0
+    return min(diffs)
+
+def format_time_hours(t: float) -> str:
+    if abs(t - int(t)) < 1e-9:
+        return str(int(t))
+    return f"{t:.2f}".rstrip("0").rstrip(".")
+
+def aligned_bucket_time(name: str, num_time_points: int, step_h: float) -> float | None:
+    """
+    将文件名窗口对齐到模型实际输入时间轴：
+    bucket = window_last - (num_time_points - 1) * step_h
+    """
+    window = parse_time_window(name)
+    if not window:
+        return None
+    return float(window[-1]) - float(num_time_points - 1) * step_h
 
 def main():
     # 解析命令行参数
@@ -160,7 +205,7 @@ def main():
         print("[WARN] no *_phys_params_structured.csv found.")
         sys.exit(0)
 
-    # 初始化时间序列聚合器（用于 t=0, 2, 4, 6）
+    # 初始化时间序列聚合器（固定 t=0/2/4/6）
     agg_ts = {abbr: {t: {k: [] for k in INIT_PARAM_KEYS} for t in [0, 2, 4, 6]}
               for abbr in ION_ORDER}
 
@@ -192,7 +237,7 @@ def main():
                 pairs[ion][bk] = {}
             pairs[ion][bk][t] = {k: list(vals.get(k, [])) for k in INIT_PARAM_KEYS}
 
-    # 创建时间序列 DataFrame (timeseries_df)
+    # 创建时间序列 DataFrame (固定 t=0/2/4/6)
     cols = [f"{k}@t{t}h" for k in INIT_PARAM_KEYS for t in [0, 2, 4, 6]]
     rows = []
     for ion in ION_ORDER:
@@ -236,18 +281,19 @@ def main():
         print(f"[OK] saved: {out_png}")
         plt.close()
 
-    # 计算 Δ(6h-0h) 的差值并聚合
+    # 计算 Δ(6h-0h) 的差值并聚合（固定语义）
+    t_start, t_end = 0, 6
     delta_pool = {ion: {k: [] for k in INIT_PARAM_KEYS} for ion in ION_ORDER}
     for ion in ION_ORDER:
         for bk, d in pairs[ion].items():
-            if 0 in d and 6 in d:
+            if t_start in d and t_end in d:
                 for k in INIT_PARAM_KEYS:
-                    lst0 = list(d[0].get(k, []))
-                    lst6 = list(d[6].get(k, []))
-                    if not lst0 or not lst6:
+                    lst_start = list(d[t_start].get(k, []))
+                    lst_end = list(d[t_end].get(k, []))
+                    if not lst_start or not lst_end:
                         continue
-                    n = min(len(lst0), len(lst6))
-                    diffs = [float(lst6[i]) - float(lst0[i]) for i in range(n)]
+                    n = min(len(lst_start), len(lst_end))
+                    diffs = [float(lst_end[i]) - float(lst_start[i]) for i in range(n)]
                     delta_pool[ion][k].extend(diffs)
 
     # 创建 delta DataFrame
@@ -282,7 +328,7 @@ def main():
         ax.set_xticklabels(ions)
         
         # 使用 LaTeX 表示罗马字母作为标题
-        ax.set_title(f"$\Delta(6h–0h)$ — {INIT_PARAM_KEYS_LATEX[i]}")
+        ax.set_title(f"$\\Delta(6h-0h)$ — {INIT_PARAM_KEYS_LATEX[i]}")
         ax.set_ylabel("Delta")
         ax.grid(True, axis="y", linestyle="--", alpha=0.4)
 
@@ -291,7 +337,7 @@ def main():
         for j in range(len(INIT_PARAM_KEYS), len(axes)):
             axes[j].axis("off")
 
-    fig.suptitle(f"{args.load_run} | 0h→6h delta: per-parameter $\Delta(6h–0h)$ (per-sample diff then mean)")
+    fig.suptitle(f"{args.load_run} | 0h→6h delta: per-parameter $\\Delta(6h-0h)$ (per-sample diff then mean)")
     fig.tight_layout(rect=[0, 0.02, 1, 0.96])
     out_delta_png = target_dir / f"{args.load_run}_delta_0h_6h.png"
     fig.savefig(out_delta_png, dpi=220)

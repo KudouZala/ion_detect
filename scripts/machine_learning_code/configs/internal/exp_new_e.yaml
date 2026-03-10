@@ -1,0 +1,108 @@
+# ============================================================
+# 消融实验 E：物理分支 + Cross Attention + CLIP（完整主干）
+# ============================================================
+# 目的：测试完整的"初始状态标定 + 时序影响因子融合"主干结构
+#       与 exp_new_d（有物理但无 cross_attn）对比 cross_attn 的贡献
+#       与 exp_new_c（CLIP 但无物理）对比物理分支的贡献
+#
+# 与 exp_new_a 的区别：
+#   use_physics:    false   → true
+#   use_cross_attn: false   → true
+#   classify_mode:  "linear"→ "clip"
+#   alpha:          0.0     → 0.05
+#
+# 完整数据流：
+#   Z_encoder: [env, ep, CLS] → CLS_feat
+#   主 Transformer: [volt, impe, CLS_feat] → cls_output（全时间点）
+#
+#   物理分支：
+#     param_transformer([第1时间点]) → param_raw（初始状态标定, Q）
+#     influence_mlp(cls_output)     → physic_raw（全时间点影响因子, KV）
+#
+#   Cross Attention: cross_attn(Q=param_raw, KV=physic_raw) → cross_pooled
+#   分类：cross_pooled → CLIP 对齐 → 7 类
+#
+# 预期：
+#   - 这是旧模型 Model_three_system_plus 的"核心路径"的简化复现
+#   - 如果 E > D：cross_attn 融合有价值
+#   - 如果 E > C：物理分支 + cross_attn 比单独 CLIP 好
+#
+# 运行命令：
+#   python scripts/machine_learning_code/main.py \
+#     --config scripts/machine_learning_code/exp_new_e.yaml --train
+
+experiment:
+  name: "exp_new_e"
+  seed: 42
+
+data:
+  num_freq_points: 63
+  num_time_points: 3
+
+train:
+  batch_size: 8
+  num_epochs: 1000
+  learning_rate: 1e-4
+  weight_decay: 1e-3
+  eval_every: 10
+
+  sampler:
+    base_weight: 1.0
+    rapid_weight: 3.0
+
+  trainer:
+    beta: 1.0
+    alpha: 0.05               # ← 电压重建损失
+    gamma: 0.0
+    lambda_rule: 0.0
+    lambda_group: 0.0
+    lambda_tree: 0.0
+    lambda_band: 0.0
+    save_every: 50
+    label_smoothing: 0.0
+    grad_clip: 1.0
+
+  train_pairs:
+    lambda_consistency: 0.0
+    eps: 1.0e-9
+    use_log_space: true
+    lambda_monodec: 0.0
+    lambda_polarity: 0.0
+    weight_ratio: 3.0
+
+test:
+  device_str: "cpu"
+  max_workers_factor: 0.5
+
+paths:
+  data_folder: "datasets/datasets_for_all_no_overlap"
+  test_folder: "datasets/datasets_for_all_test_no_overlap"
+  model_save_root: "output/trained_model_save"
+  stats_file: "datasets/stats_dataset.json"
+  label_mapping_json: "label_mapping.json"
+  debug_log_dir: "output/debug_logs"
+  tensorboard_root: "output/tensorboard"
+
+dataset:
+  keep_unpaired: "self"
+  debug: true
+  focus_prefix_contains: "20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_"
+  max_print: 0
+
+# ===== 新模型配置 =====
+new_model:
+  d_model: 64
+  nhead: 4
+  num_layers: 2
+  dropout: 0.1
+  num_classes: 7
+  classify_mode: "clip"       # ← CLIP 对齐分类
+  use_env: true
+  use_physics: true           # ← 物理分支
+  use_cross_attn: true        # ← Cross Attention 融合
+  use_hierarchical: false
+  use_rule: false
+  use_band_feat: false
+  use_conc: false
+  use_cosine_lr: true
+  warmup_epochs: 100

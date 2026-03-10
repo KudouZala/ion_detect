@@ -1,0 +1,97 @@
+# ============================================================
+# 消融实验 C：CLIP 对齐分类 vs Linear 分类
+# ============================================================
+# 目的：与 exp_new_a 对比，测试 CLIP 对齐（dot product with ion embeddings）
+#       是否比直接 Linear 分类头更好
+#
+# 与 exp_new_a 的唯一区别：
+#   classify_mode: "linear" → "clip"
+#
+# CLIP 模式：
+#   1. 离子属性表 (7, attr_dim) → ion_attr_embed → ion_encoder → ion_embeddings (7, d)
+#   2. cls_output → clip_proj → clip_feat (B, d)
+#   3. logits = clip_feat @ ion_embeddings.T  (B, 7)
+#
+# 预期：
+#   - CLIP 引入了离子先验知识（属性表），可能帮助小样本类别
+#   - 但也增加了参数量和间接性，可能更难训练
+#
+# 运行命令：
+#   python scripts/machine_learning_code/main.py \
+#     --config scripts/machine_learning_code/exp_new_c.yaml --train
+
+experiment:
+  name: "exp_new_c"
+  seed: 42
+
+data:
+  num_freq_points: 63
+  num_time_points: 3
+
+train:
+  batch_size: 8
+  num_epochs: 1000
+  learning_rate: 1e-4
+  weight_decay: 1e-3
+  eval_every: 10
+
+  sampler:
+    base_weight: 1.0
+    rapid_weight: 3.0
+
+  trainer:
+    beta: 1.0
+    alpha: 0.0
+    gamma: 0.0
+    lambda_rule: 0.0
+    lambda_group: 0.0
+    lambda_tree: 0.0
+    lambda_band: 0.0
+    save_every: 50
+    label_smoothing: 0.0
+    grad_clip: 1.0
+
+  train_pairs:
+    lambda_consistency: 0.0
+    eps: 1.0e-9
+    use_log_space: true
+    lambda_monodec: 0.0
+    lambda_polarity: 0.0
+    weight_ratio: 3.0
+
+test:
+  device_str: "cpu"
+  max_workers_factor: 0.5
+
+paths:
+  data_folder: "datasets/datasets_for_all_no_overlap"
+  test_folder: "datasets/datasets_for_all_test_no_overlap"
+  model_save_root: "output/trained_model_save"
+  stats_file: "datasets/stats_dataset.json"
+  label_mapping_json: "label_mapping.json"
+  debug_log_dir: "output/debug_logs"
+  tensorboard_root: "output/tensorboard"
+
+dataset:
+  keep_unpaired: "self"
+  debug: true
+  focus_prefix_contains: "20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_"
+  max_print: 0
+
+# ===== 新模型配置 =====
+new_model:
+  d_model: 64
+  nhead: 4
+  num_layers: 2
+  dropout: 0.1
+  num_classes: 7
+  classify_mode: "clip"       # ← 唯一区别：CLIP 对齐分类
+  use_env: true
+  use_physics: false
+  use_cross_attn: false
+  use_hierarchical: false
+  use_rule: false
+  use_band_feat: false
+  use_conc: false
+  use_cosine_lr: true
+  warmup_epochs: 100

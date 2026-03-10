@@ -25,6 +25,10 @@ from model_test import test_single_xlsx_and_generate_explanations_three_system_1
 from model_train import Trainer_ThreeSystem_plus
 from paired_dataset import SlidingWindowPairDataset, collate_pairs
 
+# ==== 新模块化模型 ====
+from model_new_models import IonDetectModel
+from model_new_train import TrainerNew
+
 
 # --------------------------
 # YAML load
@@ -44,9 +48,12 @@ def load_config(cfg_path: Path) -> dict:
         raise ValueError(f"配置文件内容非法（应为 dict）：{cfg_path}")
 
     # minimal sanity checks
-    for k in ["experiment", "data", "train", "test", "paths", "model", "dataset"]:
+    required = ["experiment", "data", "train", "test", "paths", "dataset"]
+    for k in required:
         if k not in cfg:
             raise KeyError(f"配置缺少字段: {k}")
+    if "model" not in cfg and "new_model" not in cfg:
+        raise KeyError("配置缺少字段: model 或 new_model（至少需要一个）")
 
     return cfg
 
@@ -75,7 +82,7 @@ def build_paths(cfg: dict) -> dict:
     model_save_folder = base_dir / paths_cfg["model_save_root"] / exp_name
     model_save_folder.mkdir(parents=True, exist_ok=True)
 
-    test_model_path = model_save_folder / "trained_model_epoch_final.pth"
+    test_model_path = model_save_folder / "trained_model_epoch_best.pth"
 
     stats_file = base_dir / paths_cfg["stats_file"]
 
@@ -90,8 +97,12 @@ def build_paths(cfg: dict) -> dict:
         p2 = base_dir / lm
         json_path = p1 if p1.exists() else p2
 
-    debug_log_dir = base_dir / paths_cfg["debug_log_dir"]
-    debug_log_dir.mkdir(parents=True, exist_ok=True)
+    debug_log_root = base_dir / paths_cfg["debug_log_dir"]
+    debug_log_root.mkdir(parents=True, exist_ok=True)
+    debug_log_dir_test = debug_log_root / "test"
+    debug_log_dir_search = debug_log_root / "search"
+    debug_log_dir_test.mkdir(parents=True, exist_ok=True)
+    debug_log_dir_search.mkdir(parents=True, exist_ok=True)
 
     tb_log_dir = base_dir / paths_cfg["tensorboard_root"] / exp_name
     tb_log_dir.mkdir(parents=True, exist_ok=True)
@@ -105,7 +116,9 @@ def build_paths(cfg: dict) -> dict:
         "test_model_path": test_model_path,
         "stats_file": stats_file,
         "json_path": json_path,
-        "debug_log_dir": debug_log_dir,
+        "debug_log_dir": debug_log_root,
+        "debug_log_dir_test": debug_log_dir_test,
+        "debug_log_dir_search": debug_log_dir_search,
         "tb_log_dir": tb_log_dir,
     }
 
@@ -196,7 +209,7 @@ def _parse_no_overlap_key(fname: str):
 def _prepare_no_overlap_split(paths: dict, num_time_points: int, num_freq_points: int, seed: int) -> bool:
     """
     当 data_folder 为 datasets_for_all_no_overlap 且 test_folder 为 datasets_for_all_test_no_overlap 时：
-    从 datasets/datasets_for_all 中选出 50 个做测试集（其中含 ion_column 的样本最多占 3/10），
+    从 datasets/datasets_for_all 中随机选出 150 个做测试集，
     训练集为其余样本，且排除：与某测试样本前缀相同且 [] 中含该测试样本前 num_time_points 个时间点中任意一个的样本。
     不删磁盘文件，仅将最终训练/测试文件复制到对应目录，并更新 paths。返回 True 表示已处理。
     """
@@ -220,20 +233,14 @@ def _prepare_no_overlap_split(paths: dict, num_time_points: int, num_freq_points
             continue
         parsed.append((p, key[0], key[1]))
 
-    parsed_ion = [x for x in parsed if "ion_column" in x[0].name]
-    parsed_no_ion = [x for x in parsed if "ion_column" not in x[0].name]
-    n_ion_max = int(50 * 3 / 10)  # 最多 45 个 ion_column
-    if len(parsed_ion) + len(parsed_no_ion) < 50:
-        print(f"⚠️ no_overlap: 可解析样本数 {len(parsed)} < 50，无法按 50 测试集划分")
+    n_test = 150
+    if len(parsed) < n_test:
+        print(f"⚠️ no_overlap: 可解析样本数 {len(parsed)} < {n_test}，无法按 {n_test} 测试集划分")
         return False
 
     random.seed(int(seed))
-    random.shuffle(parsed_ion)
-    random.shuffle(parsed_no_ion)
-    test_ion = parsed_ion[: min(n_ion_max, len(parsed_ion))]
-    n_rest = 50 - len(test_ion)
-    test_no_ion = parsed_no_ion[: min(n_rest, len(parsed_no_ion))]
-    test_selected = test_ion + test_no_ion
+    random.shuffle(parsed)
+    test_selected = parsed[:n_test]
     test_keys = {(x[1], x[2]) for x in test_selected}
 
     # 每个测试样本取前 num_time_points 个时间点，用于排除训练集中同前缀且 [] 含任一时间点的样本
@@ -269,7 +276,7 @@ def _prepare_no_overlap_split(paths: dict, num_time_points: int, num_freq_points
         shutil.copy2(str(p), str(test_dir / p.name))
 
     n_ion_in_test = sum(1 for x in test_selected if "ion_column" in x[0].name)
-    print(f"✅ no_overlap 划分: 测试集 {len(test_selected)} 个（ion_column {n_ion_in_test} 个，≤3/10）-> {test_dir}，训练集 {len(train_selected)} 个 -> {train_dir}（已排除同前缀且窗口含测试前 {num_time_points} 个时间点的样本）")
+    print(f"✅ no_overlap 划分: 测试集 {len(test_selected)} 个（ion_column {n_ion_in_test} 个）-> {test_dir}，训练集 {len(train_selected)} 个 -> {train_dir}（已排除同前缀且窗口含测试前 {num_time_points} 个时间点的样本）")
     paths["data_folder"] = train_dir
     paths["test_folder_path"] = test_dir
     return True
@@ -342,7 +349,18 @@ def prepare_test_folder(paths: dict, label_mapping: dict, num_time_points: int, 
 
 
 
+def _is_new_model(cfg: dict) -> bool:
+    return "new_model" in cfg
+
+
 def build_model(device: torch.device, cfg: dict):
+    if _is_new_model(cfg):
+        model = IonDetectModel(cfg).to(device)
+        total_params = sum(p.numel() for p in model.parameters())
+        trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
+        print(f"🧩 新模型: {total_params:,} 参数 ({trainable:,} 可训练)")
+        return model
+
     d = cfg["data"]
     m = cfg["model"]
 
@@ -515,6 +533,7 @@ def process_single_file(
     cfg: dict,
     exp_name: str,
     log_dir: Path,
+    generate_explanations: bool = True,
 ):
     d = cfg["data"]
     xlsx_path = Path(xlsx_path_str)
@@ -535,6 +554,7 @@ def process_single_file(
                 num_time_points=int(d["num_time_points"]),
                 num_freq_points=int(d["num_freq_points"]),
                 folder_name=exp_name,
+                generate_explanations=generate_explanations,
             )
             return correct, predict, truth
         except Exception:
@@ -559,6 +579,75 @@ def run_train(device: torch.device, paths: dict, cfg: dict):
 
     tb_log_dir = paths["tb_log_dir"]
     print(f"📝 TensorBoard 日志目录: {tb_log_dir}")
+
+    # ====== 新模型分支 ======
+    if _is_new_model(cfg):
+        trainer = TrainerNew(
+            model=model,
+            optimizer=optimizer,
+            device=device,
+            model_save_folder=paths["model_save_folder"],
+            cfg=cfg,
+        )
+
+        use_cosine = cfg["new_model"].get("use_cosine_lr", False)
+        warmup_epochs = int(cfg["new_model"].get("warmup_epochs", 0))
+        num_epochs = int(tcfg["num_epochs"])
+
+        if use_cosine or warmup_epochs > 0:
+            from torch.optim.lr_scheduler import (
+                CosineAnnealingLR, LinearLR, SequentialLR
+            )
+            schedulers = []
+            milestones = []
+
+            if warmup_epochs > 0:
+                warmup_sched = LinearLR(
+                    optimizer, start_factor=0.01, end_factor=1.0,
+                    total_iters=warmup_epochs,
+                )
+                schedulers.append(warmup_sched)
+                milestones.append(warmup_epochs)
+                print(f"🔥 Warmup: {warmup_epochs} epochs (LR × 0.01 → 1.0)")
+
+            if use_cosine:
+                cosine_epochs = num_epochs - warmup_epochs
+                cosine_sched = CosineAnnealingLR(
+                    optimizer, T_max=max(cosine_epochs, 1), eta_min=1e-6,
+                )
+                schedulers.append(cosine_sched)
+                print(f"📈 Cosine Annealing LR 调度 (T_max={cosine_epochs})")
+
+            if len(schedulers) > 1:
+                trainer._scheduler = SequentialLR(
+                    optimizer, schedulers=schedulers, milestones=milestones
+                )
+            elif len(schedulers) == 1:
+                trainer._scheduler = schedulers[0]
+            else:
+                trainer._scheduler = None
+        else:
+            trainer._scheduler = None
+
+        tp = tcfg["train_pairs"]
+        eval_every = int(tcfg.get("eval_every", 10))
+        num_classes = cfg["new_model"].get("num_classes", 7)
+        trainer.train_pairs(
+            train_loader,
+            num_epochs=int(tcfg["num_epochs"]),
+            lambda_consistency=float(tp.get("lambda_consistency", 0.0)),
+            eps=float(tp.get("eps", 1e-9)),
+            use_log_space=bool(tp.get("use_log_space", True)),
+            lambda_monodec=float(tp.get("lambda_monodec", 0.0)),
+            lambda_polarity=float(tp.get("lambda_polarity", 0.0)),
+            weight_ratio=float(tp.get("weight_ratio", 3.0)),
+            val_loader=val_loader,
+            eval_every=eval_every,
+            num_classes=num_classes,
+        )
+        return
+
+    # ====== 旧模型分支 ======
     writer = SummaryWriter(log_dir=str(tb_log_dir))
 
     tr = tcfg["trainer"]
@@ -609,16 +698,81 @@ def _get_max_workers(cfg: dict) -> int:
     return max(1, int(cpu_count * factor))
 
 
+def _terminate_executor_workers(executor: ProcessPoolExecutor):
+    """Ctrl+C 时尽量终止所有已启动的 worker 子进程。"""
+    try:
+        procs = getattr(executor, "_processes", {}) or {}
+        for proc in procs.values():
+            if proc is None:
+                continue
+            try:
+                if proc.is_alive():
+                    proc.terminate()
+            except Exception:
+                pass
+        for proc in procs.values():
+            if proc is None:
+                continue
+            try:
+                proc.join(timeout=1.0)
+            except Exception:
+                pass
+    except Exception:
+        pass
+
+
+def _resolve_test_model_path(paths: dict) -> Path:
+    """确保 --test 可用的 best 权重存在；若缺失则自动回填。"""
+    test_model_path = paths["test_model_path"]
+    model_save_folder = paths["model_save_folder"]
+
+    if test_model_path.exists():
+        return test_model_path
+
+    csv_path_acc = model_save_folder / "search_checkpoints_accuracy_sorted.csv"
+    if csv_path_acc.exists():
+        try:
+            with open(csv_path_acc, "r", encoding="utf-8") as f:
+                rows = list(csv.DictReader(f))
+            if rows:
+                best_name = rows[-1].get("ckpt_file", "").strip()
+                best_path = model_save_folder / best_name
+                if best_name and best_path.exists():
+                    shutil.copy2(best_path, test_model_path)
+                    print(f"ℹ️ 未找到 best 权重，已按 search 结果自动选择最佳 ckpt：{best_name}")
+                    print(f"ℹ️ 已复制为: {test_model_path}")
+                    return test_model_path
+        except Exception as e:
+            print(f"⚠️ 读取 {csv_path_acc} 失败，将尝试按 epoch 回退：{e}")
+
+    ckpts = [
+        p for p in model_save_folder.glob("trained_model_epoch_*.pth")
+        if p.name != "trained_model_epoch_best.pth"
+    ]
+    ckpts = sorted(ckpts, key=_parse_epoch_num)
+    if ckpts:
+        fallback = ckpts[-1]
+        shutil.copy2(fallback, test_model_path)
+        print(f"ℹ️ 未找到 best 权重，也未能从 search CSV 选最佳；已回退到最高 epoch：{fallback.name}")
+        print(f"ℹ️ 已复制为: {test_model_path}")
+        return test_model_path
+
+    raise FileNotFoundError(
+        f"未找到可用于测试的权重文件：{test_model_path}，且目录 {model_save_folder} 中不存在 trained_model_epoch_*.pth"
+    )
+
+
 def run_test(paths: dict, cfg: dict):
     print("🔍 进入测试模式 (--test)")
 
-    test_model_path = paths["test_model_path"]
+    test_model_path = _resolve_test_model_path(paths)
     test_folder_path = paths["test_folder_path"]
     exp_name = paths["exp_name"]
-    log_dir = paths["debug_log_dir"]
+    log_dir = paths["debug_log_dir_test"]
 
     device_str = cfg["test"].get("device_str", "cpu")
     max_workers = _get_max_workers(cfg)
+    mp_ctx = multiprocessing.get_context("spawn")
 
     print(f"🔍 正在加载模型: {test_model_path}")
     xlsx_paths = [str(test_folder_path / f) for f in os.listdir(test_folder_path) if f.endswith(".xlsx")]
@@ -626,40 +780,62 @@ def run_test(paths: dict, cfg: dict):
 
     correct_count = 0
     total = len(xlsx_paths)
+    processed_count = 0
+    failed_count = 0
     confusion_counter = defaultdict(lambda: defaultdict(int))
 
-    with ProcessPoolExecutor(max_workers=max_workers) as executor:
-        futures = [
-            executor.submit(
-                process_single_file,
-                path,
-                str(test_model_path),
-                device_str,
-                cfg,
-                exp_name,
-                log_dir,
-            )
-            for path in xlsx_paths
-        ]
+    executor = None
+    try:
+        with ProcessPoolExecutor(max_workers=max_workers, mp_context=mp_ctx) as executor:
+            futures = [
+                executor.submit(
+                    process_single_file,
+                    path,
+                    str(test_model_path),
+                    device_str,
+                    cfg,
+                    exp_name,
+                    log_dir,
+                    True,
+                )
+                for path in xlsx_paths
+            ]
 
-        for future in as_completed(futures):
+            for future in as_completed(futures):
+                try:
+                    correct, predict, truth = future.result()
+                    if correct is None:
+                        failed_count += 1
+                        continue
+                    processed_count += 1
+                    if correct:
+                        correct_count += 1
+                    confusion_counter[truth][predict] += 1
+                except Exception as e:
+                    print(f"❌ 文件处理失败: {e}")
+                    failed_count += 1
+    except KeyboardInterrupt:
+        print("\n⛔ 检测到 Ctrl+C，正在终止测试 worker 子进程...")
+        if executor is not None:
             try:
-                correct, predict, truth = future.result()
-                if correct is None:
-                    continue
-                if correct:
-                    correct_count += 1
-                confusion_counter[truth][predict] += 1
-            except Exception as e:
-                print(f"❌ 文件处理失败: {e}")
+                executor.shutdown(wait=False, cancel_futures=True)
+            except Exception:
+                pass
+            _terminate_executor_workers(executor)
+        raise
 
-    if total > 0:
-        acc = correct_count / total
+    if processed_count > 0:
+        acc = correct_count / processed_count
         print(f"\n✅ 总共测试样本数: {total}")
+        print(f"✅ 成功评测样本数: {processed_count}")
+        print(f"⚠️ 失败样本数: {failed_count}")
         print(f"🎯 预测正确样本数: {correct_count}")
         print(f"📊 准确率: {acc:.2%}")
     else:
-        print("⚠️ 未找到任何 .xlsx 测试文件")
+        if total == 0:
+            print("⚠️ 未找到任何 .xlsx 测试文件")
+        else:
+            print(f"⚠️ 共 {total} 个样本，但全部评测失败（失败数 {failed_count}）")
 
     print("\n📉 错误分析（真实标签 → 预测标签 → 个数）:")
     for truth_label, pred_dict in confusion_counter.items():
@@ -673,12 +849,16 @@ def run_search(paths: dict, cfg: dict):
     model_save_folder = paths["model_save_folder"]
     test_folder_path = paths["test_folder_path"]
     exp_name = paths["exp_name"]
-    log_dir = paths["debug_log_dir"]
+    log_dir = paths["debug_log_dir_search"]
 
     device_str = cfg["test"].get("device_str", "cpu")
     max_workers = _get_max_workers(cfg)
+    mp_ctx = multiprocessing.get_context("spawn")
 
-    ckpts = [p for p in model_save_folder.glob("trained_model_epoch_*.pth") if p.name != "trained_model_epoch_final.pth"]
+    ckpts = [
+        p for p in model_save_folder.glob("trained_model_epoch_*.pth")
+        if p.name not in {"trained_model_epoch_best.pth"}
+    ]
     ckpts = sorted(ckpts, key=_parse_epoch_num)
 
     if not ckpts:
@@ -701,36 +881,55 @@ def run_search(paths: dict, cfg: dict):
 
         print(f"\n[{i}/{len(ckpts)}] 🔍 评测 checkpoint: {ckpt_path.name}  (epoch={epoch_num})")
         correct_count, total = 0, len(xlsx_paths)
+        processed_count, failed_count = 0, 0
         confusion_counter = defaultdict(lambda: defaultdict(int))
 
-        with ProcessPoolExecutor(max_workers=max_workers) as executor:
-            futures = [
-                executor.submit(
-                    process_single_file,
-                    path,
-                    str(ckpt_path),
-                    device_str,
-                    cfg,
-                    exp_name,
-                    log_dir,
-                )
-                for path in xlsx_paths
-            ]
+        executor = None
+        try:
+            with ProcessPoolExecutor(max_workers=max_workers, mp_context=mp_ctx) as executor:
+                futures = [
+                    executor.submit(
+                        process_single_file,
+                        path,
+                        str(ckpt_path),
+                        device_str,
+                        cfg,
+                        exp_name,
+                        log_dir,
+                        False,
+                    )
+                    for path in xlsx_paths
+                ]
 
-            for future in as_completed(futures):
+                for future in as_completed(futures):
+                    try:
+                        correct, predict, truth = future.result()
+                        if correct is None:
+                            failed_count += 1
+                            continue
+                        processed_count += 1
+                        if correct:
+                            correct_count += 1
+                        confusion_counter[truth][predict] += 1
+                    except Exception as e:
+                        print(f"❌ 文件处理失败: {e}")
+                        failed_count += 1
+        except KeyboardInterrupt:
+            print("\n⛔ 检测到 Ctrl+C，正在终止 search worker 子进程...")
+            if executor is not None:
                 try:
-                    correct, predict, truth = future.result()
-                    if correct is None:
-                        continue
-                    if correct:
-                        correct_count += 1
-                    confusion_counter[truth][predict] += 1
-                except Exception as e:
-                    print(f"❌ 文件处理失败: {e}")
+                    executor.shutdown(wait=False, cancel_futures=True)
+                except Exception:
+                    pass
+                _terminate_executor_workers(executor)
+            raise
 
-        acc = (correct_count / total) if total > 0 else 0.0
-        print(f"🎯 epoch={epoch_num} | 正确 {correct_count}/{total} | 准确率={acc:.2%}")
-        results.append((epoch_num, acc, correct_count, total, ckpt_path.name))
+        acc = (correct_count / processed_count) if processed_count > 0 else 0.0
+        print(
+            f"🎯 epoch={epoch_num} | 正确 {correct_count}/{processed_count} "
+            f"| 失败 {failed_count} | 准确率={acc:.2%}"
+        )
+        results.append((epoch_num, acc, correct_count, processed_count, ckpt_path.name))
 
     results_by_epoch = sorted(results, key=lambda x: x[0])
     csv_path_epoch = model_save_folder / "search_checkpoints_epoch_sorted.csv"

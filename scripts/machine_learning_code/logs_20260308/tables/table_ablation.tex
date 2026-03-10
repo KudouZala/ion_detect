@@ -1,0 +1,23 @@
+\begin{table}[htbp]
+\centering
+\caption{Ablation study (tp=3). Best values are in \textbf{bold}.}
+\label{tab:ablation}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l ccccc cccc c}
+\toprule
+  & Env & Physics & CrossAttn & CLIP & AuxLoss & Acc & Prec & Rec & F1 & F1 (Mean$\pm$Std) \\
+\midrule
+  Exp-A & \checkmark &  &  &  &  & 0.8288 & 0.7497 & 0.7300 & 0.7381 & $0.6869 \pm 0.0252$ \\
+  Exp-B &  &  &  &  &  & 0.7603 & 0.6834 & 0.6602 & 0.6644 & $0.6013 \pm 0.0293$ \\
+  Exp-C & \checkmark &  &  & \checkmark &  & 0.8288 & 0.7923 & 0.7265 & 0.7426 & $0.6876 \pm 0.0231$ \\
+  Exp-D & \checkmark & \checkmark &  &  &  & 0.8219 & 0.7940 & 0.7226 & 0.7435 & $0.6741 \pm 0.0312$ \\
+  Exp-E & \checkmark & \checkmark & \checkmark & \checkmark &  & 0.8014 & 0.7665 & 0.7139 & 0.7322 & $0.6394 \pm 0.0502$ \\
+  Exp-F & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & 0.8425 & 0.8129 & 0.7343 & 0.7617 & $0.7186 \pm 0.0421$ \\
+  Exp-G &  &  &  &  &  & \textbf{0.8630} & 0.8193 & \textbf{0.7968} & \textbf{0.8024} & $0.6676 \pm 0.0803$ \\
+  Exp-H &  &  &  &  &  & 0.8425 & 0.8123 & 0.7639 & 0.7791 & $0.6996 \pm 0.0583$ \\
+  Exp-I &  &  &  &  &  & 0.8356 & 0.7963 & 0.7591 & 0.7554 & $0.7267 \pm 0.0216$ \\
+  Exp-J &  &  &  &  &  & 0.8493 & \textbf{0.8421} & 0.7670 & 0.7990 & $0.7217 \pm 0.0700$ \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

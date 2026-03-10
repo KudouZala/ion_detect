@@ -1,0 +1,1881 @@
+✅ no_overlap 划分: 测试集 150 个（ion_column 74 个，≤3/10）-> /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_test_no_overlap/exp_new_a_num_tp2，训练集 789 个 -> /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_a_num_tp2（已排除同前缀且窗口含测试前 2 个时间点的样本）
+✅ 当前使用设备: cuda
+📂 训练集目录: /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_a_num_tp2
+📂 测试/验证集目录: /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_test_no_overlap/exp_new_a_num_tp2
+🧪 experiment: exp_new_a_num_tp2
+🚀 进入训练模式 (--train)
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[54, 56, 58, 60].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[32, 34, 36, 38].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[56, 58, 60, 62].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[36, 38, 40, 42].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[34, 36, 38, 40].xlsx: impedance points 54 < 63
+[LEAK-CHECK] overlap(train, val) = 0
+[DEBUG] data_folder = /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_a_num_tp2
+[DEBUG] base_train.file_names[:10] =
+   20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx
+   20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[2, 4, 6, 8].xlsx
+   20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[22, 24, 26, 28].xlsx
+   20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[22, 24, 26, 28].xlsx
+   20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_gamry_[4, 6, 8, 10].xlsx
+   20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[20, 22, 24, 26].xlsx
+   20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[14, 16, 18, 20].xlsx
+   20240910_10ppm钙离子污染测试_新版电解槽_ion_gamry_[2, 4, 6, 8].xlsx
+   20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_column_renew_H2SO4_gamry_[12, 14, 16, 18].xlsx
+   20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[28, 30, 32, 34].xlsx
+[DEBUG] exist check (first 10):
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_a_num_tp2/20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx exists= True
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_a_num_tp2/20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[2, 4, 6, 8].xlsx exists= True
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_a_num_tp2/20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[22, 24, 26, 28].xlsx exists= True
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_a_num_tp2/20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[22, 24, 26, 28].xlsx exists= True
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_a_num_tp2/20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_gamry_[4, 6, 8, 10].xlsx exists= True
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_a_num_tp2/20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[20, 22, 24, 26].xlsx exists= True
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_a_num_tp2/20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[14, 16, 18, 20].xlsx exists= True
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_a_num_tp2/20240910_10ppm钙离子污染测试_新版电解槽_ion_gamry_[2, 4, 6, 8].xlsx exists= True
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_a_num_tp2/20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_column_renew_H2SO4_gamry_[12, 14, 16, 18].xlsx exists= True
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_a_num_tp2/20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[28, 30, 32, 34].xlsx exists= True
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[28, 30, 32, 34].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[50, 52, 54, 56].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[24, 26, 28, 30].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[44, 46, 48, 50].xlsx: impedance points 54 < 63
+
+[PairDataset][Example pairs] (show up to 50)
+  [1] A(idx=474) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=753) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]  dummy=False
+  [2] A(idx=753) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=279) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=False
+  [3] A(idx=279) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]
+      → B(idx=535) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]  dummy=False
+  [4] A(idx=535) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]
+      → B(idx=531) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]  dummy=False
+  [5] A(idx=531) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]
+      → B(idx=601) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]  dummy=False
+  [6] A(idx=601) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]
+      → B(idx=151) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]  dummy=False
+  [7] A(idx=151) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]
+      → B(idx=0) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=False
+  [8] A(idx=0) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=59) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]  dummy=False
+  [9] A(idx=59) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]
+      → B(idx=479) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]  dummy=False
+  [10] A(idx=479) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]
+      → B(idx=387) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]  dummy=False
+  [11] A(idx=387) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]
+      → B(idx=387) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]  dummy=True
+  [12] A(idx=111) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[32, 34, 36, 38].xlsx  times=[32, 34, 36, 38]
+      → B(idx=414) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]  dummy=False
+  [13] A(idx=414) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]
+      → B(idx=75) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]  dummy=False
+  [14] A(idx=75) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]
+      → B(idx=145) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]  dummy=False
+  [15] A(idx=145) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]
+      → B(idx=363) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[40, 42, 44, 46].xlsx  times=[40, 42, 44, 46]  dummy=False
+  [16] A(idx=363) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[40, 42, 44, 46].xlsx  times=[40, 42, 44, 46]
+      → B(idx=363) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[40, 42, 44, 46].xlsx  times=[40, 42, 44, 46]  dummy=True
+  [17] A(idx=527) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=1) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]  dummy=False
+  [18] A(idx=1) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=594) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=False
+  [19] A(idx=594) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]
+      → B(idx=570) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]  dummy=False
+  [20] A(idx=570) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]
+      → B(idx=453) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]  dummy=False
+  [21] A(idx=453) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]
+      → B(idx=450) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]  dummy=False
+  [22] A(idx=450) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]
+      → B(idx=170) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]  dummy=False
+  [23] A(idx=170) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]
+      → B(idx=402) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=False
+  [24] A(idx=402) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=402) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=True
+  [25] A(idx=103) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=604) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]  dummy=False
+  [26] A(idx=604) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=604) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]  dummy=True
+  [27] A(idx=649) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=592) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]  dummy=False
+  [28] A(idx=592) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]
+      → B(idx=37) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]  dummy=False
+  [29] A(idx=37) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]
+      → B(idx=472) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]  dummy=False
+  [30] A(idx=472) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]
+      → B(idx=2) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]  dummy=False
+  [31] A(idx=2) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]
+      → B(idx=96) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[24, 26, 28, 30].xlsx  times=[24, 26, 28, 30]  dummy=False
+  [32] A(idx=96) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[24, 26, 28, 30].xlsx  times=[24, 26, 28, 30]
+      → B(idx=287) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]  dummy=False
+  [33] A(idx=287) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]
+      → B(idx=627) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]  dummy=False
+  [34] A(idx=627) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]
+      → B(idx=281) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]  dummy=False
+  [35] A(idx=281) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]
+      → B(idx=637) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[32, 34, 36, 38].xlsx  times=[32, 34, 36, 38]  dummy=False
+  [36] A(idx=637) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[32, 34, 36, 38].xlsx  times=[32, 34, 36, 38]
+      → B(idx=296) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]  dummy=False
+  [37] A(idx=296) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]
+      → B(idx=105) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]  dummy=False
+  [38] A(idx=105) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]
+      → B(idx=758) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]  dummy=False
+  [39] A(idx=758) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]
+      → B(idx=124) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[40, 42, 44, 46].xlsx  times=[40, 42, 44, 46]  dummy=False
+  [40] A(idx=124) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[40, 42, 44, 46].xlsx  times=[40, 42, 44, 46]
+      → B(idx=477) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[42, 44, 46, 48].xlsx  times=[42, 44, 46, 48]  dummy=False
+  [41] A(idx=477) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[42, 44, 46, 48].xlsx  times=[42, 44, 46, 48]
+      → B(idx=93) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[44, 46, 48, 50].xlsx  times=[44, 46, 48, 50]  dummy=False
+  [42] A(idx=93) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[44, 46, 48, 50].xlsx  times=[44, 46, 48, 50]
+      → B(idx=623) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[46, 48, 50, 52].xlsx  times=[46, 48, 50, 52]  dummy=False
+  [43] A(idx=623) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[46, 48, 50, 52].xlsx  times=[46, 48, 50, 52]
+      → B(idx=623) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[46, 48, 50, 52].xlsx  times=[46, 48, 50, 52]  dummy=True
+  [44] A(idx=628) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]
+      → B(idx=51) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=False
+  [45] A(idx=51) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=622) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]  dummy=False
+  [46] A(idx=622) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]
+      → B(idx=577) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]  dummy=False
+  [47] A(idx=577) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]
+      → B(idx=168) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]  dummy=False
+  [48] A(idx=168) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]
+      → B(idx=3) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]  dummy=False
+  [49] A(idx=3) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]
+      → B(idx=496) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[24, 26, 28, 30].xlsx  times=[24, 26, 28, 30]  dummy=False
+  [50] A(idx=496) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[24, 26, 28, 30].xlsx  times=[24, 26, 28, 30]
+      → B(idx=39) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]  dummy=False
+
+[PairDataset][Summary]
+- total files:        784
+- parsed OK:          784
+- regex fail:         0
+- parse times fail:   0
+- empty times:        0
+- total pairs:        784  (keep_unpaired=self)
+- distinct prefixes:  97
+- prefixes coverage (first few):
+  [1] 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[* -> windows=16, adj_pairs=10/15
+  [2] 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[* -> windows=8, adj_pairs=5/7
+  [3] 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[* -> windows=19, adj_pairs=14/18
+  [4] 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[* -> windows=14, adj_pairs=11/13
+  [5] 20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_gamry_[* -> windows=16, adj_pairs=10/15
+  [6] 20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[* -> windows=9, adj_pairs=2/8
+  [7] 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[* -> windows=14, adj_pairs=11/13
+  [8] 20240910_10ppm钙离子污染测试_新版电解槽_ion_gamry_[* -> windows=12, adj_pairs=3/11
+  [9] 20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_column_renew_H2SO4_gamry_[* -> windows=7, adj_pairs=4/6
+  [10] 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[* -> windows=10, adj_pairs=4/9
+- unadjacent gaps samples: 143 (showing first 0)
+
+[PairDataset][Explain] focus_prefix_contains='20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_'
+  - PREFIX: 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[* windows=11
+    windows (sorted by first,last):
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[0, 2, 4, 6].xlsx  -> times=[0, 2, 4, 6]  first=0 last=6
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx  -> times=[2, 4, 6, 8]  first=2 last=8
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[4, 6, 8, 10].xlsx  -> times=[4, 6, 8, 10]  first=4 last=10
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[6, 8, 10, 12].xlsx  -> times=[6, 8, 10, 12]  first=6 last=12
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[8, 10, 12, 14].xlsx  -> times=[8, 10, 12, 14]  first=8 last=14
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[10, 12, 14, 16].xlsx  -> times=[10, 12, 14, 16]  first=10 last=16
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx  -> times=[12, 14, 16, 18]  first=12 last=18
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx  -> times=[14, 16, 18, 20]  first=14 last=20
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  -> times=[16, 18, 20, 22]  first=16 last=22
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[18, 20, 22, 24].xlsx  -> times=[18, 20, 22, 24]  first=18 last=24
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  -> times=[20, 22, 24, 26]  first=20 last=26
+      MISS: 6 -> 2   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[0, 2, 4, 6].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx)
+      MISS: 8 -> 4   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[4, 6, 8, 10].xlsx)
+      MISS: 10 -> 6   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[4, 6, 8, 10].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[6, 8, 10, 12].xlsx)
+      MISS: 12 -> 8   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[6, 8, 10, 12].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[8, 10, 12, 14].xlsx)
+      MISS: 14 -> 10   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[8, 10, 12, 14].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[10, 12, 14, 16].xlsx)
+      MISS: 16 -> 12   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[10, 12, 14, 16].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx)
+      MISS: 18 -> 14   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx)
+      MISS: 20 -> 16   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx)
+      MISS: 22 -> 18   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[18, 20, 22, 24].xlsx)
+      MISS: 24 -> 20   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[18, 20, 22, 24].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx)
+
+[PairDataset][Example pairs] (show up to 50)
+  [1] A(idx=0) 20240918_2ppm钙离子污染测试_新版电解槽_ion_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]
+      → B(idx=0) 20240918_2ppm钙离子污染测试_新版电解槽_ion_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]  dummy=True
+  [2] A(idx=92) 20240918_2ppm钙离子污染测试_新版电解槽_ion_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=92) 20240918_2ppm钙离子污染测试_新版电解槽_ion_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=True
+  [3] A(idx=1) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=94) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=False
+  [4] A(idx=94) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]
+      → B(idx=94) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=True
+  [5] A(idx=125) 20241010_2ppm钠离子污染测试_新版电解槽_ion_column_firecloud_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]
+      → B(idx=2) 20241010_2ppm钠离子污染测试_新版电解槽_ion_column_firecloud_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]  dummy=False
+  [6] A(idx=2) 20241010_2ppm钠离子污染测试_新版电解槽_ion_column_firecloud_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]
+      → B(idx=2) 20241010_2ppm钠离子污染测试_新版电解槽_ion_column_firecloud_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]  dummy=True
+  [7] A(idx=20) 20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_firecloud_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=20) 20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_firecloud_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]  dummy=True
+  [8] A(idx=3) 20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_firecloud_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]
+      → B(idx=3) 20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_firecloud_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]  dummy=True
+  [9] A(idx=31) 20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]
+      → B(idx=31) 20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]  dummy=True
+  [10] A(idx=48) 20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=48) 20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]  dummy=True
+  [11] A(idx=41) 20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]
+      → B(idx=41) 20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=True
+  [12] A(idx=139) 20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]
+      → B(idx=4) 20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]  dummy=False
+  [13] A(idx=4) 20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]
+      → B(idx=4) 20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]  dummy=True
+  [14] A(idx=5) 20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=5) 20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=True
+  [15] A(idx=93) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]
+      → B(idx=93) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=True
+  [16] A(idx=104) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]
+      → B(idx=104) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]  dummy=True
+  [17] A(idx=135) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]
+      → B(idx=135) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]  dummy=True
+  [18] A(idx=6) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]
+      → B(idx=6) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]  dummy=True
+  [19] A(idx=55) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]
+      → B(idx=55) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]  dummy=True
+  [20] A(idx=7) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]
+      → B(idx=7) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]  dummy=True
+  [21] A(idx=141) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]
+      → B(idx=141) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]  dummy=True
+  [22] A(idx=47) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[46, 48, 50, 52].xlsx  times=[46, 48, 50, 52]
+      → B(idx=47) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[46, 48, 50, 52].xlsx  times=[46, 48, 50, 52]  dummy=True
+  [23] A(idx=8) 20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]
+      → B(idx=8) 20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]  dummy=True
+  [24] A(idx=88) 20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[24, 26, 28, 30].xlsx  times=[24, 26, 28, 30]
+      → B(idx=134) 20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]  dummy=False
+  [25] A(idx=134) 20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]
+      → B(idx=134) 20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]  dummy=True
+  [26] A(idx=27) 20241017_2ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=27) 20241017_2ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]  dummy=True
+  [27] A(idx=9) 20241017_2ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]
+      → B(idx=9) 20241017_2ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]  dummy=True
+  [28] A(idx=10) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_renew_H2SO4_firecloud_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]
+      → B(idx=10) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_renew_H2SO4_firecloud_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]  dummy=True
+  [29] A(idx=136) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_renew_H2SO4_firecloud_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]
+      → B(idx=136) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_renew_H2SO4_firecloud_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]  dummy=True
+  [30] A(idx=11) 20241117_2ppm钠离子污染及恢复测试10mlmin_旧版电解槽_ion_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=11) 20241117_2ppm钠离子污染及恢复测试10mlmin_旧版电解槽_ion_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]  dummy=True
+  [31] A(idx=140) 20241117_2ppm钠离子污染及恢复测试10mlmin_旧版电解槽_ion_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]
+      → B(idx=140) 20241117_2ppm钠离子污染及恢复测试10mlmin_旧版电解槽_ion_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]  dummy=True
+  [32] A(idx=78) 20241117_2ppm钠离子污染及恢复测试10mlmin_旧版电解槽_ion_gamry_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]
+      → B(idx=78) 20241117_2ppm钠离子污染及恢复测试10mlmin_旧版电解槽_ion_gamry_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]  dummy=True
+  [33] A(idx=138) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]
+      → B(idx=138) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]  dummy=True
+  [34] A(idx=12) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[32, 34, 36, 38].xlsx  times=[32, 34, 36, 38]
+      → B(idx=12) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[32, 34, 36, 38].xlsx  times=[32, 34, 36, 38]  dummy=True
+  [35] A(idx=108) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]
+      → B(idx=108) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]  dummy=True
+  [36] A(idx=143) 20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=70) 20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]  dummy=False
+  [37] A(idx=70) 20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=70) 20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]  dummy=True
+  [38] A(idx=13) 20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_gamry_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]
+      → B(idx=13) 20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_gamry_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]  dummy=True
+  [39] A(idx=14) 20240822_10ppm铜离子污染测试_新版电解槽_ion_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]
+      → B(idx=14) 20240822_10ppm铜离子污染测试_新版电解槽_ion_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]  dummy=True
+  [40] A(idx=51) 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]
+      → B(idx=51) 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]  dummy=True
+  [41] A(idx=126) 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]
+      → B(idx=15) 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]  dummy=False
+  [42] A(idx=15) 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]
+      → B(idx=15) 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]  dummy=True
+  [43] A(idx=16) 20240831_10ppm镍离子污染测试_新版电解槽_ion_column_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=16) 20240831_10ppm镍离子污染测试_新版电解槽_ion_column_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]  dummy=True
+  [44] A(idx=17) 20241112_2ppm镍离子污染及恢复测试_旧版电解槽_ion_column_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]
+      → B(idx=17) 20241112_2ppm镍离子污染及恢复测试_旧版电解槽_ion_column_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]  dummy=True
+  [45] A(idx=18) 20241013_2ppm铝离子污染测试_新版电解槽_ion_column_firecloud_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]
+      → B(idx=18) 20241013_2ppm铝离子污染测试_新版电解槽_ion_column_firecloud_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]  dummy=True
+  [46] A(idx=90) 20241013_2ppm铝离子污染测试_新版电解槽_ion_column_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]
+      → B(idx=90) 20241013_2ppm铝离子污染测试_新版电解槽_ion_column_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]  dummy=True
+  [47] A(idx=19) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_firecloud_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=19) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_firecloud_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]  dummy=True
+  [48] A(idx=56) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_firecloud_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]
+      → B(idx=56) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_firecloud_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]  dummy=True
+  [49] A(idx=67) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_firecloud_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]
+      → B(idx=67) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_firecloud_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]  dummy=True
+  [50] A(idx=21) 20240918_2ppm钙离子污染测试_新版电解槽_ion_column_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=80) 20240918_2ppm钙离子污染测试_新版电解槽_ion_column_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=False
+
+[PairDataset][Summary]
+- total files:        146
+- parsed OK:          146
+- regex fail:         0
+- parse times fail:   0
+- empty times:        0
+- total pairs:        146  (keep_unpaired=self)
+- distinct prefixes:  77
+- prefixes coverage (first few):
+  [1] 20240918_2ppm钙离子污染测试_新版电解槽_ion_gamry_[* -> windows=2, adj_pairs=0/1
+  [2] 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[* -> windows=2, adj_pairs=0/1
+  [3] 20241010_2ppm钠离子污染测试_新版电解槽_ion_column_firecloud_[* -> windows=2, adj_pairs=0/1
+  [4] 20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_firecloud_[* -> windows=3, adj_pairs=0/2
+  [5] 20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[* -> windows=4, adj_pairs=0/3
+  [6] 20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[* -> windows=1, adj_pairs=0/0
+  [7] 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[* -> windows=4, adj_pairs=0/3
+  [8] 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[* -> windows=4, adj_pairs=0/3
+  [9] 20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[* -> windows=3, adj_pairs=0/2
+  [10] 20241017_2ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[* -> windows=2, adj_pairs=0/1
+- unadjacent gaps samples: 132 (showing first 0)
+num base train samples: 784
+num base val   samples: 146
+num pair train samples: 784
+num pair val   samples: 146
+dummy_mask[0] = False
+🧩 新模型: 177,095 参数 (177,095 可训练)
+📝 TensorBoard 日志目录: /home/kudouzala/Application/ion_detect/output/tensorboard/exp_new_a_num_tp2
+🔥 Warmup: 100 epochs (LR × 0.01 → 1.0)
+📈 Cosine Annealing LR 调度 (T_max=900)
+[New] Epoch 1/1000 | classify: 4.5581 | total: 4.5581
+[New] Epoch 2/1000 | classify: 4.6054 | total: 4.6054
+[New] Epoch 3/1000 | classify: 4.6082 | total: 4.6082
+[New] Epoch 4/1000 | classify: 4.5304 | total: 4.5304
+[New] Epoch 5/1000 | classify: 4.3935 | total: 4.3935
+[New] Epoch 6/1000 | classify: 4.4216 | total: 4.4216
+[New] Epoch 7/1000 | classify: 4.5717 | total: 4.5717
+[New] Epoch 8/1000 | classify: 4.4478 | total: 4.4478
+[New] Epoch 9/1000 | classify: 4.6536 | total: 4.6536
+[New] Epoch 10/1000 | classify: 4.1133 | total: 4.1133
+--- 验证集 [epoch 10] ---
+  准确率 (Accuracy):  0.4795
+  精确率 (Precision): 0.0699
+  召回率 (Recall):    0.1429
+  F1 分数 (F1):       0.0939
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.0939，已保存 best 模型
+[New] Epoch 11/1000 | classify: 4.1701 | total: 4.1701
+[New] Epoch 12/1000 | classify: 3.9505 | total: 3.9505
+[New] Epoch 13/1000 | classify: 3.9751 | total: 3.9751
+[New] Epoch 14/1000 | classify: 3.7564 | total: 3.7564
+[New] Epoch 15/1000 | classify: 3.7556 | total: 3.7556
+[New] Epoch 16/1000 | classify: 3.7153 | total: 3.7153
+[New] Epoch 17/1000 | classify: 3.8618 | total: 3.8618
+[New] Epoch 18/1000 | classify: 3.6172 | total: 3.6172
+[New] Epoch 19/1000 | classify: 3.7526 | total: 3.7526
+[New] Epoch 20/1000 | classify: 3.5855 | total: 3.5855
+--- 验证集 [epoch 20] ---
+  准确率 (Accuracy):  0.6027
+  精确率 (Precision): 0.2241
+  召回率 (Recall):    0.3493
+  F1 分数 (F1):       0.2662
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.2662，已保存 best 模型
+[New] Epoch 21/1000 | classify: 3.6935 | total: 3.6935
+[New] Epoch 22/1000 | classify: 3.7872 | total: 3.7872
+[New] Epoch 23/1000 | classify: 3.6743 | total: 3.6743
+[New] Epoch 24/1000 | classify: 3.5229 | total: 3.5229
+[New] Epoch 25/1000 | classify: 3.6421 | total: 3.6421
+[New] Epoch 26/1000 | classify: 3.5026 | total: 3.5026
+[New] Epoch 27/1000 | classify: 3.5047 | total: 3.5047
+[New] Epoch 28/1000 | classify: 3.3179 | total: 3.3179
+[New] Epoch 29/1000 | classify: 3.4737 | total: 3.4737
+[New] Epoch 30/1000 | classify: 3.2764 | total: 3.2764
+--- 验证集 [epoch 30] ---
+  准确率 (Accuracy):  0.6233
+  精确率 (Precision): 0.2291
+  召回率 (Recall):    0.3554
+  F1 分数 (F1):       0.2728
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.2728，已保存 best 模型
+[New] Epoch 31/1000 | classify: 3.2510 | total: 3.2510
+[New] Epoch 32/1000 | classify: 3.5735 | total: 3.5735
+[New] Epoch 33/1000 | classify: 3.2949 | total: 3.2949
+[New] Epoch 34/1000 | classify: 3.3357 | total: 3.3357
+[New] Epoch 35/1000 | classify: 3.1402 | total: 3.1402
+[New] Epoch 36/1000 | classify: 3.2723 | total: 3.2723
+[New] Epoch 37/1000 | classify: 3.2998 | total: 3.2998
+[New] Epoch 38/1000 | classify: 3.3789 | total: 3.3789
+[New] Epoch 39/1000 | classify: 3.0967 | total: 3.0967
+[New] Epoch 40/1000 | classify: 3.0967 | total: 3.0967
+--- 验证集 [epoch 40] ---
+  准确率 (Accuracy):  0.6027
+  精确率 (Precision): 0.3962
+  召回率 (Recall):    0.4143
+  F1 分数 (F1):       0.3759
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.3759，已保存 best 模型
+[New] Epoch 41/1000 | classify: 3.0405 | total: 3.0405
+[New] Epoch 42/1000 | classify: 3.0338 | total: 3.0338
+[New] Epoch 43/1000 | classify: 3.0624 | total: 3.0624
+[New] Epoch 44/1000 | classify: 3.0735 | total: 3.0735
+[New] Epoch 45/1000 | classify: 2.9363 | total: 2.9363
+[New] Epoch 46/1000 | classify: 2.7972 | total: 2.7972
+[New] Epoch 47/1000 | classify: 3.0007 | total: 3.0007
+[New] Epoch 48/1000 | classify: 2.8799 | total: 2.8799
+[New] Epoch 49/1000 | classify: 2.6625 | total: 2.6625
+[New] Epoch 50/1000 | classify: 2.5751 | total: 2.5751
+--- 验证集 [epoch 50] ---
+  准确率 (Accuracy):  0.6781
+  精确率 (Precision): 0.5310
+  召回率 (Recall):    0.5631
+  F1 分数 (F1):       0.5268
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.5268，已保存 best 模型
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_50.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_50.csv
+[New] Epoch 51/1000 | classify: 2.5316 | total: 2.5316
+[New] Epoch 52/1000 | classify: 2.6396 | total: 2.6396
+[New] Epoch 53/1000 | classify: 2.7809 | total: 2.7809
+[New] Epoch 54/1000 | classify: 2.7888 | total: 2.7888
+[New] Epoch 55/1000 | classify: 2.6884 | total: 2.6884
+[New] Epoch 56/1000 | classify: 2.6232 | total: 2.6232
+[New] Epoch 57/1000 | classify: 2.7820 | total: 2.7820
+[New] Epoch 58/1000 | classify: 2.4699 | total: 2.4699
+[New] Epoch 59/1000 | classify: 2.6169 | total: 2.6169
+[New] Epoch 60/1000 | classify: 2.4250 | total: 2.4250
+--- 验证集 [epoch 60] ---
+  准确率 (Accuracy):  0.6575
+  精确率 (Precision): 0.5882
+  召回率 (Recall):    0.5679
+  F1 分数 (F1):       0.5398
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.5398，已保存 best 模型
+[New] Epoch 61/1000 | classify: 2.4583 | total: 2.4583
+[New] Epoch 62/1000 | classify: 2.5717 | total: 2.5717
+[New] Epoch 63/1000 | classify: 2.5116 | total: 2.5116
+[New] Epoch 64/1000 | classify: 2.2663 | total: 2.2663
+[New] Epoch 65/1000 | classify: 2.6844 | total: 2.6844
+[New] Epoch 66/1000 | classify: 2.6398 | total: 2.6398
+[New] Epoch 67/1000 | classify: 2.4021 | total: 2.4021
+[New] Epoch 68/1000 | classify: 2.1578 | total: 2.1578
+[New] Epoch 69/1000 | classify: 2.4519 | total: 2.4519
+[New] Epoch 70/1000 | classify: 2.5980 | total: 2.5980
+--- 验证集 [epoch 70] ---
+  准确率 (Accuracy):  0.7055
+  精确率 (Precision): 0.6184
+  召回率 (Recall):    0.6059
+  F1 分数 (F1):       0.6018
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.6018，已保存 best 模型
+[New] Epoch 71/1000 | classify: 2.2241 | total: 2.2241
+[New] Epoch 72/1000 | classify: 2.0704 | total: 2.0704
+[New] Epoch 73/1000 | classify: 2.2859 | total: 2.2859
+[New] Epoch 74/1000 | classify: 2.1962 | total: 2.1962
+[New] Epoch 75/1000 | classify: 2.1440 | total: 2.1440
+[New] Epoch 76/1000 | classify: 2.2475 | total: 2.2475
+[New] Epoch 77/1000 | classify: 2.2573 | total: 2.2573
+[New] Epoch 78/1000 | classify: 2.3981 | total: 2.3981
+[New] Epoch 79/1000 | classify: 2.1035 | total: 2.1035
+[New] Epoch 80/1000 | classify: 2.0498 | total: 2.0498
+--- 验证集 [epoch 80] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.7151
+  召回率 (Recall):    0.6590
+  F1 分数 (F1):       0.6646
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.6646，已保存 best 模型
+[New] Epoch 81/1000 | classify: 2.1041 | total: 2.1041
+[New] Epoch 82/1000 | classify: 2.1266 | total: 2.1266
+[New] Epoch 83/1000 | classify: 2.0943 | total: 2.0943
+[New] Epoch 84/1000 | classify: 2.2064 | total: 2.2064
+[New] Epoch 85/1000 | classify: 2.3839 | total: 2.3839
+[New] Epoch 86/1000 | classify: 1.8928 | total: 1.8928
+[New] Epoch 87/1000 | classify: 2.1633 | total: 2.1633
+[New] Epoch 88/1000 | classify: 2.1101 | total: 2.1101
+[New] Epoch 89/1000 | classify: 1.9709 | total: 1.9709
+[New] Epoch 90/1000 | classify: 2.0120 | total: 2.0120
+--- 验证集 [epoch 90] ---
+  准确率 (Accuracy):  0.7945
+  精确率 (Precision): 0.7374
+  召回率 (Recall):    0.6772
+  F1 分数 (F1):       0.6925
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.6925，已保存 best 模型
+[New] Epoch 91/1000 | classify: 2.2180 | total: 2.2180
+[New] Epoch 92/1000 | classify: 2.0374 | total: 2.0374
+[New] Epoch 93/1000 | classify: 1.8576 | total: 1.8576
+[New] Epoch 94/1000 | classify: 1.9541 | total: 1.9541
+[New] Epoch 95/1000 | classify: 1.8460 | total: 1.8460
+[New] Epoch 96/1000 | classify: 1.8874 | total: 1.8874
+[New] Epoch 97/1000 | classify: 1.6379 | total: 1.6379
+[New] Epoch 98/1000 | classify: 2.1124 | total: 2.1124
+[New] Epoch 99/1000 | classify: 1.7240 | total: 1.7240
+[New] Epoch 100/1000 | classify: 1.7765 | total: 1.7765
+--- 验证集 [epoch 100] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.7506
+  召回率 (Recall):    0.6831
+  F1 分数 (F1):       0.6892
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_100.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_100.csv
+[New] Epoch 101/1000 | classify: 1.9203 | total: 1.9203
+[New] Epoch 102/1000 | classify: 1.6515 | total: 1.6515
+[New] Epoch 103/1000 | classify: 1.9563 | total: 1.9563
+[New] Epoch 104/1000 | classify: 1.8287 | total: 1.8287
+[New] Epoch 105/1000 | classify: 1.9224 | total: 1.9224
+[New] Epoch 106/1000 | classify: 1.8319 | total: 1.8319
+[New] Epoch 107/1000 | classify: 1.7744 | total: 1.7744
+[New] Epoch 108/1000 | classify: 1.8579 | total: 1.8579
+[New] Epoch 109/1000 | classify: 1.8617 | total: 1.8617
+[New] Epoch 110/1000 | classify: 1.7194 | total: 1.7194
+--- 验证集 [epoch 110] ---
+  准确率 (Accuracy):  0.8082
+  精确率 (Precision): 0.7261
+  召回率 (Recall):    0.7034
+  F1 分数 (F1):       0.7072
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.7072，已保存 best 模型
+[New] Epoch 111/1000 | classify: 1.6699 | total: 1.6699
+[New] Epoch 112/1000 | classify: 1.7393 | total: 1.7393
+[New] Epoch 113/1000 | classify: 1.8882 | total: 1.8882
+[New] Epoch 114/1000 | classify: 1.6866 | total: 1.6866
+[New] Epoch 115/1000 | classify: 1.7402 | total: 1.7402
+[New] Epoch 116/1000 | classify: 1.7657 | total: 1.7657
+[New] Epoch 117/1000 | classify: 1.6200 | total: 1.6200
+[New] Epoch 118/1000 | classify: 1.6903 | total: 1.6903
+[New] Epoch 119/1000 | classify: 1.4943 | total: 1.4943
+[New] Epoch 120/1000 | classify: 1.6519 | total: 1.6519
+--- 验证集 [epoch 120] ---
+  准确率 (Accuracy):  0.7397
+  精确率 (Precision): 0.6900
+  召回率 (Recall):    0.6475
+  F1 分数 (F1):       0.6535
+[New] Epoch 121/1000 | classify: 1.5775 | total: 1.5775
+[New] Epoch 122/1000 | classify: 1.8100 | total: 1.8100
+[New] Epoch 123/1000 | classify: 1.5948 | total: 1.5948
+[New] Epoch 124/1000 | classify: 1.7185 | total: 1.7185
+[New] Epoch 125/1000 | classify: 1.5182 | total: 1.5182
+[New] Epoch 126/1000 | classify: 1.5852 | total: 1.5852
+[New] Epoch 127/1000 | classify: 1.7540 | total: 1.7540
+[New] Epoch 128/1000 | classify: 1.6019 | total: 1.6019
+[New] Epoch 129/1000 | classify: 1.5565 | total: 1.5565
+[New] Epoch 130/1000 | classify: 1.6222 | total: 1.6222
+--- 验证集 [epoch 130] ---
+  准确率 (Accuracy):  0.7945
+  精确率 (Precision): 0.7057
+  召回率 (Recall):    0.6697
+  F1 分数 (F1):       0.6812
+[New] Epoch 131/1000 | classify: 1.5761 | total: 1.5761
+[New] Epoch 132/1000 | classify: 1.5748 | total: 1.5748
+[New] Epoch 133/1000 | classify: 1.7322 | total: 1.7322
+[New] Epoch 134/1000 | classify: 1.7778 | total: 1.7778
+[New] Epoch 135/1000 | classify: 1.4951 | total: 1.4951
+[New] Epoch 136/1000 | classify: 1.8177 | total: 1.8177
+[New] Epoch 137/1000 | classify: 1.6398 | total: 1.6398
+[New] Epoch 138/1000 | classify: 1.3906 | total: 1.3906
+[New] Epoch 139/1000 | classify: 1.5822 | total: 1.5822
+[New] Epoch 140/1000 | classify: 1.5632 | total: 1.5632
+--- 验证集 [epoch 140] ---
+  准确率 (Accuracy):  0.7945
+  精确率 (Precision): 0.7099
+  召回率 (Recall):    0.6708
+  F1 分数 (F1):       0.6826
+[New] Epoch 141/1000 | classify: 1.5558 | total: 1.5558
+[New] Epoch 142/1000 | classify: 1.2069 | total: 1.2069
+[New] Epoch 143/1000 | classify: 1.6654 | total: 1.6654
+[New] Epoch 144/1000 | classify: 1.4699 | total: 1.4699
+[New] Epoch 145/1000 | classify: 1.5791 | total: 1.5791
+[New] Epoch 146/1000 | classify: 1.5240 | total: 1.5240
+[New] Epoch 147/1000 | classify: 1.7203 | total: 1.7203
+[New] Epoch 148/1000 | classify: 1.5501 | total: 1.5501
+[New] Epoch 149/1000 | classify: 1.6612 | total: 1.6612
+[New] Epoch 150/1000 | classify: 1.5876 | total: 1.5876
+--- 验证集 [epoch 150] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7110
+  召回率 (Recall):    0.6796
+  F1 分数 (F1):       0.6778
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_150.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_150.csv
+[New] Epoch 151/1000 | classify: 1.4806 | total: 1.4806
+[New] Epoch 152/1000 | classify: 1.5167 | total: 1.5167
+[New] Epoch 153/1000 | classify: 1.6297 | total: 1.6297
+[New] Epoch 154/1000 | classify: 1.5362 | total: 1.5362
+[New] Epoch 155/1000 | classify: 1.5947 | total: 1.5947
+[New] Epoch 156/1000 | classify: 1.5567 | total: 1.5567
+[New] Epoch 157/1000 | classify: 1.3377 | total: 1.3377
+[New] Epoch 158/1000 | classify: 1.6254 | total: 1.6254
+[New] Epoch 159/1000 | classify: 1.6268 | total: 1.6268
+[New] Epoch 160/1000 | classify: 1.5808 | total: 1.5808
+--- 验证集 [epoch 160] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.7114
+  召回率 (Recall):    0.6547
+  F1 分数 (F1):       0.6725
+[New] Epoch 161/1000 | classify: 1.5922 | total: 1.5922
+[New] Epoch 162/1000 | classify: 1.4445 | total: 1.4445
+[New] Epoch 163/1000 | classify: 1.4167 | total: 1.4167
+[New] Epoch 164/1000 | classify: 1.3728 | total: 1.3728
+[New] Epoch 165/1000 | classify: 1.3047 | total: 1.3047
+[New] Epoch 166/1000 | classify: 1.6142 | total: 1.6142
+[New] Epoch 167/1000 | classify: 1.5142 | total: 1.5142
+[New] Epoch 168/1000 | classify: 1.5162 | total: 1.5162
+[New] Epoch 169/1000 | classify: 1.5071 | total: 1.5071
+[New] Epoch 170/1000 | classify: 1.4095 | total: 1.4095
+--- 验证集 [epoch 170] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.6362
+  召回率 (Recall):    0.6339
+  F1 分数 (F1):       0.6295
+[New] Epoch 171/1000 | classify: 1.4669 | total: 1.4669
+[New] Epoch 172/1000 | classify: 1.4733 | total: 1.4733
+[New] Epoch 173/1000 | classify: 1.5816 | total: 1.5816
+[New] Epoch 174/1000 | classify: 1.2662 | total: 1.2662
+[New] Epoch 175/1000 | classify: 1.4568 | total: 1.4568
+[New] Epoch 176/1000 | classify: 1.4507 | total: 1.4507
+[New] Epoch 177/1000 | classify: 1.5933 | total: 1.5933
+[New] Epoch 178/1000 | classify: 1.4553 | total: 1.4553
+[New] Epoch 179/1000 | classify: 1.4771 | total: 1.4771
+[New] Epoch 180/1000 | classify: 1.4644 | total: 1.4644
+--- 验证集 [epoch 180] ---
+  准确率 (Accuracy):  0.7877
+  精确率 (Precision): 0.7450
+  召回率 (Recall):    0.6851
+  F1 分数 (F1):       0.6995
+[New] Epoch 181/1000 | classify: 1.5519 | total: 1.5519
+[New] Epoch 182/1000 | classify: 1.3119 | total: 1.3119
+[New] Epoch 183/1000 | classify: 1.3560 | total: 1.3560
+[New] Epoch 184/1000 | classify: 1.4919 | total: 1.4919
+[New] Epoch 185/1000 | classify: 1.2055 | total: 1.2055
+[New] Epoch 186/1000 | classify: 1.3799 | total: 1.3799
+[New] Epoch 187/1000 | classify: 1.5002 | total: 1.5002
+[New] Epoch 188/1000 | classify: 1.2662 | total: 1.2662
+[New] Epoch 189/1000 | classify: 1.3251 | total: 1.3251
+[New] Epoch 190/1000 | classify: 1.5182 | total: 1.5182
+--- 验证集 [epoch 190] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.6723
+  召回率 (Recall):    0.6391
+  F1 分数 (F1):       0.6463
+[New] Epoch 191/1000 | classify: 1.3290 | total: 1.3290
+[New] Epoch 192/1000 | classify: 1.2770 | total: 1.2770
+[New] Epoch 193/1000 | classify: 1.5128 | total: 1.5128
+[New] Epoch 194/1000 | classify: 1.2212 | total: 1.2212
+[New] Epoch 195/1000 | classify: 1.5432 | total: 1.5432
+[New] Epoch 196/1000 | classify: 1.4279 | total: 1.4279
+[New] Epoch 197/1000 | classify: 1.3933 | total: 1.3933
+[New] Epoch 198/1000 | classify: 1.4141 | total: 1.4141
+[New] Epoch 199/1000 | classify: 1.4823 | total: 1.4823
+[New] Epoch 200/1000 | classify: 1.4878 | total: 1.4878
+--- 验证集 [epoch 200] ---
+  准确率 (Accuracy):  0.7877
+  精确率 (Precision): 0.7253
+  召回率 (Recall):    0.6840
+  F1 分数 (F1):       0.6914
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_200.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_200.csv
+[New] Epoch 201/1000 | classify: 1.4013 | total: 1.4013
+[New] Epoch 202/1000 | classify: 1.4861 | total: 1.4861
+[New] Epoch 203/1000 | classify: 1.2104 | total: 1.2104
+[New] Epoch 204/1000 | classify: 1.5357 | total: 1.5357
+[New] Epoch 205/1000 | classify: 1.1784 | total: 1.1784
+[New] Epoch 206/1000 | classify: 1.3258 | total: 1.3258
+[New] Epoch 207/1000 | classify: 1.4547 | total: 1.4547
+[New] Epoch 208/1000 | classify: 1.4310 | total: 1.4310
+[New] Epoch 209/1000 | classify: 1.4944 | total: 1.4944
+[New] Epoch 210/1000 | classify: 1.4441 | total: 1.4441
+--- 验证集 [epoch 210] ---
+  准确率 (Accuracy):  0.8014
+  精确率 (Precision): 0.7328
+  召回率 (Recall):    0.6864
+  F1 分数 (F1):       0.6998
+[New] Epoch 211/1000 | classify: 1.2236 | total: 1.2236
+[New] Epoch 212/1000 | classify: 1.2552 | total: 1.2552
+[New] Epoch 213/1000 | classify: 1.0803 | total: 1.0803
+[New] Epoch 214/1000 | classify: 1.4500 | total: 1.4500
+[New] Epoch 215/1000 | classify: 1.1435 | total: 1.1435
+[New] Epoch 216/1000 | classify: 1.2708 | total: 1.2708
+[New] Epoch 217/1000 | classify: 1.1108 | total: 1.1108
+[New] Epoch 218/1000 | classify: 1.4120 | total: 1.4120
+[New] Epoch 219/1000 | classify: 1.3687 | total: 1.3687
+[New] Epoch 220/1000 | classify: 1.3053 | total: 1.3053
+--- 验证集 [epoch 220] ---
+  准确率 (Accuracy):  0.8014
+  精确率 (Precision): 0.7239
+  召回率 (Recall):    0.6925
+  F1 分数 (F1):       0.6998
+[New] Epoch 221/1000 | classify: 1.3447 | total: 1.3447
+[New] Epoch 222/1000 | classify: 1.2643 | total: 1.2643
+[New] Epoch 223/1000 | classify: 1.3957 | total: 1.3957
+[New] Epoch 224/1000 | classify: 1.3726 | total: 1.3726
+[New] Epoch 225/1000 | classify: 1.3481 | total: 1.3481
+[New] Epoch 226/1000 | classify: 1.3489 | total: 1.3489
+[New] Epoch 227/1000 | classify: 1.4060 | total: 1.4060
+[New] Epoch 228/1000 | classify: 1.2049 | total: 1.2049
+[New] Epoch 229/1000 | classify: 1.4223 | total: 1.4223
+[New] Epoch 230/1000 | classify: 1.3597 | total: 1.3597
+--- 验证集 [epoch 230] ---
+  准确率 (Accuracy):  0.7945
+  精确率 (Precision): 0.7143
+  召回率 (Recall):    0.6766
+  F1 分数 (F1):       0.6846
+[New] Epoch 231/1000 | classify: 1.1929 | total: 1.1929
+[New] Epoch 232/1000 | classify: 1.2964 | total: 1.2964
+[New] Epoch 233/1000 | classify: 1.1667 | total: 1.1667
+[New] Epoch 234/1000 | classify: 1.3072 | total: 1.3072
+[New] Epoch 235/1000 | classify: 1.2423 | total: 1.2423
+[New] Epoch 236/1000 | classify: 1.3218 | total: 1.3218
+[New] Epoch 237/1000 | classify: 1.3389 | total: 1.3389
+[New] Epoch 238/1000 | classify: 1.5636 | total: 1.5636
+[New] Epoch 239/1000 | classify: 1.2595 | total: 1.2595
+[New] Epoch 240/1000 | classify: 1.1576 | total: 1.1576
+--- 验证集 [epoch 240] ---
+  准确率 (Accuracy):  0.7877
+  精确率 (Precision): 0.7016
+  召回率 (Recall):    0.6677
+  F1 分数 (F1):       0.6764
+[New] Epoch 241/1000 | classify: 1.3234 | total: 1.3234
+[New] Epoch 242/1000 | classify: 1.1583 | total: 1.1583
+[New] Epoch 243/1000 | classify: 1.3766 | total: 1.3766
+[New] Epoch 244/1000 | classify: 1.1706 | total: 1.1706
+[New] Epoch 245/1000 | classify: 1.2655 | total: 1.2655
+[New] Epoch 246/1000 | classify: 1.3672 | total: 1.3672
+[New] Epoch 247/1000 | classify: 1.4069 | total: 1.4069
+[New] Epoch 248/1000 | classify: 1.3024 | total: 1.3024
+[New] Epoch 249/1000 | classify: 1.3370 | total: 1.3370
+[New] Epoch 250/1000 | classify: 1.3628 | total: 1.3628
+--- 验证集 [epoch 250] ---
+  准确率 (Accuracy):  0.8014
+  精确率 (Precision): 0.7096
+  召回率 (Recall):    0.6823
+  F1 分数 (F1):       0.6932
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_250.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_250.csv
+[New] Epoch 251/1000 | classify: 1.2039 | total: 1.2039
+[New] Epoch 252/1000 | classify: 1.3428 | total: 1.3428
+[New] Epoch 253/1000 | classify: 1.4058 | total: 1.4058
+[New] Epoch 254/1000 | classify: 1.3280 | total: 1.3280
+[New] Epoch 255/1000 | classify: 1.1641 | total: 1.1641
+[New] Epoch 256/1000 | classify: 1.1520 | total: 1.1520
+[New] Epoch 257/1000 | classify: 1.4145 | total: 1.4145
+[New] Epoch 258/1000 | classify: 1.1592 | total: 1.1592
+[New] Epoch 259/1000 | classify: 1.5553 | total: 1.5553
+[New] Epoch 260/1000 | classify: 1.2905 | total: 1.2905
+--- 验证集 [epoch 260] ---
+  准确率 (Accuracy):  0.7671
+  精确率 (Precision): 0.6785
+  召回率 (Recall):    0.6370
+  F1 分数 (F1):       0.6502
+[New] Epoch 261/1000 | classify: 1.3003 | total: 1.3003
+[New] Epoch 262/1000 | classify: 1.1589 | total: 1.1589
+[New] Epoch 263/1000 | classify: 1.2394 | total: 1.2394
+[New] Epoch 264/1000 | classify: 1.1856 | total: 1.1856
+[New] Epoch 265/1000 | classify: 1.2922 | total: 1.2922
+[New] Epoch 266/1000 | classify: 1.2754 | total: 1.2754
+[New] Epoch 267/1000 | classify: 1.1621 | total: 1.1621
+[New] Epoch 268/1000 | classify: 1.4183 | total: 1.4183
+[New] Epoch 269/1000 | classify: 1.1802 | total: 1.1802
+[New] Epoch 270/1000 | classify: 1.1604 | total: 1.1604
+--- 验证集 [epoch 270] ---
+  准确率 (Accuracy):  0.7945
+  精确率 (Precision): 0.7151
+  召回率 (Recall):    0.6898
+  F1 分数 (F1):       0.6932
+[New] Epoch 271/1000 | classify: 1.5103 | total: 1.5103
+[New] Epoch 272/1000 | classify: 1.2393 | total: 1.2393
+[New] Epoch 273/1000 | classify: 1.1587 | total: 1.1587
+[New] Epoch 274/1000 | classify: 1.1905 | total: 1.1905
+[New] Epoch 275/1000 | classify: 1.2191 | total: 1.2191
+[New] Epoch 276/1000 | classify: 1.1434 | total: 1.1434
+[New] Epoch 277/1000 | classify: 1.3057 | total: 1.3057
+[New] Epoch 278/1000 | classify: 1.4725 | total: 1.4725
+[New] Epoch 279/1000 | classify: 1.1572 | total: 1.1572
+[New] Epoch 280/1000 | classify: 1.2600 | total: 1.2600
+--- 验证集 [epoch 280] ---
+  准确率 (Accuracy):  0.7877
+  精确率 (Precision): 0.6941
+  召回率 (Recall):    0.6771
+  F1 分数 (F1):       0.6707
+[New] Epoch 281/1000 | classify: 1.2285 | total: 1.2285
+[New] Epoch 282/1000 | classify: 1.3964 | total: 1.3964
+[New] Epoch 283/1000 | classify: 1.1933 | total: 1.1933
+[New] Epoch 284/1000 | classify: 1.1010 | total: 1.1010
+[New] Epoch 285/1000 | classify: 1.3145 | total: 1.3145
+[New] Epoch 286/1000 | classify: 1.1641 | total: 1.1641
+[New] Epoch 287/1000 | classify: 1.2203 | total: 1.2203
+[New] Epoch 288/1000 | classify: 1.2221 | total: 1.2221
+[New] Epoch 289/1000 | classify: 1.4320 | total: 1.4320
+[New] Epoch 290/1000 | classify: 1.2102 | total: 1.2102
+--- 验证集 [epoch 290] ---
+  准确率 (Accuracy):  0.7671
+  精确率 (Precision): 0.6809
+  召回率 (Recall):    0.6319
+  F1 分数 (F1):       0.6507
+[New] Epoch 291/1000 | classify: 1.2117 | total: 1.2117
+[New] Epoch 292/1000 | classify: 1.4046 | total: 1.4046
+[New] Epoch 293/1000 | classify: 1.1965 | total: 1.1965
+[New] Epoch 294/1000 | classify: 1.4590 | total: 1.4590
+[New] Epoch 295/1000 | classify: 1.2612 | total: 1.2612
+[New] Epoch 296/1000 | classify: 1.1065 | total: 1.1065
+[New] Epoch 297/1000 | classify: 1.1984 | total: 1.1984
+[New] Epoch 298/1000 | classify: 1.3300 | total: 1.3300
+[New] Epoch 299/1000 | classify: 1.2761 | total: 1.2761
+[New] Epoch 300/1000 | classify: 1.1890 | total: 1.1890
+--- 验证集 [epoch 300] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.6902
+  召回率 (Recall):    0.6569
+  F1 分数 (F1):       0.6662
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_300.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_300.csv
+[New] Epoch 301/1000 | classify: 1.1932 | total: 1.1932
+[New] Epoch 302/1000 | classify: 1.2749 | total: 1.2749
+[New] Epoch 303/1000 | classify: 1.3437 | total: 1.3437
+[New] Epoch 304/1000 | classify: 1.1159 | total: 1.1159
+[New] Epoch 305/1000 | classify: 1.3318 | total: 1.3318
+[New] Epoch 306/1000 | classify: 1.1114 | total: 1.1114
+[New] Epoch 307/1000 | classify: 1.4223 | total: 1.4223
+[New] Epoch 308/1000 | classify: 1.2622 | total: 1.2622
+[New] Epoch 309/1000 | classify: 1.3683 | total: 1.3683
+[New] Epoch 310/1000 | classify: 1.1802 | total: 1.1802
+--- 验证集 [epoch 310] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.7152
+  召回率 (Recall):    0.6391
+  F1 分数 (F1):       0.6663
+[New] Epoch 311/1000 | classify: 1.5633 | total: 1.5633
+[New] Epoch 312/1000 | classify: 1.3190 | total: 1.3190
+[New] Epoch 313/1000 | classify: 1.3281 | total: 1.3281
+[New] Epoch 314/1000 | classify: 1.3213 | total: 1.3213
+[New] Epoch 315/1000 | classify: 1.0672 | total: 1.0672
+[New] Epoch 316/1000 | classify: 1.1877 | total: 1.1877
+[New] Epoch 317/1000 | classify: 1.1413 | total: 1.1413
+[New] Epoch 318/1000 | classify: 1.2862 | total: 1.2862
+[New] Epoch 319/1000 | classify: 1.1690 | total: 1.1690
+[New] Epoch 320/1000 | classify: 1.2369 | total: 1.2369
+--- 验证集 [epoch 320] ---
+  准确率 (Accuracy):  0.7877
+  精确率 (Precision): 0.7378
+  召回率 (Recall):    0.6760
+  F1 分数 (F1):       0.6929
+[New] Epoch 321/1000 | classify: 1.1949 | total: 1.1949
+[New] Epoch 322/1000 | classify: 1.2163 | total: 1.2163
+[New] Epoch 323/1000 | classify: 1.3412 | total: 1.3412
+[New] Epoch 324/1000 | classify: 1.0965 | total: 1.0965
+[New] Epoch 325/1000 | classify: 1.1249 | total: 1.1249
+[New] Epoch 326/1000 | classify: 1.2506 | total: 1.2506
+[New] Epoch 327/1000 | classify: 1.1199 | total: 1.1199
+[New] Epoch 328/1000 | classify: 1.2702 | total: 1.2702
+[New] Epoch 329/1000 | classify: 1.2753 | total: 1.2753
+[New] Epoch 330/1000 | classify: 1.0997 | total: 1.0997
+--- 验证集 [epoch 330] ---
+  准确率 (Accuracy):  0.7945
+  精确率 (Precision): 0.7101
+  召回率 (Recall):    0.6992
+  F1 分数 (F1):       0.6962
+[New] Epoch 331/1000 | classify: 1.0845 | total: 1.0845
+[New] Epoch 332/1000 | classify: 1.3566 | total: 1.3566
+[New] Epoch 333/1000 | classify: 1.1033 | total: 1.1033
+[New] Epoch 334/1000 | classify: 1.2513 | total: 1.2513
+[New] Epoch 335/1000 | classify: 1.3612 | total: 1.3612
+[New] Epoch 336/1000 | classify: 1.2342 | total: 1.2342
+[New] Epoch 337/1000 | classify: 1.2492 | total: 1.2492
+[New] Epoch 338/1000 | classify: 1.0562 | total: 1.0562
+[New] Epoch 339/1000 | classify: 1.2712 | total: 1.2712
+[New] Epoch 340/1000 | classify: 1.2448 | total: 1.2448
+--- 验证集 [epoch 340] ---
+  准确率 (Accuracy):  0.8014
+  精确率 (Precision): 0.7122
+  召回率 (Recall):    0.6987
+  F1 分数 (F1):       0.7012
+[New] Epoch 341/1000 | classify: 1.2838 | total: 1.2838
+[New] Epoch 342/1000 | classify: 1.2547 | total: 1.2547
+[New] Epoch 343/1000 | classify: 1.2905 | total: 1.2905
+[New] Epoch 344/1000 | classify: 1.3499 | total: 1.3499
+[New] Epoch 345/1000 | classify: 1.1316 | total: 1.1316
+[New] Epoch 346/1000 | classify: 1.1916 | total: 1.1916
+[New] Epoch 347/1000 | classify: 1.1621 | total: 1.1621
+[New] Epoch 348/1000 | classify: 1.2335 | total: 1.2335
+[New] Epoch 349/1000 | classify: 1.1691 | total: 1.1691
+[New] Epoch 350/1000 | classify: 1.2793 | total: 1.2793
+--- 验证集 [epoch 350] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.7600
+  召回率 (Recall):    0.6620
+  F1 分数 (F1):       0.6898
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_350.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_350.csv
+[New] Epoch 351/1000 | classify: 1.0808 | total: 1.0808
+[New] Epoch 352/1000 | classify: 1.3385 | total: 1.3385
+[New] Epoch 353/1000 | classify: 1.3849 | total: 1.3849
+[New] Epoch 354/1000 | classify: 1.1839 | total: 1.1839
+[New] Epoch 355/1000 | classify: 1.4596 | total: 1.4596
+[New] Epoch 356/1000 | classify: 1.1276 | total: 1.1276
+[New] Epoch 357/1000 | classify: 1.5401 | total: 1.5401
+[New] Epoch 358/1000 | classify: 1.1950 | total: 1.1950
+[New] Epoch 359/1000 | classify: 1.3939 | total: 1.3939
+[New] Epoch 360/1000 | classify: 1.3283 | total: 1.3283
+--- 验证集 [epoch 360] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.6891
+  召回率 (Recall):    0.6412
+  F1 分数 (F1):       0.6570
+[New] Epoch 361/1000 | classify: 1.4211 | total: 1.4211
+[New] Epoch 362/1000 | classify: 1.0649 | total: 1.0649
+[New] Epoch 363/1000 | classify: 1.2235 | total: 1.2235
+[New] Epoch 364/1000 | classify: 1.2150 | total: 1.2150
+[New] Epoch 365/1000 | classify: 1.2274 | total: 1.2274
+[New] Epoch 366/1000 | classify: 1.1622 | total: 1.1622
+[New] Epoch 367/1000 | classify: 1.2147 | total: 1.2147
+[New] Epoch 368/1000 | classify: 1.2594 | total: 1.2594
+[New] Epoch 369/1000 | classify: 1.3903 | total: 1.3903
+[New] Epoch 370/1000 | classify: 1.1168 | total: 1.1168
+--- 验证集 [epoch 370] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.6495
+  召回率 (Recall):    0.6232
+  F1 分数 (F1):       0.6289
+[New] Epoch 371/1000 | classify: 1.0699 | total: 1.0699
+[New] Epoch 372/1000 | classify: 1.0262 | total: 1.0262
+[New] Epoch 373/1000 | classify: 1.2374 | total: 1.2374
+[New] Epoch 374/1000 | classify: 1.2305 | total: 1.2305
+[New] Epoch 375/1000 | classify: 1.2113 | total: 1.2113
+[New] Epoch 376/1000 | classify: 1.1936 | total: 1.1936
+[New] Epoch 377/1000 | classify: 1.4276 | total: 1.4276
+[New] Epoch 378/1000 | classify: 1.2718 | total: 1.2718
+[New] Epoch 379/1000 | classify: 1.2741 | total: 1.2741
+[New] Epoch 380/1000 | classify: 1.1744 | total: 1.1744
+--- 验证集 [epoch 380] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.6789
+  召回率 (Recall):    0.5975
+  F1 分数 (F1):       0.6219
+[New] Epoch 381/1000 | classify: 1.0679 | total: 1.0679
+[New] Epoch 382/1000 | classify: 1.1878 | total: 1.1878
+[New] Epoch 383/1000 | classify: 1.2298 | total: 1.2298
+[New] Epoch 384/1000 | classify: 1.1942 | total: 1.1942
+[New] Epoch 385/1000 | classify: 1.2452 | total: 1.2452
+[New] Epoch 386/1000 | classify: 1.2310 | total: 1.2310
+[New] Epoch 387/1000 | classify: 1.4433 | total: 1.4433
+[New] Epoch 388/1000 | classify: 1.0828 | total: 1.0828
+[New] Epoch 389/1000 | classify: 1.2888 | total: 1.2888
+[New] Epoch 390/1000 | classify: 1.1453 | total: 1.1453
+--- 验证集 [epoch 390] ---
+  准确率 (Accuracy):  0.7877
+  精确率 (Precision): 0.7049
+  召回率 (Recall):    0.6849
+  F1 分数 (F1):       0.6878
+[New] Epoch 391/1000 | classify: 1.3441 | total: 1.3441
+[New] Epoch 392/1000 | classify: 1.3122 | total: 1.3122
+[New] Epoch 393/1000 | classify: 1.2461 | total: 1.2461
+[New] Epoch 394/1000 | classify: 1.4111 | total: 1.4111
+[New] Epoch 395/1000 | classify: 1.0870 | total: 1.0870
+[New] Epoch 396/1000 | classify: 1.1433 | total: 1.1433
+[New] Epoch 397/1000 | classify: 1.1776 | total: 1.1776
+[New] Epoch 398/1000 | classify: 1.3621 | total: 1.3621
+[New] Epoch 399/1000 | classify: 1.3050 | total: 1.3050
+[New] Epoch 400/1000 | classify: 1.2443 | total: 1.2443
+--- 验证集 [epoch 400] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.6928
+  召回率 (Recall):    0.7113
+  F1 分数 (F1):       0.6954
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_400.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_400.csv
+[New] Epoch 401/1000 | classify: 1.1593 | total: 1.1593
+[New] Epoch 402/1000 | classify: 1.2180 | total: 1.2180
+[New] Epoch 403/1000 | classify: 1.1946 | total: 1.1946
+[New] Epoch 404/1000 | classify: 1.3499 | total: 1.3499
+[New] Epoch 405/1000 | classify: 1.3062 | total: 1.3062
+[New] Epoch 406/1000 | classify: 1.3209 | total: 1.3209
+[New] Epoch 407/1000 | classify: 1.2280 | total: 1.2280
+[New] Epoch 408/1000 | classify: 1.2846 | total: 1.2846
+[New] Epoch 409/1000 | classify: 1.1751 | total: 1.1751
+[New] Epoch 410/1000 | classify: 1.2144 | total: 1.2144
+--- 验证集 [epoch 410] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.6596
+  召回率 (Recall):    0.6274
+  F1 分数 (F1):       0.6332
+[New] Epoch 411/1000 | classify: 1.3449 | total: 1.3449
+[New] Epoch 412/1000 | classify: 1.2943 | total: 1.2943
+[New] Epoch 413/1000 | classify: 1.2571 | total: 1.2571
+[New] Epoch 414/1000 | classify: 1.2878 | total: 1.2878
+[New] Epoch 415/1000 | classify: 1.3863 | total: 1.3863
+[New] Epoch 416/1000 | classify: 1.3028 | total: 1.3028
+[New] Epoch 417/1000 | classify: 1.3983 | total: 1.3983
+[New] Epoch 418/1000 | classify: 1.4220 | total: 1.4220
+[New] Epoch 419/1000 | classify: 1.3363 | total: 1.3363
+[New] Epoch 420/1000 | classify: 1.1258 | total: 1.1258
+--- 验证集 [epoch 420] ---
+  准确率 (Accuracy):  0.8014
+  精确率 (Precision): 0.7389
+  召回率 (Recall):    0.6936
+  F1 分数 (F1):       0.7050
+[New] Epoch 421/1000 | classify: 1.2101 | total: 1.2101
+[New] Epoch 422/1000 | classify: 1.3084 | total: 1.3084
+[New] Epoch 423/1000 | classify: 1.2320 | total: 1.2320
+[New] Epoch 424/1000 | classify: 1.2016 | total: 1.2016
+[New] Epoch 425/1000 | classify: 1.2001 | total: 1.2001
+[New] Epoch 426/1000 | classify: 1.2587 | total: 1.2587
+[New] Epoch 427/1000 | classify: 1.0785 | total: 1.0785
+[New] Epoch 428/1000 | classify: 1.4205 | total: 1.4205
+[New] Epoch 429/1000 | classify: 1.3408 | total: 1.3408
+[New] Epoch 430/1000 | classify: 1.2745 | total: 1.2745
+--- 验证集 [epoch 430] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.6587
+  召回率 (Recall):    0.6239
+  F1 分数 (F1):       0.6394
+[New] Epoch 431/1000 | classify: 1.3042 | total: 1.3042
+[New] Epoch 432/1000 | classify: 1.4408 | total: 1.4408
+[New] Epoch 433/1000 | classify: 1.3117 | total: 1.3117
+[New] Epoch 434/1000 | classify: 1.1695 | total: 1.1695
+[New] Epoch 435/1000 | classify: 1.3296 | total: 1.3296
+[New] Epoch 436/1000 | classify: 1.2885 | total: 1.2885
+[New] Epoch 437/1000 | classify: 1.3851 | total: 1.3851
+[New] Epoch 438/1000 | classify: 1.3997 | total: 1.3997
+[New] Epoch 439/1000 | classify: 1.3541 | total: 1.3541
+[New] Epoch 440/1000 | classify: 1.2580 | total: 1.2580
+--- 验证集 [epoch 440] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.7134
+  召回率 (Recall):    0.6568
+  F1 分数 (F1):       0.6797
+[New] Epoch 441/1000 | classify: 1.1519 | total: 1.1519
+[New] Epoch 442/1000 | classify: 1.2901 | total: 1.2901
+[New] Epoch 443/1000 | classify: 1.1502 | total: 1.1502
+[New] Epoch 444/1000 | classify: 1.1373 | total: 1.1373
+[New] Epoch 445/1000 | classify: 1.2487 | total: 1.2487
+[New] Epoch 446/1000 | classify: 1.2209 | total: 1.2209
+[New] Epoch 447/1000 | classify: 1.2907 | total: 1.2907
+[New] Epoch 448/1000 | classify: 1.2008 | total: 1.2008
+[New] Epoch 449/1000 | classify: 1.3899 | total: 1.3899
+[New] Epoch 450/1000 | classify: 1.1426 | total: 1.1426
+--- 验证集 [epoch 450] ---
+  准确率 (Accuracy):  0.7055
+  精确率 (Precision): 0.6511
+  召回率 (Recall):    0.6760
+  F1 分数 (F1):       0.6511
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_450.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_450.csv
+[New] Epoch 451/1000 | classify: 1.2342 | total: 1.2342
+[New] Epoch 452/1000 | classify: 1.3033 | total: 1.3033
+[New] Epoch 453/1000 | classify: 1.2933 | total: 1.2933
+[New] Epoch 454/1000 | classify: 1.0686 | total: 1.0686
+[New] Epoch 455/1000 | classify: 1.1487 | total: 1.1487
+[New] Epoch 456/1000 | classify: 1.0518 | total: 1.0518
+[New] Epoch 457/1000 | classify: 1.3994 | total: 1.3994
+[New] Epoch 458/1000 | classify: 1.2465 | total: 1.2465
+[New] Epoch 459/1000 | classify: 1.2127 | total: 1.2127
+[New] Epoch 460/1000 | classify: 1.2630 | total: 1.2630
+--- 验证集 [epoch 460] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.6906
+  召回率 (Recall):    0.6658
+  F1 分数 (F1):       0.6659
+[New] Epoch 461/1000 | classify: 1.2656 | total: 1.2656
+[New] Epoch 462/1000 | classify: 1.2953 | total: 1.2953
+[New] Epoch 463/1000 | classify: 1.0947 | total: 1.0947
+[New] Epoch 464/1000 | classify: 1.2518 | total: 1.2518
+[New] Epoch 465/1000 | classify: 1.1793 | total: 1.1793
+[New] Epoch 466/1000 | classify: 1.3626 | total: 1.3626
+[New] Epoch 467/1000 | classify: 1.2239 | total: 1.2239
+[New] Epoch 468/1000 | classify: 1.1014 | total: 1.1014
+[New] Epoch 469/1000 | classify: 1.0517 | total: 1.0517
+[New] Epoch 470/1000 | classify: 1.3896 | total: 1.3896
+--- 验证集 [epoch 470] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.6988
+  召回率 (Recall):    0.6194
+  F1 分数 (F1):       0.6481
+[New] Epoch 471/1000 | classify: 1.3464 | total: 1.3464
+[New] Epoch 472/1000 | classify: 1.4121 | total: 1.4121
+[New] Epoch 473/1000 | classify: 1.2200 | total: 1.2200
+[New] Epoch 474/1000 | classify: 1.3256 | total: 1.3256
+[New] Epoch 475/1000 | classify: 1.2154 | total: 1.2154
+[New] Epoch 476/1000 | classify: 1.1992 | total: 1.1992
+[New] Epoch 477/1000 | classify: 1.3512 | total: 1.3512
+[New] Epoch 478/1000 | classify: 1.3049 | total: 1.3049
+[New] Epoch 479/1000 | classify: 1.3612 | total: 1.3612
+[New] Epoch 480/1000 | classify: 1.2228 | total: 1.2228
+--- 验证集 [epoch 480] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.6620
+  召回率 (Recall):    0.5892
+  F1 分数 (F1):       0.6117
+[New] Epoch 481/1000 | classify: 1.3549 | total: 1.3549
+[New] Epoch 482/1000 | classify: 1.4090 | total: 1.4090
+[New] Epoch 483/1000 | classify: 1.2993 | total: 1.2993
+[New] Epoch 484/1000 | classify: 1.2994 | total: 1.2994
+[New] Epoch 485/1000 | classify: 1.3384 | total: 1.3384
+[New] Epoch 486/1000 | classify: 1.3219 | total: 1.3219
+[New] Epoch 487/1000 | classify: 1.2144 | total: 1.2144
+[New] Epoch 488/1000 | classify: 1.3312 | total: 1.3312
+[New] Epoch 489/1000 | classify: 1.3740 | total: 1.3740
+[New] Epoch 490/1000 | classify: 1.1425 | total: 1.1425
+--- 验证集 [epoch 490] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.7261
+  召回率 (Recall):    0.7157
+  F1 分数 (F1):       0.7070
+[New] Epoch 491/1000 | classify: 1.3026 | total: 1.3026
+[New] Epoch 492/1000 | classify: 1.1888 | total: 1.1888
+[New] Epoch 493/1000 | classify: 1.3961 | total: 1.3961
+[New] Epoch 494/1000 | classify: 1.3115 | total: 1.3115
+[New] Epoch 495/1000 | classify: 1.2947 | total: 1.2947
+[New] Epoch 496/1000 | classify: 1.2989 | total: 1.2989
+[New] Epoch 497/1000 | classify: 1.2789 | total: 1.2789
+[New] Epoch 498/1000 | classify: 1.3191 | total: 1.3191
+[New] Epoch 499/1000 | classify: 1.3487 | total: 1.3487
+[New] Epoch 500/1000 | classify: 1.0842 | total: 1.0842
+--- 验证集 [epoch 500] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7225
+  召回率 (Recall):    0.6241
+  F1 分数 (F1):       0.6558
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_500.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_500.csv
+[New] Epoch 501/1000 | classify: 1.3209 | total: 1.3209
+[New] Epoch 502/1000 | classify: 1.2724 | total: 1.2724
+[New] Epoch 503/1000 | classify: 1.2946 | total: 1.2946
+[New] Epoch 504/1000 | classify: 1.4163 | total: 1.4163
+[New] Epoch 505/1000 | classify: 1.3276 | total: 1.3276
+[New] Epoch 506/1000 | classify: 1.3220 | total: 1.3220
+[New] Epoch 507/1000 | classify: 1.2483 | total: 1.2483
+[New] Epoch 508/1000 | classify: 1.3587 | total: 1.3587
+[New] Epoch 509/1000 | classify: 1.2862 | total: 1.2862
+[New] Epoch 510/1000 | classify: 1.1570 | total: 1.1570
+--- 验证集 [epoch 510] ---
+  准确率 (Accuracy):  0.7877
+  精确率 (Precision): 0.7410
+  召回率 (Recall):    0.6779
+  F1 分数 (F1):       0.6928
+[New] Epoch 511/1000 | classify: 1.3962 | total: 1.3962
+[New] Epoch 512/1000 | classify: 1.2472 | total: 1.2472
+[New] Epoch 513/1000 | classify: 1.2961 | total: 1.2961
+[New] Epoch 514/1000 | classify: 1.3148 | total: 1.3148
+[New] Epoch 515/1000 | classify: 1.2800 | total: 1.2800
+[New] Epoch 516/1000 | classify: 1.3364 | total: 1.3364
+[New] Epoch 517/1000 | classify: 1.3861 | total: 1.3861
+[New] Epoch 518/1000 | classify: 1.3184 | total: 1.3184
+[New] Epoch 519/1000 | classify: 1.2246 | total: 1.2246
+[New] Epoch 520/1000 | classify: 1.2693 | total: 1.2693
+--- 验证集 [epoch 520] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.6869
+  召回率 (Recall):    0.6756
+  F1 分数 (F1):       0.6654
+[New] Epoch 521/1000 | classify: 1.2527 | total: 1.2527
+[New] Epoch 522/1000 | classify: 1.2961 | total: 1.2961
+[New] Epoch 523/1000 | classify: 1.3750 | total: 1.3750
+[New] Epoch 524/1000 | classify: 1.3706 | total: 1.3706
+[New] Epoch 525/1000 | classify: 1.3407 | total: 1.3407
+[New] Epoch 526/1000 | classify: 1.1980 | total: 1.1980
+[New] Epoch 527/1000 | classify: 1.3207 | total: 1.3207
+[New] Epoch 528/1000 | classify: 1.1912 | total: 1.1912
+[New] Epoch 529/1000 | classify: 1.3579 | total: 1.3579
+[New] Epoch 530/1000 | classify: 1.3762 | total: 1.3762
+--- 验证集 [epoch 530] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7383
+  召回率 (Recall):    0.6362
+  F1 分数 (F1):       0.6521
+[New] Epoch 531/1000 | classify: 1.3699 | total: 1.3699
+[New] Epoch 532/1000 | classify: 1.4355 | total: 1.4355
+[New] Epoch 533/1000 | classify: 1.2657 | total: 1.2657
+[New] Epoch 534/1000 | classify: 1.4106 | total: 1.4106
+[New] Epoch 535/1000 | classify: 1.4413 | total: 1.4413
+[New] Epoch 536/1000 | classify: 1.5245 | total: 1.5245
+[New] Epoch 537/1000 | classify: 1.2141 | total: 1.2141
+[New] Epoch 538/1000 | classify: 1.4230 | total: 1.4230
+[New] Epoch 539/1000 | classify: 1.2642 | total: 1.2642
+[New] Epoch 540/1000 | classify: 1.4327 | total: 1.4327
+--- 验证集 [epoch 540] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.7358
+  召回率 (Recall):    0.6858
+  F1 分数 (F1):       0.6956
+[New] Epoch 541/1000 | classify: 1.2974 | total: 1.2974
+[New] Epoch 542/1000 | classify: 1.4058 | total: 1.4058
+[New] Epoch 543/1000 | classify: 1.3174 | total: 1.3174
+[New] Epoch 544/1000 | classify: 1.2642 | total: 1.2642
+[New] Epoch 545/1000 | classify: 1.4764 | total: 1.4764
+[New] Epoch 546/1000 | classify: 1.3454 | total: 1.3454
+[New] Epoch 547/1000 | classify: 1.3340 | total: 1.3340
+[New] Epoch 548/1000 | classify: 1.3149 | total: 1.3149
+[New] Epoch 549/1000 | classify: 1.5158 | total: 1.5158
+[New] Epoch 550/1000 | classify: 1.1901 | total: 1.1901
+--- 验证集 [epoch 550] ---
+  准确率 (Accuracy):  0.7877
+  精确率 (Precision): 0.7537
+  召回率 (Recall):    0.6789
+  F1 分数 (F1):       0.6961
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_550.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_550.csv
+[New] Epoch 551/1000 | classify: 1.4388 | total: 1.4388
+[New] Epoch 552/1000 | classify: 1.3562 | total: 1.3562
+[New] Epoch 553/1000 | classify: 1.2700 | total: 1.2700
+[New] Epoch 554/1000 | classify: 1.4260 | total: 1.4260
+[New] Epoch 555/1000 | classify: 1.2509 | total: 1.2509
+[New] Epoch 556/1000 | classify: 1.3970 | total: 1.3970
+[New] Epoch 557/1000 | classify: 1.2142 | total: 1.2142
+[New] Epoch 558/1000 | classify: 1.3188 | total: 1.3188
+[New] Epoch 559/1000 | classify: 1.4355 | total: 1.4355
+[New] Epoch 560/1000 | classify: 1.4721 | total: 1.4721
+--- 验证集 [epoch 560] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.7098
+  召回率 (Recall):    0.6551
+  F1 分数 (F1):       0.6659
+[New] Epoch 561/1000 | classify: 1.2502 | total: 1.2502
+[New] Epoch 562/1000 | classify: 1.4101 | total: 1.4101
+[New] Epoch 563/1000 | classify: 1.3438 | total: 1.3438
+[New] Epoch 564/1000 | classify: 1.3270 | total: 1.3270
+[New] Epoch 565/1000 | classify: 1.3891 | total: 1.3891
+[New] Epoch 566/1000 | classify: 1.2982 | total: 1.2982
+[New] Epoch 567/1000 | classify: 1.2712 | total: 1.2712
+[New] Epoch 568/1000 | classify: 1.3130 | total: 1.3130
+[New] Epoch 569/1000 | classify: 1.4658 | total: 1.4658
+[New] Epoch 570/1000 | classify: 1.3319 | total: 1.3319
+--- 验证集 [epoch 570] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.7154
+  召回率 (Recall):    0.6498
+  F1 分数 (F1):       0.6605
+[New] Epoch 571/1000 | classify: 1.4540 | total: 1.4540
+[New] Epoch 572/1000 | classify: 1.3529 | total: 1.3529
+[New] Epoch 573/1000 | classify: 1.2215 | total: 1.2215
+[New] Epoch 574/1000 | classify: 1.3662 | total: 1.3662
+[New] Epoch 575/1000 | classify: 1.3043 | total: 1.3043
+[New] Epoch 576/1000 | classify: 1.4866 | total: 1.4866
+[New] Epoch 577/1000 | classify: 1.4180 | total: 1.4180
+[New] Epoch 578/1000 | classify: 1.4568 | total: 1.4568
+[New] Epoch 579/1000 | classify: 1.3193 | total: 1.3193
+[New] Epoch 580/1000 | classify: 1.5215 | total: 1.5215
+--- 验证集 [epoch 580] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.7242
+  召回率 (Recall):    0.6847
+  F1 分数 (F1):       0.6854
+[New] Epoch 581/1000 | classify: 1.3956 | total: 1.3956
+[New] Epoch 582/1000 | classify: 1.2886 | total: 1.2886
+[New] Epoch 583/1000 | classify: 1.3798 | total: 1.3798
+[New] Epoch 584/1000 | classify: 1.3875 | total: 1.3875
+[New] Epoch 585/1000 | classify: 1.4698 | total: 1.4698
+[New] Epoch 586/1000 | classify: 1.3748 | total: 1.3748
+[New] Epoch 587/1000 | classify: 1.4251 | total: 1.4251
+[New] Epoch 588/1000 | classify: 1.5315 | total: 1.5315
+[New] Epoch 589/1000 | classify: 1.3897 | total: 1.3897
+[New] Epoch 590/1000 | classify: 1.3791 | total: 1.3791
+--- 验证集 [epoch 590] ---
+  准确率 (Accuracy):  0.7123
+  精确率 (Precision): 0.7131
+  召回率 (Recall):    0.6861
+  F1 分数 (F1):       0.6812
+[New] Epoch 591/1000 | classify: 1.2210 | total: 1.2210
+[New] Epoch 592/1000 | classify: 1.4313 | total: 1.4313
+[New] Epoch 593/1000 | classify: 1.4792 | total: 1.4792
+[New] Epoch 594/1000 | classify: 1.4781 | total: 1.4781
+[New] Epoch 595/1000 | classify: 1.2416 | total: 1.2416
+[New] Epoch 596/1000 | classify: 1.3653 | total: 1.3653
+[New] Epoch 597/1000 | classify: 1.4493 | total: 1.4493
+[New] Epoch 598/1000 | classify: 1.5119 | total: 1.5119
+[New] Epoch 599/1000 | classify: 1.3316 | total: 1.3316
+[New] Epoch 600/1000 | classify: 1.3509 | total: 1.3509
+--- 验证集 [epoch 600] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7139
+  召回率 (Recall):    0.6263
+  F1 分数 (F1):       0.6466
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_600.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_600.csv
+[New] Epoch 601/1000 | classify: 1.3450 | total: 1.3450
+[New] Epoch 602/1000 | classify: 1.6117 | total: 1.6117
+[New] Epoch 603/1000 | classify: 1.4253 | total: 1.4253
+[New] Epoch 604/1000 | classify: 1.4494 | total: 1.4494
+[New] Epoch 605/1000 | classify: 1.3372 | total: 1.3372
+[New] Epoch 606/1000 | classify: 1.2959 | total: 1.2959
+[New] Epoch 607/1000 | classify: 1.4147 | total: 1.4147
+[New] Epoch 608/1000 | classify: 1.2379 | total: 1.2379
+[New] Epoch 609/1000 | classify: 1.4540 | total: 1.4540
+[New] Epoch 610/1000 | classify: 1.4331 | total: 1.4331
+--- 验证集 [epoch 610] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.6657
+  召回率 (Recall):    0.6983
+  F1 分数 (F1):       0.6748
+[New] Epoch 611/1000 | classify: 1.2864 | total: 1.2864
+[New] Epoch 612/1000 | classify: 1.4848 | total: 1.4848
+[New] Epoch 613/1000 | classify: 1.4496 | total: 1.4496
+[New] Epoch 614/1000 | classify: 1.2433 | total: 1.2433
+[New] Epoch 615/1000 | classify: 1.2683 | total: 1.2683
+[New] Epoch 616/1000 | classify: 1.4154 | total: 1.4154
+[New] Epoch 617/1000 | classify: 1.3664 | total: 1.3664
+[New] Epoch 618/1000 | classify: 1.4828 | total: 1.4828
+[New] Epoch 619/1000 | classify: 1.3947 | total: 1.3947
+[New] Epoch 620/1000 | classify: 1.3880 | total: 1.3880
+--- 验证集 [epoch 620] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.6962
+  召回率 (Recall):    0.6173
+  F1 分数 (F1):       0.6344
+[New] Epoch 621/1000 | classify: 1.3680 | total: 1.3680
+[New] Epoch 622/1000 | classify: 1.4105 | total: 1.4105
+[New] Epoch 623/1000 | classify: 1.3577 | total: 1.3577
+[New] Epoch 624/1000 | classify: 1.3813 | total: 1.3813
+[New] Epoch 625/1000 | classify: 1.3734 | total: 1.3734
+[New] Epoch 626/1000 | classify: 1.4108 | total: 1.4108
+[New] Epoch 627/1000 | classify: 1.3575 | total: 1.3575
+[New] Epoch 628/1000 | classify: 1.2887 | total: 1.2887
+[New] Epoch 629/1000 | classify: 1.4303 | total: 1.4303
+[New] Epoch 630/1000 | classify: 1.5019 | total: 1.5019
+--- 验证集 [epoch 630] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7082
+  召回率 (Recall):    0.6193
+  F1 分数 (F1):       0.6485
+[New] Epoch 631/1000 | classify: 1.3898 | total: 1.3898
+[New] Epoch 632/1000 | classify: 1.4625 | total: 1.4625
+[New] Epoch 633/1000 | classify: 1.2573 | total: 1.2573
+[New] Epoch 634/1000 | classify: 1.5051 | total: 1.5051
+[New] Epoch 635/1000 | classify: 1.4696 | total: 1.4696
+[New] Epoch 636/1000 | classify: 1.3882 | total: 1.3882
+[New] Epoch 637/1000 | classify: 1.3678 | total: 1.3678
+[New] Epoch 638/1000 | classify: 1.5589 | total: 1.5589
+[New] Epoch 639/1000 | classify: 1.4278 | total: 1.4278
+[New] Epoch 640/1000 | classify: 1.3857 | total: 1.3857
+--- 验证集 [epoch 640] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.7151
+  召回率 (Recall):    0.6637
+  F1 分数 (F1):       0.6649
+[New] Epoch 641/1000 | classify: 1.5946 | total: 1.5946
+[New] Epoch 642/1000 | classify: 1.4409 | total: 1.4409
+[New] Epoch 643/1000 | classify: 1.4699 | total: 1.4699
+[New] Epoch 644/1000 | classify: 1.5104 | total: 1.5104
+[New] Epoch 645/1000 | classify: 1.4897 | total: 1.4897
+[New] Epoch 646/1000 | classify: 1.4475 | total: 1.4475
+[New] Epoch 647/1000 | classify: 1.3628 | total: 1.3628
+[New] Epoch 648/1000 | classify: 1.3614 | total: 1.3614
+[New] Epoch 649/1000 | classify: 1.3653 | total: 1.3653
+[New] Epoch 650/1000 | classify: 1.4375 | total: 1.4375
+--- 验证集 [epoch 650] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.7397
+  召回率 (Recall):    0.6260
+  F1 分数 (F1):       0.6425
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_650.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_650.csv
+[New] Epoch 651/1000 | classify: 1.4779 | total: 1.4779
+[New] Epoch 652/1000 | classify: 1.3719 | total: 1.3719
+[New] Epoch 653/1000 | classify: 1.4804 | total: 1.4804
+[New] Epoch 654/1000 | classify: 1.4886 | total: 1.4886
+[New] Epoch 655/1000 | classify: 1.4434 | total: 1.4434
+[New] Epoch 656/1000 | classify: 1.4571 | total: 1.4571
+[New] Epoch 657/1000 | classify: 1.4430 | total: 1.4430
+[New] Epoch 658/1000 | classify: 1.5446 | total: 1.5446
+[New] Epoch 659/1000 | classify: 1.4679 | total: 1.4679
+[New] Epoch 660/1000 | classify: 1.4640 | total: 1.4640
+--- 验证集 [epoch 660] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.7208
+  召回率 (Recall):    0.6501
+  F1 分数 (F1):       0.6630
+[New] Epoch 661/1000 | classify: 1.3803 | total: 1.3803
+[New] Epoch 662/1000 | classify: 1.3762 | total: 1.3762
+[New] Epoch 663/1000 | classify: 1.3142 | total: 1.3142
+[New] Epoch 664/1000 | classify: 1.4329 | total: 1.4329
+[New] Epoch 665/1000 | classify: 1.5058 | total: 1.5058
+[New] Epoch 666/1000 | classify: 1.4958 | total: 1.4958
+[New] Epoch 667/1000 | classify: 1.5897 | total: 1.5897
+[New] Epoch 668/1000 | classify: 1.5361 | total: 1.5361
+[New] Epoch 669/1000 | classify: 1.4741 | total: 1.4741
+[New] Epoch 670/1000 | classify: 1.4880 | total: 1.4880
+--- 验证集 [epoch 670] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.7033
+  召回率 (Recall):    0.6360
+  F1 分数 (F1):       0.6514
+[New] Epoch 671/1000 | classify: 1.4276 | total: 1.4276
+[New] Epoch 672/1000 | classify: 1.5231 | total: 1.5231
+[New] Epoch 673/1000 | classify: 1.3457 | total: 1.3457
+[New] Epoch 674/1000 | classify: 1.4608 | total: 1.4608
+[New] Epoch 675/1000 | classify: 1.5471 | total: 1.5471
+[New] Epoch 676/1000 | classify: 1.4916 | total: 1.4916
+[New] Epoch 677/1000 | classify: 1.5416 | total: 1.5416
+[New] Epoch 678/1000 | classify: 1.4827 | total: 1.4827
+[New] Epoch 679/1000 | classify: 1.5581 | total: 1.5581
+[New] Epoch 680/1000 | classify: 1.3432 | total: 1.3432
+--- 验证集 [epoch 680] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.7075
+  召回率 (Recall):    0.6144
+  F1 分数 (F1):       0.6355
+[New] Epoch 681/1000 | classify: 1.6615 | total: 1.6615
+[New] Epoch 682/1000 | classify: 1.3549 | total: 1.3549
+[New] Epoch 683/1000 | classify: 1.4487 | total: 1.4487
+[New] Epoch 684/1000 | classify: 1.4987 | total: 1.4987
+[New] Epoch 685/1000 | classify: 1.5534 | total: 1.5534
+[New] Epoch 686/1000 | classify: 1.6030 | total: 1.6030
+[New] Epoch 687/1000 | classify: 1.4220 | total: 1.4220
+[New] Epoch 688/1000 | classify: 1.4981 | total: 1.4981
+[New] Epoch 689/1000 | classify: 1.5161 | total: 1.5161
+[New] Epoch 690/1000 | classify: 1.4784 | total: 1.4784
+--- 验证集 [epoch 690] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7106
+  召回率 (Recall):    0.6351
+  F1 分数 (F1):       0.6506
+[New] Epoch 691/1000 | classify: 1.6198 | total: 1.6198
+[New] Epoch 692/1000 | classify: 1.4641 | total: 1.4641
+[New] Epoch 693/1000 | classify: 1.5204 | total: 1.5204
+[New] Epoch 694/1000 | classify: 1.4792 | total: 1.4792
+[New] Epoch 695/1000 | classify: 1.4311 | total: 1.4311
+[New] Epoch 696/1000 | classify: 1.4933 | total: 1.4933
+[New] Epoch 697/1000 | classify: 1.6027 | total: 1.6027
+[New] Epoch 698/1000 | classify: 1.5182 | total: 1.5182
+[New] Epoch 699/1000 | classify: 1.5577 | total: 1.5577
+[New] Epoch 700/1000 | classify: 1.4626 | total: 1.4626
+--- 验证集 [epoch 700] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7664
+  召回率 (Recall):    0.6340
+  F1 分数 (F1):       0.6400
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_700.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_700.csv
+[New] Epoch 701/1000 | classify: 1.3898 | total: 1.3898
+[New] Epoch 702/1000 | classify: 1.4148 | total: 1.4148
+[New] Epoch 703/1000 | classify: 1.4070 | total: 1.4070
+[New] Epoch 704/1000 | classify: 1.6064 | total: 1.6064
+[New] Epoch 705/1000 | classify: 1.4787 | total: 1.4787
+[New] Epoch 706/1000 | classify: 1.4974 | total: 1.4974
+[New] Epoch 707/1000 | classify: 1.4858 | total: 1.4858
+[New] Epoch 708/1000 | classify: 1.5576 | total: 1.5576
+[New] Epoch 709/1000 | classify: 1.5517 | total: 1.5517
+[New] Epoch 710/1000 | classify: 1.4770 | total: 1.4770
+--- 验证集 [epoch 710] ---
+  准确率 (Accuracy):  0.7397
+  精确率 (Precision): 0.6772
+  召回率 (Recall):    0.6099
+  F1 分数 (F1):       0.6063
+[New] Epoch 711/1000 | classify: 1.5779 | total: 1.5779
+[New] Epoch 712/1000 | classify: 1.4883 | total: 1.4883
+[New] Epoch 713/1000 | classify: 1.6073 | total: 1.6073
+[New] Epoch 714/1000 | classify: 1.4433 | total: 1.4433
+[New] Epoch 715/1000 | classify: 1.6194 | total: 1.6194
+[New] Epoch 716/1000 | classify: 1.6927 | total: 1.6927
+[New] Epoch 717/1000 | classify: 1.6148 | total: 1.6148
+[New] Epoch 718/1000 | classify: 1.6623 | total: 1.6623
+[New] Epoch 719/1000 | classify: 1.4661 | total: 1.4661
+[New] Epoch 720/1000 | classify: 1.5000 | total: 1.5000
+--- 验证集 [epoch 720] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7481
+  召回率 (Recall):    0.6243
+  F1 分数 (F1):       0.6555
+[New] Epoch 721/1000 | classify: 1.5042 | total: 1.5042
+[New] Epoch 722/1000 | classify: 1.5665 | total: 1.5665
+[New] Epoch 723/1000 | classify: 1.6345 | total: 1.6345
+[New] Epoch 724/1000 | classify: 1.5630 | total: 1.5630
+[New] Epoch 725/1000 | classify: 1.7044 | total: 1.7044
+[New] Epoch 726/1000 | classify: 1.5753 | total: 1.5753
+[New] Epoch 727/1000 | classify: 1.5635 | total: 1.5635
+[New] Epoch 728/1000 | classify: 1.6243 | total: 1.6243
+[New] Epoch 729/1000 | classify: 1.6146 | total: 1.6146
+[New] Epoch 730/1000 | classify: 1.5517 | total: 1.5517
+--- 验证集 [epoch 730] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.7366
+  召回率 (Recall):    0.6251
+  F1 分数 (F1):       0.6410
+[New] Epoch 731/1000 | classify: 1.5767 | total: 1.5767
+[New] Epoch 732/1000 | classify: 1.5924 | total: 1.5924
+[New] Epoch 733/1000 | classify: 1.4828 | total: 1.4828
+[New] Epoch 734/1000 | classify: 1.6962 | total: 1.6962
+[New] Epoch 735/1000 | classify: 1.5798 | total: 1.5798
+[New] Epoch 736/1000 | classify: 1.5572 | total: 1.5572
+[New] Epoch 737/1000 | classify: 1.4962 | total: 1.4962
+[New] Epoch 738/1000 | classify: 1.4419 | total: 1.4419
+[New] Epoch 739/1000 | classify: 1.5314 | total: 1.5314
+[New] Epoch 740/1000 | classify: 1.6159 | total: 1.6159
+--- 验证集 [epoch 740] ---
+  准确率 (Accuracy):  0.7671
+  精确率 (Precision): 0.7511
+  召回率 (Recall):    0.6372
+  F1 分数 (F1):       0.6647
+[New] Epoch 741/1000 | classify: 1.4953 | total: 1.4953
+[New] Epoch 742/1000 | classify: 1.6287 | total: 1.6287
+[New] Epoch 743/1000 | classify: 1.5081 | total: 1.5081
+[New] Epoch 744/1000 | classify: 1.5540 | total: 1.5540
+[New] Epoch 745/1000 | classify: 1.5896 | total: 1.5896
+[New] Epoch 746/1000 | classify: 1.4217 | total: 1.4217
+[New] Epoch 747/1000 | classify: 1.5620 | total: 1.5620
+[New] Epoch 748/1000 | classify: 1.6417 | total: 1.6417
+[New] Epoch 749/1000 | classify: 1.6427 | total: 1.6427
+[New] Epoch 750/1000 | classify: 1.5693 | total: 1.5693
+--- 验证集 [epoch 750] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.7113
+  召回率 (Recall):    0.6123
+  F1 分数 (F1):       0.6287
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_750.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_750.csv
+[New] Epoch 751/1000 | classify: 1.7397 | total: 1.7397
+[New] Epoch 752/1000 | classify: 1.8002 | total: 1.8002
+[New] Epoch 753/1000 | classify: 1.5211 | total: 1.5211
+[New] Epoch 754/1000 | classify: 1.7189 | total: 1.7189
+[New] Epoch 755/1000 | classify: 1.5339 | total: 1.5339
+[New] Epoch 756/1000 | classify: 1.5896 | total: 1.5896
+[New] Epoch 757/1000 | classify: 1.5238 | total: 1.5238
+[New] Epoch 758/1000 | classify: 1.5133 | total: 1.5133
+[New] Epoch 759/1000 | classify: 1.5264 | total: 1.5264
+[New] Epoch 760/1000 | classify: 1.5568 | total: 1.5568
+--- 验证集 [epoch 760] ---
+  准确率 (Accuracy):  0.7671
+  精确率 (Precision): 0.7655
+  召回率 (Recall):    0.6372
+  F1 分数 (F1):       0.6665
+[New] Epoch 761/1000 | classify: 1.5237 | total: 1.5237
+[New] Epoch 762/1000 | classify: 1.5631 | total: 1.5631
+[New] Epoch 763/1000 | classify: 1.6664 | total: 1.6664
+[New] Epoch 764/1000 | classify: 1.5941 | total: 1.5941
+[New] Epoch 765/1000 | classify: 1.5451 | total: 1.5451
+[New] Epoch 766/1000 | classify: 1.6485 | total: 1.6485
+[New] Epoch 767/1000 | classify: 1.5079 | total: 1.5079
+[New] Epoch 768/1000 | classify: 1.5566 | total: 1.5566
+[New] Epoch 769/1000 | classify: 1.6419 | total: 1.6419
+[New] Epoch 770/1000 | classify: 1.8076 | total: 1.8076
+--- 验证集 [epoch 770] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.7555
+  召回率 (Recall):    0.6102
+  F1 分数 (F1):       0.6244
+[New] Epoch 771/1000 | classify: 1.4717 | total: 1.4717
+[New] Epoch 772/1000 | classify: 1.7360 | total: 1.7360
+[New] Epoch 773/1000 | classify: 1.4467 | total: 1.4467
+[New] Epoch 774/1000 | classify: 1.4817 | total: 1.4817
+[New] Epoch 775/1000 | classify: 1.5934 | total: 1.5934
+[New] Epoch 776/1000 | classify: 1.4697 | total: 1.4697
+[New] Epoch 777/1000 | classify: 1.6489 | total: 1.6489
+[New] Epoch 778/1000 | classify: 1.5226 | total: 1.5226
+[New] Epoch 779/1000 | classify: 1.7228 | total: 1.7228
+[New] Epoch 780/1000 | classify: 1.6923 | total: 1.6923
+--- 验证集 [epoch 780] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7096
+  召回率 (Recall):    0.6351
+  F1 分数 (F1):       0.6445
+[New] Epoch 781/1000 | classify: 1.5040 | total: 1.5040
+[New] Epoch 782/1000 | classify: 1.6250 | total: 1.6250
+[New] Epoch 783/1000 | classify: 1.6161 | total: 1.6161
+[New] Epoch 784/1000 | classify: 1.6211 | total: 1.6211
+[New] Epoch 785/1000 | classify: 1.5682 | total: 1.5682
+[New] Epoch 786/1000 | classify: 1.6027 | total: 1.6027
+[New] Epoch 787/1000 | classify: 1.5686 | total: 1.5686
+[New] Epoch 788/1000 | classify: 1.6260 | total: 1.6260
+[New] Epoch 789/1000 | classify: 1.6950 | total: 1.6950
+[New] Epoch 790/1000 | classify: 1.4920 | total: 1.4920
+--- 验证集 [epoch 790] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7460
+  召回率 (Recall):    0.6331
+  F1 分数 (F1):       0.6568
+[New] Epoch 791/1000 | classify: 1.5733 | total: 1.5733
+[New] Epoch 792/1000 | classify: 1.5308 | total: 1.5308
+[New] Epoch 793/1000 | classify: 1.5819 | total: 1.5819
+[New] Epoch 794/1000 | classify: 1.6819 | total: 1.6819
+[New] Epoch 795/1000 | classify: 1.6880 | total: 1.6880
+[New] Epoch 796/1000 | classify: 1.4086 | total: 1.4086
+[New] Epoch 797/1000 | classify: 1.6635 | total: 1.6635
+[New] Epoch 798/1000 | classify: 1.6012 | total: 1.6012
+[New] Epoch 799/1000 | classify: 1.6208 | total: 1.6208
+[New] Epoch 800/1000 | classify: 1.6061 | total: 1.6061
+--- 验证集 [epoch 800] ---
+  准确率 (Accuracy):  0.7260
+  精确率 (Precision): 0.6737
+  召回率 (Recall):    0.6190
+  F1 分数 (F1):       0.6258
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_800.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_800.csv
+[New] Epoch 801/1000 | classify: 1.4217 | total: 1.4217
+[New] Epoch 802/1000 | classify: 1.4853 | total: 1.4853
+[New] Epoch 803/1000 | classify: 1.6550 | total: 1.6550
+[New] Epoch 804/1000 | classify: 1.6118 | total: 1.6118
+[New] Epoch 805/1000 | classify: 1.6015 | total: 1.6015
+[New] Epoch 806/1000 | classify: 1.6045 | total: 1.6045
+[New] Epoch 807/1000 | classify: 1.4908 | total: 1.4908
+[New] Epoch 808/1000 | classify: 1.4840 | total: 1.4840
+[New] Epoch 809/1000 | classify: 1.6395 | total: 1.6395
+[New] Epoch 810/1000 | classify: 1.5543 | total: 1.5543
+--- 验证集 [epoch 810] ---
+  准确率 (Accuracy):  0.7123
+  精确率 (Precision): 0.7475
+  召回率 (Recall):    0.6028
+  F1 分数 (F1):       0.6074
+[New] Epoch 811/1000 | classify: 1.7749 | total: 1.7749
+[New] Epoch 812/1000 | classify: 1.5259 | total: 1.5259
+[New] Epoch 813/1000 | classify: 1.5070 | total: 1.5070
+[New] Epoch 814/1000 | classify: 1.5416 | total: 1.5416
+[New] Epoch 815/1000 | classify: 1.7198 | total: 1.7198
+[New] Epoch 816/1000 | classify: 1.5566 | total: 1.5566
+[New] Epoch 817/1000 | classify: 1.5972 | total: 1.5972
+[New] Epoch 818/1000 | classify: 1.5551 | total: 1.5551
+[New] Epoch 819/1000 | classify: 1.5858 | total: 1.5858
+[New] Epoch 820/1000 | classify: 1.7150 | total: 1.7150
+--- 验证集 [epoch 820] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7602
+  召回率 (Recall):    0.6292
+  F1 分数 (F1):       0.6503
+[New] Epoch 821/1000 | classify: 1.5804 | total: 1.5804
+[New] Epoch 822/1000 | classify: 1.6879 | total: 1.6879
+[New] Epoch 823/1000 | classify: 1.6461 | total: 1.6461
+[New] Epoch 824/1000 | classify: 1.6283 | total: 1.6283
+[New] Epoch 825/1000 | classify: 1.4965 | total: 1.4965
+[New] Epoch 826/1000 | classify: 1.5417 | total: 1.5417
+[New] Epoch 827/1000 | classify: 1.5138 | total: 1.5138
+[New] Epoch 828/1000 | classify: 1.6527 | total: 1.6527
+[New] Epoch 829/1000 | classify: 1.6245 | total: 1.6245
+[New] Epoch 830/1000 | classify: 1.4269 | total: 1.4269
+--- 验证集 [epoch 830] ---
+  准确率 (Accuracy):  0.7397
+  精确率 (Precision): 0.7259
+  召回率 (Recall):    0.5924
+  F1 分数 (F1):       0.6198
+[New] Epoch 831/1000 | classify: 1.5458 | total: 1.5458
+[New] Epoch 832/1000 | classify: 1.6288 | total: 1.6288
+[New] Epoch 833/1000 | classify: 1.5312 | total: 1.5312
+[New] Epoch 834/1000 | classify: 1.4813 | total: 1.4813
+[New] Epoch 835/1000 | classify: 1.6129 | total: 1.6129
+[New] Epoch 836/1000 | classify: 1.6720 | total: 1.6720
+[New] Epoch 837/1000 | classify: 1.6620 | total: 1.6620
+[New] Epoch 838/1000 | classify: 1.5719 | total: 1.5719
+[New] Epoch 839/1000 | classify: 1.5943 | total: 1.5943
+[New] Epoch 840/1000 | classify: 1.5425 | total: 1.5425
+--- 验证集 [epoch 840] ---
+  准确率 (Accuracy):  0.7260
+  精确率 (Precision): 0.6805
+  召回率 (Recall):    0.6021
+  F1 分数 (F1):       0.6127
+[New] Epoch 841/1000 | classify: 1.7533 | total: 1.7533
+[New] Epoch 842/1000 | classify: 1.6100 | total: 1.6100
+[New] Epoch 843/1000 | classify: 1.7191 | total: 1.7191
+[New] Epoch 844/1000 | classify: 1.6505 | total: 1.6505
+[New] Epoch 845/1000 | classify: 1.7615 | total: 1.7615
+[New] Epoch 846/1000 | classify: 1.5037 | total: 1.5037
+[New] Epoch 847/1000 | classify: 1.3144 | total: 1.3144
+[New] Epoch 848/1000 | classify: 1.6455 | total: 1.6455
+[New] Epoch 849/1000 | classify: 1.4931 | total: 1.4931
+[New] Epoch 850/1000 | classify: 1.7324 | total: 1.7324
+--- 验证集 [epoch 850] ---
+  准确率 (Accuracy):  0.7397
+  精确率 (Precision): 0.6860
+  召回率 (Recall):    0.5983
+  F1 分数 (F1):       0.6101
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_850.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_850.csv
+[New] Epoch 851/1000 | classify: 1.4749 | total: 1.4749
+[New] Epoch 852/1000 | classify: 1.6875 | total: 1.6875
+[New] Epoch 853/1000 | classify: 1.5952 | total: 1.5952
+[New] Epoch 854/1000 | classify: 1.6393 | total: 1.6393
+[New] Epoch 855/1000 | classify: 1.4942 | total: 1.4942
+[New] Epoch 856/1000 | classify: 1.7588 | total: 1.7588
+[New] Epoch 857/1000 | classify: 1.7095 | total: 1.7095
+[New] Epoch 858/1000 | classify: 1.5351 | total: 1.5351
+[New] Epoch 859/1000 | classify: 1.6020 | total: 1.6020
+[New] Epoch 860/1000 | classify: 1.6044 | total: 1.6044
+--- 验证集 [epoch 860] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.7366
+  召回率 (Recall):    0.6102
+  F1 分数 (F1):       0.6331
+[New] Epoch 861/1000 | classify: 1.4682 | total: 1.4682
+[New] Epoch 862/1000 | classify: 1.5608 | total: 1.5608
+[New] Epoch 863/1000 | classify: 1.7055 | total: 1.7055
+[New] Epoch 864/1000 | classify: 1.7496 | total: 1.7496
+[New] Epoch 865/1000 | classify: 1.5816 | total: 1.5816
+[New] Epoch 866/1000 | classify: 1.6808 | total: 1.6808
+[New] Epoch 867/1000 | classify: 1.5822 | total: 1.5822
+[New] Epoch 868/1000 | classify: 1.6128 | total: 1.6128
+[New] Epoch 869/1000 | classify: 1.5617 | total: 1.5617
+[New] Epoch 870/1000 | classify: 1.5053 | total: 1.5053
+--- 验证集 [epoch 870] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.7248
+  召回率 (Recall):    0.6429
+  F1 分数 (F1):       0.6527
+[New] Epoch 871/1000 | classify: 1.6404 | total: 1.6404
+[New] Epoch 872/1000 | classify: 1.7254 | total: 1.7254
+[New] Epoch 873/1000 | classify: 1.6383 | total: 1.6383
+[New] Epoch 874/1000 | classify: 1.5768 | total: 1.5768
+[New] Epoch 875/1000 | classify: 1.6768 | total: 1.6768
+[New] Epoch 876/1000 | classify: 1.5525 | total: 1.5525
+[New] Epoch 877/1000 | classify: 1.7521 | total: 1.7521
+[New] Epoch 878/1000 | classify: 1.6499 | total: 1.6499
+[New] Epoch 879/1000 | classify: 1.6699 | total: 1.6699
+[New] Epoch 880/1000 | classify: 1.6190 | total: 1.6190
+--- 验证集 [epoch 880] ---
+  准确率 (Accuracy):  0.7397
+  精确率 (Precision): 0.6874
+  召回率 (Recall):    0.6290
+  F1 分数 (F1):       0.6370
+[New] Epoch 881/1000 | classify: 1.6333 | total: 1.6333
+[New] Epoch 882/1000 | classify: 1.5303 | total: 1.5303
+[New] Epoch 883/1000 | classify: 1.6576 | total: 1.6576
+[New] Epoch 884/1000 | classify: 1.5275 | total: 1.5275
+[New] Epoch 885/1000 | classify: 1.5305 | total: 1.5305
+[New] Epoch 886/1000 | classify: 1.5729 | total: 1.5729
+[New] Epoch 887/1000 | classify: 1.5887 | total: 1.5887
+[New] Epoch 888/1000 | classify: 1.5953 | total: 1.5953
+[New] Epoch 889/1000 | classify: 1.6197 | total: 1.6197
+[New] Epoch 890/1000 | classify: 1.6106 | total: 1.6106
+--- 验证集 [epoch 890] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.7452
+  召回率 (Recall):    0.6091
+  F1 分数 (F1):       0.6116
+[New] Epoch 891/1000 | classify: 1.6900 | total: 1.6900
+[New] Epoch 892/1000 | classify: 1.7254 | total: 1.7254
+[New] Epoch 893/1000 | classify: 1.4734 | total: 1.4734
+[New] Epoch 894/1000 | classify: 1.6259 | total: 1.6259
+[New] Epoch 895/1000 | classify: 1.7914 | total: 1.7914
+[New] Epoch 896/1000 | classify: 1.5824 | total: 1.5824
+[New] Epoch 897/1000 | classify: 1.5870 | total: 1.5870
+[New] Epoch 898/1000 | classify: 1.5664 | total: 1.5664
+[New] Epoch 899/1000 | classify: 1.6235 | total: 1.6235
+[New] Epoch 900/1000 | classify: 1.5115 | total: 1.5115
+--- 验证集 [epoch 900] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7406
+  召回率 (Recall):    0.6351
+  F1 分数 (F1):       0.6540
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_900.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_900.csv
+[New] Epoch 901/1000 | classify: 1.6733 | total: 1.6733
+[New] Epoch 902/1000 | classify: 1.5851 | total: 1.5851
+[New] Epoch 903/1000 | classify: 1.6248 | total: 1.6248
+[New] Epoch 904/1000 | classify: 1.6786 | total: 1.6786
+[New] Epoch 905/1000 | classify: 1.5219 | total: 1.5219
+[New] Epoch 906/1000 | classify: 1.6940 | total: 1.6940
+[New] Epoch 907/1000 | classify: 1.5746 | total: 1.5746
+[New] Epoch 908/1000 | classify: 1.5439 | total: 1.5439
+[New] Epoch 909/1000 | classify: 1.6467 | total: 1.6467
+[New] Epoch 910/1000 | classify: 1.6196 | total: 1.6196
+--- 验证集 [epoch 910] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.7499
+  召回率 (Recall):    0.6043
+  F1 分数 (F1):       0.6262
+[New] Epoch 911/1000 | classify: 1.5185 | total: 1.5185
+[New] Epoch 912/1000 | classify: 1.6274 | total: 1.6274
+[New] Epoch 913/1000 | classify: 1.6060 | total: 1.6060
+[New] Epoch 914/1000 | classify: 1.5130 | total: 1.5130
+[New] Epoch 915/1000 | classify: 1.6117 | total: 1.6117
+[New] Epoch 916/1000 | classify: 1.6476 | total: 1.6476
+[New] Epoch 917/1000 | classify: 1.5848 | total: 1.5848
+[New] Epoch 918/1000 | classify: 1.6575 | total: 1.6575
+[New] Epoch 919/1000 | classify: 1.5679 | total: 1.5679
+[New] Epoch 920/1000 | classify: 1.5928 | total: 1.5928
+--- 验证集 [epoch 920] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7697
+  召回率 (Recall):    0.6340
+  F1 分数 (F1):       0.6508
+[New] Epoch 921/1000 | classify: 1.6232 | total: 1.6232
+[New] Epoch 922/1000 | classify: 1.6142 | total: 1.6142
+[New] Epoch 923/1000 | classify: 1.5338 | total: 1.5338
+[New] Epoch 924/1000 | classify: 1.5215 | total: 1.5215
+[New] Epoch 925/1000 | classify: 1.7262 | total: 1.7262
+[New] Epoch 926/1000 | classify: 1.7420 | total: 1.7420
+[New] Epoch 927/1000 | classify: 1.6452 | total: 1.6452
+[New] Epoch 928/1000 | classify: 1.6248 | total: 1.6248
+[New] Epoch 929/1000 | classify: 1.7020 | total: 1.7020
+[New] Epoch 930/1000 | classify: 1.6684 | total: 1.6684
+--- 验证集 [epoch 930] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.7744
+  召回率 (Recall):    0.6221
+  F1 分数 (F1):       0.6432
+[New] Epoch 931/1000 | classify: 1.5235 | total: 1.5235
+[New] Epoch 932/1000 | classify: 1.6983 | total: 1.6983
+[New] Epoch 933/1000 | classify: 1.7227 | total: 1.7227
+[New] Epoch 934/1000 | classify: 1.5752 | total: 1.5752
+[New] Epoch 935/1000 | classify: 1.5725 | total: 1.5725
+[New] Epoch 936/1000 | classify: 1.5467 | total: 1.5467
+[New] Epoch 937/1000 | classify: 1.6471 | total: 1.6471
+[New] Epoch 938/1000 | classify: 1.5452 | total: 1.5452
+[New] Epoch 939/1000 | classify: 1.6798 | total: 1.6798
+[New] Epoch 940/1000 | classify: 1.5611 | total: 1.5611
+--- 验证集 [epoch 940] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7697
+  召回率 (Recall):    0.6340
+  F1 分数 (F1):       0.6508
+[New] Epoch 941/1000 | classify: 1.6493 | total: 1.6493
+[New] Epoch 942/1000 | classify: 1.7120 | total: 1.7120
+[New] Epoch 943/1000 | classify: 1.6016 | total: 1.6016
+[New] Epoch 944/1000 | classify: 1.7738 | total: 1.7738
+[New] Epoch 945/1000 | classify: 1.5767 | total: 1.5767
+[New] Epoch 946/1000 | classify: 1.5825 | total: 1.5825
+[New] Epoch 947/1000 | classify: 1.4860 | total: 1.4860
+[New] Epoch 948/1000 | classify: 1.6499 | total: 1.6499
+[New] Epoch 949/1000 | classify: 1.5684 | total: 1.5684
+[New] Epoch 950/1000 | classify: 1.6029 | total: 1.6029
+--- 验证集 [epoch 950] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.7602
+  召回率 (Recall):    0.6221
+  F1 分数 (F1):       0.6377
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_950.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_950.csv
+[New] Epoch 951/1000 | classify: 1.5981 | total: 1.5981
+[New] Epoch 952/1000 | classify: 1.6778 | total: 1.6778
+[New] Epoch 953/1000 | classify: 1.6592 | total: 1.6592
+[New] Epoch 954/1000 | classify: 1.6291 | total: 1.6291
+[New] Epoch 955/1000 | classify: 1.6347 | total: 1.6347
+[New] Epoch 956/1000 | classify: 1.5289 | total: 1.5289
+[New] Epoch 957/1000 | classify: 1.6523 | total: 1.6523
+[New] Epoch 958/1000 | classify: 1.5406 | total: 1.5406
+[New] Epoch 959/1000 | classify: 1.5292 | total: 1.5292
+[New] Epoch 960/1000 | classify: 1.5417 | total: 1.5417
+--- 验证集 [epoch 960] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7697
+  召回率 (Recall):    0.6340
+  F1 分数 (F1):       0.6508
+[New] Epoch 961/1000 | classify: 1.4857 | total: 1.4857
+[New] Epoch 962/1000 | classify: 1.5600 | total: 1.5600
+[New] Epoch 963/1000 | classify: 1.5697 | total: 1.5697
+[New] Epoch 964/1000 | classify: 1.5395 | total: 1.5395
+[New] Epoch 965/1000 | classify: 1.6469 | total: 1.6469
+[New] Epoch 966/1000 | classify: 1.5012 | total: 1.5012
+[New] Epoch 967/1000 | classify: 1.4630 | total: 1.4630
+[New] Epoch 968/1000 | classify: 1.6092 | total: 1.6092
+[New] Epoch 969/1000 | classify: 1.6668 | total: 1.6668
+[New] Epoch 970/1000 | classify: 1.6176 | total: 1.6176
+--- 验证集 [epoch 970] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.7536
+  召回率 (Recall):    0.6043
+  F1 分数 (F1):       0.6251
+[New] Epoch 971/1000 | classify: 1.6220 | total: 1.6220
+[New] Epoch 972/1000 | classify: 1.6523 | total: 1.6523
+[New] Epoch 973/1000 | classify: 1.7526 | total: 1.7526
+[New] Epoch 974/1000 | classify: 1.6946 | total: 1.6946
+[New] Epoch 975/1000 | classify: 1.5118 | total: 1.5118
+[New] Epoch 976/1000 | classify: 1.6885 | total: 1.6885
+[New] Epoch 977/1000 | classify: 1.5589 | total: 1.5589
+[New] Epoch 978/1000 | classify: 1.5926 | total: 1.5926
+[New] Epoch 979/1000 | classify: 1.6876 | total: 1.6876
+[New] Epoch 980/1000 | classify: 1.7821 | total: 1.7821
+--- 验证集 [epoch 980] ---
+  准确率 (Accuracy):  0.7329
+  精确率 (Precision): 0.6976
+  召回率 (Recall):    0.6368
+  F1 分数 (F1):       0.6368
+[New] Epoch 981/1000 | classify: 1.7084 | total: 1.7084
+[New] Epoch 982/1000 | classify: 1.7205 | total: 1.7205
+[New] Epoch 983/1000 | classify: 1.7109 | total: 1.7109
+[New] Epoch 984/1000 | classify: 1.4938 | total: 1.4938
+[New] Epoch 985/1000 | classify: 1.5993 | total: 1.5993
+[New] Epoch 986/1000 | classify: 1.5947 | total: 1.5947
+[New] Epoch 987/1000 | classify: 1.6551 | total: 1.6551
+[New] Epoch 988/1000 | classify: 1.6172 | total: 1.6172
+[New] Epoch 989/1000 | classify: 1.5305 | total: 1.5305
+[New] Epoch 990/1000 | classify: 1.7064 | total: 1.7064
+--- 验证集 [epoch 990] ---
+  准确率 (Accuracy):  0.7329
+  精确率 (Precision): 0.7176
+  召回率 (Recall):    0.6051
+  F1 分数 (F1):       0.6067
+[New] Epoch 991/1000 | classify: 1.5867 | total: 1.5867
+[New] Epoch 992/1000 | classify: 1.6688 | total: 1.6688
+[New] Epoch 993/1000 | classify: 1.5514 | total: 1.5514
+[New] Epoch 994/1000 | classify: 1.6822 | total: 1.6822
+[New] Epoch 995/1000 | classify: 1.5904 | total: 1.5904
+[New] Epoch 996/1000 | classify: 1.5038 | total: 1.5038
+[New] Epoch 997/1000 | classify: 1.5530 | total: 1.5530
+[New] Epoch 998/1000 | classify: 1.6864 | total: 1.6864
+[New] Epoch 999/1000 | classify: 1.5784 | total: 1.5784
+[New] Epoch 1000/1000 | classify: 1.5383 | total: 1.5383
+--- 验证集 [epoch 1000] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7697
+  召回率 (Recall):    0.6340
+  F1 分数 (F1):       0.6508
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_1000.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_1000.csv
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/trained_model_epoch_final.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_a_num_tp2/training_loss_epoch_final.csv

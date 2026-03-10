@@ -83,7 +83,7 @@ INIT_PARAM_KEYS_LATEX = {
     "i_0an": r"$i_{0,an}$",
 }
 
-# time-window fragments
+# time-window fragments (fixed by experiment design)
 PAT_0H  = re.compile(r"\[\s*0\s*,\s*2\s*,\s*4\s*,\s*6\s*\]")
 PAT_6H  = re.compile(r"\[\s*6\s*,\s*8\s*,\s*10\s*,\s*12\s*\]")
 
@@ -156,7 +156,12 @@ def detect_ion(name: str) -> Optional[str]:
     return None
 
 def is_role_of_interest(name: str) -> Optional[str]:
-    """Return ROLE_BASE / ROLE_POLL / ROLE_RECV if matches, otherwise None."""
+    """
+    固定语义（按你的实验定义）:
+    - baseline: 非 ion_column 且窗口为 [0,2,4,6]（取 0h 初始状态）
+    - polluted: 非 ion_column 且窗口为 [6,8,10,12]（取 6h 初始状态）
+    - recovery: ion_column_renew_H2SO4 且窗口为 [0,2,4,6]（恢复后初始状态）
+    """
     if ("ion_column_renew_H2SO4" in name) and PAT_0H.search(name):
         return ROLE_RECV
     if ("ion_" in name) and PAT_0H.search(name) and ("ion_column" not in name):

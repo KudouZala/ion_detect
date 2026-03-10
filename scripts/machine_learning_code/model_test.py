@@ -69,7 +69,8 @@ def evaluate_prediction(xlsx_path, predicted_label):
 
 
 def test_single_xlsx_and_generate_explanations_three_system_1117(
-    xlsx_path, model, device, num_time_points, num_freq_points, folder_name
+    xlsx_path, model, device, num_time_points, num_freq_points, folder_name,
+    generate_explanations=True,
 ):
     """
     针对 Model_three_system_1117 的单文件测试函数：
@@ -83,9 +84,11 @@ def test_single_xlsx_and_generate_explanations_three_system_1117(
     base_dir = Path(__file__).resolve().parent.parent.parent
     model.eval()  # 设为评估模式
 
-    # === 0. 设置输出路径 ===
-    output_dir = base_dir / "output" / "inference_results" / folder_name
-    os.makedirs(output_dir, exist_ok=True)
+    # === 0. 设置输出路径（仅在需要导出解释性结果时创建） ===
+    output_dir = None
+    if generate_explanations:
+        output_dir = base_dir / "output" / "inference_results" / folder_name
+        os.makedirs(output_dir, exist_ok=True)
 
     # === 1. 加载单个 xlsx 文件 ===
     df = pd.read_excel(xlsx_path)
@@ -104,17 +107,10 @@ def test_single_xlsx_and_generate_explanations_three_system_1117(
         print(f"Warning: No ppm column in {file_name}, set to -1")
         concentration = torch.tensor([[ -1.0 ]], dtype=torch.float32, device=device)
 
-    # === 1.2 构建 4 个时间点的数据 ===
-    if num_time_points==4:
-        time_points = [0, 2, 4, 6]
-    elif num_time_points==3:
-        time_points = [0, 2, 4]
-    elif num_time_points==2:
-        time_points = [0, 2]
-    elif num_time_points==1:
-        time_points = [0]
-    else:
-        print("no num_time_points")
+    # === 1.2 根据 num_time_points 动态构建时间点（默认步长 2h） ===
+    if num_time_points < 1:
+        raise ValueError(f"num_time_points 必须 >= 1，当前为 {num_time_points}")
+    time_points = [2 * i for i in range(num_time_points)]
 
     volt_list, impe_list = [], []
     for t in time_points:
@@ -153,12 +149,16 @@ def test_single_xlsx_and_generate_explanations_three_system_1117(
         dtype=torch.float32
     ).to(device)
 
-    # === 2. 加载归一化参数 stats_dataset2.json ===
+    # === 2. 加载归一化参数（优先旧文件名，找不到则回退到当前主文件） ===
     stats_path = base_dir / "datasets" / "stats_dataset2.json"
     if not os.path.exists(stats_path):
-        raise FileNotFoundError(
-            f"统计参数文件 {stats_path} 不存在，请先运行 Dataset_2_Stable 保存该文件。"
-        )
+        fallback_path = base_dir / "datasets" / "stats_dataset.json"
+        if os.path.exists(fallback_path):
+            stats_path = fallback_path
+        else:
+            raise FileNotFoundError(
+                f"统计参数文件 {stats_path} 与 {fallback_path} 都不存在，请先生成统计文件。"
+            )
 
     with open(stats_path, 'r') as f:
         stats = json.load(f)
@@ -222,26 +222,54 @@ def test_single_xlsx_and_generate_explanations_three_system_1117(
         ], dtype=torch.float32)
     electrolyzer_parameters = electrolyzer_parameters.unsqueeze(0).to(device)   # (1, P)
 
-    # === 3. 启用梯度，准备解释性分析 ===
-    volt_tensor.requires_grad_()
-    impe_tensor.requires_grad_()
-    print("→ volt requires_grad:", volt_tensor.requires_grad)
-    print("→ impe requires_grad:", impe_tensor.requires_grad)
+    # === 3. 启用梯度（仅解释性分析需要） ===
+    if generate_explanations:
+        volt_tensor.requires_grad_()
+        impe_tensor.requires_grad_()
+        print("→ volt requires_grad:", volt_tensor.requires_grad)
+        print("→ impe requires_grad:", impe_tensor.requires_grad)
 
     # === 3.1 前向推理（兼容 1117 多输出） ===
     outputs = model(volt_tensor, impe_tensor, env_param, electrolyzer_parameters, concentration)
-    # 只取前 10 个，后面即使有 rule_pred, group_logits 等也会被忽略：
-    (prob_output,
-     predicted_voltage,
-     predicted_conc,
-     wuxing,
-     cls_attn_mean,
-     raw_prob_output,
-     yingxiang,
-     param_attn_mean,
-     freq_attn,
-     freq_attn_param,
-     *extra_outputs) = outputs
+    if isinstance(outputs, dict):
+        # 新模型输出（dict）兼容
+        prob_output = outputs["prob"]
+        raw_prob_output = outputs.get("logits", torch.log(prob_output + 1e-8))
+        predicted_voltage = outputs.get("pred_voltage", torch.zeros((1, 1), device=device))
+        predicted_conc = outputs.get("pred_conc", torch.zeros((1,), device=device))
+        wuxing = outputs.get("wuxing", [torch.zeros((1, 1), device=device) for _ in range(5)])
+        yingxiang = outputs.get("influence", [torch.zeros((1, 1), device=device) for _ in range(5)])
+
+        # 优先使用新模型导出的真实 attention；缺失时回退占位张量
+        cls_attn_mean = outputs.get(
+            "cls_attn_mean",
+            torch.zeros((1, volt_tensor.shape[1] + impe_tensor.shape[1] * impe_tensor.shape[2] + 1), device=device),
+        )
+        param_attn_mean = outputs.get(
+            "param_attn_mean",
+            torch.zeros((1, impe_tensor.shape[2] + 2), device=device),
+        )
+        freq_attn = outputs.get(
+            "freq_attn",
+            torch.zeros((1, impe_tensor.shape[1], impe_tensor.shape[2]), device=device),
+        )
+        freq_attn_param = outputs.get(
+            "freq_attn_param",
+            torch.zeros((1, impe_tensor.shape[2]), device=device),
+        )
+    else:
+        # 旧模型输出（tuple/list）
+        (prob_output,
+         predicted_voltage,
+         predicted_conc,
+         wuxing,
+         cls_attn_mean,
+         raw_prob_output,
+         yingxiang,
+         param_attn_mean,
+         freq_attn,
+         freq_attn_param,
+         *extra_outputs) = outputs
 
     predicted_class = torch.argmax(prob_output.detach(), dim=1).item()
 
@@ -278,8 +306,9 @@ def test_single_xlsx_and_generate_explanations_three_system_1117(
     # === 3.3 构造结果行 ===
     base_filename = os.path.splitext(os.path.basename(xlsx_path))[0]
     rows = []
-    for i in range(5):
-        rows.append([wuxing_names[i], wuxing_values[i], yingxiang_names[i], yingxiang_values[i]])
+    if generate_explanations:
+        for i in range(5):
+            rows.append([wuxing_names[i], wuxing_values[i], yingxiang_names[i], yingxiang_values[i]])
 
     label_mapping = {
         'Ca2+_ion': 0, 'Na+_ion': 1, 'Ni2+_ion': 2,'Cr3+_ion': 3,'Cu2+_ion': 4,'Fe3+_ion': 5, "no_ion": 6
@@ -288,134 +317,137 @@ def test_single_xlsx_and_generate_explanations_three_system_1117(
 
     predicted_class_int = int(predicted_class)
     predicted_label = inverse_label_mapping.get(predicted_class_int, f"Unknown({predicted_class_int})")
-    rows.append(['predicted_class', predicted_label, '', ''])
+    if generate_explanations:
+        rows.append(['predicted_class', predicted_label, '', ''])
 
-    # 各类别概率
-    prob_values = prob_output.detach().cpu().numpy().flatten()
-    for ion, idx in label_mapping.items():
-        prob = prob_values[idx]
-        rows.append([f"prob_{ion}", prob, '', ''])
+        # 各类别概率
+        prob_values = prob_output.detach().cpu().numpy().flatten()
+        for ion, idx in label_mapping.items():
+            prob = prob_values[idx]
+            rows.append([f"prob_{ion}", prob, '', ''])
 
-    # 电压 & 浓度
-    rows.append(["predicted_volt", predicted_voltage.squeeze().item(), "", ""])
-    rows.append(["true_volt", true_volt.item(), "", ""])
-    rows.append(["predicted_conc", predicted_conc.squeeze().item(), "", ""])
-    rows.append(["true_conc", concentration.item(), "", ""])
+        # 电压 & 浓度
+        rows.append(["predicted_volt", predicted_voltage.squeeze().item(), "", ""])
+        rows.append(["true_volt", true_volt.item(), "", ""])
+        rows.append(["predicted_conc", predicted_conc.squeeze().item(), "", ""])
+        rows.append(["true_conc", concentration.item(), "", ""])
 
-    # === 3.4 保存结构化参数表格 ===
-    df_out = pd.DataFrame(rows, columns=['wuxing_name', 'wuxing_value', 'yingxiang_name', 'yingxiang_value'])
-    combined_path = os.path.join(output_dir, f"{base_filename}_phys_params_structured.csv")
-    df_out.to_csv(combined_path, index=False)
-    print(f"✅ Structured parameter table saved: {combined_path}")
+        # === 3.4 保存结构化参数表格 ===
+        df_out = pd.DataFrame(rows, columns=['wuxing_name', 'wuxing_value', 'yingxiang_name', 'yingxiang_value'])
+        combined_path = os.path.join(output_dir, f"{base_filename}_phys_params_structured.csv")
+        df_out.to_csv(combined_path, index=False)
+        print(f"✅ Structured parameter table saved: {combined_path}")
 
-    # === 4. 保存 Attention heatmap ===
-    attn_path = os.path.join(output_dir, f"{base_filename}_attn_pred{predicted_class}.csv")
-    pd.DataFrame(cls_attn_mean[0].detach().cpu().numpy().reshape(1, -1)).to_csv(attn_path, index=False, header=False)
-    print(f"✅ Attention heatmap (CLS) saved: {attn_path}")
+        # === 4. 保存 Attention heatmap ===
+        attn_path = os.path.join(output_dir, f"{base_filename}_attn_pred{predicted_class}.csv")
+        pd.DataFrame(cls_attn_mean[0].detach().cpu().numpy().reshape(1, -1)).to_csv(attn_path, index=False, header=False)
+        print(f"✅ Attention heatmap (CLS) saved: {attn_path}")
 
-    param_attn_path = os.path.join(output_dir, f"{base_filename}_param_attn_pred{predicted_class}.csv")
-    pd.DataFrame(param_attn_mean[0].detach().cpu().numpy().reshape(1, -1)).to_csv(param_attn_path, index=False, header=False)
-    print(f"✅ Attention heatmap (PARAM) saved: {param_attn_path}")
+        param_attn_path = os.path.join(output_dir, f"{base_filename}_param_attn_pred{predicted_class}.csv")
+        pd.DataFrame(param_attn_mean[0].detach().cpu().numpy().reshape(1, -1)).to_csv(param_attn_path, index=False, header=False)
+        print(f"✅ Attention heatmap (PARAM) saved: {param_attn_path}")
 
-    # === 5. 定义 forward_func，用于梯度归因（使用 raw_prob_output：outputs[5]） ===
-    def forward_func(v, i, e, p, c):
-        out = model(v, i, e, p, c)
-        return out[5]  # raw_prob_output: [B, C]
+        # === 5. 定义 forward_func，用于梯度归因（使用 raw_prob_output：outputs[5]） ===
+        def forward_func(v, i, e, p, c):
+            out = model(v, i, e, p, c)
+            if isinstance(out, dict):
+                return out.get("logits", out["prob"])
+            return out[5]  # old-model raw_prob_output: [B, C]
 
-    # 准备可导输入
-    volt_in = volt_tensor.clone().detach().requires_grad_(True)
-    impe_in = impe_tensor.clone().detach().requires_grad_(True)
-    env_in  = env_param.clone().detach().requires_grad_(True)
-    para_in = electrolyzer_parameters.clone().detach().requires_grad_(True)
-    conc_arg = concentration
+        # 准备可导输入
+        volt_in = volt_tensor.clone().detach().requires_grad_(True)
+        impe_in = impe_tensor.clone().detach().requires_grad_(True)
+        env_in  = env_param.clone().detach().requires_grad_(True)
+        para_in = electrolyzer_parameters.clone().detach().requires_grad_(True)
+        conc_arg = concentration
 
-    # === 6. Saliency ===
-    saliency = Saliency(forward_func)
-    sal_attr = saliency.attribute(
-        inputs=(volt_in, impe_in, env_in, para_in),
-        additional_forward_args=(conc_arg,),
-        target=predicted_class
-    )
-    sal_v    = sal_attr[0].detach().cpu().numpy()[0]  # (T,1)
-    sal_i    = sal_attr[1].detach().cpu().numpy()[0]  # (T,F,2)
-    sal_env  = sal_attr[2].detach().cpu().numpy()[0]  # (3,)
-    sal_para = sal_attr[3].detach().cpu().numpy()[0]  # (P,)
+        # === 6. Saliency ===
+        saliency = Saliency(forward_func)
+        sal_attr = saliency.attribute(
+            inputs=(volt_in, impe_in, env_in, para_in),
+            additional_forward_args=(conc_arg,),
+            target=predicted_class
+        )
+        sal_v    = sal_attr[0].detach().cpu().numpy()[0]  # (T,1)
+        sal_i    = sal_attr[1].detach().cpu().numpy()[0]  # (T,F,2)
+        sal_env  = sal_attr[2].detach().cpu().numpy()[0]  # (3,)
+        sal_para = sal_attr[3].detach().cpu().numpy()[0]  # (P,)
 
-    # === 7. Integrated Gradients ===
-    ig = IntegratedGradients(forward_func)
-    ig_attr = ig.attribute(
-        inputs=(volt_in, impe_in, env_in, para_in),
-        baselines=(
-            torch.zeros_like(volt_in),
-            torch.zeros_like(impe_in),
-            torch.zeros_like(env_in),
-            torch.zeros_like(para_in),
-        ),
-        additional_forward_args=(conc_arg,),
-        target=predicted_class,
-        internal_batch_size=6
-    )
-    ig_v    = ig_attr[0].detach().cpu().numpy()[0]
-    ig_i    = ig_attr[1].detach().cpu().numpy()[0]
-    ig_env  = ig_attr[2].detach().cpu().numpy()[0]
-    ig_para = ig_attr[3].detach().cpu().numpy()[0]
+        # === 7. Integrated Gradients ===
+        ig = IntegratedGradients(forward_func)
+        ig_attr = ig.attribute(
+            inputs=(volt_in, impe_in, env_in, para_in),
+            baselines=(
+                torch.zeros_like(volt_in),
+                torch.zeros_like(impe_in),
+                torch.zeros_like(env_in),
+                torch.zeros_like(para_in),
+            ),
+            additional_forward_args=(conc_arg,),
+            target=predicted_class,
+            internal_batch_size=6
+        )
+        ig_v    = ig_attr[0].detach().cpu().numpy()[0]
+        ig_i    = ig_attr[1].detach().cpu().numpy()[0]
+        ig_env  = ig_attr[2].detach().cpu().numpy()[0]
+        ig_para = ig_attr[3].detach().cpu().numpy()[0]
 
-    # === 8. 保存梯度可解释性结果 ===
-    def _ensure_2d(x):
-        if isinstance(x, np.ndarray) and x.ndim == 1:
-            return x[:, None]
-        return x
+        # === 8. 保存梯度可解释性结果 ===
+        def _ensure_2d(x):
+            if isinstance(x, np.ndarray) and x.ndim == 1:
+                return x[:, None]
+            return x
 
-    def save_combined_csv(voltage_grad, impedance_grad, env_grad, para_grad, out_path):
-        voltage_grad = _ensure_2d(voltage_grad)
-        env_grad     = _ensure_2d(env_grad)
-        para_grad    = _ensure_2d(para_grad)
+        def save_combined_csv(voltage_grad, impedance_grad, env_grad, para_grad, out_path):
+            voltage_grad = _ensure_2d(voltage_grad)
+            env_grad     = _ensure_2d(env_grad)
+            para_grad    = _ensure_2d(para_grad)
 
-        rows = []
+            rows = []
 
-        # 电压
-        T = voltage_grad.shape[0]
-        for t in range(T):
-            rows.append([t, "volt", "", "", float(voltage_grad[t, 0])])
+            # 电压
+            T = voltage_grad.shape[0]
+            for t in range(T):
+                rows.append([t, "volt", "", "", float(voltage_grad[t, 0])])
 
-        # 阻抗
-        T, F, D = impedance_grad.shape
-        for t in range(T):
-            for f in range(F):
-                for d in range(D):
-                    rows.append([t, "impe", f, d, float(impedance_grad[t, f, d])])
+            # 阻抗
+            T, F, D = impedance_grad.shape
+            for t in range(T):
+                for f in range(F):
+                    for d in range(D):
+                        rows.append([t, "impe", f, d, float(impedance_grad[t, f, d])])
 
-        # 环境参数
-        for idx in range(env_grad.shape[0]):
-            rows.append([0, "env", idx, "", float(env_grad[idx, 0])])
+            # 环境参数
+            for idx in range(env_grad.shape[0]):
+                rows.append([0, "env", idx, "", float(env_grad[idx, 0])])
 
-        # 电解槽参数
-        for idx in range(para_grad.shape[0]):
-            rows.append([0, "electrolyzer_param", idx, "", float(para_grad[idx, 0])])
+            # 电解槽参数
+            for idx in range(para_grad.shape[0]):
+                rows.append([0, "electrolyzer_param", idx, "", float(para_grad[idx, 0])])
 
-        pd.DataFrame(rows, columns=["time_idx", "type", "freq_idx", "dim", "value"]).to_csv(out_path, index=False)
-        print(f"✅ 保存到 {out_path}")
+            pd.DataFrame(rows, columns=["time_idx", "type", "freq_idx", "dim", "value"]).to_csv(out_path, index=False)
+            print(f"✅ 保存到 {out_path}")
 
-    def save_time_aggregates_csv(impedance_grad, voltage_grad, out_path):
-        volt_time_abs = np.abs(voltage_grad.squeeze(-1))           # (T,)
-        impe_time_sum = np.abs(impedance_grad).sum(axis=(1, 2))    # (T,)
-        df = pd.DataFrame({
-            "t": np.arange(volt_time_abs.shape[0]),
-            "volt_abs": volt_time_abs,
-            "impe_abs_sum": impe_time_sum
-        })
-        df.to_csv(out_path, index=False)
-        print(f"✅ 时间聚合归因保存: {out_path}")
+        def save_time_aggregates_csv(impedance_grad, voltage_grad, out_path):
+            volt_time_abs = np.abs(voltage_grad.squeeze(-1))           # (T,)
+            impe_time_sum = np.abs(impedance_grad).sum(axis=(1, 2))    # (T,)
+            df = pd.DataFrame({
+                "t": np.arange(volt_time_abs.shape[0]),
+                "volt_abs": volt_time_abs,
+                "impe_abs_sum": impe_time_sum
+            })
+            df.to_csv(out_path, index=False)
+            print(f"✅ 时间聚合归因保存: {out_path}")
 
-    sal_path = os.path.join(output_dir, f"{base_filename}_saliency_pred{predicted_class}.csv")
-    ig_path  = os.path.join(output_dir, f"{base_filename}_ig_pred{predicted_class}.csv")
-    save_combined_csv(sal_v, sal_i, sal_env, sal_para, sal_path)
-    save_combined_csv(ig_v, ig_i, ig_env, ig_para, ig_path)
+        sal_path = os.path.join(output_dir, f"{base_filename}_saliency_pred{predicted_class}.csv")
+        ig_path  = os.path.join(output_dir, f"{base_filename}_ig_pred{predicted_class}.csv")
+        save_combined_csv(sal_v, sal_i, sal_env, sal_para, sal_path)
+        save_combined_csv(ig_v, ig_i, ig_env, ig_para, ig_path)
 
-    sal_time_agg_path = os.path.join(output_dir, f"{base_filename}_saliency_time_aggregates.csv")
-    ig_time_agg_path  = os.path.join(output_dir, f"{base_filename}_ig_time_aggregates.csv")
-    save_time_aggregates_csv(sal_i, sal_v, sal_time_agg_path)
-    save_time_aggregates_csv(ig_i, ig_v, ig_time_agg_path)
+        sal_time_agg_path = os.path.join(output_dir, f"{base_filename}_saliency_time_aggregates.csv")
+        ig_time_agg_path  = os.path.join(output_dir, f"{base_filename}_ig_time_aggregates.csv")
+        save_time_aggregates_csv(sal_i, sal_v, sal_time_agg_path)
+        save_time_aggregates_csv(ig_i, ig_v, ig_time_agg_path)
 
     # === 9. 评估预测结果 ===
     correct, predict, truth = evaluate_prediction(xlsx_path=xlsx_path, predicted_label=predicted_label)

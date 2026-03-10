@@ -1,0 +1,229 @@
+✅ no_overlap 划分: 测试集 150 个（随机 150，其中 ion_column 60 个）-> /home/cagalii/Application/ion_detect/datasets/datasets_for_all_test_no_overlap/baseline_t2，训练集 761 个 -> /home/cagalii/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/baseline_t2（已排除同前缀且窗口含测试前 2 个时间点的样本）
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[54, 56, 58, 60].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[40, 42, 44, 46].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[32, 34, 36, 38].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[30, 32, 34, 36].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[28, 30, 32, 34].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[52, 54, 56, 58].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[38, 40, 42, 44].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[34, 36, 38, 40].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[56, 58, 60, 62].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[36, 38, 40, 42].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[48, 50, 52, 54].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[22, 24, 26, 28].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[24, 26, 28, 30].xlsx: impedance points 54 < 63
+
+--- LSTM 基线 (EIS+电压 时序) [epoch 10] ---
+  准确率 (Accuracy):  0.7075
+  精确率 (Precision): 0.6910
+  召回率 (Recall):    0.5906
+  F1 分数 (F1):       0.5897
+
+--- LSTM 基线 (EIS+电压 时序) [epoch 20] ---
+  准确率 (Accuracy):  0.7551
+  精确率 (Precision): 0.7217
+  召回率 (Recall):    0.6793
+  F1 分数 (F1):       0.6800
+
+--- LSTM 基线 (EIS+电压 时序) [epoch 30] ---
+  准确率 (Accuracy):  0.7755
+  精确率 (Precision): 0.7118
+  召回率 (Recall):    0.6961
+  F1 分数 (F1):       0.6958
+
+--- LSTM 基线 (EIS+电压 时序) [epoch 40] ---
+  准确率 (Accuracy):  0.7891
+  精确率 (Precision): 0.6997
+  召回率 (Recall):    0.7038
+  F1 分数 (F1):       0.6925
+
+--- LSTM 基线 (EIS+电压 时序) [epoch 50] ---
+  准确率 (Accuracy):  0.7755
+  精确率 (Precision): 0.7118
+  召回率 (Recall):    0.6843
+  F1 分数 (F1):       0.6890
+
+--- LSTM 基线 (EIS+电压 时序) [epoch 60] ---
+  准确率 (Accuracy):  0.8095
+  精确率 (Precision): 0.7770
+  召回率 (Recall):    0.7082
+  F1 分数 (F1):       0.7256
+
+--- LSTM 基线 (EIS+电压 时序) [epoch 70] ---
+  准确率 (Accuracy):  0.8027
+  精确率 (Precision): 0.7429
+  召回率 (Recall):    0.7112
+  F1 分数 (F1):       0.7167
+
+--- LSTM 基线 (EIS+电压 时序) [epoch 80] ---
+  准确率 (Accuracy):  0.8095
+  精确率 (Precision): 0.7452
+  召回率 (Recall):    0.7177
+  F1 分数 (F1):       0.7217
+
+--- LSTM 基线 (EIS+电压 时序) [epoch 90] ---
+  准确率 (Accuracy):  0.8027
+  精确率 (Precision): 0.7170
+  召回率 (Recall):    0.7151
+  F1 分数 (F1):       0.7111
+
+--- LSTM 基线 (EIS+电压 时序) [epoch 100] ---
+  准确率 (Accuracy):  0.8095
+  精确率 (Precision): 0.7341
+  召回率 (Recall):    0.7187
+  F1 分数 (F1):       0.7171
+
+--- 详细测试结果 (样本名, 真实, 预测, 正确) ---
+  20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx	Fe3+_ion	no_ion	否
+  20240831_10ppm镍离子污染测试_新版电解槽_ion_column_gamry_[4, 6, 8, 10].xlsx	no_ion	no_ion	是
+  20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[20, 22, 24, 26].xlsx	Na+_ion	Na+_ion	是
+  20241001_2ppm铁离子污染测试_旧版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx	Fe3+_ion	Cr3+_ion	否
+  20241017_2ppm铬离子污染和恢复测试_新版电解槽_ion_column_renew_H2SO4_gamry_[2, 4, 6, 8].xlsx	no_ion	no_ion	是
+  20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_column_renew_H2SO4_gamry_[2, 4, 6, 8].xlsx	no_ion	no_ion	是
+  20241117_2ppm钠离子污染及恢复测试10mlmin_旧版电解槽_ion_gamry_[28, 30, 32, 34].xlsx	Na+_ion	Na+_ion	是
+  20241201_2ppm铜离子污染及恢复测试_新版电解槽_ion_column_firecloud_[18, 20, 22, 24].xlsx	no_ion	no_ion	是
+  20240822_10ppm铜离子污染测试_新版电解槽_ion_gamry_[6, 8, 10, 12].xlsx	Cu2+_ion	Cu2+_ion	是
+  20241229_10ppm钠离子污染及恢复测试_新版电解槽_ion_column_gamry_[14, 16, 18, 20].xlsx	no_ion	no_ion	是
+  20241107_0.1ppm铬离子污染及恢复测试_旧版电解槽_ion_column_gamry_[8, 10, 12, 14].xlsx	no_ion	no_ion	是
+  20240827_10ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[4, 6, 8, 10].xlsx	Cr3+_ion	Cr3+_ion	是
+  20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_column_gamry_[6, 8, 10, 12].xlsx	no_ion	no_ion	是
+  20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[28, 30, 32, 34].xlsx	Fe3+_ion	Fe3+_ion	是
+  20241112_2ppm镍离子污染及恢复测试_旧版电解槽_ion_gamry_[14, 16, 18, 20].xlsx	Ni2+_ion	Ni2+_ion	是
+  20241013_2ppm铝离子污染测试_新版电解槽_ion_column_firecloud_[16, 18, 20, 22].xlsx	no_ion	no_ion	是
+  20240827_10ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[6, 8, 10, 12].xlsx	Cr3+_ion	Cr3+_ion	是
+  20241107_0.1ppm铬离子污染及恢复测试_旧版电解槽_ion_column_gamry_[18, 20, 22, 24].xlsx	no_ion	no_ion	是
+  20241122_2ppm钠离子污染及恢复测试300mlmin_旧版电解槽_ion_gamry_[20, 22, 24, 26].xlsx	Na+_ion	Na+_ion	是
+  20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_gamry_[18, 20, 22, 24].xlsx	Cu2+_ion	Cu2+_ion	是
+  20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_column_renew_H2SO4_firecloud_[28, 30, 32, 34].xlsx	no_ion	no_ion	是
+  20241017_2ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[20, 22, 24, 26].xlsx	Cr3+_ion	Cr3+_ion	是
+  20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_gamry_[18, 20, 22, 24].xlsx	no_ion	no_ion	是
+  20241001_2ppm铁离子污染测试_新版电解槽_ion_column_gamry_[18, 20, 22, 24].xlsx	no_ion	no_ion	是
+  20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx	Cr3+_ion	Fe3+_ion	否
+  20241008_无离子污染测试_新版电解槽_ion_column_firecloud_[26, 28, 30, 32].xlsx	no_ion	no_ion	是
+  20241006_2ppm铬离子污染测试_新版电解槽_ion_gamry_[18, 20, 22, 24].xlsx	Cr3+_ion	Cr3+_ion	是
+  20250101_10ppm铬离子污染及恢复测试_旧版电解槽_ion_gamry_[28, 30, 32, 34].xlsx	Cr3+_ion	Cu2+_ion	否
+  20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[8, 10, 12, 14].xlsx	Fe3+_ion	Ca2+_ion	否
+  20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[24, 26, 28, 30].xlsx	Na+_ion	Ni2+_ion	否
+  20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[16, 18, 20, 22].xlsx	Ni2+_ion	Ni2+_ion	是
+  20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_column_renew_H2SO4_firecloud_[20, 22, 24, 26].xlsx	no_ion	no_ion	是
+  20241006_2ppm铬离子污染测试_新版电解槽_ion_column_gamry_[14, 16, 18, 20].xlsx	no_ion	no_ion	是
+  20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[2, 4, 6, 8].xlsx	Na+_ion	Na+_ion	是
+  20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_column_gamry_[12, 14, 16, 18].xlsx	no_ion	no_ion	是
+  20240918_2ppm钙离子污染测试_新版电解槽_ion_gamry_[28, 30, 32, 34].xlsx	Ca2+_ion	Fe3+_ion	否
+  20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[4, 6, 8, 10].xlsx	Cu2+_ion	Cu2+_ion	是
+  20241010_2ppm钠离子污染测试_新版电解槽_ion_column_firecloud_[6, 8, 10, 12].xlsx	no_ion	no_ion	是
+  20241001_2ppm铁离子污染测试_旧版电解槽_ion_column_firecloud_[10, 12, 14, 16].xlsx	no_ion	no_ion	是
+  20240907_10ppm铁离子污染测试_新版电解槽_ion_gamry_[2, 4, 6, 8].xlsx	Fe3+_ion	Ni2+_ion	否
+  20240823_10ppm钙离子污染和恢复测试_新版电解槽_ion_gamry_[4, 6, 8, 10].xlsx	Ca2+_ion	Cr3+_ion	否
+  20241229_10ppm钠离子污染及恢复测试_新版电解槽_ion_column_renew_H2SO4_gamry_[24, 26, 28, 30].xlsx	no_ion	no_ion	是
+  20241101_2ppm钙离子污染和恢复测试_新版电解槽_ion_firecloud_[24, 26, 28, 30].xlsx	Ca2+_ion	Ca2+_ion	是
+  20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_gamry_[30, 32, 34, 36].xlsx	Na+_ion	Na+_ion	是
+  20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[14, 16, 18, 20].xlsx	Ni2+_ion	no_ion	否
+  20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[8, 10, 12, 14].xlsx	Na+_ion	Na+_ion	是
+  20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_gamry_[26, 28, 30, 32].xlsx	Na+_ion	Na+_ion	是
+  20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_firecloud_[8, 10, 12, 14].xlsx	no_ion	no_ion	是
+  20240827_10ppm铬离子污染和恢复测试_新版电解槽_ion_column_gamry_[4, 6, 8, 10].xlsx	no_ion	no_ion	是
+  20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx	Cu2+_ion	no_ion	否
+  20241101_2ppm钙离子污染和恢复测试_新版电解槽_ion_column_firecloud_[12, 14, 16, 18].xlsx	no_ion	no_ion	是
+  20250101_10ppm铬离子污染及恢复测试_旧版电解槽_ion_gamry_[18, 20, 22, 24].xlsx	Cr3+_ion	Cr3+_ion	是
+  20241101_2ppm钙离子污染和恢复测试_新版电解槽_ion_column_renew_H2SO4_firecloud_[22, 24, 26, 28].xlsx	no_ion	no_ion	是
+  20241122_2ppm钠离子污染及恢复测试300mlmin_旧版电解槽_ion_column_renew_H2SO4_gamry_[8, 10, 12, 14].xlsx	no_ion	no_ion	是
+  20240823_10ppm钙离子污染和恢复测试_新版电解槽_ion_gamry_[6, 8, 10, 12].xlsx	Ca2+_ion	Ca2+_ion	是
+  20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_renew_H2SO4_firecloud_[24, 26, 28, 30].xlsx	no_ion	no_ion	是
+  20240822_10ppm铜离子污染测试_新版电解槽_ion_gamry_[10, 12, 14, 16].xlsx	Cu2+_ion	Cu2+_ion	是
+  20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_column_firecloud_[16, 18, 20, 22].xlsx	no_ion	no_ion	是
+  20241122_2ppm钠离子污染及恢复测试300mlmin_旧版电解槽_ion_gamry_[36, 38, 40, 42].xlsx	Na+_ion	Na+_ion	是
+  20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[4, 6, 8, 10].xlsx	Na+_ion	Fe3+_ion	否
+  20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[14, 16, 18, 20].xlsx	Na+_ion	Na+_ion	是
+  20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[22, 24, 26, 28].xlsx	Cr3+_ion	Cr3+_ion	是
+  20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[40, 42, 44, 46].xlsx	Ca2+_ion	Cu2+_ion	否
+  20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[28, 30, 32, 34].xlsx	no_ion	no_ion	是
+  20241112_2ppm镍离子污染及恢复测试_旧版电解槽_ion_column_gamry_[4, 6, 8, 10].xlsx	no_ion	no_ion	是
+  20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[8, 10, 12, 14].xlsx	Cu2+_ion	Cu2+_ion	是
+  20241117_2ppm钠离子污染及恢复测试10mlmin_旧版电解槽_ion_column_renew_H2SO4_gamry_[14, 16, 18, 20].xlsx	no_ion	no_ion	是
+  20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[8, 10, 12, 14].xlsx	Na+_ion	Na+_ion	是
+  20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_column_gamry_[14, 16, 18, 20].xlsx	no_ion	no_ion	是
+  20241017_2ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[22, 24, 26, 28].xlsx	Cr3+_ion	Cr3+_ion	是
+  20240907_10ppm铁离子污染测试_新版电解槽_ion_gamry_[10, 12, 14, 16].xlsx	Fe3+_ion	Fe3+_ion	是
+  20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[30, 32, 34, 36].xlsx	Cu2+_ion	Cu2+_ion	是
+  20241201_2ppm铜离子污染及恢复测试_新版电解槽_ion_firecloud_[0, 2, 4, 6].xlsx	Cu2+_ion	Fe3+_ion	否
+  20241006_2ppm铬离子污染测试_旧版电解槽_ion_column_firecloud_[14, 16, 18, 20].xlsx	no_ion	no_ion	是
+  20241229_10ppm钠离子污染及恢复测试_新版电解槽_ion_column_renew_H2SO4_gamry_[18, 20, 22, 24].xlsx	no_ion	no_ion	是
+  20240827_10ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[0, 2, 4, 6].xlsx	Cr3+_ion	Cr3+_ion	是
+  20240831_10ppm镍离子污染测试_新版电解槽_ion_column_gamry_[10, 12, 14, 16].xlsx	no_ion	no_ion	是
+  20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[38, 40, 42, 44].xlsx	Na+_ion	Ca2+_ion	否
+  20241003_2ppm镍离子污染测试_旧版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx	Ni2+_ion	Ni2+_ion	是
+  20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_renew_H2SO4_firecloud_[26, 28, 30, 32].xlsx	no_ion	no_ion	是
+  20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[20, 22, 24, 26].xlsx	Cu2+_ion	Cu2+_ion	是
+  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx	Cu2+_ion	Cu2+_ion	是
+  20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[4, 6, 8, 10].xlsx	Fe3+_ion	no_ion	否
+  20241117_2ppm钠离子污染及恢复测试10mlmin_旧版电解槽_ion_gamry_[6, 8, 10, 12].xlsx	Na+_ion	Na+_ion	是
+  20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_firecloud_[18, 20, 22, 24].xlsx	Cu2+_ion	no_ion	否
+  20241107_0.1ppm铬离子污染及恢复测试_旧版电解槽_ion_gamry_[42, 44, 46, 48].xlsx	Cr3+_ion	Cr3+_ion	是
+  20241112_2ppm镍离子污染及恢复测试_旧版电解槽_ion_column_gamry_[16, 18, 20, 22].xlsx	no_ion	no_ion	是
+  20241006_2ppm铬离子污染测试_新版电解槽_ion_gamry_[34, 36, 38, 40].xlsx	Cr3+_ion	Cr3+_ion	是
+  20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx	Fe3+_ion	Cu2+_ion	否
+  20241112_2ppm镍离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[2, 4, 6, 8].xlsx	no_ion	no_ion	是
+  20241201_2ppm铜离子污染及恢复测试_新版电解槽_ion_firecloud_[36, 38, 40, 42].xlsx	Cu2+_ion	Cu2+_ion	是
+  20240907_10ppm铁离子污染测试_新版电解槽_ion_gamry_[8, 10, 12, 14].xlsx	Fe3+_ion	Fe3+_ion	是
+  20250101_10ppm铬离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[12, 14, 16, 18].xlsx	no_ion	no_ion	是
+  20250101_10ppm铬离子污染及恢复测试_旧版电解槽_ion_gamry_[36, 38, 40, 42].xlsx	Cr3+_ion	no_ion	否
+  20241201_2ppm铜离子污染及恢复测试_新版电解槽_ion_column_firecloud_[2, 4, 6, 8].xlsx	no_ion	no_ion	是
+  20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[26, 28, 30, 32].xlsx	no_ion	no_ion	是
+  20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_gamry_[6, 8, 10, 12].xlsx	no_ion	no_ion	是
+  20241122_2ppm钠离子污染及恢复测试300mlmin_旧版电解槽_ion_column_gamry_[2, 4, 6, 8].xlsx	no_ion	no_ion	是
+  20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[30, 32, 34, 36].xlsx	Ca2+_ion	Cu2+_ion	否
+  20240831_10ppm镍离子污染测试_新版电解槽_ion_column_gamry_[12, 14, 16, 18].xlsx	no_ion	no_ion	是
+  20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_firecloud_[4, 6, 8, 10].xlsx	no_ion	no_ion	是
+  20241201_2ppm铜离子污染及恢复测试_新版电解槽_ion_firecloud_[42, 44, 46, 48].xlsx	Cu2+_ion	Cu2+_ion	是
+  20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_column_renew_H2SO4_gamry_[8, 10, 12, 14].xlsx	no_ion	no_ion	是
+  20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_gamry_[22, 24, 26, 28].xlsx	Cu2+_ion	Cu2+_ion	是
+  20241112_2ppm镍离子污染及恢复测试_旧版电解槽_ion_gamry_[32, 34, 36, 38].xlsx	Ni2+_ion	Ni2+_ion	是
+  20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[22, 24, 26, 28].xlsx	Cu2+_ion	Cu2+_ion	是
+  20240910_10ppm钙离子污染测试_新版电解槽_ion_gamry_[2, 4, 6, 8].xlsx	Ca2+_ion	Ca2+_ion	是
+  20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[0, 2, 4, 6].xlsx	Na+_ion	Ca2+_ion	否
+  20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[36, 38, 40, 42].xlsx	Cr3+_ion	Cr3+_ion	是
+  20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[34, 36, 38, 40].xlsx	Cr3+_ion	Cr3+_ion	是
+  20241122_2ppm钠离子污染及恢复测试300mlmin_旧版电解槽_ion_gamry_[12, 14, 16, 18].xlsx	Na+_ion	Na+_ion	是
+  20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[24, 26, 28, 30].xlsx	Cu2+_ion	Cu2+_ion	是
+  20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[50, 52, 54, 56].xlsx	Ca2+_ion	Cu2+_ion	否
+  20241112_2ppm镍离子污染及恢复测试_旧版电解槽_ion_column_gamry_[6, 8, 10, 12].xlsx	no_ion	no_ion	是
+  20241112_2ppm镍离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[14, 16, 18, 20].xlsx	no_ion	no_ion	是
+  20241003_2ppm镍离子污染测试_旧版电解槽_ion_firecloud_[22, 24, 26, 28].xlsx	Ni2+_ion	Ni2+_ion	是
+  20241017_2ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[2, 4, 6, 8].xlsx	Cr3+_ion	Na+_ion	否
+  20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_renew_H2SO4_firecloud_[12, 14, 16, 18].xlsx	no_ion	no_ion	是
+  20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[16, 18, 20, 22].xlsx	no_ion	no_ion	是
+  20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_column_gamry_[0, 2, 4, 6].xlsx	no_ion	no_ion	是
+  20241201_2ppm铜离子污染及恢复测试_新版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx	Cu2+_ion	Cu2+_ion	是
+  20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[34, 36, 38, 40].xlsx	Na+_ion	Na+_ion	是
+  20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[24, 26, 28, 30].xlsx	Fe3+_ion	Cu2+_ion	否
+  20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_gamry_[32, 34, 36, 38].xlsx	Cu2+_ion	Cu2+_ion	是
+  20241101_2ppm钙离子污染和恢复测试_新版电解槽_ion_firecloud_[42, 44, 46, 48].xlsx	Ca2+_ion	Ca2+_ion	是
+  20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[32, 34, 36, 38].xlsx	Na+_ion	Ni2+_ion	否
+  20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[8, 10, 12, 14].xlsx	no_ion	no_ion	是
+  20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[22, 24, 26, 28].xlsx	Fe3+_ion	Cu2+_ion	否
+  20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[28, 30, 32, 34].xlsx	Na+_ion	Na+_ion	是
+  20240918_2ppm钙离子污染测试_新版电解槽_ion_gamry_[36, 38, 40, 42].xlsx	Ca2+_ion	Ca2+_ion	是
+  20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[8, 10, 12, 14].xlsx	Fe3+_ion	no_ion	否
+  20241013_2ppm铝离子污染测试_新版电解槽_ion_column_firecloud_[14, 16, 18, 20].xlsx	no_ion	no_ion	是
+  20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_column_gamry_[12, 14, 16, 18].xlsx	no_ion	no_ion	是
+  20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_column_gamry_[2, 4, 6, 8].xlsx	no_ion	no_ion	是
+  20241122_2ppm钠离子污染及恢复测试300mlmin_旧版电解槽_ion_gamry_[10, 12, 14, 16].xlsx	Na+_ion	Na+_ion	是
+  20241117_2ppm钠离子污染及恢复测试10mlmin_旧版电解槽_ion_gamry_[12, 14, 16, 18].xlsx	Na+_ion	Na+_ion	是
+  20250101_10ppm铬离子污染及恢复测试_旧版电解槽_ion_gamry_[12, 14, 16, 18].xlsx	Cr3+_ion	Cr3+_ion	是
+  20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_column_gamry_[14, 16, 18, 20].xlsx	no_ion	no_ion	是
+  20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[12, 14, 16, 18].xlsx	Ni2+_ion	Ni2+_ion	是
+  20241001_2ppm铁离子污染测试_新版电解槽_ion_gamry_[2, 4, 6, 8].xlsx	Fe3+_ion	Cr3+_ion	否
+  20241229_10ppm钠离子污染及恢复测试_新版电解槽_ion_gamry_[12, 14, 16, 18].xlsx	Na+_ion	Na+_ion	是
+  20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_column_renew_H2SO4_gamry_[2, 4, 6, 8].xlsx	no_ion	no_ion	是
+  20240915_2ppm铜离子污染测试_新版电解槽_ion_gamry_[2, 4, 6, 8].xlsx	Cu2+_ion	Cu2+_ion	是
+  20240823_10ppm钙离子污染和恢复测试_新版电解槽_ion_column_gamry_[6, 8, 10, 12].xlsx	no_ion	no_ion	是
+  20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[28, 30, 32, 34].xlsx	Ni2+_ion	Ni2+_ion	是
+  20240918_2ppm钙离子污染测试_新版电解槽_ion_gamry_[8, 10, 12, 14].xlsx	Ca2+_ion	Ca2+_ion	是
+  20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_column_gamry_[22, 24, 26, 28].xlsx	no_ion	no_ion	是
+
+--- LSTM 基线 (EIS+电压 时序) ---
+  准确率 (Accuracy):  0.8095
+  精确率 (Precision): 0.7341
+  召回率 (Recall):    0.7187
+  F1 分数 (F1):       0.7171

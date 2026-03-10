@@ -1,0 +1,1885 @@
+✅ no_overlap 划分: 测试集 150 个（ion_column 74 个，≤3/10）-> /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_test_no_overlap/exp_new_d，训练集 709 个 -> /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_d（已排除同前缀且窗口含测试前 3 个时间点的样本）
+✅ 当前使用设备: cuda
+📂 训练集目录: /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_d
+📂 测试/验证集目录: /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_test_no_overlap/exp_new_d
+🧪 experiment: exp_new_d
+🚀 进入训练模式 (--train)
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[56, 58, 60, 62].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[36, 38, 40, 42].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[34, 36, 38, 40].xlsx: impedance points 54 < 63
+[LEAK-CHECK] overlap(train, val) = 0
+[DEBUG] data_folder = /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_d
+[DEBUG] base_train.file_names[:10] =
+   20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx
+   20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[2, 4, 6, 8].xlsx
+   20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[22, 24, 26, 28].xlsx
+   20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[22, 24, 26, 28].xlsx
+   20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_gamry_[4, 6, 8, 10].xlsx
+   20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[20, 22, 24, 26].xlsx
+   20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[14, 16, 18, 20].xlsx
+   20240910_10ppm钙离子污染测试_新版电解槽_ion_gamry_[2, 4, 6, 8].xlsx
+   20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_column_renew_H2SO4_gamry_[12, 14, 16, 18].xlsx
+   20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[28, 30, 32, 34].xlsx
+[DEBUG] exist check (first 10):
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_d/20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx exists= True
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_d/20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[2, 4, 6, 8].xlsx exists= True
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_d/20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[22, 24, 26, 28].xlsx exists= True
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_d/20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[22, 24, 26, 28].xlsx exists= True
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_d/20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_gamry_[4, 6, 8, 10].xlsx exists= True
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_d/20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[20, 22, 24, 26].xlsx exists= True
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_d/20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[14, 16, 18, 20].xlsx exists= True
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_d/20240910_10ppm钙离子污染测试_新版电解槽_ion_gamry_[2, 4, 6, 8].xlsx exists= True
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_d/20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_column_renew_H2SO4_gamry_[12, 14, 16, 18].xlsx exists= True
+   /home/kudouzala/Application/ion_detect/datasets/datasets_for_all_train_no_overlap/exp_new_d/20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[28, 30, 32, 34].xlsx exists= True
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[28, 30, 32, 34].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[50, 52, 54, 56].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[24, 26, 28, 30].xlsx: impedance points 54 < 63
+Skipping file 20240822_10ppm铜离子污染测试_新版电解槽_ion_column_gamry_[44, 46, 48, 50].xlsx: impedance points 54 < 63
+
+[PairDataset][Example pairs] (show up to 50)
+  [1] A(idx=431) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=253) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=False
+  [2] A(idx=678) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=484) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]  dummy=False
+  [3] A(idx=253) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]
+      → B(idx=481) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]  dummy=False
+  [4] A(idx=484) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]
+      → B(idx=547) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]  dummy=False
+  [5] A(idx=481) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]
+      → B(idx=138) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]  dummy=False
+  [6] A(idx=547) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]
+      → B(idx=0) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=False
+  [7] A(idx=138) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]
+      → B(idx=52) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]  dummy=False
+  [8] A(idx=0) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=436) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]  dummy=False
+  [9] A(idx=52) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]
+      → B(idx=352) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]  dummy=False
+  [10] A(idx=436) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]
+      → B(idx=436) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]  dummy=True
+  [11] A(idx=352) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]
+      → B(idx=352) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]  dummy=True
+  [12] A(idx=377) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]
+      → B(idx=134) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]  dummy=False
+  [13] A(idx=67) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]
+      → B(idx=329) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[40, 42, 44, 46].xlsx  times=[40, 42, 44, 46]  dummy=False
+  [14] A(idx=134) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]
+      → B(idx=134) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]  dummy=True
+  [15] A(idx=329) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[40, 42, 44, 46].xlsx  times=[40, 42, 44, 46]
+      → B(idx=329) 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[40, 42, 44, 46].xlsx  times=[40, 42, 44, 46]  dummy=True
+  [16] A(idx=478) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=540) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=False
+  [17] A(idx=1) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=516) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]  dummy=False
+  [18] A(idx=540) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]
+      → B(idx=413) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]  dummy=False
+  [19] A(idx=516) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]
+      → B(idx=410) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]  dummy=False
+  [20] A(idx=413) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]
+      → B(idx=156) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]  dummy=False
+  [21] A(idx=410) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]
+      → B(idx=366) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=False
+  [22] A(idx=156) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]
+      → B(idx=156) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]  dummy=True
+  [23] A(idx=366) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=366) 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=True
+  [24] A(idx=94) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=94) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]  dummy=True
+  [25] A(idx=550) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=550) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]  dummy=True
+  [26] A(idx=538) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]
+      → B(idx=430) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]  dummy=False
+  [27] A(idx=32) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]
+      → B(idx=2) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]  dummy=False
+  [28] A(idx=430) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]
+      → B(idx=87) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[24, 26, 28, 30].xlsx  times=[24, 26, 28, 30]  dummy=False
+  [29] A(idx=2) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]
+      → B(idx=260) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]  dummy=False
+  [30] A(idx=87) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[24, 26, 28, 30].xlsx  times=[24, 26, 28, 30]
+      → B(idx=569) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]  dummy=False
+  [31] A(idx=260) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]
+      → B(idx=255) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]  dummy=False
+  [32] A(idx=569) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]
+      → B(idx=576) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[32, 34, 36, 38].xlsx  times=[32, 34, 36, 38]  dummy=False
+  [33] A(idx=255) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]
+      → B(idx=269) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]  dummy=False
+  [34] A(idx=576) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[32, 34, 36, 38].xlsx  times=[32, 34, 36, 38]
+      → B(idx=96) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]  dummy=False
+  [35] A(idx=269) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]
+      → B(idx=683) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]  dummy=False
+  [36] A(idx=96) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]
+      → B(idx=114) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[40, 42, 44, 46].xlsx  times=[40, 42, 44, 46]  dummy=False
+  [37] A(idx=683) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]
+      → B(idx=434) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[42, 44, 46, 48].xlsx  times=[42, 44, 46, 48]  dummy=False
+  [38] A(idx=114) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[40, 42, 44, 46].xlsx  times=[40, 42, 44, 46]
+      → B(idx=84) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[44, 46, 48, 50].xlsx  times=[44, 46, 48, 50]  dummy=False
+  [39] A(idx=434) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[42, 44, 46, 48].xlsx  times=[42, 44, 46, 48]
+      → B(idx=565) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[46, 48, 50, 52].xlsx  times=[46, 48, 50, 52]  dummy=False
+  [40] A(idx=84) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[44, 46, 48, 50].xlsx  times=[44, 46, 48, 50]
+      → B(idx=84) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[44, 46, 48, 50].xlsx  times=[44, 46, 48, 50]  dummy=True
+  [41] A(idx=565) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[46, 48, 50, 52].xlsx  times=[46, 48, 50, 52]
+      → B(idx=565) 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[46, 48, 50, 52].xlsx  times=[46, 48, 50, 52]  dummy=True
+  [42] A(idx=45) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=523) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]  dummy=False
+  [43] A(idx=564) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]
+      → B(idx=154) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]  dummy=False
+  [44] A(idx=523) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]
+      → B(idx=3) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]  dummy=False
+  [45] A(idx=154) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]
+      → B(idx=449) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[24, 26, 28, 30].xlsx  times=[24, 26, 28, 30]  dummy=False
+  [46] A(idx=3) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]
+      → B(idx=34) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]  dummy=False
+  [47] A(idx=449) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[24, 26, 28, 30].xlsx  times=[24, 26, 28, 30]
+      → B(idx=323) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]  dummy=False
+  [48] A(idx=34) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]
+      → B(idx=659) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]  dummy=False
+  [49] A(idx=323) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]
+      → B(idx=579) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[32, 34, 36, 38].xlsx  times=[32, 34, 36, 38]  dummy=False
+  [50] A(idx=659) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]
+      → B(idx=350) 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]  dummy=False
+
+[PairDataset][Summary]
+- total files:        706
+- parsed OK:          706
+- regex fail:         0
+- parse times fail:   0
+- empty times:        0
+- total pairs:        706  (keep_unpaired=self)
+- distinct prefixes:  96
+- prefixes coverage (first few):
+  [1] 20241107_0.1ppm钙离子污染及恢复测试_新版电解槽_ion_firecloud_[* -> windows=15, adj_pairs=9/14
+  [2] 20240910_10ppm钙离子污染测试_新版电解槽_ion_column_gamry_[* -> windows=8, adj_pairs=5/7
+  [3] 20241006_2ppm铬离子污染测试_旧版电解槽_ion_firecloud_[* -> windows=18, adj_pairs=13/17
+  [4] 20241117_2ppm钠离子污染及恢复测试40摄氏度_新版电解槽_ion_gamry_[* -> windows=13, adj_pairs=10/12
+  [5] 20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_gamry_[* -> windows=15, adj_pairs=10/14
+  [6] 20241003_2ppm镍离子污染测试_新版电解槽_ion_gamry_[* -> windows=7, adj_pairs=1/6
+  [7] 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[* -> windows=13, adj_pairs=10/12
+  [8] 20240910_10ppm钙离子污染测试_新版电解槽_ion_gamry_[* -> windows=10, adj_pairs=2/9
+  [9] 20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_column_renew_H2SO4_gamry_[* -> windows=7, adj_pairs=4/6
+  [10] 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[* -> windows=8, adj_pairs=2/7
+- unadjacent gaps samples: 253 (showing first 0)
+
+[PairDataset][Explain] focus_prefix_contains='20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_'
+  - PREFIX: 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[* windows=11
+    windows (sorted by first,last):
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[0, 2, 4, 6].xlsx  -> times=[0, 2, 4, 6]  first=0 last=6
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx  -> times=[2, 4, 6, 8]  first=2 last=8
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[4, 6, 8, 10].xlsx  -> times=[4, 6, 8, 10]  first=4 last=10
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[6, 8, 10, 12].xlsx  -> times=[6, 8, 10, 12]  first=6 last=12
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[8, 10, 12, 14].xlsx  -> times=[8, 10, 12, 14]  first=8 last=14
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[10, 12, 14, 16].xlsx  -> times=[10, 12, 14, 16]  first=10 last=16
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx  -> times=[12, 14, 16, 18]  first=12 last=18
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx  -> times=[14, 16, 18, 20]  first=14 last=20
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  -> times=[16, 18, 20, 22]  first=16 last=22
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[18, 20, 22, 24].xlsx  -> times=[18, 20, 22, 24]  first=18 last=24
+      · 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  -> times=[20, 22, 24, 26]  first=20 last=26
+      MISS: 6 -> 2   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[0, 2, 4, 6].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx)
+      MISS: 8 -> 4   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[2, 4, 6, 8].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[4, 6, 8, 10].xlsx)
+      MISS: 10 -> 6   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[4, 6, 8, 10].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[6, 8, 10, 12].xlsx)
+      MISS: 12 -> 8   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[6, 8, 10, 12].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[8, 10, 12, 14].xlsx)
+      MISS: 14 -> 10   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[8, 10, 12, 14].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[10, 12, 14, 16].xlsx)
+      MISS: 16 -> 12   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[10, 12, 14, 16].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx)
+      MISS: 18 -> 14   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx)
+      MISS: 20 -> 16   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[14, 16, 18, 20].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx)
+      MISS: 22 -> 18   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[18, 20, 22, 24].xlsx)
+      MISS: 24 -> 20   (20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[18, 20, 22, 24].xlsx  →  20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx)
+
+[PairDataset][Example pairs] (show up to 50)
+  [1] A(idx=0) 20240918_2ppm钙离子污染测试_新版电解槽_ion_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]
+      → B(idx=92) 20240918_2ppm钙离子污染测试_新版电解槽_ion_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=False
+  [2] A(idx=92) 20240918_2ppm钙离子污染测试_新版电解槽_ion_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=92) 20240918_2ppm钙离子污染测试_新版电解槽_ion_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=True
+  [3] A(idx=1) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=1) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]  dummy=True
+  [4] A(idx=94) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]
+      → B(idx=94) 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=True
+  [5] A(idx=125) 20241010_2ppm钠离子污染测试_新版电解槽_ion_column_firecloud_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]
+      → B(idx=125) 20241010_2ppm钠离子污染测试_新版电解槽_ion_column_firecloud_[6, 8, 10, 12].xlsx  times=[6, 8, 10, 12]  dummy=True
+  [6] A(idx=2) 20241010_2ppm钠离子污染测试_新版电解槽_ion_column_firecloud_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]
+      → B(idx=2) 20241010_2ppm钠离子污染测试_新版电解槽_ion_column_firecloud_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]  dummy=True
+  [7] A(idx=20) 20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_firecloud_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=20) 20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_firecloud_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]  dummy=True
+  [8] A(idx=3) 20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_firecloud_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]
+      → B(idx=3) 20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_firecloud_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]  dummy=True
+  [9] A(idx=31) 20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]
+      → B(idx=31) 20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_firecloud_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]  dummy=True
+  [10] A(idx=48) 20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=41) 20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=False
+  [11] A(idx=41) 20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]
+      → B(idx=41) 20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=True
+  [12] A(idx=139) 20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]
+      → B(idx=139) 20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]  dummy=True
+  [13] A(idx=4) 20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]
+      → B(idx=4) 20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]  dummy=True
+  [14] A(idx=5) 20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]
+      → B(idx=5) 20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[14, 16, 18, 20].xlsx  times=[14, 16, 18, 20]  dummy=True
+  [15] A(idx=93) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]
+      → B(idx=93) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[4, 6, 8, 10].xlsx  times=[4, 6, 8, 10]  dummy=True
+  [16] A(idx=104) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]
+      → B(idx=135) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]  dummy=False
+  [17] A(idx=135) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]
+      → B(idx=135) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]  dummy=True
+  [18] A(idx=6) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]
+      → B(idx=6) 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]  dummy=True
+  [19] A(idx=55) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]
+      → B(idx=7) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]  dummy=False
+  [20] A(idx=7) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]
+      → B(idx=141) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]  dummy=False
+  [21] A(idx=141) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]
+      → B(idx=141) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]  dummy=True
+  [22] A(idx=47) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[46, 48, 50, 52].xlsx  times=[46, 48, 50, 52]
+      → B(idx=47) 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[46, 48, 50, 52].xlsx  times=[46, 48, 50, 52]  dummy=True
+  [23] A(idx=8) 20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]
+      → B(idx=8) 20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]  dummy=True
+  [24] A(idx=88) 20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[24, 26, 28, 30].xlsx  times=[24, 26, 28, 30]
+      → B(idx=88) 20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[24, 26, 28, 30].xlsx  times=[24, 26, 28, 30]  dummy=True
+  [25] A(idx=134) 20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]
+      → B(idx=134) 20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[26, 28, 30, 32].xlsx  times=[26, 28, 30, 32]  dummy=True
+  [26] A(idx=27) 20241017_2ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=27) 20241017_2ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]  dummy=True
+  [27] A(idx=9) 20241017_2ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]
+      → B(idx=9) 20241017_2ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[20, 22, 24, 26].xlsx  times=[20, 22, 24, 26]  dummy=True
+  [28] A(idx=10) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_renew_H2SO4_firecloud_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]
+      → B(idx=10) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_renew_H2SO4_firecloud_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]  dummy=True
+  [29] A(idx=136) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_renew_H2SO4_firecloud_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]
+      → B(idx=136) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_renew_H2SO4_firecloud_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]  dummy=True
+  [30] A(idx=11) 20241117_2ppm钠离子污染及恢复测试10mlmin_旧版电解槽_ion_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=11) 20241117_2ppm钠离子污染及恢复测试10mlmin_旧版电解槽_ion_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]  dummy=True
+  [31] A(idx=140) 20241117_2ppm钠离子污染及恢复测试10mlmin_旧版电解槽_ion_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]
+      → B(idx=140) 20241117_2ppm钠离子污染及恢复测试10mlmin_旧版电解槽_ion_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]  dummy=True
+  [32] A(idx=78) 20241117_2ppm钠离子污染及恢复测试10mlmin_旧版电解槽_ion_gamry_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]
+      → B(idx=78) 20241117_2ppm钠离子污染及恢复测试10mlmin_旧版电解槽_ion_gamry_[30, 32, 34, 36].xlsx  times=[30, 32, 34, 36]  dummy=True
+  [33] A(idx=138) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]
+      → B(idx=12) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[32, 34, 36, 38].xlsx  times=[32, 34, 36, 38]  dummy=False
+  [34] A(idx=12) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[32, 34, 36, 38].xlsx  times=[32, 34, 36, 38]
+      → B(idx=12) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[32, 34, 36, 38].xlsx  times=[32, 34, 36, 38]  dummy=True
+  [35] A(idx=108) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]
+      → B(idx=108) 20241211_2ppm铜离子污染及恢复测试80摄氏度_旧版电解槽_ion_gamry_[38, 40, 42, 44].xlsx  times=[38, 40, 42, 44]  dummy=True
+  [36] A(idx=143) 20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=143) 20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]  dummy=True
+  [37] A(idx=70) 20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=70) 20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]  dummy=True
+  [38] A(idx=13) 20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_gamry_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]
+      → B(idx=13) 20241213_2ppm钠离子污染及恢复测试_新版电解槽_ion_gamry_[22, 24, 26, 28].xlsx  times=[22, 24, 26, 28]  dummy=True
+  [39] A(idx=14) 20240822_10ppm铜离子污染测试_新版电解槽_ion_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]
+      → B(idx=14) 20240822_10ppm铜离子污染测试_新版电解槽_ion_gamry_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]  dummy=True
+  [40] A(idx=51) 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]
+      → B(idx=51) 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[28, 30, 32, 34].xlsx  times=[28, 30, 32, 34]  dummy=True
+  [41] A(idx=126) 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]
+      → B(idx=126) 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[34, 36, 38, 40].xlsx  times=[34, 36, 38, 40]  dummy=True
+  [42] A(idx=15) 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]
+      → B(idx=15) 20241112_2ppm钠离子污染和恢复测试80摄氏度_新版电解槽_ion_gamry_[36, 38, 40, 42].xlsx  times=[36, 38, 40, 42]  dummy=True
+  [43] A(idx=16) 20240831_10ppm镍离子污染测试_新版电解槽_ion_column_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]
+      → B(idx=16) 20240831_10ppm镍离子污染测试_新版电解槽_ion_column_gamry_[0, 2, 4, 6].xlsx  times=[0, 2, 4, 6]  dummy=True
+  [44] A(idx=17) 20241112_2ppm镍离子污染及恢复测试_旧版电解槽_ion_column_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]
+      → B(idx=17) 20241112_2ppm镍离子污染及恢复测试_旧版电解槽_ion_column_gamry_[12, 14, 16, 18].xlsx  times=[12, 14, 16, 18]  dummy=True
+  [45] A(idx=18) 20241013_2ppm铝离子污染测试_新版电解槽_ion_column_firecloud_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]
+      → B(idx=18) 20241013_2ppm铝离子污染测试_新版电解槽_ion_column_firecloud_[8, 10, 12, 14].xlsx  times=[8, 10, 12, 14]  dummy=True
+  [46] A(idx=90) 20241013_2ppm铝离子污染测试_新版电解槽_ion_column_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]
+      → B(idx=90) 20241013_2ppm铝离子污染测试_新版电解槽_ion_column_firecloud_[16, 18, 20, 22].xlsx  times=[16, 18, 20, 22]  dummy=True
+  [47] A(idx=19) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_firecloud_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=19) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_firecloud_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]  dummy=True
+  [48] A(idx=56) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_firecloud_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]
+      → B(idx=56) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_firecloud_[10, 12, 14, 16].xlsx  times=[10, 12, 14, 16]  dummy=True
+  [49] A(idx=67) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_firecloud_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]
+      → B(idx=67) 20241024_2ppm铁离子污染和恢复测试_新版电解槽_ion_column_firecloud_[18, 20, 22, 24].xlsx  times=[18, 20, 22, 24]  dummy=True
+  [50] A(idx=21) 20240918_2ppm钙离子污染测试_新版电解槽_ion_column_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]
+      → B(idx=21) 20240918_2ppm钙离子污染测试_新版电解槽_ion_column_gamry_[2, 4, 6, 8].xlsx  times=[2, 4, 6, 8]  dummy=True
+
+[PairDataset][Summary]
+- total files:        146
+- parsed OK:          146
+- regex fail:         0
+- parse times fail:   0
+- empty times:        0
+- total pairs:        146  (keep_unpaired=self)
+- distinct prefixes:  77
+- prefixes coverage (first few):
+  [1] 20240918_2ppm钙离子污染测试_新版电解槽_ion_gamry_[* -> windows=2, adj_pairs=0/1
+  [2] 20241028_2ppm钠离子污染和恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[* -> windows=2, adj_pairs=0/1
+  [3] 20241010_2ppm钠离子污染测试_新版电解槽_ion_column_firecloud_[* -> windows=2, adj_pairs=0/1
+  [4] 20241101_2ppm铜离子污染和恢复测试_旧版电解槽_ion_firecloud_[* -> windows=3, adj_pairs=0/2
+  [5] 20240831_10ppm镍离子污染测试_新版电解槽_ion_gamry_[* -> windows=4, adj_pairs=0/3
+  [6] 20241122_2ppm铜离子污染及恢复测试40摄氏度_新版电解槽_ion_column_renew_H2SO4_gamry_[* -> windows=1, adj_pairs=0/0
+  [7] 20241010_2ppm钠离子污染测试_新版电解槽_ion_firecloud_[* -> windows=4, adj_pairs=0/3
+  [8] 20241029_2ppm铁离子污染和恢复测试_新版电解槽_ion_firecloud_[* -> windows=4, adj_pairs=0/3
+  [9] 20241227_10ppm铜离子污染及恢复测试_旧版电解槽_ion_column_renew_H2SO4_gamry_[* -> windows=3, adj_pairs=0/2
+  [10] 20241017_2ppm铬离子污染和恢复测试_新版电解槽_ion_gamry_[* -> windows=2, adj_pairs=0/1
+- unadjacent gaps samples: 131 (showing first 0)
+num base train samples: 706
+num base val   samples: 146
+num pair train samples: 706
+num pair val   samples: 146
+dummy_mask[0] = False
+🧩 新模型: 277,129 参数 (277,129 可训练)
+📝 TensorBoard 日志目录: /home/kudouzala/Application/ion_detect/output/tensorboard/exp_new_d
+🔥 Warmup: 100 epochs (LR × 0.01 → 1.0)
+📈 Cosine Annealing LR 调度 (T_max=900)
+[New] Epoch 1/1000 | classify: 4.8087 | voltage: 3.9775 | total: 5.0075
+[New] Epoch 2/1000 | classify: 4.6388 | voltage: 3.7541 | total: 4.8265
+[New] Epoch 3/1000 | classify: 4.4447 | voltage: 3.4178 | total: 4.6156
+[New] Epoch 4/1000 | classify: 4.2402 | voltage: 3.0155 | total: 4.3910
+[New] Epoch 5/1000 | classify: 4.0857 | voltage: 2.4963 | total: 4.2106
+[New] Epoch 6/1000 | classify: 4.0013 | voltage: 1.9704 | total: 4.0998
+[New] Epoch 7/1000 | classify: 3.9393 | voltage: 1.4954 | total: 4.0140
+[New] Epoch 8/1000 | classify: 4.1379 | voltage: 1.0689 | total: 4.1913
+[New] Epoch 9/1000 | classify: 3.9669 | voltage: 0.7750 | total: 4.0056
+[New] Epoch 10/1000 | classify: 4.1334 | voltage: 0.5423 | total: 4.1605
+--- 验证集 [epoch 10] ---
+  准确率 (Accuracy):  0.4795
+  精确率 (Precision): 0.0685
+  召回率 (Recall):    0.1429
+  F1 分数 (F1):       0.0926
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.0926，已保存 best 模型
+[New] Epoch 11/1000 | classify: 3.7132 | voltage: 0.4122 | total: 3.7338
+[New] Epoch 12/1000 | classify: 3.8789 | voltage: 0.3033 | total: 3.8941
+[New] Epoch 13/1000 | classify: 3.6780 | voltage: 0.2474 | total: 3.6904
+[New] Epoch 14/1000 | classify: 3.5082 | voltage: 0.2054 | total: 3.5185
+[New] Epoch 15/1000 | classify: 3.3966 | voltage: 0.1623 | total: 3.4047
+[New] Epoch 16/1000 | classify: 3.4815 | voltage: 0.1344 | total: 3.4882
+[New] Epoch 17/1000 | classify: 3.0725 | voltage: 0.1279 | total: 3.0789
+[New] Epoch 18/1000 | classify: 3.1970 | voltage: 0.1217 | total: 3.2031
+[New] Epoch 19/1000 | classify: 3.0375 | voltage: 0.1095 | total: 3.0430
+[New] Epoch 20/1000 | classify: 2.9270 | voltage: 0.1180 | total: 2.9329
+--- 验证集 [epoch 20] ---
+  准确率 (Accuracy):  0.5342
+  精确率 (Precision): 0.2071
+  召回率 (Recall):    0.2597
+  F1 分数 (F1):       0.2196
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.2196，已保存 best 模型
+[New] Epoch 21/1000 | classify: 3.1437 | voltage: 0.0952 | total: 3.1485
+[New] Epoch 22/1000 | classify: 2.9307 | voltage: 0.0869 | total: 2.9351
+[New] Epoch 23/1000 | classify: 2.9989 | voltage: 0.1025 | total: 3.0041
+[New] Epoch 24/1000 | classify: 2.9162 | voltage: 0.0926 | total: 2.9208
+[New] Epoch 25/1000 | classify: 3.0815 | voltage: 0.1527 | total: 3.0891
+[New] Epoch 26/1000 | classify: 2.9424 | voltage: 0.1048 | total: 2.9476
+[New] Epoch 27/1000 | classify: 3.0586 | voltage: 0.0770 | total: 3.0624
+[New] Epoch 28/1000 | classify: 3.0075 | voltage: 0.0654 | total: 3.0107
+[New] Epoch 29/1000 | classify: 2.7477 | voltage: 0.0731 | total: 2.7514
+[New] Epoch 30/1000 | classify: 2.7839 | voltage: 0.0870 | total: 2.7883
+--- 验证集 [epoch 30] ---
+  准确率 (Accuracy):  0.6781
+  精确率 (Precision): 0.3532
+  召回率 (Recall):    0.4558
+  F1 分数 (F1):       0.3932
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.3932，已保存 best 模型
+[New] Epoch 31/1000 | classify: 2.5397 | voltage: 0.0805 | total: 2.5437
+[New] Epoch 32/1000 | classify: 2.6040 | voltage: 0.0657 | total: 2.6073
+[New] Epoch 33/1000 | classify: 2.5045 | voltage: 0.0730 | total: 2.5081
+[New] Epoch 34/1000 | classify: 2.5139 | voltage: 0.0678 | total: 2.5173
+[New] Epoch 35/1000 | classify: 2.5004 | voltage: 0.0643 | total: 2.5036
+[New] Epoch 36/1000 | classify: 2.4149 | voltage: 0.0719 | total: 2.4185
+[New] Epoch 37/1000 | classify: 2.1434 | voltage: 0.0921 | total: 2.1480
+[New] Epoch 38/1000 | classify: 2.5599 | voltage: 0.0700 | total: 2.5634
+[New] Epoch 39/1000 | classify: 2.8198 | voltage: 0.0748 | total: 2.8236
+[New] Epoch 40/1000 | classify: 2.2186 | voltage: 0.0742 | total: 2.2223
+--- 验证集 [epoch 40] ---
+  准确率 (Accuracy):  0.6986
+  精确率 (Precision): 0.4768
+  召回率 (Recall):    0.5029
+  F1 分数 (F1):       0.4720
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.4720，已保存 best 模型
+[New] Epoch 41/1000 | classify: 2.0358 | voltage: 0.0808 | total: 2.0399
+[New] Epoch 42/1000 | classify: 2.3842 | voltage: 0.0697 | total: 2.3877
+[New] Epoch 43/1000 | classify: 2.4140 | voltage: 0.0746 | total: 2.4178
+[New] Epoch 44/1000 | classify: 2.7178 | voltage: 0.0860 | total: 2.7221
+[New] Epoch 45/1000 | classify: 2.2847 | voltage: 0.0788 | total: 2.2887
+[New] Epoch 46/1000 | classify: 2.2884 | voltage: 0.0759 | total: 2.2922
+[New] Epoch 47/1000 | classify: 2.4058 | voltage: 0.0756 | total: 2.4096
+[New] Epoch 48/1000 | classify: 1.9728 | voltage: 0.0786 | total: 1.9767
+[New] Epoch 49/1000 | classify: 2.1524 | voltage: 0.0834 | total: 2.1566
+[New] Epoch 50/1000 | classify: 1.9776 | voltage: 0.0971 | total: 1.9824
+--- 验证集 [epoch 50] ---
+  准确率 (Accuracy):  0.7055
+  精确率 (Precision): 0.5758
+  召回率 (Recall):    0.5380
+  F1 分数 (F1):       0.5304
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.5304，已保存 best 模型
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_50.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_50.csv
+[New] Epoch 51/1000 | classify: 2.1211 | voltage: 0.0808 | total: 2.1251
+[New] Epoch 52/1000 | classify: 2.1259 | voltage: 0.0922 | total: 2.1305
+[New] Epoch 53/1000 | classify: 2.0328 | voltage: 0.0904 | total: 2.0374
+[New] Epoch 54/1000 | classify: 1.9921 | voltage: 0.0928 | total: 1.9968
+[New] Epoch 55/1000 | classify: 1.7747 | voltage: 0.0843 | total: 1.7789
+[New] Epoch 56/1000 | classify: 2.0958 | voltage: 0.0823 | total: 2.1000
+[New] Epoch 57/1000 | classify: 2.0400 | voltage: 0.0886 | total: 2.0444
+[New] Epoch 58/1000 | classify: 2.2530 | voltage: 0.0870 | total: 2.2573
+[New] Epoch 59/1000 | classify: 1.8925 | voltage: 0.1027 | total: 1.8976
+[New] Epoch 60/1000 | classify: 2.2436 | voltage: 0.0836 | total: 2.2478
+--- 验证集 [epoch 60] ---
+  准确率 (Accuracy):  0.7192
+  精确率 (Precision): 0.5750
+  召回率 (Recall):    0.5529
+  F1 分数 (F1):       0.5509
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.5509，已保存 best 模型
+[New] Epoch 61/1000 | classify: 2.0513 | voltage: 0.0800 | total: 2.0553
+[New] Epoch 62/1000 | classify: 1.9724 | voltage: 0.0791 | total: 1.9764
+[New] Epoch 63/1000 | classify: 1.9013 | voltage: 0.0866 | total: 1.9056
+[New] Epoch 64/1000 | classify: 1.9379 | voltage: 0.0924 | total: 1.9426
+[New] Epoch 65/1000 | classify: 1.9555 | voltage: 0.1471 | total: 1.9629
+[New] Epoch 66/1000 | classify: 1.8599 | voltage: 0.0913 | total: 1.8645
+[New] Epoch 67/1000 | classify: 1.9636 | voltage: 0.1022 | total: 1.9687
+[New] Epoch 68/1000 | classify: 1.7569 | voltage: 0.0834 | total: 1.7610
+[New] Epoch 69/1000 | classify: 1.7718 | voltage: 0.0892 | total: 1.7762
+[New] Epoch 70/1000 | classify: 1.9124 | voltage: 0.0948 | total: 1.9171
+--- 验证集 [epoch 70] ---
+  准确率 (Accuracy):  0.6849
+  精确率 (Precision): 0.5255
+  召回率 (Recall):    0.5349
+  F1 分数 (F1):       0.5124
+[New] Epoch 71/1000 | classify: 1.6637 | voltage: 0.0877 | total: 1.6681
+[New] Epoch 72/1000 | classify: 1.8741 | voltage: 0.0903 | total: 1.8787
+[New] Epoch 73/1000 | classify: 1.7900 | voltage: 0.1084 | total: 1.7955
+[New] Epoch 74/1000 | classify: 1.7133 | voltage: 0.1022 | total: 1.7185
+[New] Epoch 75/1000 | classify: 1.6248 | voltage: 0.0831 | total: 1.6290
+[New] Epoch 76/1000 | classify: 1.5499 | voltage: 0.0905 | total: 1.5544
+[New] Epoch 77/1000 | classify: 1.5307 | voltage: 0.0952 | total: 1.5355
+[New] Epoch 78/1000 | classify: 1.6578 | voltage: 0.0909 | total: 1.6624
+[New] Epoch 79/1000 | classify: 1.6537 | voltage: 0.0752 | total: 1.6574
+[New] Epoch 80/1000 | classify: 1.4324 | voltage: 0.0988 | total: 1.4373
+--- 验证集 [epoch 80] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.6663
+  召回率 (Recall):    0.6258
+  F1 分数 (F1):       0.6261
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.6261，已保存 best 模型
+[New] Epoch 81/1000 | classify: 1.4943 | voltage: 0.0829 | total: 1.4984
+[New] Epoch 82/1000 | classify: 1.3364 | voltage: 0.0890 | total: 1.3408
+[New] Epoch 83/1000 | classify: 1.5900 | voltage: 0.1136 | total: 1.5957
+[New] Epoch 84/1000 | classify: 1.3507 | voltage: 0.1187 | total: 1.3566
+[New] Epoch 85/1000 | classify: 1.3089 | voltage: 0.0916 | total: 1.3135
+[New] Epoch 86/1000 | classify: 1.2962 | voltage: 0.0858 | total: 1.3005
+[New] Epoch 87/1000 | classify: 1.3662 | voltage: 0.1041 | total: 1.3714
+[New] Epoch 88/1000 | classify: 1.3501 | voltage: 0.0853 | total: 1.3544
+[New] Epoch 89/1000 | classify: 1.2590 | voltage: 0.0958 | total: 1.2637
+[New] Epoch 90/1000 | classify: 1.3535 | voltage: 0.1021 | total: 1.3586
+--- 验证集 [epoch 90] ---
+  准确率 (Accuracy):  0.7192
+  精确率 (Precision): 0.6630
+  召回率 (Recall):    0.6120
+  F1 分数 (F1):       0.6025
+[New] Epoch 91/1000 | classify: 1.2576 | voltage: 0.0949 | total: 1.2623
+[New] Epoch 92/1000 | classify: 1.2665 | voltage: 0.0970 | total: 1.2714
+[New] Epoch 93/1000 | classify: 1.2922 | voltage: 0.1169 | total: 1.2980
+[New] Epoch 94/1000 | classify: 1.2673 | voltage: 0.1004 | total: 1.2723
+[New] Epoch 95/1000 | classify: 1.1804 | voltage: 0.0883 | total: 1.1848
+[New] Epoch 96/1000 | classify: 1.4437 | voltage: 0.1070 | total: 1.4491
+[New] Epoch 97/1000 | classify: 1.2011 | voltage: 0.1000 | total: 1.2061
+[New] Epoch 98/1000 | classify: 1.2266 | voltage: 0.0926 | total: 1.2312
+[New] Epoch 99/1000 | classify: 1.1767 | voltage: 0.0814 | total: 1.1808
+[New] Epoch 100/1000 | classify: 1.2813 | voltage: 0.0939 | total: 1.2859
+--- 验证集 [epoch 100] ---
+  准确率 (Accuracy):  0.7671
+  精确率 (Precision): 0.6859
+  召回率 (Recall):    0.6127
+  F1 分数 (F1):       0.6316
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.6316，已保存 best 模型
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_100.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_100.csv
+[New] Epoch 101/1000 | classify: 1.2880 | voltage: 0.1032 | total: 1.2931
+[New] Epoch 102/1000 | classify: 1.2276 | voltage: 0.1257 | total: 1.2339
+[New] Epoch 103/1000 | classify: 1.2280 | voltage: 0.0950 | total: 1.2328
+[New] Epoch 104/1000 | classify: 1.1972 | voltage: 0.0833 | total: 1.2013
+[New] Epoch 105/1000 | classify: 1.1642 | voltage: 0.0910 | total: 1.1687
+[New] Epoch 106/1000 | classify: 1.0491 | voltage: 0.1058 | total: 1.0544
+[New] Epoch 107/1000 | classify: 1.2086 | voltage: 0.1061 | total: 1.2139
+[New] Epoch 108/1000 | classify: 1.0795 | voltage: 0.0955 | total: 1.0843
+[New] Epoch 109/1000 | classify: 1.3115 | voltage: 0.0911 | total: 1.3161
+[New] Epoch 110/1000 | classify: 1.2132 | voltage: 0.0956 | total: 1.2180
+--- 验证集 [epoch 110] ---
+  准确率 (Accuracy):  0.7945
+  精确率 (Precision): 0.7393
+  召回率 (Recall):    0.6609
+  F1 分数 (F1):       0.6750
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.6750，已保存 best 模型
+[New] Epoch 111/1000 | classify: 1.1469 | voltage: 0.0931 | total: 1.1516
+[New] Epoch 112/1000 | classify: 1.2291 | voltage: 0.0979 | total: 1.2340
+[New] Epoch 113/1000 | classify: 1.0639 | voltage: 0.1078 | total: 1.0693
+[New] Epoch 114/1000 | classify: 1.2006 | voltage: 0.1191 | total: 1.2065
+[New] Epoch 115/1000 | classify: 1.1614 | voltage: 0.1108 | total: 1.1669
+[New] Epoch 116/1000 | classify: 1.2058 | voltage: 0.1162 | total: 1.2116
+[New] Epoch 117/1000 | classify: 1.1406 | voltage: 0.1027 | total: 1.1457
+[New] Epoch 118/1000 | classify: 1.1378 | voltage: 0.0903 | total: 1.1423
+[New] Epoch 119/1000 | classify: 1.1107 | voltage: 0.1107 | total: 1.1162
+[New] Epoch 120/1000 | classify: 1.2285 | voltage: 0.1038 | total: 1.2337
+--- 验证集 [epoch 120] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.7101
+  召回率 (Recall):    0.6314
+  F1 分数 (F1):       0.6510
+[New] Epoch 121/1000 | classify: 1.1286 | voltage: 0.0954 | total: 1.1333
+[New] Epoch 122/1000 | classify: 0.9759 | voltage: 0.0990 | total: 0.9808
+[New] Epoch 123/1000 | classify: 0.9960 | voltage: 0.0933 | total: 1.0007
+[New] Epoch 124/1000 | classify: 1.1443 | voltage: 0.1088 | total: 1.1497
+[New] Epoch 125/1000 | classify: 1.0926 | voltage: 0.1269 | total: 1.0989
+[New] Epoch 126/1000 | classify: 1.2105 | voltage: 0.0989 | total: 1.2154
+[New] Epoch 127/1000 | classify: 1.0089 | voltage: 0.1009 | total: 1.0140
+[New] Epoch 128/1000 | classify: 1.0774 | voltage: 0.0861 | total: 1.0817
+[New] Epoch 129/1000 | classify: 1.2071 | voltage: 0.0973 | total: 1.2120
+[New] Epoch 130/1000 | classify: 1.1265 | voltage: 0.0996 | total: 1.1314
+--- 验证集 [epoch 130] ---
+  准确率 (Accuracy):  0.6849
+  精确率 (Precision): 0.5962
+  召回率 (Recall):    0.6127
+  F1 分数 (F1):       0.5782
+[New] Epoch 131/1000 | classify: 1.2408 | voltage: 0.0972 | total: 1.2456
+[New] Epoch 132/1000 | classify: 0.8860 | voltage: 0.0945 | total: 0.8907
+[New] Epoch 133/1000 | classify: 1.2010 | voltage: 0.0967 | total: 1.2059
+[New] Epoch 134/1000 | classify: 1.1739 | voltage: 0.1123 | total: 1.1795
+[New] Epoch 135/1000 | classify: 0.9563 | voltage: 0.1201 | total: 0.9623
+[New] Epoch 136/1000 | classify: 1.1760 | voltage: 0.1085 | total: 1.1814
+[New] Epoch 137/1000 | classify: 0.9955 | voltage: 0.1150 | total: 1.0013
+[New] Epoch 138/1000 | classify: 1.0387 | voltage: 0.1067 | total: 1.0441
+[New] Epoch 139/1000 | classify: 1.0216 | voltage: 0.1069 | total: 1.0269
+[New] Epoch 140/1000 | classify: 0.9269 | voltage: 0.0877 | total: 0.9313
+--- 验证集 [epoch 140] ---
+  准确率 (Accuracy):  0.7260
+  精确率 (Precision): 0.5811
+  召回率 (Recall):    0.6063
+  F1 分数 (F1):       0.5870
+[New] Epoch 141/1000 | classify: 0.9653 | voltage: 0.1328 | total: 0.9719
+[New] Epoch 142/1000 | classify: 1.0959 | voltage: 0.1151 | total: 1.1016
+[New] Epoch 143/1000 | classify: 0.9077 | voltage: 0.1014 | total: 0.9128
+[New] Epoch 144/1000 | classify: 1.1597 | voltage: 0.1135 | total: 1.1654
+[New] Epoch 145/1000 | classify: 1.1199 | voltage: 0.1195 | total: 1.1259
+[New] Epoch 146/1000 | classify: 1.0366 | voltage: 0.1225 | total: 1.0427
+[New] Epoch 147/1000 | classify: 0.8140 | voltage: 0.1035 | total: 0.8192
+[New] Epoch 148/1000 | classify: 1.2061 | voltage: 0.1223 | total: 1.2122
+[New] Epoch 149/1000 | classify: 0.9200 | voltage: 0.1143 | total: 0.9258
+[New] Epoch 150/1000 | classify: 0.9530 | voltage: 0.1051 | total: 0.9582
+--- 验证集 [epoch 150] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.6270
+  召回率 (Recall):    0.6012
+  F1 分数 (F1):       0.6111
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_150.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_150.csv
+[New] Epoch 151/1000 | classify: 1.0469 | voltage: 0.1092 | total: 1.0524
+[New] Epoch 152/1000 | classify: 1.1739 | voltage: 0.1169 | total: 1.1797
+[New] Epoch 153/1000 | classify: 0.9409 | voltage: 0.1120 | total: 0.9465
+[New] Epoch 154/1000 | classify: 0.9616 | voltage: 0.1111 | total: 0.9671
+[New] Epoch 155/1000 | classify: 1.1288 | voltage: 0.0920 | total: 1.1334
+[New] Epoch 156/1000 | classify: 1.0747 | voltage: 0.1336 | total: 1.0814
+[New] Epoch 157/1000 | classify: 1.0454 | voltage: 0.1226 | total: 1.0515
+[New] Epoch 158/1000 | classify: 0.9449 | voltage: 0.1090 | total: 0.9503
+[New] Epoch 159/1000 | classify: 0.9899 | voltage: 0.1232 | total: 0.9961
+[New] Epoch 160/1000 | classify: 0.8469 | voltage: 0.1064 | total: 0.8522
+--- 验证集 [epoch 160] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.6831
+  召回率 (Recall):    0.6272
+  F1 分数 (F1):       0.6153
+[New] Epoch 161/1000 | classify: 1.2008 | voltage: 0.0956 | total: 1.2056
+[New] Epoch 162/1000 | classify: 1.0442 | voltage: 0.1089 | total: 1.0497
+[New] Epoch 163/1000 | classify: 0.8614 | voltage: 0.1104 | total: 0.8669
+[New] Epoch 164/1000 | classify: 0.9222 | voltage: 0.0846 | total: 0.9264
+[New] Epoch 165/1000 | classify: 1.0206 | voltage: 0.1094 | total: 1.0261
+[New] Epoch 166/1000 | classify: 0.7462 | voltage: 0.1016 | total: 0.7512
+[New] Epoch 167/1000 | classify: 0.9398 | voltage: 0.1086 | total: 0.9452
+[New] Epoch 168/1000 | classify: 0.8062 | voltage: 0.1209 | total: 0.8122
+[New] Epoch 169/1000 | classify: 0.8353 | voltage: 0.0896 | total: 0.8398
+[New] Epoch 170/1000 | classify: 1.0125 | voltage: 0.1082 | total: 1.0179
+--- 验证集 [epoch 170] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.6015
+  召回率 (Recall):    0.6001
+  F1 分数 (F1):       0.5963
+[New] Epoch 171/1000 | classify: 1.0108 | voltage: 0.1168 | total: 1.0166
+[New] Epoch 172/1000 | classify: 1.2022 | voltage: 0.1048 | total: 1.2074
+[New] Epoch 173/1000 | classify: 0.8110 | voltage: 0.1219 | total: 0.8171
+[New] Epoch 174/1000 | classify: 0.9741 | voltage: 0.1277 | total: 0.9804
+[New] Epoch 175/1000 | classify: 0.9995 | voltage: 0.1136 | total: 1.0051
+[New] Epoch 176/1000 | classify: 0.7662 | voltage: 0.1283 | total: 0.7727
+[New] Epoch 177/1000 | classify: 0.9327 | voltage: 0.1345 | total: 0.9394
+[New] Epoch 178/1000 | classify: 0.9298 | voltage: 0.1286 | total: 0.9362
+[New] Epoch 179/1000 | classify: 1.1194 | voltage: 0.1106 | total: 1.1249
+[New] Epoch 180/1000 | classify: 0.9023 | voltage: 0.1094 | total: 0.9077
+--- 验证集 [epoch 180] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.5967
+  召回率 (Recall):    0.5610
+  F1 分数 (F1):       0.5718
+[New] Epoch 181/1000 | classify: 0.8699 | voltage: 0.1300 | total: 0.8764
+[New] Epoch 182/1000 | classify: 0.8133 | voltage: 0.1048 | total: 0.8186
+[New] Epoch 183/1000 | classify: 0.8819 | voltage: 0.1283 | total: 0.8883
+[New] Epoch 184/1000 | classify: 1.0095 | voltage: 0.1301 | total: 1.0161
+[New] Epoch 185/1000 | classify: 0.7774 | voltage: 0.1214 | total: 0.7834
+[New] Epoch 186/1000 | classify: 0.9090 | voltage: 0.0913 | total: 0.9135
+[New] Epoch 187/1000 | classify: 0.9911 | voltage: 0.1393 | total: 0.9980
+[New] Epoch 188/1000 | classify: 0.8947 | voltage: 0.1211 | total: 0.9007
+[New] Epoch 189/1000 | classify: 0.9111 | voltage: 0.0971 | total: 0.9159
+[New] Epoch 190/1000 | classify: 0.9326 | voltage: 0.1215 | total: 0.9387
+--- 验证集 [epoch 190] ---
+  准确率 (Accuracy):  0.7671
+  精确率 (Precision): 0.6111
+  召回率 (Recall):    0.5854
+  F1 分数 (F1):       0.5900
+[New] Epoch 191/1000 | classify: 0.7368 | voltage: 0.1099 | total: 0.7423
+[New] Epoch 192/1000 | classify: 0.7239 | voltage: 0.0952 | total: 0.7286
+[New] Epoch 193/1000 | classify: 0.9541 | voltage: 0.1128 | total: 0.9597
+[New] Epoch 194/1000 | classify: 0.9450 | voltage: 0.1092 | total: 0.9504
+[New] Epoch 195/1000 | classify: 0.8416 | voltage: 0.1095 | total: 0.8470
+[New] Epoch 196/1000 | classify: 0.8269 | voltage: 0.1025 | total: 0.8320
+[New] Epoch 197/1000 | classify: 0.8119 | voltage: 0.1113 | total: 0.8174
+[New] Epoch 198/1000 | classify: 0.9229 | voltage: 0.0993 | total: 0.9279
+[New] Epoch 199/1000 | classify: 0.7919 | voltage: 0.1449 | total: 0.7992
+[New] Epoch 200/1000 | classify: 0.7427 | voltage: 0.1118 | total: 0.7483
+--- 验证集 [epoch 200] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.6309
+  召回率 (Recall):    0.6067
+  F1 分数 (F1):       0.6129
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_200.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_200.csv
+[New] Epoch 201/1000 | classify: 0.8630 | voltage: 0.1060 | total: 0.8683
+[New] Epoch 202/1000 | classify: 0.8581 | voltage: 0.1037 | total: 0.8633
+[New] Epoch 203/1000 | classify: 0.8604 | voltage: 0.0926 | total: 0.8650
+[New] Epoch 204/1000 | classify: 1.0479 | voltage: 0.0912 | total: 1.0525
+[New] Epoch 205/1000 | classify: 0.8729 | voltage: 0.1013 | total: 0.8779
+[New] Epoch 206/1000 | classify: 0.7891 | voltage: 0.1142 | total: 0.7948
+[New] Epoch 207/1000 | classify: 0.9119 | voltage: 0.0941 | total: 0.9166
+[New] Epoch 208/1000 | classify: 0.8537 | voltage: 0.1084 | total: 0.8591
+[New] Epoch 209/1000 | classify: 0.8631 | voltage: 0.0888 | total: 0.8676
+[New] Epoch 210/1000 | classify: 0.9378 | voltage: 0.1069 | total: 0.9432
+--- 验证集 [epoch 210] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.5949
+  召回率 (Recall):    0.6057
+  F1 分数 (F1):       0.5883
+[New] Epoch 211/1000 | classify: 0.7336 | voltage: 0.0967 | total: 0.7384
+[New] Epoch 212/1000 | classify: 0.7777 | voltage: 0.0978 | total: 0.7826
+[New] Epoch 213/1000 | classify: 0.8838 | voltage: 0.1016 | total: 0.8889
+[New] Epoch 214/1000 | classify: 0.8934 | voltage: 0.1149 | total: 0.8992
+[New] Epoch 215/1000 | classify: 0.7928 | voltage: 0.1208 | total: 0.7988
+[New] Epoch 216/1000 | classify: 0.8361 | voltage: 0.1065 | total: 0.8414
+[New] Epoch 217/1000 | classify: 0.8084 | voltage: 0.0962 | total: 0.8132
+[New] Epoch 218/1000 | classify: 0.9757 | voltage: 0.1378 | total: 0.9826
+[New] Epoch 219/1000 | classify: 0.8613 | voltage: 0.0992 | total: 0.8663
+[New] Epoch 220/1000 | classify: 0.8891 | voltage: 0.0973 | total: 0.8940
+--- 验证集 [epoch 220] ---
+  准确率 (Accuracy):  0.7260
+  精确率 (Precision): 0.6091
+  召回率 (Recall):    0.5490
+  F1 分数 (F1):       0.5571
+[New] Epoch 221/1000 | classify: 0.8430 | voltage: 0.1209 | total: 0.8491
+[New] Epoch 222/1000 | classify: 0.7669 | voltage: 0.1103 | total: 0.7724
+[New] Epoch 223/1000 | classify: 0.8665 | voltage: 0.1230 | total: 0.8726
+[New] Epoch 224/1000 | classify: 0.6561 | voltage: 0.1187 | total: 0.6621
+[New] Epoch 225/1000 | classify: 0.6424 | voltage: 0.1090 | total: 0.6478
+[New] Epoch 226/1000 | classify: 0.7961 | voltage: 0.1166 | total: 0.8019
+[New] Epoch 227/1000 | classify: 1.0732 | voltage: 0.1178 | total: 1.0791
+[New] Epoch 228/1000 | classify: 0.7796 | voltage: 0.1123 | total: 0.7853
+[New] Epoch 229/1000 | classify: 0.8521 | voltage: 0.1051 | total: 0.8574
+[New] Epoch 230/1000 | classify: 0.8644 | voltage: 0.1070 | total: 0.8698
+--- 验证集 [epoch 230] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.6514
+  召回率 (Recall):    0.6274
+  F1 分数 (F1):       0.6308
+[New] Epoch 231/1000 | classify: 0.8393 | voltage: 0.1061 | total: 0.8446
+[New] Epoch 232/1000 | classify: 0.9066 | voltage: 0.1077 | total: 0.9120
+[New] Epoch 233/1000 | classify: 0.6758 | voltage: 0.1107 | total: 0.6813
+[New] Epoch 234/1000 | classify: 0.8827 | voltage: 0.1165 | total: 0.8885
+[New] Epoch 235/1000 | classify: 0.7273 | voltage: 0.1202 | total: 0.7333
+[New] Epoch 236/1000 | classify: 0.8261 | voltage: 0.1288 | total: 0.8325
+[New] Epoch 237/1000 | classify: 0.9300 | voltage: 0.1330 | total: 0.9367
+[New] Epoch 238/1000 | classify: 0.8616 | voltage: 0.1106 | total: 0.8671
+[New] Epoch 239/1000 | classify: 0.6066 | voltage: 0.1006 | total: 0.6116
+[New] Epoch 240/1000 | classify: 0.8484 | voltage: 0.1032 | total: 0.8536
+--- 验证集 [epoch 240] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.6785
+  召回率 (Recall):    0.6529
+  F1 分数 (F1):       0.6604
+[New] Epoch 241/1000 | classify: 0.7525 | voltage: 0.1177 | total: 0.7584
+[New] Epoch 242/1000 | classify: 0.8877 | voltage: 0.1064 | total: 0.8931
+[New] Epoch 243/1000 | classify: 0.8056 | voltage: 0.0972 | total: 0.8105
+[New] Epoch 244/1000 | classify: 0.7763 | voltage: 0.1070 | total: 0.7817
+[New] Epoch 245/1000 | classify: 0.7354 | voltage: 0.1234 | total: 0.7416
+[New] Epoch 246/1000 | classify: 1.0697 | voltage: 0.1115 | total: 1.0753
+[New] Epoch 247/1000 | classify: 0.7453 | voltage: 0.0990 | total: 0.7502
+[New] Epoch 248/1000 | classify: 0.6329 | voltage: 0.0917 | total: 0.6375
+[New] Epoch 249/1000 | classify: 0.8635 | voltage: 0.1013 | total: 0.8686
+[New] Epoch 250/1000 | classify: 0.8271 | voltage: 0.1208 | total: 0.8331
+--- 验证集 [epoch 250] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.6102
+  召回率 (Recall):    0.5974
+  F1 分数 (F1):       0.5963
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_250.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_250.csv
+[New] Epoch 251/1000 | classify: 0.8371 | voltage: 0.1512 | total: 0.8447
+[New] Epoch 252/1000 | classify: 0.8404 | voltage: 0.1326 | total: 0.8470
+[New] Epoch 253/1000 | classify: 0.7401 | voltage: 0.1226 | total: 0.7462
+[New] Epoch 254/1000 | classify: 0.7906 | voltage: 0.1272 | total: 0.7969
+[New] Epoch 255/1000 | classify: 0.6292 | voltage: 0.1220 | total: 0.6353
+[New] Epoch 256/1000 | classify: 0.8005 | voltage: 0.1315 | total: 0.8071
+[New] Epoch 257/1000 | classify: 0.7263 | voltage: 0.1307 | total: 0.7328
+[New] Epoch 258/1000 | classify: 0.7427 | voltage: 0.1129 | total: 0.7483
+[New] Epoch 259/1000 | classify: 1.1133 | voltage: 0.1291 | total: 1.1197
+[New] Epoch 260/1000 | classify: 0.8091 | voltage: 0.1070 | total: 0.8144
+--- 验证集 [epoch 260] ---
+  准确率 (Accuracy):  0.7397
+  精确率 (Precision): 0.6415
+  召回率 (Recall):    0.6274
+  F1 分数 (F1):       0.6224
+[New] Epoch 261/1000 | classify: 0.8982 | voltage: 0.1109 | total: 0.9038
+[New] Epoch 262/1000 | classify: 0.6995 | voltage: 0.1058 | total: 0.7047
+[New] Epoch 263/1000 | classify: 0.7817 | voltage: 0.0992 | total: 0.7867
+[New] Epoch 264/1000 | classify: 0.7404 | voltage: 0.1156 | total: 0.7462
+[New] Epoch 265/1000 | classify: 0.7581 | voltage: 0.1008 | total: 0.7631
+[New] Epoch 266/1000 | classify: 0.9041 | voltage: 0.1357 | total: 0.9109
+[New] Epoch 267/1000 | classify: 0.8339 | voltage: 0.1253 | total: 0.8401
+[New] Epoch 268/1000 | classify: 0.6294 | voltage: 0.1077 | total: 0.6347
+[New] Epoch 269/1000 | classify: 1.0338 | voltage: 0.1106 | total: 1.0393
+[New] Epoch 270/1000 | classify: 0.5819 | voltage: 0.0976 | total: 0.5868
+--- 验证集 [epoch 270] ---
+  准确率 (Accuracy):  0.8082
+  精确率 (Precision): 0.7073
+  召回率 (Recall):    0.7077
+  F1 分数 (F1):       0.7031
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.7031，已保存 best 模型
+[New] Epoch 271/1000 | classify: 0.7447 | voltage: 0.0946 | total: 0.7495
+[New] Epoch 272/1000 | classify: 0.7018 | voltage: 0.1137 | total: 0.7075
+[New] Epoch 273/1000 | classify: 0.7525 | voltage: 0.1226 | total: 0.7586
+[New] Epoch 274/1000 | classify: 0.6678 | voltage: 0.1298 | total: 0.6743
+[New] Epoch 275/1000 | classify: 0.7241 | voltage: 0.1335 | total: 0.7308
+[New] Epoch 276/1000 | classify: 0.7878 | voltage: 0.1336 | total: 0.7944
+[New] Epoch 277/1000 | classify: 0.8088 | voltage: 0.1178 | total: 0.8147
+[New] Epoch 278/1000 | classify: 0.7724 | voltage: 0.1222 | total: 0.7785
+[New] Epoch 279/1000 | classify: 0.8122 | voltage: 0.1326 | total: 0.8188
+[New] Epoch 280/1000 | classify: 0.6777 | voltage: 0.1087 | total: 0.6831
+--- 验证集 [epoch 280] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.7202
+  召回率 (Recall):    0.6481
+  F1 分数 (F1):       0.6672
+[New] Epoch 281/1000 | classify: 0.7585 | voltage: 0.1088 | total: 0.7639
+[New] Epoch 282/1000 | classify: 0.8389 | voltage: 0.1055 | total: 0.8442
+[New] Epoch 283/1000 | classify: 0.7061 | voltage: 0.1164 | total: 0.7119
+[New] Epoch 284/1000 | classify: 0.6194 | voltage: 0.1211 | total: 0.6254
+[New] Epoch 285/1000 | classify: 0.7727 | voltage: 0.1077 | total: 0.7780
+[New] Epoch 286/1000 | classify: 0.7599 | voltage: 0.1208 | total: 0.7659
+[New] Epoch 287/1000 | classify: 0.6528 | voltage: 0.1045 | total: 0.6580
+[New] Epoch 288/1000 | classify: 0.8563 | voltage: 0.1110 | total: 0.8618
+[New] Epoch 289/1000 | classify: 0.6213 | voltage: 0.1284 | total: 0.6278
+[New] Epoch 290/1000 | classify: 0.6381 | voltage: 0.1332 | total: 0.6447
+--- 验证集 [epoch 290] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.6616
+  召回率 (Recall):    0.6799
+  F1 分数 (F1):       0.6646
+[New] Epoch 291/1000 | classify: 0.9418 | voltage: 0.1076 | total: 0.9472
+[New] Epoch 292/1000 | classify: 0.6896 | voltage: 0.0988 | total: 0.6945
+[New] Epoch 293/1000 | classify: 0.7635 | voltage: 0.1418 | total: 0.7706
+[New] Epoch 294/1000 | classify: 0.5986 | voltage: 0.1200 | total: 0.6046
+[New] Epoch 295/1000 | classify: 0.7731 | voltage: 0.1273 | total: 0.7794
+[New] Epoch 296/1000 | classify: 0.8552 | voltage: 0.1249 | total: 0.8615
+[New] Epoch 297/1000 | classify: 0.6187 | voltage: 0.0952 | total: 0.6235
+[New] Epoch 298/1000 | classify: 0.7228 | voltage: 0.1237 | total: 0.7290
+[New] Epoch 299/1000 | classify: 0.7803 | voltage: 0.1159 | total: 0.7861
+[New] Epoch 300/1000 | classify: 0.7349 | voltage: 0.0941 | total: 0.7396
+--- 验证集 [epoch 300] ---
+  准确率 (Accuracy):  0.7945
+  精确率 (Precision): 0.7139
+  召回率 (Recall):    0.6839
+  F1 分数 (F1):       0.6910
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_300.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_300.csv
+[New] Epoch 301/1000 | classify: 0.7189 | voltage: 0.1196 | total: 0.7248
+[New] Epoch 302/1000 | classify: 0.7923 | voltage: 0.1198 | total: 0.7983
+[New] Epoch 303/1000 | classify: 0.6810 | voltage: 0.1148 | total: 0.6867
+[New] Epoch 304/1000 | classify: 0.7545 | voltage: 0.1000 | total: 0.7595
+[New] Epoch 305/1000 | classify: 0.7586 | voltage: 0.1145 | total: 0.7643
+[New] Epoch 306/1000 | classify: 0.6110 | voltage: 0.1243 | total: 0.6172
+[New] Epoch 307/1000 | classify: 0.6879 | voltage: 0.1145 | total: 0.6936
+[New] Epoch 308/1000 | classify: 0.7366 | voltage: 0.1221 | total: 0.7427
+[New] Epoch 309/1000 | classify: 0.6527 | voltage: 0.1392 | total: 0.6596
+[New] Epoch 310/1000 | classify: 0.6865 | voltage: 0.1195 | total: 0.6925
+--- 验证集 [epoch 310] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.6580
+  召回率 (Recall):    0.6697
+  F1 分数 (F1):       0.6510
+[New] Epoch 311/1000 | classify: 0.7232 | voltage: 0.0942 | total: 0.7279
+[New] Epoch 312/1000 | classify: 0.7441 | voltage: 0.1079 | total: 0.7495
+[New] Epoch 313/1000 | classify: 0.8036 | voltage: 0.1068 | total: 0.8089
+[New] Epoch 314/1000 | classify: 0.8205 | voltage: 0.1222 | total: 0.8266
+[New] Epoch 315/1000 | classify: 0.7878 | voltage: 0.1663 | total: 0.7961
+[New] Epoch 316/1000 | classify: 0.7607 | voltage: 0.1330 | total: 0.7673
+[New] Epoch 317/1000 | classify: 0.6688 | voltage: 0.1396 | total: 0.6758
+[New] Epoch 318/1000 | classify: 0.9190 | voltage: 0.1491 | total: 0.9265
+[New] Epoch 319/1000 | classify: 0.7120 | voltage: 0.1131 | total: 0.7176
+[New] Epoch 320/1000 | classify: 0.6744 | voltage: 0.1334 | total: 0.6811
+--- 验证集 [epoch 320] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.6819
+  召回率 (Recall):    0.6689
+  F1 分数 (F1):       0.6667
+[New] Epoch 321/1000 | classify: 0.6732 | voltage: 0.1132 | total: 0.6788
+[New] Epoch 322/1000 | classify: 0.6479 | voltage: 0.1082 | total: 0.6533
+[New] Epoch 323/1000 | classify: 0.7007 | voltage: 0.1255 | total: 0.7070
+[New] Epoch 324/1000 | classify: 0.6821 | voltage: 0.1188 | total: 0.6880
+[New] Epoch 325/1000 | classify: 0.8760 | voltage: 0.1209 | total: 0.8821
+[New] Epoch 326/1000 | classify: 0.5730 | voltage: 0.1202 | total: 0.5790
+[New] Epoch 327/1000 | classify: 0.8652 | voltage: 0.1394 | total: 0.8722
+[New] Epoch 328/1000 | classify: 0.6613 | voltage: 0.1325 | total: 0.6679
+[New] Epoch 329/1000 | classify: 0.8000 | voltage: 0.1232 | total: 0.8061
+[New] Epoch 330/1000 | classify: 0.6337 | voltage: 0.1561 | total: 0.6415
+--- 验证集 [epoch 330] ---
+  准确率 (Accuracy):  0.7945
+  精确率 (Precision): 0.7638
+  召回率 (Recall):    0.6877
+  F1 分数 (F1):       0.7058
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.7058，已保存 best 模型
+[New] Epoch 331/1000 | classify: 0.6722 | voltage: 0.1266 | total: 0.6785
+[New] Epoch 332/1000 | classify: 0.8712 | voltage: 0.1182 | total: 0.8771
+[New] Epoch 333/1000 | classify: 0.6831 | voltage: 0.1532 | total: 0.6907
+[New] Epoch 334/1000 | classify: 0.7050 | voltage: 0.1583 | total: 0.7129
+[New] Epoch 335/1000 | classify: 0.8192 | voltage: 0.1649 | total: 0.8275
+[New] Epoch 336/1000 | classify: 0.7562 | voltage: 0.1449 | total: 0.7634
+[New] Epoch 337/1000 | classify: 0.7625 | voltage: 0.1430 | total: 0.7696
+[New] Epoch 338/1000 | classify: 0.7943 | voltage: 0.1507 | total: 0.8019
+[New] Epoch 339/1000 | classify: 0.6407 | voltage: 0.1490 | total: 0.6482
+[New] Epoch 340/1000 | classify: 0.6860 | voltage: 0.1418 | total: 0.6931
+--- 验证集 [epoch 340] ---
+  准确率 (Accuracy):  0.8014
+  精确率 (Precision): 0.7628
+  召回率 (Recall):    0.6788
+  F1 分数 (F1):       0.6920
+[New] Epoch 341/1000 | classify: 0.7436 | voltage: 0.1268 | total: 0.7499
+[New] Epoch 342/1000 | classify: 0.6949 | voltage: 0.1328 | total: 0.7016
+[New] Epoch 343/1000 | classify: 0.7855 | voltage: 0.1250 | total: 0.7917
+[New] Epoch 344/1000 | classify: 0.7311 | voltage: 0.1474 | total: 0.7385
+[New] Epoch 345/1000 | classify: 0.6378 | voltage: 0.1522 | total: 0.6454
+[New] Epoch 346/1000 | classify: 0.6873 | voltage: 0.1452 | total: 0.6945
+[New] Epoch 347/1000 | classify: 0.6324 | voltage: 0.1306 | total: 0.6390
+[New] Epoch 348/1000 | classify: 0.5941 | voltage: 0.1235 | total: 0.6003
+[New] Epoch 349/1000 | classify: 0.6517 | voltage: 0.1250 | total: 0.6580
+[New] Epoch 350/1000 | classify: 0.6513 | voltage: 0.1253 | total: 0.6576
+--- 验证集 [epoch 350] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.7325
+  召回率 (Recall):    0.6601
+  F1 分数 (F1):       0.6770
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_350.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_350.csv
+[New] Epoch 351/1000 | classify: 0.7170 | voltage: 0.1307 | total: 0.7236
+[New] Epoch 352/1000 | classify: 0.7642 | voltage: 0.1344 | total: 0.7710
+[New] Epoch 353/1000 | classify: 0.5400 | voltage: 0.1312 | total: 0.5466
+[New] Epoch 354/1000 | classify: 0.7564 | voltage: 0.1361 | total: 0.7632
+[New] Epoch 355/1000 | classify: 0.7510 | voltage: 0.1320 | total: 0.7577
+[New] Epoch 356/1000 | classify: 0.6161 | voltage: 0.1108 | total: 0.6216
+[New] Epoch 357/1000 | classify: 0.8558 | voltage: 0.1194 | total: 0.8618
+[New] Epoch 358/1000 | classify: 0.7437 | voltage: 0.1325 | total: 0.7503
+[New] Epoch 359/1000 | classify: 0.8574 | voltage: 0.1404 | total: 0.8644
+[New] Epoch 360/1000 | classify: 0.7404 | voltage: 0.1456 | total: 0.7477
+--- 验证集 [epoch 360] ---
+  准确率 (Accuracy):  0.7945
+  精确率 (Precision): 0.7350
+  召回率 (Recall):    0.6669
+  F1 分数 (F1):       0.6785
+[New] Epoch 361/1000 | classify: 0.6951 | voltage: 0.1263 | total: 0.7014
+[New] Epoch 362/1000 | classify: 0.7527 | voltage: 0.1547 | total: 0.7605
+[New] Epoch 363/1000 | classify: 0.6016 | voltage: 0.1460 | total: 0.6089
+[New] Epoch 364/1000 | classify: 0.7226 | voltage: 0.1373 | total: 0.7295
+[New] Epoch 365/1000 | classify: 0.7749 | voltage: 0.1720 | total: 0.7835
+[New] Epoch 366/1000 | classify: 0.5411 | voltage: 0.1587 | total: 0.5490
+[New] Epoch 367/1000 | classify: 0.8467 | voltage: 0.1260 | total: 0.8530
+[New] Epoch 368/1000 | classify: 0.6163 | voltage: 0.1464 | total: 0.6236
+[New] Epoch 369/1000 | classify: 0.6936 | voltage: 0.1473 | total: 0.7010
+[New] Epoch 370/1000 | classify: 0.6954 | voltage: 0.1555 | total: 0.7031
+--- 验证集 [epoch 370] ---
+  准确率 (Accuracy):  0.8014
+  精确率 (Precision): 0.7530
+  召回率 (Recall):    0.6750
+  F1 分数 (F1):       0.7009
+[New] Epoch 371/1000 | classify: 0.7185 | voltage: 0.1417 | total: 0.7256
+[New] Epoch 372/1000 | classify: 0.7176 | voltage: 0.1374 | total: 0.7244
+[New] Epoch 373/1000 | classify: 0.6709 | voltage: 0.1723 | total: 0.6795
+[New] Epoch 374/1000 | classify: 0.7046 | voltage: 0.1599 | total: 0.7125
+[New] Epoch 375/1000 | classify: 0.6422 | voltage: 0.1195 | total: 0.6481
+[New] Epoch 376/1000 | classify: 0.7709 | voltage: 0.1312 | total: 0.7775
+[New] Epoch 377/1000 | classify: 0.7085 | voltage: 0.1308 | total: 0.7151
+[New] Epoch 378/1000 | classify: 0.5465 | voltage: 0.1296 | total: 0.5530
+[New] Epoch 379/1000 | classify: 0.8363 | voltage: 0.1650 | total: 0.8445
+[New] Epoch 380/1000 | classify: 0.7873 | voltage: 0.1421 | total: 0.7944
+--- 验证集 [epoch 380] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.7083
+  召回率 (Recall):    0.6569
+  F1 分数 (F1):       0.6666
+[New] Epoch 381/1000 | classify: 0.6507 | voltage: 0.1561 | total: 0.6585
+[New] Epoch 382/1000 | classify: 0.7387 | voltage: 0.1526 | total: 0.7463
+[New] Epoch 383/1000 | classify: 0.7106 | voltage: 0.1729 | total: 0.7192
+[New] Epoch 384/1000 | classify: 0.6150 | voltage: 0.1568 | total: 0.6229
+[New] Epoch 385/1000 | classify: 0.6767 | voltage: 0.1659 | total: 0.6850
+[New] Epoch 386/1000 | classify: 1.0944 | voltage: 0.1710 | total: 1.1030
+[New] Epoch 387/1000 | classify: 0.6900 | voltage: 0.1517 | total: 0.6976
+[New] Epoch 388/1000 | classify: 0.7641 | voltage: 0.1645 | total: 0.7723
+[New] Epoch 389/1000 | classify: 0.7667 | voltage: 0.1452 | total: 0.7740
+[New] Epoch 390/1000 | classify: 0.8225 | voltage: 0.1365 | total: 0.8294
+--- 验证集 [epoch 390] ---
+  准确率 (Accuracy):  0.7671
+  精确率 (Precision): 0.6702
+  召回率 (Recall):    0.6321
+  F1 分数 (F1):       0.6387
+[New] Epoch 391/1000 | classify: 0.8156 | voltage: 0.1358 | total: 0.8224
+[New] Epoch 392/1000 | classify: 0.6892 | voltage: 0.1722 | total: 0.6978
+[New] Epoch 393/1000 | classify: 0.6081 | voltage: 0.1594 | total: 0.6161
+[New] Epoch 394/1000 | classify: 0.7297 | voltage: 0.1845 | total: 0.7389
+[New] Epoch 395/1000 | classify: 0.7663 | voltage: 0.1945 | total: 0.7760
+[New] Epoch 396/1000 | classify: 0.6369 | voltage: 0.1710 | total: 0.6455
+[New] Epoch 397/1000 | classify: 0.8870 | voltage: 0.1791 | total: 0.8960
+[New] Epoch 398/1000 | classify: 0.7207 | voltage: 0.1854 | total: 0.7300
+[New] Epoch 399/1000 | classify: 0.6384 | voltage: 0.1730 | total: 0.6470
+[New] Epoch 400/1000 | classify: 0.7787 | voltage: 0.1737 | total: 0.7874
+--- 验证集 [epoch 400] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7360
+  召回率 (Recall):    0.6212
+  F1 分数 (F1):       0.6461
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_400.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_400.csv
+[New] Epoch 401/1000 | classify: 0.6816 | voltage: 0.1461 | total: 0.6889
+[New] Epoch 402/1000 | classify: 0.7393 | voltage: 0.1708 | total: 0.7478
+[New] Epoch 403/1000 | classify: 0.6278 | voltage: 0.1517 | total: 0.6354
+[New] Epoch 404/1000 | classify: 0.9292 | voltage: 0.1720 | total: 0.9378
+[New] Epoch 405/1000 | classify: 0.5762 | voltage: 0.1519 | total: 0.5838
+[New] Epoch 406/1000 | classify: 0.6645 | voltage: 0.1410 | total: 0.6716
+[New] Epoch 407/1000 | classify: 0.6356 | voltage: 0.1283 | total: 0.6420
+[New] Epoch 408/1000 | classify: 0.6711 | voltage: 0.1655 | total: 0.6793
+[New] Epoch 409/1000 | classify: 0.7709 | voltage: 0.1522 | total: 0.7785
+[New] Epoch 410/1000 | classify: 0.5449 | voltage: 0.1333 | total: 0.5515
+--- 验证集 [epoch 410] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7370
+  召回率 (Recall):    0.5736
+  F1 分数 (F1):       0.6005
+[New] Epoch 411/1000 | classify: 0.7703 | voltage: 0.1445 | total: 0.7775
+[New] Epoch 412/1000 | classify: 0.7324 | voltage: 0.1353 | total: 0.7392
+[New] Epoch 413/1000 | classify: 0.8322 | voltage: 0.1584 | total: 0.8402
+[New] Epoch 414/1000 | classify: 0.7068 | voltage: 0.1632 | total: 0.7150
+[New] Epoch 415/1000 | classify: 0.6034 | voltage: 0.1419 | total: 0.6105
+[New] Epoch 416/1000 | classify: 0.7255 | voltage: 0.1956 | total: 0.7353
+[New] Epoch 417/1000 | classify: 0.5491 | voltage: 0.1706 | total: 0.5576
+[New] Epoch 418/1000 | classify: 0.7195 | voltage: 0.1887 | total: 0.7289
+[New] Epoch 419/1000 | classify: 0.7824 | voltage: 0.1854 | total: 0.7916
+[New] Epoch 420/1000 | classify: 0.5572 | voltage: 0.1945 | total: 0.5669
+--- 验证集 [epoch 420] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.6897
+  召回率 (Recall):    0.6302
+  F1 分数 (F1):       0.6475
+[New] Epoch 421/1000 | classify: 0.5581 | voltage: 0.1835 | total: 0.5673
+[New] Epoch 422/1000 | classify: 0.6000 | voltage: 0.1625 | total: 0.6081
+[New] Epoch 423/1000 | classify: 0.6919 | voltage: 0.1713 | total: 0.7005
+[New] Epoch 424/1000 | classify: 0.7617 | voltage: 0.1801 | total: 0.7707
+[New] Epoch 425/1000 | classify: 0.6599 | voltage: 0.1697 | total: 0.6684
+[New] Epoch 426/1000 | classify: 0.6899 | voltage: 0.1747 | total: 0.6986
+[New] Epoch 427/1000 | classify: 0.7041 | voltage: 0.1881 | total: 0.7135
+[New] Epoch 428/1000 | classify: 0.6668 | voltage: 0.1972 | total: 0.6767
+[New] Epoch 429/1000 | classify: 0.6492 | voltage: 0.1932 | total: 0.6589
+[New] Epoch 430/1000 | classify: 0.6872 | voltage: 0.1992 | total: 0.6971
+--- 验证集 [epoch 430] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.7294
+  召回率 (Recall):    0.6689
+  F1 分数 (F1):       0.6878
+[New] Epoch 431/1000 | classify: 0.6666 | voltage: 0.2121 | total: 0.6772
+[New] Epoch 432/1000 | classify: 0.7119 | voltage: 0.1987 | total: 0.7218
+[New] Epoch 433/1000 | classify: 0.5632 | voltage: 0.2048 | total: 0.5735
+[New] Epoch 434/1000 | classify: 0.5478 | voltage: 0.1839 | total: 0.5570
+[New] Epoch 435/1000 | classify: 0.7490 | voltage: 0.1990 | total: 0.7590
+[New] Epoch 436/1000 | classify: 0.6435 | voltage: 0.2134 | total: 0.6542
+[New] Epoch 437/1000 | classify: 0.7039 | voltage: 0.1841 | total: 0.7131
+[New] Epoch 438/1000 | classify: 0.6053 | voltage: 0.1863 | total: 0.6146
+[New] Epoch 439/1000 | classify: 0.7186 | voltage: 0.2176 | total: 0.7295
+[New] Epoch 440/1000 | classify: 0.7449 | voltage: 0.2224 | total: 0.7560
+--- 验证集 [epoch 440] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7849
+  召回率 (Recall):    0.6013
+  F1 分数 (F1):       0.6321
+[New] Epoch 441/1000 | classify: 0.7669 | voltage: 0.2579 | total: 0.7798
+[New] Epoch 442/1000 | classify: 0.6108 | voltage: 0.2192 | total: 0.6217
+[New] Epoch 443/1000 | classify: 0.6449 | voltage: 0.2059 | total: 0.6552
+[New] Epoch 444/1000 | classify: 0.6755 | voltage: 0.1904 | total: 0.6850
+[New] Epoch 445/1000 | classify: 0.6609 | voltage: 0.1836 | total: 0.6701
+[New] Epoch 446/1000 | classify: 0.6010 | voltage: 0.2001 | total: 0.6110
+[New] Epoch 447/1000 | classify: 0.6862 | voltage: 0.1717 | total: 0.6948
+[New] Epoch 448/1000 | classify: 0.6905 | voltage: 0.1946 | total: 0.7002
+[New] Epoch 449/1000 | classify: 0.7353 | voltage: 0.2046 | total: 0.7455
+[New] Epoch 450/1000 | classify: 0.6613 | voltage: 0.2122 | total: 0.6719
+--- 验证集 [epoch 450] ---
+  准确率 (Accuracy):  0.7671
+  精确率 (Precision): 0.7570
+  召回率 (Recall):    0.6232
+  F1 分数 (F1):       0.6585
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_450.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_450.csv
+[New] Epoch 451/1000 | classify: 0.6387 | voltage: 0.2140 | total: 0.6494
+[New] Epoch 452/1000 | classify: 0.6313 | voltage: 0.2170 | total: 0.6421
+[New] Epoch 453/1000 | classify: 0.6105 | voltage: 0.1960 | total: 0.6203
+[New] Epoch 454/1000 | classify: 0.5545 | voltage: 0.1861 | total: 0.5638
+[New] Epoch 455/1000 | classify: 0.8664 | voltage: 0.2117 | total: 0.8770
+[New] Epoch 456/1000 | classify: 0.7526 | voltage: 0.2327 | total: 0.7643
+[New] Epoch 457/1000 | classify: 0.9345 | voltage: 0.2091 | total: 0.9450
+[New] Epoch 458/1000 | classify: 0.6907 | voltage: 0.2071 | total: 0.7011
+[New] Epoch 459/1000 | classify: 0.5869 | voltage: 0.2036 | total: 0.5971
+[New] Epoch 460/1000 | classify: 0.6335 | voltage: 0.1949 | total: 0.6432
+--- 验证集 [epoch 460] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.7364
+  召回率 (Recall):    0.5726
+  F1 分数 (F1):       0.6117
+[New] Epoch 461/1000 | classify: 0.7546 | voltage: 0.1984 | total: 0.7645
+[New] Epoch 462/1000 | classify: 0.6605 | voltage: 0.2173 | total: 0.6713
+[New] Epoch 463/1000 | classify: 0.7817 | voltage: 0.1806 | total: 0.7907
+[New] Epoch 464/1000 | classify: 0.8833 | voltage: 0.2114 | total: 0.8939
+[New] Epoch 465/1000 | classify: 0.6336 | voltage: 0.2090 | total: 0.6441
+[New] Epoch 466/1000 | classify: 0.6436 | voltage: 0.2300 | total: 0.6551
+[New] Epoch 467/1000 | classify: 0.6588 | voltage: 0.2119 | total: 0.6694
+[New] Epoch 468/1000 | classify: 0.6506 | voltage: 0.1872 | total: 0.6599
+[New] Epoch 469/1000 | classify: 0.6186 | voltage: 0.1967 | total: 0.6285
+[New] Epoch 470/1000 | classify: 0.6990 | voltage: 0.2199 | total: 0.7100
+--- 验证集 [epoch 470] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.7579
+  召回率 (Recall):    0.5716
+  F1 分数 (F1):       0.6049
+[New] Epoch 471/1000 | classify: 0.7178 | voltage: 0.2444 | total: 0.7300
+[New] Epoch 472/1000 | classify: 0.6623 | voltage: 0.2374 | total: 0.6742
+[New] Epoch 473/1000 | classify: 0.6934 | voltage: 0.2517 | total: 0.7060
+[New] Epoch 474/1000 | classify: 0.7899 | voltage: 0.2476 | total: 0.8023
+[New] Epoch 475/1000 | classify: 0.5987 | voltage: 0.2496 | total: 0.6112
+[New] Epoch 476/1000 | classify: 0.7790 | voltage: 0.2449 | total: 0.7912
+[New] Epoch 477/1000 | classify: 0.6522 | voltage: 0.2598 | total: 0.6652
+[New] Epoch 478/1000 | classify: 0.7031 | voltage: 0.2581 | total: 0.7160
+[New] Epoch 479/1000 | classify: 0.6513 | voltage: 0.2716 | total: 0.6648
+[New] Epoch 480/1000 | classify: 0.6351 | voltage: 0.2582 | total: 0.6480
+--- 验证集 [epoch 480] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.7966
+  召回率 (Recall):    0.6501
+  F1 分数 (F1):       0.6969
+[New] Epoch 481/1000 | classify: 0.6611 | voltage: 0.2551 | total: 0.6738
+[New] Epoch 482/1000 | classify: 0.7359 | voltage: 0.2568 | total: 0.7488
+[New] Epoch 483/1000 | classify: 0.6555 | voltage: 0.2905 | total: 0.6700
+[New] Epoch 484/1000 | classify: 0.5589 | voltage: 0.2589 | total: 0.5718
+[New] Epoch 485/1000 | classify: 0.6461 | voltage: 0.2509 | total: 0.6586
+[New] Epoch 486/1000 | classify: 0.5744 | voltage: 0.2674 | total: 0.5878
+[New] Epoch 487/1000 | classify: 0.6434 | voltage: 0.2716 | total: 0.6570
+[New] Epoch 488/1000 | classify: 0.5429 | voltage: 0.2673 | total: 0.5563
+[New] Epoch 489/1000 | classify: 0.6524 | voltage: 0.2658 | total: 0.6657
+[New] Epoch 490/1000 | classify: 0.6554 | voltage: 0.2724 | total: 0.6690
+--- 验证集 [epoch 490] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.7995
+  召回率 (Recall):    0.6234
+  F1 分数 (F1):       0.6745
+[New] Epoch 491/1000 | classify: 0.6279 | voltage: 0.2687 | total: 0.6414
+[New] Epoch 492/1000 | classify: 0.6427 | voltage: 0.2840 | total: 0.6569
+[New] Epoch 493/1000 | classify: 0.6903 | voltage: 0.2903 | total: 0.7048
+[New] Epoch 494/1000 | classify: 0.6072 | voltage: 0.3139 | total: 0.6229
+[New] Epoch 495/1000 | classify: 0.6957 | voltage: 0.3007 | total: 0.7108
+[New] Epoch 496/1000 | classify: 0.6243 | voltage: 0.3109 | total: 0.6399
+[New] Epoch 497/1000 | classify: 0.6898 | voltage: 0.3293 | total: 0.7063
+[New] Epoch 498/1000 | classify: 0.5793 | voltage: 0.3190 | total: 0.5953
+[New] Epoch 499/1000 | classify: 0.7373 | voltage: 0.3487 | total: 0.7547
+[New] Epoch 500/1000 | classify: 0.6895 | voltage: 0.3479 | total: 0.7069
+--- 验证集 [epoch 500] ---
+  准确率 (Accuracy):  0.7877
+  精确率 (Precision): 0.7297
+  召回率 (Recall):    0.6610
+  F1 分数 (F1):       0.6791
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_500.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_500.csv
+[New] Epoch 501/1000 | classify: 0.6099 | voltage: 0.3357 | total: 0.6267
+[New] Epoch 502/1000 | classify: 0.6921 | voltage: 0.3576 | total: 0.7100
+[New] Epoch 503/1000 | classify: 0.6777 | voltage: 0.3582 | total: 0.6956
+[New] Epoch 504/1000 | classify: 0.7423 | voltage: 0.3745 | total: 0.7610
+[New] Epoch 505/1000 | classify: 0.5749 | voltage: 0.3766 | total: 0.5937
+[New] Epoch 506/1000 | classify: 0.6488 | voltage: 0.3705 | total: 0.6673
+[New] Epoch 507/1000 | classify: 0.6228 | voltage: 0.3850 | total: 0.6421
+[New] Epoch 508/1000 | classify: 0.8292 | voltage: 0.3634 | total: 0.8473
+[New] Epoch 509/1000 | classify: 0.6363 | voltage: 0.3882 | total: 0.6557
+[New] Epoch 510/1000 | classify: 0.6973 | voltage: 0.3566 | total: 0.7151
+--- 验证集 [epoch 510] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7045
+  召回率 (Recall):    0.6627
+  F1 分数 (F1):       0.6655
+[New] Epoch 511/1000 | classify: 0.6390 | voltage: 0.3710 | total: 0.6575
+[New] Epoch 512/1000 | classify: 0.6838 | voltage: 0.3946 | total: 0.7035
+[New] Epoch 513/1000 | classify: 0.6424 | voltage: 0.3728 | total: 0.6610
+[New] Epoch 514/1000 | classify: 0.7588 | voltage: 0.3725 | total: 0.7775
+[New] Epoch 515/1000 | classify: 0.5784 | voltage: 0.3826 | total: 0.5975
+[New] Epoch 516/1000 | classify: 0.7408 | voltage: 0.3880 | total: 0.7602
+[New] Epoch 517/1000 | classify: 0.6157 | voltage: 0.3780 | total: 0.6346
+[New] Epoch 518/1000 | classify: 0.7015 | voltage: 0.4058 | total: 0.7218
+[New] Epoch 519/1000 | classify: 0.5921 | voltage: 0.4008 | total: 0.6121
+[New] Epoch 520/1000 | classify: 0.5547 | voltage: 0.3762 | total: 0.5736
+--- 验证集 [epoch 520] ---
+  准确率 (Accuracy):  0.7671
+  精确率 (Precision): 0.7119
+  召回率 (Recall):    0.6331
+  F1 分数 (F1):       0.6541
+[New] Epoch 521/1000 | classify: 0.6499 | voltage: 0.3965 | total: 0.6697
+[New] Epoch 522/1000 | classify: 0.8831 | voltage: 0.4040 | total: 0.9033
+[New] Epoch 523/1000 | classify: 0.5995 | voltage: 0.3933 | total: 0.6191
+[New] Epoch 524/1000 | classify: 0.6508 | voltage: 0.3784 | total: 0.6697
+[New] Epoch 525/1000 | classify: 0.5354 | voltage: 0.4151 | total: 0.5562
+[New] Epoch 526/1000 | classify: 0.5463 | voltage: 0.3947 | total: 0.5661
+[New] Epoch 527/1000 | classify: 0.6713 | voltage: 0.3963 | total: 0.6911
+[New] Epoch 528/1000 | classify: 0.7995 | voltage: 0.4014 | total: 0.8195
+[New] Epoch 529/1000 | classify: 0.5741 | voltage: 0.3927 | total: 0.5937
+[New] Epoch 530/1000 | classify: 0.6226 | voltage: 0.4095 | total: 0.6431
+--- 验证集 [epoch 530] ---
+  准确率 (Accuracy):  0.7877
+  精确率 (Precision): 0.7312
+  召回率 (Recall):    0.6512
+  F1 分数 (F1):       0.6777
+[New] Epoch 531/1000 | classify: 0.6703 | voltage: 0.4081 | total: 0.6907
+[New] Epoch 532/1000 | classify: 0.5857 | voltage: 0.4173 | total: 0.6066
+[New] Epoch 533/1000 | classify: 0.7997 | voltage: 0.4047 | total: 0.8199
+[New] Epoch 534/1000 | classify: 0.6843 | voltage: 0.4057 | total: 0.7046
+[New] Epoch 535/1000 | classify: 0.6911 | voltage: 0.3874 | total: 0.7104
+[New] Epoch 536/1000 | classify: 0.5952 | voltage: 0.3966 | total: 0.6151
+[New] Epoch 537/1000 | classify: 0.7584 | voltage: 0.4051 | total: 0.7787
+[New] Epoch 538/1000 | classify: 0.5774 | voltage: 0.3866 | total: 0.5968
+[New] Epoch 539/1000 | classify: 0.6435 | voltage: 0.3831 | total: 0.6626
+[New] Epoch 540/1000 | classify: 0.5799 | voltage: 0.4076 | total: 0.6002
+--- 验证集 [epoch 540] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.7315
+  召回率 (Recall):    0.6126
+  F1 分数 (F1):       0.6477
+[New] Epoch 541/1000 | classify: 0.6680 | voltage: 0.3981 | total: 0.6879
+[New] Epoch 542/1000 | classify: 0.6656 | voltage: 0.3997 | total: 0.6856
+[New] Epoch 543/1000 | classify: 0.6032 | voltage: 0.3829 | total: 0.6224
+[New] Epoch 544/1000 | classify: 0.6521 | voltage: 0.3982 | total: 0.6720
+[New] Epoch 545/1000 | classify: 0.6778 | voltage: 0.3959 | total: 0.6976
+[New] Epoch 546/1000 | classify: 0.8304 | voltage: 0.3834 | total: 0.8496
+[New] Epoch 547/1000 | classify: 0.6721 | voltage: 0.3782 | total: 0.6910
+[New] Epoch 548/1000 | classify: 0.8018 | voltage: 0.3907 | total: 0.8214
+[New] Epoch 549/1000 | classify: 0.6168 | voltage: 0.3749 | total: 0.6356
+[New] Epoch 550/1000 | classify: 0.6149 | voltage: 0.3766 | total: 0.6337
+--- 验证集 [epoch 550] ---
+  准确率 (Accuracy):  0.7671
+  精确率 (Precision): 0.6853
+  召回率 (Recall):    0.6390
+  F1 分数 (F1):       0.6511
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_550.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_550.csv
+[New] Epoch 551/1000 | classify: 0.5528 | voltage: 0.3939 | total: 0.5725
+[New] Epoch 552/1000 | classify: 0.6680 | voltage: 0.3947 | total: 0.6877
+[New] Epoch 553/1000 | classify: 0.6023 | voltage: 0.3694 | total: 0.6208
+[New] Epoch 554/1000 | classify: 0.9189 | voltage: 0.3776 | total: 0.9378
+[New] Epoch 555/1000 | classify: 0.7127 | voltage: 0.3847 | total: 0.7319
+[New] Epoch 556/1000 | classify: 0.6611 | voltage: 0.3714 | total: 0.6797
+[New] Epoch 557/1000 | classify: 0.6731 | voltage: 0.3847 | total: 0.6923
+[New] Epoch 558/1000 | classify: 0.5824 | voltage: 0.3915 | total: 0.6020
+[New] Epoch 559/1000 | classify: 0.5711 | voltage: 0.3714 | total: 0.5897
+[New] Epoch 560/1000 | classify: 0.5250 | voltage: 0.3652 | total: 0.5432
+--- 验证集 [epoch 560] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.7107
+  召回率 (Recall):    0.6335
+  F1 分数 (F1):       0.6489
+[New] Epoch 561/1000 | classify: 0.7766 | voltage: 0.3759 | total: 0.7954
+[New] Epoch 562/1000 | classify: 0.6958 | voltage: 0.3943 | total: 0.7155
+[New] Epoch 563/1000 | classify: 0.7294 | voltage: 0.3780 | total: 0.7483
+[New] Epoch 564/1000 | classify: 0.6830 | voltage: 0.3748 | total: 0.7018
+[New] Epoch 565/1000 | classify: 0.5754 | voltage: 0.3821 | total: 0.5945
+[New] Epoch 566/1000 | classify: 0.6418 | voltage: 0.3857 | total: 0.6611
+[New] Epoch 567/1000 | classify: 0.6943 | voltage: 0.3737 | total: 0.7130
+[New] Epoch 568/1000 | classify: 0.7731 | voltage: 0.3715 | total: 0.7917
+[New] Epoch 569/1000 | classify: 0.7027 | voltage: 0.3603 | total: 0.7207
+[New] Epoch 570/1000 | classify: 0.7158 | voltage: 0.3754 | total: 0.7346
+--- 验证集 [epoch 570] ---
+  准确率 (Accuracy):  0.8014
+  精确率 (Precision): 0.7635
+  召回率 (Recall):    0.6968
+  F1 分数 (F1):       0.7221
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.7221，已保存 best 模型
+[New] Epoch 571/1000 | classify: 0.6576 | voltage: 0.3632 | total: 0.6758
+[New] Epoch 572/1000 | classify: 0.6118 | voltage: 0.3851 | total: 0.6311
+[New] Epoch 573/1000 | classify: 0.6045 | voltage: 0.3797 | total: 0.6235
+[New] Epoch 574/1000 | classify: 0.8383 | voltage: 0.3790 | total: 0.8572
+[New] Epoch 575/1000 | classify: 0.7629 | voltage: 0.3710 | total: 0.7815
+[New] Epoch 576/1000 | classify: 0.6781 | voltage: 0.3630 | total: 0.6962
+[New] Epoch 577/1000 | classify: 0.5173 | voltage: 0.3753 | total: 0.5361
+[New] Epoch 578/1000 | classify: 0.7022 | voltage: 0.3535 | total: 0.7199
+[New] Epoch 579/1000 | classify: 0.7196 | voltage: 0.3809 | total: 0.7386
+[New] Epoch 580/1000 | classify: 0.6336 | voltage: 0.3800 | total: 0.6526
+--- 验证集 [epoch 580] ---
+  准确率 (Accuracy):  0.8082
+  精确率 (Precision): 0.7853
+  召回率 (Recall):    0.6863
+  F1 分数 (F1):       0.7123
+[New] Epoch 581/1000 | classify: 0.6790 | voltage: 0.3704 | total: 0.6975
+[New] Epoch 582/1000 | classify: 0.6429 | voltage: 0.3628 | total: 0.6610
+[New] Epoch 583/1000 | classify: 0.7748 | voltage: 0.3700 | total: 0.7933
+[New] Epoch 584/1000 | classify: 0.5584 | voltage: 0.3744 | total: 0.5771
+[New] Epoch 585/1000 | classify: 0.5976 | voltage: 0.3773 | total: 0.6165
+[New] Epoch 586/1000 | classify: 0.6204 | voltage: 0.3866 | total: 0.6398
+[New] Epoch 587/1000 | classify: 0.6129 | voltage: 0.3763 | total: 0.6317
+[New] Epoch 588/1000 | classify: 0.6294 | voltage: 0.3765 | total: 0.6482
+[New] Epoch 589/1000 | classify: 0.5936 | voltage: 0.3587 | total: 0.6115
+[New] Epoch 590/1000 | classify: 0.6173 | voltage: 0.3708 | total: 0.6359
+--- 验证集 [epoch 590] ---
+  准确率 (Accuracy):  0.7945
+  精确率 (Precision): 0.7886
+  召回率 (Recall):    0.6630
+  F1 分数 (F1):       0.6984
+[New] Epoch 591/1000 | classify: 0.7594 | voltage: 0.3791 | total: 0.7784
+[New] Epoch 592/1000 | classify: 0.6658 | voltage: 0.3758 | total: 0.6846
+[New] Epoch 593/1000 | classify: 0.8157 | voltage: 0.3791 | total: 0.8346
+[New] Epoch 594/1000 | classify: 0.7755 | voltage: 0.3766 | total: 0.7943
+[New] Epoch 595/1000 | classify: 0.6469 | voltage: 0.3756 | total: 0.6657
+[New] Epoch 596/1000 | classify: 0.6777 | voltage: 0.3752 | total: 0.6965
+[New] Epoch 597/1000 | classify: 0.6011 | voltage: 0.3835 | total: 0.6202
+[New] Epoch 598/1000 | classify: 0.6288 | voltage: 0.3815 | total: 0.6479
+[New] Epoch 599/1000 | classify: 0.6156 | voltage: 0.3529 | total: 0.6333
+[New] Epoch 600/1000 | classify: 0.7147 | voltage: 0.3592 | total: 0.7326
+--- 验证集 [epoch 600] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.7920
+  召回率 (Recall):    0.6055
+  F1 分数 (F1):       0.6554
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_600.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_600.csv
+[New] Epoch 601/1000 | classify: 0.6204 | voltage: 0.3770 | total: 0.6392
+[New] Epoch 602/1000 | classify: 0.7150 | voltage: 0.3601 | total: 0.7330
+[New] Epoch 603/1000 | classify: 0.6545 | voltage: 0.3797 | total: 0.6734
+[New] Epoch 604/1000 | classify: 0.7965 | voltage: 0.3832 | total: 0.8156
+[New] Epoch 605/1000 | classify: 0.7918 | voltage: 0.3856 | total: 0.8111
+[New] Epoch 606/1000 | classify: 0.4951 | voltage: 0.3841 | total: 0.5143
+[New] Epoch 607/1000 | classify: 0.6283 | voltage: 0.3890 | total: 0.6477
+[New] Epoch 608/1000 | classify: 0.6609 | voltage: 0.3734 | total: 0.6796
+[New] Epoch 609/1000 | classify: 0.7198 | voltage: 0.3851 | total: 0.7391
+[New] Epoch 610/1000 | classify: 0.5818 | voltage: 0.3774 | total: 0.6007
+--- 验证集 [epoch 610] ---
+  准确率 (Accuracy):  0.7671
+  精确率 (Precision): 0.7031
+  召回率 (Recall):    0.6647
+  F1 分数 (F1):       0.6710
+[New] Epoch 611/1000 | classify: 0.7334 | voltage: 0.3776 | total: 0.7523
+[New] Epoch 612/1000 | classify: 0.7040 | voltage: 0.3906 | total: 0.7235
+[New] Epoch 613/1000 | classify: 0.7062 | voltage: 0.3954 | total: 0.7259
+[New] Epoch 614/1000 | classify: 0.6684 | voltage: 0.3898 | total: 0.6879
+[New] Epoch 615/1000 | classify: 0.7341 | voltage: 0.3773 | total: 0.7530
+[New] Epoch 616/1000 | classify: 0.6363 | voltage: 0.3810 | total: 0.6553
+[New] Epoch 617/1000 | classify: 0.8394 | voltage: 0.3899 | total: 0.8589
+[New] Epoch 618/1000 | classify: 0.5733 | voltage: 0.3911 | total: 0.5928
+[New] Epoch 619/1000 | classify: 0.7487 | voltage: 0.3785 | total: 0.7676
+[New] Epoch 620/1000 | classify: 0.6216 | voltage: 0.4021 | total: 0.6417
+--- 验证集 [epoch 620] ---
+  准确率 (Accuracy):  0.7877
+  精确率 (Precision): 0.7284
+  召回率 (Recall):    0.6293
+  F1 分数 (F1):       0.6635
+[New] Epoch 621/1000 | classify: 0.7050 | voltage: 0.3893 | total: 0.7245
+[New] Epoch 622/1000 | classify: 0.7505 | voltage: 0.4102 | total: 0.7710
+[New] Epoch 623/1000 | classify: 0.7157 | voltage: 0.4057 | total: 0.7359
+[New] Epoch 624/1000 | classify: 0.6053 | voltage: 0.3891 | total: 0.6248
+[New] Epoch 625/1000 | classify: 0.7215 | voltage: 0.4025 | total: 0.7416
+[New] Epoch 626/1000 | classify: 0.7352 | voltage: 0.4024 | total: 0.7553
+[New] Epoch 627/1000 | classify: 0.6437 | voltage: 0.4220 | total: 0.6648
+[New] Epoch 628/1000 | classify: 0.7168 | voltage: 0.3857 | total: 0.7361
+[New] Epoch 629/1000 | classify: 0.7986 | voltage: 0.3986 | total: 0.8185
+[New] Epoch 630/1000 | classify: 0.6521 | voltage: 0.4149 | total: 0.6728
+--- 验证集 [epoch 630] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.7460
+  召回率 (Recall):    0.6480
+  F1 分数 (F1):       0.6751
+[New] Epoch 631/1000 | classify: 0.6644 | voltage: 0.4140 | total: 0.6851
+[New] Epoch 632/1000 | classify: 0.6613 | voltage: 0.4043 | total: 0.6815
+[New] Epoch 633/1000 | classify: 0.6842 | voltage: 0.4014 | total: 0.7043
+[New] Epoch 634/1000 | classify: 0.7593 | voltage: 0.4149 | total: 0.7800
+[New] Epoch 635/1000 | classify: 0.7646 | voltage: 0.4220 | total: 0.7857
+[New] Epoch 636/1000 | classify: 0.7235 | voltage: 0.4226 | total: 0.7447
+[New] Epoch 637/1000 | classify: 0.6801 | voltage: 0.4057 | total: 0.7004
+[New] Epoch 638/1000 | classify: 0.8400 | voltage: 0.4127 | total: 0.8606
+[New] Epoch 639/1000 | classify: 0.5978 | voltage: 0.4212 | total: 0.6188
+[New] Epoch 640/1000 | classify: 0.7217 | voltage: 0.4248 | total: 0.7429
+--- 验证集 [epoch 640] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.7377
+  召回率 (Recall):    0.6558
+  F1 分数 (F1):       0.6762
+[New] Epoch 641/1000 | classify: 0.6499 | voltage: 0.4172 | total: 0.6707
+[New] Epoch 642/1000 | classify: 0.7090 | voltage: 0.4016 | total: 0.7290
+[New] Epoch 643/1000 | classify: 0.5932 | voltage: 0.4273 | total: 0.6145
+[New] Epoch 644/1000 | classify: 0.6579 | voltage: 0.4093 | total: 0.6784
+[New] Epoch 645/1000 | classify: 0.7053 | voltage: 0.4284 | total: 0.7267
+[New] Epoch 646/1000 | classify: 0.7398 | voltage: 0.4389 | total: 0.7617
+[New] Epoch 647/1000 | classify: 0.6462 | voltage: 0.4122 | total: 0.6668
+[New] Epoch 648/1000 | classify: 0.7035 | voltage: 0.4154 | total: 0.7243
+[New] Epoch 649/1000 | classify: 0.7176 | voltage: 0.4305 | total: 0.7391
+[New] Epoch 650/1000 | classify: 0.7839 | voltage: 0.4359 | total: 0.8057
+--- 验证集 [epoch 650] ---
+  准确率 (Accuracy):  0.8219
+  精确率 (Precision): 0.7940
+  召回率 (Recall):    0.7226
+  F1 分数 (F1):       0.7435
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_best.pth
+  🏆 新最佳 F1=0.7435，已保存 best 模型
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_650.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_650.csv
+[New] Epoch 651/1000 | classify: 0.6514 | voltage: 0.4323 | total: 0.6730
+[New] Epoch 652/1000 | classify: 0.6733 | voltage: 0.4347 | total: 0.6951
+[New] Epoch 653/1000 | classify: 0.6018 | voltage: 0.4119 | total: 0.6224
+[New] Epoch 654/1000 | classify: 0.6171 | voltage: 0.4298 | total: 0.6386
+[New] Epoch 655/1000 | classify: 0.8134 | voltage: 0.4173 | total: 0.8343
+[New] Epoch 656/1000 | classify: 0.6943 | voltage: 0.4268 | total: 0.7156
+[New] Epoch 657/1000 | classify: 0.8364 | voltage: 0.4358 | total: 0.8582
+[New] Epoch 658/1000 | classify: 0.7683 | voltage: 0.4418 | total: 0.7904
+[New] Epoch 659/1000 | classify: 0.7324 | voltage: 0.4291 | total: 0.7538
+[New] Epoch 660/1000 | classify: 0.6621 | voltage: 0.4338 | total: 0.6838
+--- 验证集 [epoch 660] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.6871
+  召回率 (Recall):    0.6461
+  F1 分数 (F1):       0.6567
+[New] Epoch 661/1000 | classify: 0.7360 | voltage: 0.4384 | total: 0.7579
+[New] Epoch 662/1000 | classify: 0.7379 | voltage: 0.4423 | total: 0.7600
+[New] Epoch 663/1000 | classify: 0.6192 | voltage: 0.4286 | total: 0.6406
+[New] Epoch 664/1000 | classify: 0.6889 | voltage: 0.4423 | total: 0.7111
+[New] Epoch 665/1000 | classify: 0.8248 | voltage: 0.4597 | total: 0.8477
+[New] Epoch 666/1000 | classify: 0.7360 | voltage: 0.4424 | total: 0.7581
+[New] Epoch 667/1000 | classify: 0.7223 | voltage: 0.4314 | total: 0.7439
+[New] Epoch 668/1000 | classify: 0.7371 | voltage: 0.4549 | total: 0.7598
+[New] Epoch 669/1000 | classify: 0.7658 | voltage: 0.4543 | total: 0.7885
+[New] Epoch 670/1000 | classify: 0.6658 | voltage: 0.4503 | total: 0.6883
+--- 验证集 [epoch 670] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.7149
+  召回率 (Recall):    0.6351
+  F1 分数 (F1):       0.6585
+[New] Epoch 671/1000 | classify: 0.7123 | voltage: 0.4556 | total: 0.7351
+[New] Epoch 672/1000 | classify: 0.5489 | voltage: 0.4434 | total: 0.5711
+[New] Epoch 673/1000 | classify: 0.8254 | voltage: 0.4534 | total: 0.8480
+[New] Epoch 674/1000 | classify: 0.6340 | voltage: 0.4608 | total: 0.6571
+[New] Epoch 675/1000 | classify: 0.6340 | voltage: 0.4544 | total: 0.6567
+[New] Epoch 676/1000 | classify: 0.7293 | voltage: 0.4599 | total: 0.7523
+[New] Epoch 677/1000 | classify: 0.6231 | voltage: 0.4473 | total: 0.6455
+[New] Epoch 678/1000 | classify: 0.7093 | voltage: 0.4597 | total: 0.7323
+[New] Epoch 679/1000 | classify: 0.6980 | voltage: 0.4676 | total: 0.7213
+[New] Epoch 680/1000 | classify: 0.7589 | voltage: 0.4679 | total: 0.7823
+--- 验证集 [epoch 680] ---
+  准确率 (Accuracy):  0.8014
+  精确率 (Precision): 0.7332
+  召回率 (Recall):    0.7077
+  F1 分数 (F1):       0.7152
+[New] Epoch 681/1000 | classify: 0.7360 | voltage: 0.4828 | total: 0.7602
+[New] Epoch 682/1000 | classify: 0.8374 | voltage: 0.4630 | total: 0.8605
+[New] Epoch 683/1000 | classify: 0.6430 | voltage: 0.4816 | total: 0.6671
+[New] Epoch 684/1000 | classify: 0.6121 | voltage: 0.4692 | total: 0.6355
+[New] Epoch 685/1000 | classify: 0.6357 | voltage: 0.4844 | total: 0.6599
+[New] Epoch 686/1000 | classify: 0.8343 | voltage: 0.4831 | total: 0.8584
+[New] Epoch 687/1000 | classify: 0.6453 | voltage: 0.4774 | total: 0.6692
+[New] Epoch 688/1000 | classify: 0.7954 | voltage: 0.4930 | total: 0.8200
+[New] Epoch 689/1000 | classify: 0.7200 | voltage: 0.4655 | total: 0.7433
+[New] Epoch 690/1000 | classify: 0.7261 | voltage: 0.4706 | total: 0.7496
+--- 验证集 [epoch 690] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.7004
+  召回率 (Recall):    0.6434
+  F1 分数 (F1):       0.6475
+[New] Epoch 691/1000 | classify: 0.7966 | voltage: 0.4707 | total: 0.8201
+[New] Epoch 692/1000 | classify: 0.7990 | voltage: 0.4739 | total: 0.8227
+[New] Epoch 693/1000 | classify: 0.6497 | voltage: 0.4804 | total: 0.6737
+[New] Epoch 694/1000 | classify: 0.7108 | voltage: 0.4885 | total: 0.7352
+[New] Epoch 695/1000 | classify: 0.7011 | voltage: 0.4989 | total: 0.7260
+[New] Epoch 696/1000 | classify: 0.8544 | voltage: 0.5004 | total: 0.8794
+[New] Epoch 697/1000 | classify: 0.7071 | voltage: 0.4854 | total: 0.7313
+[New] Epoch 698/1000 | classify: 0.6552 | voltage: 0.5093 | total: 0.6806
+[New] Epoch 699/1000 | classify: 0.6985 | voltage: 0.4905 | total: 0.7230
+[New] Epoch 700/1000 | classify: 0.7071 | voltage: 0.5141 | total: 0.7328
+--- 验证集 [epoch 700] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.6708
+  召回率 (Recall):    0.6569
+  F1 分数 (F1):       0.6520
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_700.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_700.csv
+[New] Epoch 701/1000 | classify: 0.6634 | voltage: 0.4997 | total: 0.6884
+[New] Epoch 702/1000 | classify: 0.8070 | voltage: 0.5083 | total: 0.8324
+[New] Epoch 703/1000 | classify: 0.6788 | voltage: 0.5072 | total: 0.7041
+[New] Epoch 704/1000 | classify: 0.8106 | voltage: 0.5057 | total: 0.8358
+[New] Epoch 705/1000 | classify: 0.7764 | voltage: 0.5052 | total: 0.8017
+[New] Epoch 706/1000 | classify: 0.7579 | voltage: 0.5006 | total: 0.7829
+[New] Epoch 707/1000 | classify: 0.7258 | voltage: 0.5384 | total: 0.7527
+[New] Epoch 708/1000 | classify: 0.7210 | voltage: 0.5098 | total: 0.7465
+[New] Epoch 709/1000 | classify: 0.7437 | voltage: 0.5175 | total: 0.7696
+[New] Epoch 710/1000 | classify: 0.7243 | voltage: 0.5219 | total: 0.7504
+--- 验证集 [epoch 710] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.7764
+  召回率 (Recall):    0.6225
+  F1 分数 (F1):       0.6651
+[New] Epoch 711/1000 | classify: 0.9009 | voltage: 0.5225 | total: 0.9270
+[New] Epoch 712/1000 | classify: 0.7706 | voltage: 0.5274 | total: 0.7970
+[New] Epoch 713/1000 | classify: 0.6737 | voltage: 0.5293 | total: 0.7001
+[New] Epoch 714/1000 | classify: 0.8558 | voltage: 0.5247 | total: 0.8820
+[New] Epoch 715/1000 | classify: 0.6850 | voltage: 0.5112 | total: 0.7106
+[New] Epoch 716/1000 | classify: 0.7888 | voltage: 0.5209 | total: 0.8149
+[New] Epoch 717/1000 | classify: 0.7528 | voltage: 0.5208 | total: 0.7788
+[New] Epoch 718/1000 | classify: 0.7470 | voltage: 0.5182 | total: 0.7729
+[New] Epoch 719/1000 | classify: 0.8115 | voltage: 0.5447 | total: 0.8387
+[New] Epoch 720/1000 | classify: 0.5639 | voltage: 0.5326 | total: 0.5905
+--- 验证集 [epoch 720] ---
+  准确率 (Accuracy):  0.7945
+  精确率 (Precision): 0.7235
+  召回率 (Recall):    0.6958
+  F1 分数 (F1):       0.7042
+[New] Epoch 721/1000 | classify: 0.7554 | voltage: 0.5176 | total: 0.7813
+[New] Epoch 722/1000 | classify: 0.7307 | voltage: 0.5327 | total: 0.7574
+[New] Epoch 723/1000 | classify: 0.8104 | voltage: 0.5209 | total: 0.8365
+[New] Epoch 724/1000 | classify: 0.7723 | voltage: 0.5333 | total: 0.7989
+[New] Epoch 725/1000 | classify: 0.7937 | voltage: 0.5596 | total: 0.8216
+[New] Epoch 726/1000 | classify: 0.7792 | voltage: 0.5389 | total: 0.8062
+[New] Epoch 727/1000 | classify: 0.8056 | voltage: 0.5395 | total: 0.8326
+[New] Epoch 728/1000 | classify: 0.7474 | voltage: 0.5371 | total: 0.7743
+[New] Epoch 729/1000 | classify: 0.7125 | voltage: 0.5238 | total: 0.7387
+[New] Epoch 730/1000 | classify: 0.6800 | voltage: 0.5312 | total: 0.7065
+--- 验证集 [epoch 730] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.7031
+  召回率 (Recall):    0.5926
+  F1 分数 (F1):       0.6281
+[New] Epoch 731/1000 | classify: 0.6958 | voltage: 0.5700 | total: 0.7243
+[New] Epoch 732/1000 | classify: 0.8894 | voltage: 0.5389 | total: 0.9164
+[New] Epoch 733/1000 | classify: 0.6754 | voltage: 0.5526 | total: 0.7030
+[New] Epoch 734/1000 | classify: 0.7916 | voltage: 0.5395 | total: 0.8186
+[New] Epoch 735/1000 | classify: 0.6045 | voltage: 0.5693 | total: 0.6330
+[New] Epoch 736/1000 | classify: 0.7838 | voltage: 0.5452 | total: 0.8111
+[New] Epoch 737/1000 | classify: 0.7071 | voltage: 0.5671 | total: 0.7354
+[New] Epoch 738/1000 | classify: 0.6960 | voltage: 0.5482 | total: 0.7234
+[New] Epoch 739/1000 | classify: 0.8181 | voltage: 0.5506 | total: 0.8456
+[New] Epoch 740/1000 | classify: 0.6956 | voltage: 0.5458 | total: 0.7229
+--- 验证集 [epoch 740] ---
+  准确率 (Accuracy):  0.7671
+  精确率 (Precision): 0.7225
+  召回率 (Recall):    0.6035
+  F1 分数 (F1):       0.6291
+[New] Epoch 741/1000 | classify: 0.8515 | voltage: 0.5877 | total: 0.8809
+[New] Epoch 742/1000 | classify: 0.6632 | voltage: 0.5515 | total: 0.6908
+[New] Epoch 743/1000 | classify: 0.6774 | voltage: 0.5528 | total: 0.7051
+[New] Epoch 744/1000 | classify: 0.7675 | voltage: 0.5457 | total: 0.7948
+[New] Epoch 745/1000 | classify: 0.5663 | voltage: 0.5636 | total: 0.5945
+[New] Epoch 746/1000 | classify: 0.7043 | voltage: 0.5510 | total: 0.7318
+[New] Epoch 747/1000 | classify: 0.7808 | voltage: 0.5650 | total: 0.8091
+[New] Epoch 748/1000 | classify: 0.8348 | voltage: 0.5745 | total: 0.8635
+[New] Epoch 749/1000 | classify: 0.7866 | voltage: 0.5789 | total: 0.8155
+[New] Epoch 750/1000 | classify: 0.7233 | voltage: 0.5707 | total: 0.7518
+--- 验证集 [epoch 750] ---
+  准确率 (Accuracy):  0.7808
+  精确率 (Precision): 0.7140
+  召回率 (Recall):    0.6688
+  F1 分数 (F1):       0.6822
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_750.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_750.csv
+[New] Epoch 751/1000 | classify: 0.8190 | voltage: 0.5739 | total: 0.8477
+[New] Epoch 752/1000 | classify: 0.9218 | voltage: 0.5598 | total: 0.9497
+[New] Epoch 753/1000 | classify: 0.7062 | voltage: 0.5676 | total: 0.7346
+[New] Epoch 754/1000 | classify: 0.9115 | voltage: 0.5541 | total: 0.9392
+[New] Epoch 755/1000 | classify: 0.6806 | voltage: 0.5853 | total: 0.7099
+[New] Epoch 756/1000 | classify: 0.8254 | voltage: 0.5688 | total: 0.8539
+[New] Epoch 757/1000 | classify: 0.8258 | voltage: 0.5942 | total: 0.8555
+[New] Epoch 758/1000 | classify: 0.7522 | voltage: 0.5701 | total: 0.7807
+[New] Epoch 759/1000 | classify: 0.6492 | voltage: 0.5712 | total: 0.6777
+[New] Epoch 760/1000 | classify: 0.6590 | voltage: 0.5871 | total: 0.6883
+--- 验证集 [epoch 760] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7025
+  召回率 (Recall):    0.6102
+  F1 分数 (F1):       0.6294
+[New] Epoch 761/1000 | classify: 0.7732 | voltage: 0.5706 | total: 0.8017
+[New] Epoch 762/1000 | classify: 0.8188 | voltage: 0.5766 | total: 0.8476
+[New] Epoch 763/1000 | classify: 0.6932 | voltage: 0.6036 | total: 0.7233
+[New] Epoch 764/1000 | classify: 0.7592 | voltage: 0.5728 | total: 0.7878
+[New] Epoch 765/1000 | classify: 0.7517 | voltage: 0.5788 | total: 0.7806
+[New] Epoch 766/1000 | classify: 0.6410 | voltage: 0.6001 | total: 0.6711
+[New] Epoch 767/1000 | classify: 0.6645 | voltage: 0.5882 | total: 0.6939
+[New] Epoch 768/1000 | classify: 0.6820 | voltage: 0.5842 | total: 0.7112
+[New] Epoch 769/1000 | classify: 0.6937 | voltage: 0.5851 | total: 0.7230
+[New] Epoch 770/1000 | classify: 0.7274 | voltage: 0.5885 | total: 0.7568
+--- 验证集 [epoch 770] ---
+  准确率 (Accuracy):  0.7877
+  精确率 (Precision): 0.7088
+  召回率 (Recall):    0.7026
+  F1 分数 (F1):       0.6964
+[New] Epoch 771/1000 | classify: 0.8680 | voltage: 0.5913 | total: 0.8975
+[New] Epoch 772/1000 | classify: 0.6362 | voltage: 0.6002 | total: 0.6662
+[New] Epoch 773/1000 | classify: 0.7914 | voltage: 0.5912 | total: 0.8209
+[New] Epoch 774/1000 | classify: 0.8408 | voltage: 0.5752 | total: 0.8696
+[New] Epoch 775/1000 | classify: 0.6865 | voltage: 0.6029 | total: 0.7166
+[New] Epoch 776/1000 | classify: 0.7183 | voltage: 0.5689 | total: 0.7467
+[New] Epoch 777/1000 | classify: 0.8440 | voltage: 0.6200 | total: 0.8750
+[New] Epoch 778/1000 | classify: 0.6732 | voltage: 0.5682 | total: 0.7016
+[New] Epoch 779/1000 | classify: 0.6461 | voltage: 0.6133 | total: 0.6768
+[New] Epoch 780/1000 | classify: 0.8246 | voltage: 0.5931 | total: 0.8543
+--- 验证集 [epoch 780] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.6758
+  召回率 (Recall):    0.6299
+  F1 分数 (F1):       0.6316
+[New] Epoch 781/1000 | classify: 0.8066 | voltage: 0.6309 | total: 0.8382
+[New] Epoch 782/1000 | classify: 0.6446 | voltage: 0.5935 | total: 0.6743
+[New] Epoch 783/1000 | classify: 0.8157 | voltage: 0.6148 | total: 0.8464
+[New] Epoch 784/1000 | classify: 0.9279 | voltage: 0.6056 | total: 0.9582
+[New] Epoch 785/1000 | classify: 0.7097 | voltage: 0.6167 | total: 0.7405
+[New] Epoch 786/1000 | classify: 0.8297 | voltage: 0.6138 | total: 0.8604
+[New] Epoch 787/1000 | classify: 0.8236 | voltage: 0.6210 | total: 0.8547
+[New] Epoch 788/1000 | classify: 0.6710 | voltage: 0.6090 | total: 0.7014
+[New] Epoch 789/1000 | classify: 0.6387 | voltage: 0.5843 | total: 0.6679
+[New] Epoch 790/1000 | classify: 0.8038 | voltage: 0.6137 | total: 0.8345
+--- 验证集 [epoch 790] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.7059
+  召回率 (Recall):    0.6041
+  F1 分数 (F1):       0.6301
+[New] Epoch 791/1000 | classify: 0.7425 | voltage: 0.6100 | total: 0.7730
+[New] Epoch 792/1000 | classify: 0.8179 | voltage: 0.6039 | total: 0.8480
+[New] Epoch 793/1000 | classify: 0.7546 | voltage: 0.5784 | total: 0.7835
+[New] Epoch 794/1000 | classify: 0.8754 | voltage: 0.6154 | total: 0.9062
+[New] Epoch 795/1000 | classify: 0.7243 | voltage: 0.6167 | total: 0.7552
+[New] Epoch 796/1000 | classify: 0.7885 | voltage: 0.6056 | total: 0.8187
+[New] Epoch 797/1000 | classify: 0.8062 | voltage: 0.6221 | total: 0.8373
+[New] Epoch 798/1000 | classify: 0.6811 | voltage: 0.6476 | total: 0.7135
+[New] Epoch 799/1000 | classify: 0.7167 | voltage: 0.6351 | total: 0.7485
+[New] Epoch 800/1000 | classify: 0.6579 | voltage: 0.5942 | total: 0.6876
+--- 验证集 [epoch 800] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.6506
+  召回率 (Recall):    0.5893
+  F1 分数 (F1):       0.5938
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_800.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_800.csv
+[New] Epoch 801/1000 | classify: 0.7667 | voltage: 0.6205 | total: 0.7977
+[New] Epoch 802/1000 | classify: 0.7910 | voltage: 0.6146 | total: 0.8217
+[New] Epoch 803/1000 | classify: 0.7584 | voltage: 0.6178 | total: 0.7892
+[New] Epoch 804/1000 | classify: 0.7650 | voltage: 0.6265 | total: 0.7963
+[New] Epoch 805/1000 | classify: 0.7556 | voltage: 0.6267 | total: 0.7869
+[New] Epoch 806/1000 | classify: 0.6152 | voltage: 0.6283 | total: 0.6466
+[New] Epoch 807/1000 | classify: 0.8392 | voltage: 0.6284 | total: 0.8707
+[New] Epoch 808/1000 | classify: 0.6845 | voltage: 0.6424 | total: 0.7167
+[New] Epoch 809/1000 | classify: 0.7579 | voltage: 0.6522 | total: 0.7905
+[New] Epoch 810/1000 | classify: 0.8354 | voltage: 0.6378 | total: 0.8672
+--- 验证集 [epoch 810] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.6102
+  召回率 (Recall):    0.5553
+  F1 分数 (F1):       0.5685
+[New] Epoch 811/1000 | classify: 0.8142 | voltage: 0.6420 | total: 0.8463
+[New] Epoch 812/1000 | classify: 0.7466 | voltage: 0.6317 | total: 0.7782
+[New] Epoch 813/1000 | classify: 0.6813 | voltage: 0.6367 | total: 0.7131
+[New] Epoch 814/1000 | classify: 0.7177 | voltage: 0.6519 | total: 0.7503
+[New] Epoch 815/1000 | classify: 0.7958 | voltage: 0.6423 | total: 0.8279
+[New] Epoch 816/1000 | classify: 0.7473 | voltage: 0.6350 | total: 0.7790
+[New] Epoch 817/1000 | classify: 0.7255 | voltage: 0.6317 | total: 0.7571
+[New] Epoch 818/1000 | classify: 0.7251 | voltage: 0.6553 | total: 0.7579
+[New] Epoch 819/1000 | classify: 0.6615 | voltage: 0.6336 | total: 0.6932
+[New] Epoch 820/1000 | classify: 0.7272 | voltage: 0.6426 | total: 0.7593
+--- 验证集 [epoch 820] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.6830
+  召回率 (Recall):    0.5738
+  F1 分数 (F1):       0.6066
+[New] Epoch 821/1000 | classify: 0.7906 | voltage: 0.6293 | total: 0.8221
+[New] Epoch 822/1000 | classify: 0.7920 | voltage: 0.6475 | total: 0.8244
+[New] Epoch 823/1000 | classify: 0.7647 | voltage: 0.6327 | total: 0.7964
+[New] Epoch 824/1000 | classify: 0.7734 | voltage: 0.6774 | total: 0.8072
+[New] Epoch 825/1000 | classify: 0.7284 | voltage: 0.6723 | total: 0.7620
+[New] Epoch 826/1000 | classify: 0.8333 | voltage: 0.6259 | total: 0.8646
+[New] Epoch 827/1000 | classify: 0.8122 | voltage: 0.6539 | total: 0.8449
+[New] Epoch 828/1000 | classify: 0.6920 | voltage: 0.6710 | total: 0.7256
+[New] Epoch 829/1000 | classify: 0.7480 | voltage: 0.6476 | total: 0.7804
+[New] Epoch 830/1000 | classify: 0.7368 | voltage: 0.6593 | total: 0.7698
+--- 验证集 [epoch 830] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7104
+  召回率 (Recall):    0.6371
+  F1 分数 (F1):       0.6503
+[New] Epoch 831/1000 | classify: 0.8123 | voltage: 0.6432 | total: 0.8445
+[New] Epoch 832/1000 | classify: 0.7947 | voltage: 0.6731 | total: 0.8284
+[New] Epoch 833/1000 | classify: 0.8958 | voltage: 0.6561 | total: 0.9286
+[New] Epoch 834/1000 | classify: 0.7261 | voltage: 0.6541 | total: 0.7588
+[New] Epoch 835/1000 | classify: 0.7234 | voltage: 0.6561 | total: 0.7562
+[New] Epoch 836/1000 | classify: 0.8820 | voltage: 0.6692 | total: 0.9155
+[New] Epoch 837/1000 | classify: 0.7355 | voltage: 0.6685 | total: 0.7689
+[New] Epoch 838/1000 | classify: 0.7925 | voltage: 0.6783 | total: 0.8264
+[New] Epoch 839/1000 | classify: 0.7338 | voltage: 0.6688 | total: 0.7672
+[New] Epoch 840/1000 | classify: 0.7939 | voltage: 0.6521 | total: 0.8265
+--- 验证集 [epoch 840] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.7106
+  召回率 (Recall):    0.6055
+  F1 分数 (F1):       0.6293
+[New] Epoch 841/1000 | classify: 0.7815 | voltage: 0.6671 | total: 0.8148
+[New] Epoch 842/1000 | classify: 0.7116 | voltage: 0.6457 | total: 0.7439
+[New] Epoch 843/1000 | classify: 0.8308 | voltage: 0.6812 | total: 0.8648
+[New] Epoch 844/1000 | classify: 0.6866 | voltage: 0.6727 | total: 0.7202
+[New] Epoch 845/1000 | classify: 0.8313 | voltage: 0.6480 | total: 0.8637
+[New] Epoch 846/1000 | classify: 0.7020 | voltage: 0.6691 | total: 0.7354
+[New] Epoch 847/1000 | classify: 0.7198 | voltage: 0.6452 | total: 0.7521
+[New] Epoch 848/1000 | classify: 0.7831 | voltage: 0.6701 | total: 0.8166
+[New] Epoch 849/1000 | classify: 0.7404 | voltage: 0.6674 | total: 0.7738
+[New] Epoch 850/1000 | classify: 0.8477 | voltage: 0.6638 | total: 0.8809
+--- 验证集 [epoch 850] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.6662
+  召回率 (Recall):    0.6133
+  F1 分数 (F1):       0.6203
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_850.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_850.csv
+[New] Epoch 851/1000 | classify: 0.6383 | voltage: 0.6755 | total: 0.6721
+[New] Epoch 852/1000 | classify: 0.6878 | voltage: 0.6901 | total: 0.7223
+[New] Epoch 853/1000 | classify: 0.8336 | voltage: 0.6749 | total: 0.8674
+[New] Epoch 854/1000 | classify: 0.7080 | voltage: 0.6620 | total: 0.7411
+[New] Epoch 855/1000 | classify: 0.7315 | voltage: 0.6893 | total: 0.7660
+[New] Epoch 856/1000 | classify: 0.6707 | voltage: 0.6672 | total: 0.7041
+[New] Epoch 857/1000 | classify: 0.7077 | voltage: 0.6665 | total: 0.7410
+[New] Epoch 858/1000 | classify: 0.6338 | voltage: 0.6567 | total: 0.6666
+[New] Epoch 859/1000 | classify: 0.7034 | voltage: 0.6682 | total: 0.7368
+[New] Epoch 860/1000 | classify: 0.8795 | voltage: 0.6901 | total: 0.9140
+--- 验证集 [epoch 860] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.6587
+  召回率 (Recall):    0.5890
+  F1 分数 (F1):       0.5982
+[New] Epoch 861/1000 | classify: 0.7936 | voltage: 0.6699 | total: 0.8271
+[New] Epoch 862/1000 | classify: 0.8065 | voltage: 0.6689 | total: 0.8400
+[New] Epoch 863/1000 | classify: 0.8089 | voltage: 0.6739 | total: 0.8426
+[New] Epoch 864/1000 | classify: 0.8132 | voltage: 0.7042 | total: 0.8484
+[New] Epoch 865/1000 | classify: 0.7458 | voltage: 0.6737 | total: 0.7795
+[New] Epoch 866/1000 | classify: 0.7820 | voltage: 0.6939 | total: 0.8167
+[New] Epoch 867/1000 | classify: 0.7149 | voltage: 0.7129 | total: 0.7505
+[New] Epoch 868/1000 | classify: 0.7612 | voltage: 0.6752 | total: 0.7949
+[New] Epoch 869/1000 | classify: 0.8543 | voltage: 0.6989 | total: 0.8892
+[New] Epoch 870/1000 | classify: 0.8021 | voltage: 0.6935 | total: 0.8368
+--- 验证集 [epoch 870] ---
+  准确率 (Accuracy):  0.7534
+  精确率 (Precision): 0.7153
+  召回率 (Recall):    0.5738
+  F1 分数 (F1):       0.6134
+[New] Epoch 871/1000 | classify: 0.6724 | voltage: 0.6848 | total: 0.7066
+[New] Epoch 872/1000 | classify: 0.8597 | voltage: 0.7049 | total: 0.8950
+[New] Epoch 873/1000 | classify: 0.7970 | voltage: 0.7040 | total: 0.8322
+[New] Epoch 874/1000 | classify: 0.7679 | voltage: 0.6842 | total: 0.8021
+[New] Epoch 875/1000 | classify: 0.8491 | voltage: 0.6842 | total: 0.8833
+[New] Epoch 876/1000 | classify: 0.8233 | voltage: 0.6838 | total: 0.8575
+[New] Epoch 877/1000 | classify: 0.8379 | voltage: 0.6895 | total: 0.8724
+[New] Epoch 878/1000 | classify: 0.7549 | voltage: 0.6935 | total: 0.7896
+[New] Epoch 879/1000 | classify: 0.6802 | voltage: 0.6789 | total: 0.7141
+[New] Epoch 880/1000 | classify: 0.8282 | voltage: 0.6813 | total: 0.8623
+--- 验证集 [epoch 880] ---
+  准确率 (Accuracy):  0.7671
+  精确率 (Precision): 0.7089
+  召回率 (Recall):    0.6352
+  F1 分数 (F1):       0.6412
+[New] Epoch 881/1000 | classify: 0.7908 | voltage: 0.6836 | total: 0.8250
+[New] Epoch 882/1000 | classify: 0.7272 | voltage: 0.6942 | total: 0.7620
+[New] Epoch 883/1000 | classify: 0.9866 | voltage: 0.7105 | total: 1.0221
+[New] Epoch 884/1000 | classify: 0.5995 | voltage: 0.6890 | total: 0.6339
+[New] Epoch 885/1000 | classify: 0.6788 | voltage: 0.7014 | total: 0.7139
+[New] Epoch 886/1000 | classify: 0.7896 | voltage: 0.7102 | total: 0.8251
+[New] Epoch 887/1000 | classify: 0.7450 | voltage: 0.6964 | total: 0.7798
+[New] Epoch 888/1000 | classify: 0.6839 | voltage: 0.6921 | total: 0.7185
+[New] Epoch 889/1000 | classify: 0.6985 | voltage: 0.6901 | total: 0.7330
+[New] Epoch 890/1000 | classify: 0.8113 | voltage: 0.7075 | total: 0.8466
+--- 验证集 [epoch 890] ---
+  准确率 (Accuracy):  0.7397
+  精确率 (Precision): 0.6426
+  召回率 (Recall):    0.5895
+  F1 分数 (F1):       0.6045
+[New] Epoch 891/1000 | classify: 0.6303 | voltage: 0.6903 | total: 0.6648
+[New] Epoch 892/1000 | classify: 0.8649 | voltage: 0.6933 | total: 0.8996
+[New] Epoch 893/1000 | classify: 0.6724 | voltage: 0.6773 | total: 0.7063
+[New] Epoch 894/1000 | classify: 0.8518 | voltage: 0.7092 | total: 0.8872
+[New] Epoch 895/1000 | classify: 0.7697 | voltage: 0.6837 | total: 0.8039
+[New] Epoch 896/1000 | classify: 0.8310 | voltage: 0.7236 | total: 0.8672
+[New] Epoch 897/1000 | classify: 0.8452 | voltage: 0.7106 | total: 0.8808
+[New] Epoch 898/1000 | classify: 0.6769 | voltage: 0.7038 | total: 0.7120
+[New] Epoch 899/1000 | classify: 0.7171 | voltage: 0.7335 | total: 0.7538
+[New] Epoch 900/1000 | classify: 0.8053 | voltage: 0.7059 | total: 0.8406
+--- 验证集 [epoch 900] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.7460
+  召回率 (Recall):    0.6204
+  F1 分数 (F1):       0.6508
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_900.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_900.csv
+[New] Epoch 901/1000 | classify: 0.8053 | voltage: 0.6998 | total: 0.8403
+[New] Epoch 902/1000 | classify: 0.8283 | voltage: 0.7090 | total: 0.8637
+[New] Epoch 903/1000 | classify: 0.8941 | voltage: 0.7195 | total: 0.9301
+[New] Epoch 904/1000 | classify: 0.7561 | voltage: 0.7145 | total: 0.7919
+[New] Epoch 905/1000 | classify: 0.8350 | voltage: 0.7062 | total: 0.8704
+[New] Epoch 906/1000 | classify: 0.6917 | voltage: 0.7187 | total: 0.7276
+[New] Epoch 907/1000 | classify: 0.8191 | voltage: 0.7186 | total: 0.8550
+[New] Epoch 908/1000 | classify: 0.7899 | voltage: 0.7019 | total: 0.8250
+[New] Epoch 909/1000 | classify: 0.8021 | voltage: 0.6999 | total: 0.8371
+[New] Epoch 910/1000 | classify: 0.8343 | voltage: 0.6848 | total: 0.8686
+--- 验证集 [epoch 910] ---
+  准确率 (Accuracy):  0.7740
+  精确率 (Precision): 0.7272
+  召回率 (Recall):    0.6092
+  F1 分数 (F1):       0.6418
+[New] Epoch 911/1000 | classify: 0.7966 | voltage: 0.6982 | total: 0.8315
+[New] Epoch 912/1000 | classify: 0.8559 | voltage: 0.7072 | total: 0.8912
+[New] Epoch 913/1000 | classify: 0.7429 | voltage: 0.7277 | total: 0.7793
+[New] Epoch 914/1000 | classify: 0.7883 | voltage: 0.6892 | total: 0.8228
+[New] Epoch 915/1000 | classify: 0.9280 | voltage: 0.7024 | total: 0.9631
+[New] Epoch 916/1000 | classify: 0.7405 | voltage: 0.6894 | total: 0.7750
+[New] Epoch 917/1000 | classify: 0.6417 | voltage: 0.7315 | total: 0.6783
+[New] Epoch 918/1000 | classify: 0.8733 | voltage: 0.7292 | total: 0.9097
+[New] Epoch 919/1000 | classify: 0.7753 | voltage: 0.6925 | total: 0.8099
+[New] Epoch 920/1000 | classify: 0.7011 | voltage: 0.7138 | total: 0.7368
+--- 验证集 [epoch 920] ---
+  准确率 (Accuracy):  0.7671
+  精确率 (Precision): 0.7120
+  召回率 (Recall):    0.6293
+  F1 分数 (F1):       0.6494
+[New] Epoch 921/1000 | classify: 0.7021 | voltage: 0.7152 | total: 0.7378
+[New] Epoch 922/1000 | classify: 0.8183 | voltage: 0.6998 | total: 0.8533
+[New] Epoch 923/1000 | classify: 0.7599 | voltage: 0.7034 | total: 0.7950
+[New] Epoch 924/1000 | classify: 0.7397 | voltage: 0.7273 | total: 0.7761
+[New] Epoch 925/1000 | classify: 0.7667 | voltage: 0.7121 | total: 0.8023
+[New] Epoch 926/1000 | classify: 0.6423 | voltage: 0.7185 | total: 0.6782
+[New] Epoch 927/1000 | classify: 0.8036 | voltage: 0.7190 | total: 0.8396
+[New] Epoch 928/1000 | classify: 0.7543 | voltage: 0.7238 | total: 0.7905
+[New] Epoch 929/1000 | classify: 0.7914 | voltage: 0.7011 | total: 0.8265
+[New] Epoch 930/1000 | classify: 0.8839 | voltage: 0.7162 | total: 0.9197
+--- 验证集 [epoch 930] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.6529
+  召回率 (Recall):    0.6014
+  F1 分数 (F1):       0.6092
+[New] Epoch 931/1000 | classify: 0.6626 | voltage: 0.7093 | total: 0.6980
+[New] Epoch 932/1000 | classify: 0.8937 | voltage: 0.7033 | total: 0.9289
+[New] Epoch 933/1000 | classify: 0.7256 | voltage: 0.7092 | total: 0.7610
+[New] Epoch 934/1000 | classify: 0.7944 | voltage: 0.7064 | total: 0.8298
+[New] Epoch 935/1000 | classify: 0.7119 | voltage: 0.7080 | total: 0.7473
+[New] Epoch 936/1000 | classify: 0.8505 | voltage: 0.7094 | total: 0.8860
+[New] Epoch 937/1000 | classify: 0.7534 | voltage: 0.7085 | total: 0.7889
+[New] Epoch 938/1000 | classify: 0.7327 | voltage: 0.7085 | total: 0.7681
+[New] Epoch 939/1000 | classify: 0.7421 | voltage: 0.7112 | total: 0.7777
+[New] Epoch 940/1000 | classify: 0.8390 | voltage: 0.7252 | total: 0.8753
+--- 验证集 [epoch 940] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.6670
+  召回率 (Recall):    0.5791
+  F1 分数 (F1):       0.5950
+[New] Epoch 941/1000 | classify: 0.7853 | voltage: 0.7240 | total: 0.8215
+[New] Epoch 942/1000 | classify: 0.8393 | voltage: 0.7021 | total: 0.8744
+[New] Epoch 943/1000 | classify: 0.7720 | voltage: 0.7015 | total: 0.8071
+[New] Epoch 944/1000 | classify: 0.6730 | voltage: 0.7079 | total: 0.7084
+[New] Epoch 945/1000 | classify: 0.8079 | voltage: 0.7194 | total: 0.8439
+[New] Epoch 946/1000 | classify: 0.7474 | voltage: 0.7333 | total: 0.7840
+[New] Epoch 947/1000 | classify: 0.7766 | voltage: 0.7029 | total: 0.8118
+[New] Epoch 948/1000 | classify: 0.7158 | voltage: 0.7082 | total: 0.7512
+[New] Epoch 949/1000 | classify: 0.7343 | voltage: 0.7278 | total: 0.7707
+[New] Epoch 950/1000 | classify: 0.7389 | voltage: 0.7176 | total: 0.7747
+--- 验证集 [epoch 950] ---
+  准确率 (Accuracy):  0.7397
+  精确率 (Precision): 0.6486
+  召回率 (Recall):    0.5895
+  F1 分数 (F1):       0.6002
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_950.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_950.csv
+[New] Epoch 951/1000 | classify: 0.8887 | voltage: 0.7191 | total: 0.9247
+[New] Epoch 952/1000 | classify: 0.7281 | voltage: 0.7316 | total: 0.7647
+[New] Epoch 953/1000 | classify: 0.7557 | voltage: 0.7159 | total: 0.7915
+[New] Epoch 954/1000 | classify: 0.6684 | voltage: 0.7285 | total: 0.7048
+[New] Epoch 955/1000 | classify: 0.8600 | voltage: 0.7172 | total: 0.8959
+[New] Epoch 956/1000 | classify: 0.7512 | voltage: 0.7262 | total: 0.7875
+[New] Epoch 957/1000 | classify: 0.8200 | voltage: 0.7197 | total: 0.8559
+[New] Epoch 958/1000 | classify: 0.7408 | voltage: 0.7333 | total: 0.7775
+[New] Epoch 959/1000 | classify: 0.7223 | voltage: 0.7180 | total: 0.7582
+[New] Epoch 960/1000 | classify: 0.7942 | voltage: 0.7184 | total: 0.8301
+--- 验证集 [epoch 960] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.6969
+  召回率 (Recall):    0.5956
+  F1 分数 (F1):       0.6220
+[New] Epoch 961/1000 | classify: 0.7054 | voltage: 0.7358 | total: 0.7421
+[New] Epoch 962/1000 | classify: 1.0153 | voltage: 0.7055 | total: 1.0506
+[New] Epoch 963/1000 | classify: 0.6425 | voltage: 0.7244 | total: 0.6787
+[New] Epoch 964/1000 | classify: 0.7427 | voltage: 0.7324 | total: 0.7793
+[New] Epoch 965/1000 | classify: 0.7558 | voltage: 0.7083 | total: 0.7912
+[New] Epoch 966/1000 | classify: 0.8531 | voltage: 0.7174 | total: 0.8890
+[New] Epoch 967/1000 | classify: 0.7649 | voltage: 0.7176 | total: 0.8008
+[New] Epoch 968/1000 | classify: 0.7692 | voltage: 0.7053 | total: 0.8045
+[New] Epoch 969/1000 | classify: 0.7545 | voltage: 0.7279 | total: 0.7909
+[New] Epoch 970/1000 | classify: 0.7874 | voltage: 0.7449 | total: 0.8247
+--- 验证集 [epoch 970] ---
+  准确率 (Accuracy):  0.7603
+  精确率 (Precision): 0.6653
+  召回率 (Recall):    0.6055
+  F1 分数 (F1):       0.6167
+[New] Epoch 971/1000 | classify: 0.7561 | voltage: 0.7242 | total: 0.7923
+[New] Epoch 972/1000 | classify: 0.8003 | voltage: 0.7203 | total: 0.8363
+[New] Epoch 973/1000 | classify: 0.8451 | voltage: 0.7201 | total: 0.8811
+[New] Epoch 974/1000 | classify: 0.6991 | voltage: 0.7188 | total: 0.7350
+[New] Epoch 975/1000 | classify: 0.7265 | voltage: 0.7201 | total: 0.7625
+[New] Epoch 976/1000 | classify: 0.7755 | voltage: 0.7527 | total: 0.8131
+[New] Epoch 977/1000 | classify: 0.7025 | voltage: 0.7460 | total: 0.7398
+[New] Epoch 978/1000 | classify: 0.8904 | voltage: 0.7054 | total: 0.9257
+[New] Epoch 979/1000 | classify: 0.7198 | voltage: 0.6946 | total: 0.7546
+[New] Epoch 980/1000 | classify: 0.7785 | voltage: 0.7227 | total: 0.8147
+--- 验证集 [epoch 980] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.6731
+  召回率 (Recall):    0.5915
+  F1 分数 (F1):       0.6124
+[New] Epoch 981/1000 | classify: 0.8000 | voltage: 0.7424 | total: 0.8371
+[New] Epoch 982/1000 | classify: 0.8674 | voltage: 0.7295 | total: 0.9039
+[New] Epoch 983/1000 | classify: 0.6468 | voltage: 0.7376 | total: 0.6837
+[New] Epoch 984/1000 | classify: 0.7385 | voltage: 0.7096 | total: 0.7740
+[New] Epoch 985/1000 | classify: 0.8678 | voltage: 0.7263 | total: 0.9041
+[New] Epoch 986/1000 | classify: 0.6436 | voltage: 0.7263 | total: 0.6799
+[New] Epoch 987/1000 | classify: 0.8023 | voltage: 0.7195 | total: 0.8383
+[New] Epoch 988/1000 | classify: 0.8200 | voltage: 0.7310 | total: 0.8565
+[New] Epoch 989/1000 | classify: 0.8347 | voltage: 0.7055 | total: 0.8700
+[New] Epoch 990/1000 | classify: 0.7811 | voltage: 0.7210 | total: 0.8171
+--- 验证集 [epoch 990] ---
+  准确率 (Accuracy):  0.7671
+  精确率 (Precision): 0.6944
+  召回率 (Recall):    0.5976
+  F1 分数 (F1):       0.6232
+[New] Epoch 991/1000 | classify: 0.7399 | voltage: 0.7300 | total: 0.7764
+[New] Epoch 992/1000 | classify: 0.7404 | voltage: 0.7114 | total: 0.7760
+[New] Epoch 993/1000 | classify: 0.7758 | voltage: 0.7194 | total: 0.8118
+[New] Epoch 994/1000 | classify: 0.8281 | voltage: 0.7295 | total: 0.8646
+[New] Epoch 995/1000 | classify: 0.7882 | voltage: 0.7337 | total: 0.8249
+[New] Epoch 996/1000 | classify: 0.6937 | voltage: 0.7168 | total: 0.7296
+[New] Epoch 997/1000 | classify: 0.8715 | voltage: 0.7304 | total: 0.9080
+[New] Epoch 998/1000 | classify: 0.6374 | voltage: 0.7359 | total: 0.6742
+[New] Epoch 999/1000 | classify: 0.7488 | voltage: 0.7088 | total: 0.7843
+[New] Epoch 1000/1000 | classify: 0.7374 | voltage: 0.7176 | total: 0.7732
+--- 验证集 [epoch 1000] ---
+  准确率 (Accuracy):  0.7466
+  精确率 (Precision): 0.6529
+  召回率 (Recall):    0.6014
+  F1 分数 (F1):       0.6092
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_1000.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_1000.csv
+✅ 模型已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/trained_model_epoch_final.pth
+📁 损失值已保存到 /home/kudouzala/Application/ion_detect/output/trained_model_save/exp_new_d/training_loss_epoch_final.csv

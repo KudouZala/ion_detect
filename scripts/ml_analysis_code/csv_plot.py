@@ -435,10 +435,10 @@ def plot_attributions_from_folder(folder_path, save_fig=False):
                 0.07943, 0.06310, 0.05012, 0.03981, 0.03162, 0.02512, 0.01995, 0.01585, 0.01259
             ]
 
-                # 构建 Token_Label
-        token_labels = ["T1", "T2", "T3", "T4"]
-        for t in range(1, 5):  # 4个时间点
-            for f in freq_values_hz:
+                # 构建 Token_Label（按检测到的时间点数/频率点数动态生成）
+        token_labels = [f"T{i+1}" for i in range(num_time_points)]
+        for t in range(1, num_time_points + 1):
+            for f in freq_values_hz[:freq_points]:
                 token_labels.append(f"{t}_time_{f}_Hz_mag")
                 token_labels.append(f"{t}_time_{f}_Hz_phase")
 

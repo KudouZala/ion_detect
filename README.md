@@ -1,20 +1,35 @@
 [English](./README.md) | [简体中文](./README.zh-CN.md)  
-[![Project Page](https://img.shields.io/badge/🌐%20Project%20Page-1f6feb?logo=github&logoColor=white&labelColor=161b22&style=flat-square)](https://kudouzala.github.io/ion_detect_page/)
-[![Hugging Face Dataset](https://img.shields.io/badge/🤗%20Hugging%20Face%20Dataset-FFD21E?logo=huggingface&logoColor=black&labelColor=fff3b0&style=flat-square)](https://huggingface.co/datasets/KudouZala/PEM_electrolyzer-ion_detect)
+[![Project Page](https://img.shields.io/badge/Project%20Page-1f6feb?logo=github&logoColor=white&labelColor=161b22&style=flat-square)](https://kudouzala.github.io/ion_detect_page/)
+[![Hugging Face Dataset](https://img.shields.io/badge/Hugging%20Face%20Dataset-FFD21E?logo=huggingface&logoColor=black&labelColor=fff3b0&style=flat-square)](https://huggingface.co/datasets/KudouZala/PEM_electrolyzer-ion_detect)
 
+## Quick Start (Paper model: `SWC-PSWM`)
 
+If you want to reproduce the paper model first, run these commands:
 
+```bash
+conda create -n ion_detect python=3.10
+conda activate ion_detect
+pip install -r requirements.txt
+python scripts/machine_learning_code/main.py --config scripts/machine_learning_code/configs/paper/SWC-PSWM.yaml --train
+```
+
+For paper ablations, use:
+
+- `scripts/machine_learning_code/configs/paper/exp_a.yaml`
+- `scripts/machine_learning_code/configs/paper/exp_b.yaml`
+- `scripts/machine_learning_code/configs/paper/exp_c.yaml`
+- `scripts/machine_learning_code/configs/paper/exp_d.yaml`
 
 # File Description
 
-- The `data` folder contains the raw voltage and impedance measurement data. `firecloud` and `gamry` are the impedance measurement devices.Each experiment's details.txt file describes the materials and procedures used in the experiment.If an edx folder exists, then it contains the edx data for this experiment.
+- The `data` folder contains the raw voltage and impedance measurement data. `firecloud` and `gamry` are the impedance measurement devices. Each experiment's `details.txt` describes materials and procedures. If an `edx` folder exists, it contains EDX data for that experiment.
 - The `datasets` folder contains datasets for machine learning training.
 - The `logs` folder stores runtime log files.
 - The `output` folder contains trained models and inference outputs, including `Attn_heatmap`, `IG`, `Saliency`, and ML analysis results.
 - The `scripts` folder stores all source code.
 
-
-The experimental data and dataset will be released upon acceptance.
+The experimental dataset is available on Hugging Face:
+https://huggingface.co/datasets/KudouZala/PEM_electrolyzer-ion_detect
 
 
 # Usage Instructions
@@ -22,6 +37,9 @@ The experimental data and dataset will be released upon acceptance.
 This repository is designed to accompany the research paper and allows full reproduction of the workflow.
 If you wish to use your own `data` for AutoEIS fitting and training, please organize your files following the same format under the `data` folder. Then, convert the raw data into training-ready format in the `datasets` folder as described below, and start training.
 It is recommended to first reproduce the entire process to fully understand how the code works.
+
+Internal exploratory experiments are archived under:
+`scripts/machine_learning_code/configs/internal/`.
 
 ---
 
@@ -95,18 +113,17 @@ We recommend running everything on **Ubuntu 22.04**, otherwise certain parts (es
 ## Using Raw Data
 
 The `data` folder contains the raw voltage and impedance measurements.  
-Download link: https://huggingface.co/datasets/KudouZala/PEM_electrolyzer-ion_detect
+Download link: https://huggingface.co/datasets/KudouZala/PEM_electrolyzer-ion_detect  
 After downloading, extract to the `data` folder following the structure `/ion_detect/data/校内测试/xxx测试`.  
 The data includes both `firecloud` and `gamry` measurement devices.  
 The `scripts` folder under `data` contains tools for impedance fitting, voltage analysis, and impedance plotting.
 
 ### View Relative Voltage Variation Over Time
 
-
 Use `ion_detect/data/scripts/eis_code/v_t_plot_code/v_t_relative_compare_xx.py` as a template, fill in `group_folders_firecloud` and `group_folders_gamry`, then run:
 
 ```bash
-python data/scripts/eis_code/v_t_plot_code/v_t_relative_compare_plot.py 
+python data/scripts/eis_code/v_t_plot_code/v_t_relative_compare_plot.py
 ```
 ![Voltage variation over time](./github_png/voltage_0_t.png)
 
@@ -122,14 +139,12 @@ The output images are saved in `ion_detect/data/volt_t_plot`.
 
 ### View Nyquist Impedance Variation Over Time
 
-
 Use `ion_detect/data/scripts/eis_code/v_t_plot_code/nyquist_plot_zhiyun_and_gamry_xx.py` as a template, fill in the required folder paths, then run:
 
 ```bash
 python data/scripts/eis_code/nyquist_plot_code/nyquist_plot_zhiyun_and_gamry_plot.py
 ```
 ![Nyquist impedance variation over time](./github_png/impe_0_t_ca.png)
-
 
 Similarly, for Bode plots:
 ```bash
@@ -153,7 +168,7 @@ Logs are saved to `ion_detect/data/logs`, and fitting results to `/ion_detect/da
 
 If you wish to use your own test data, add it under the `校内测试` folder following the same structure.  
 Copy the `code` folder (and its scripts) from an existing folder such as `data/校内测试/20250103_无离子污染测试/code` into your new folder.  
- `python run_data_exchange_code_gamry_single.py or run_data_exchange_code_firecloud_single.py` for your data format, then run it to generate `output_txt`, `output_csv`, and `output_xlsx` folders with transferred data.  
+Run `python run_data_exchange_code_gamry_single.py` or `python run_data_exchange_code_firecloud_single.py` for your data format, then generate `output_txt`, `output_csv`, and `output_xlsx` folders with transferred data.  
 Finally, add your folder path into the main program of `all_impedance_fit.py` for fitting.  
 The fitting results will be saved in `ion_detect/data/eis_fit_results/<date>/`.
 
@@ -161,7 +176,7 @@ The fitting results will be saved in `ion_detect/data/eis_fit_results/<date>/`.
 
 ### Export Impedance Analysis Results
 
-To sort fitted results in the order `RO, R1, R2, R3` (Ohmic → Low-frequency → Mid-frequency → High-frequency):
+To sort fitted results in the order `RO, R1, R2, R3` (Ohmic -> Low-frequency -> Mid-frequency -> High-frequency):
 
 ```bash
 python data/scripts/excel_code/excel_PnPw_sequence_all.py  # Modify folder_path = "20250724" to match your eis_fit_results folder name
@@ -176,17 +191,16 @@ Each subfolder will contain `_sorted.xlsx` and `_sorted.png` files.
 Compare variations of equivalent circuit parameters for each ion type:
 
 ```bash
-
 python data/scripts/fit_res_analysis.py  # Modify date_folder = "20250723" to match your eis_fit_results folder name
 ```
-Results will appear under `/ion_detect/data/eis_fit_analysis_results`, e.g. `_20250723.xlsx` and `_20250723.png`, showing parameter changes from 0–6h for each ion type.
+Results will appear under `/ion_detect/data/eis_fit_analysis_results`, e.g. `_20250723.xlsx` and `_20250723.png`, showing parameter changes from 0-6h for each ion type.
 
 ![2RC fitting](./github_png/impe_fit_change_2rc.png)  
 ![3RC fitting](./github_png/impe_fit_change_3rc.png)
 
 ---
 
-### Impedance Fitting Result Analysis – H2SO4 Recovery Comparison
+### Impedance Fitting Result Analysis - H2SO4 Recovery Comparison
 
 ```bash
 python data/scripts/fit_res_analysis2.py  # Modify date_folder = "20250723" to match your eis_fit_results folder name
@@ -200,7 +214,7 @@ Results appear in `/ion_detect/data/eis_fit_analysis_results`, e.g. `_20250723.x
 
 ### Machine Learning Training
 If you want to use your own data to convert into training data, please read steps one and two; if you simply want to reproduce the paper, please skip to step three.
-1. Organize the `gamry` or `firecloud` data in the same folder format in ion_detect/data/校内测试/..., then add your folder paths into `label_machine_learning_excel_export_gamry_range.py` or `label_machine_learning_excel_export_firecloud_range.py`.
+1. Organize the `gamry` or `firecloud` data in the same folder format in `ion_detect/data/校内测试/...`, then add your folder paths into `label_machine_learning_excel_export_gamry_range.py` or `label_machine_learning_excel_export_firecloud_range.py`.
 
 2. Run the following commands to generate formatted Excel files:
 
@@ -210,86 +224,75 @@ If you want to use your own data to convert into training data, please read step
    ```
 
    The generated Excel files will appear under `/ion_detect/data/校内测试/数据整理_range`.  
-   Select your desired training data and place it into the `ion_detect/datasets/...` folder for training.  
+   Select your desired training data and place it into the `ion_detect/datasets/...` folder for training.
 
-   Naming conventions:  
-   - `_ion_` → data with ion contamination  
-   - `_ion_column_` → data before ion contamination  
-   - `_ion_column_renew_H2SO4_` → data after H2SO4 recovery  
-
-   You can create your own training scripts under `/ion_detect/scripts/machine_learning_code/`, e.g. `20251213b.yaml`, and run training with:
-   ```bash
-   python scripts/machine_learning_code/main.py --config 20251213b.yaml --train
-   ```
-   Testing:
-   ```bash
-   python scripts/machine_learning_code/main.py --config 20251213b.yaml --test
-   ```
-
-3. Example training/testing commands:
+3. Paper model training/testing commands:
 
    ```bash
-   # Recommended to set 20251213b.yaml `test_folder: "datasets/datasets_for_all_test"`, if this folder name is datasets_for_all_test => auto split train- and test-datasets(include all ion types).  
-   python scripts/machine_learning_code/main.py --config 20251213b.yaml --train > ./logs/20251213b.log 2>&1
-   # see loss curve
-   tensorboard --logdir output/trained_model_save/ --port 6006 --bind_all
-   # use the Browser:http://127.0.0.1:6006/
+   mkdir -p logs
+   # Paper main model (SWC-PSWM)
+   python scripts/machine_learning_code/main.py --config scripts/machine_learning_code/configs/paper/SWC-PSWM.yaml --train > ./logs/SWC-PSWM.log 2>&1
+   python scripts/machine_learning_code/main.py --config scripts/machine_learning_code/configs/paper/SWC-PSWM.yaml --search > ./logs/SWC-PSWM_search.log 2>&1
+   python scripts/machine_learning_code/main.py --config scripts/machine_learning_code/configs/paper/SWC-PSWM.yaml --test > ./logs/SWC-PSWM_test.log 2>&1
    ```
 
-   Model checkpoint search and evaluation:
+   **Important (`--search` -> `--test`):**
+   - `--test` always loads:
+     `output/trained_model_save/SWC-PSWM/trained_model_epoch_best.pth`
+   - `--search` evaluates all `trained_model_epoch_*.pth` and writes CSV reports, but does **not** automatically replace `trained_model_epoch_best.pth`.
+   - If `trained_model_epoch_best.pth` is missing, `--test` will automatically pick the best checkpoint from `search_checkpoints_accuracy_sorted.csv` (or fallback to highest epoch) and copy it to `trained_model_epoch_best.pth`.
+   - Before running `--test` for paper plots, copy the best checkpoint (highest accuracy) to `trained_model_epoch_best.pth`.
+
+   Example (auto-pick best epoch from `search_checkpoints_accuracy_sorted.csv`):
    ```bash
-   python scripts/machine_learning_code/main.py --config 20251213b.yaml --search > ./logs/20251213b_search.log 2>&1
+   python - <<'PY'
+   import csv, shutil
+   from pathlib import Path
+
+   run_dir = Path("output/trained_model_save/SWC-PSWM")
+   csv_path = run_dir / "search_checkpoints_accuracy_sorted.csv"
+   with csv_path.open("r", encoding="utf-8") as f:
+       rows = list(csv.DictReader(f))
+   best = rows[-1]["ckpt_file"]  # CSV is sorted by accuracy ascending
+   src = run_dir / best
+   dst = run_dir / "trained_model_epoch_best.pth"
+   shutil.copy2(src, dst)
+   print(f"Copied best checkpoint: {src} -> {dst}")
+   PY
    ```
 
-   Results are saved under `/ion_detect/output/trained_model_save/20251213b/`.  
+   Results are saved under `/ion_detect/output/trained_model_save/SWC-PSWM/` and `/ion_detect/output/inference_results/SWC-PSWM/`.
    ![Search checkpoints accuracy](./github_png/search_checkpoints_accuracy_by_epoch.png)
-
-   Then you can name the best model "trained_model_epoch_final.pth",and to use it to do the after things:
-   ```
-   # loads "trained_model_epoch_final.pth" model by default
-   python scripts/machine_learning_code/main.py --config 20251213b.yaml --test > ./logs/20251213b_test.log 2>&1  
-   ```
-   Results are saved under `/ion_detect/output/inference_results/20251213b/`.  
-   Multi-process debug logs are stored in `/ion_detect/scripts/machine_learning_code/debug_logs`.
-
 
 ---
 
 ### AI-Assisted Ion Effect Analysis
-1. To visualize attn_heatmap saliency IG across different 2ppm ions in 0-6h:
+To reproduce paper-style interpretation analysis, first run test with `SWC-PSWM`, then run analysis scripts in `scripts/ml_analysis_code/` with `--load_run=SWC-PSWM`.
+
+For example, if you want to plot hidden-state parameters specifically for early-stage 2ppm data (`0-6h`), set `paths.test_folder` in your YAML config to:
+`datasets/datasets_for_range_ion_0_6_2ppm`
+
+Example:
 ```bash
-#set the config yaml : num_time_points: 4,and then train the model:
-python scripts/machine_learning_code/main.py --config 20251213b.yaml --train
-python scripts/machine_learning_code/main.py --config 20251213b.yaml --search
-#search the best model and name it :"trained_model_epoch_final.pth"(the models are stored in ion_detect/output/trained_model_save/20251213b/...)
-#remove the files in "/ion_detect/output/inference_results/20251213b" ,set 20251213b.yaml: `test_folder: "datasets/datasets_for_0_6_2ppm"
-python scripts/machine_learning_code/main.py --config 20251213b.yaml --test
-python scripts/ml_analysis_code/csv_plot.py --load_run=20251213b
+python scripts/machine_learning_code/main.py --config scripts/machine_learning_code/configs/paper/SWC-PSWM.yaml --test
+python scripts/ml_analysis_code/csv_plot.py --load_run=SWC-PSWM
+python scripts/ml_analysis_code/csv_plot_param.py --load_run=SWC-PSWM
+python scripts/ml_analysis_code/csv_plot_param2.py --load_run=SWC-PSWM
 ```
-This visualizes test results. (Make sure to run `python main.py --config 20251213b.yaml --test` first.)  
-The model generates intermediate prediction values and visualization results including `attn_heatmap`, `saliency`, and `IG` under `ion_detect/output/inference_results/20251213b/...`.
-![AI analysis PNG- attn/IG/Saliency](<github_png/20241006_2ppm铬离子污染测试_新版电解槽_ion_gamry_[0, 2, 4, 6]_pred4_attribution_plot.png>)
 
+Script purposes:
+- `csv_plot.py`: plots attribution-level results (`Attention`, `Param-Attention`, `Saliency`, `IG`) from per-sample CSV outputs.
+- `csv_plot_param.py`: computes ion-wise averages of influence parameters (`psi`, `theta_ca`, `theta_an`, `phi_ca`, `phi_an`) and saves a summary CSV/plot.
+- `csv_plot_param2.py`: performs time-series analysis of initial-state parameters (`sigma_mem`, `alpha_ca`, `alpha_an`, `i_0ca`, `i_0an`) at `0/2/4/6h`, and also outputs `6h-0h` delta statistics/figures.
+- `csv_plot_param.py` and `csv_plot_param2.py` now auto-adapt to detected time windows in result filenames (no manual edit needed when `num_time_points` changes).
 
-2. To visualize variations of the 5 influence factors across different 2ppm ions in 0-6h:
+Recommendation:
+- Keep these scripts separate for now (different targets and assumptions, easier to maintain and debug).
+- If you only need attribution maps, run `csv_plot.py` only.
+- For paper-style hidden-state parameter analysis, run both `csv_plot_param.py` and `csv_plot_param2.py`.
 
-```bash
-#remove the files in "/ion_detect/output/inference_results/20251213b" ,set 20251213b.yaml `test_folder: "datasets/datasets_for_0_6_2ppm"
-python scripts/machine_learning_code/main.py --config 20251213b.yaml --test
-python scripts/ml_analysis_code/csv_plot_param.py --load_run=20251213b
-```
-This generates visualization for ion-specific influence factors under `ion_detect/output/inference_results/20251213b`.
-![5 influence factors across different 2ppm ions in 0-6h](github_png/20251213b_ions_param_plot.png)
-
-3. To visualize 0–6h initial-state changes of 5 parameters (requires datasets covering `[0,2,4,6]` and `[6,8,10,12]`):
-
-```bash
-#remove the files in "/ion_detect/output/inference_results/20251213b" ,set 20251213b.yaml `test_folder: "datasets/datasets_for_range_ion_0_12_2ppm"
-python scripts/machine_learning_code/main.py --config 20251213b.yaml --test 
-python scripts/ml_analysis_code/csv_plot_param2.py --load_run=20251213b
-```
-These plots can be compared with impedance fitting variations.
-
+![AI analysis PNG- attn/IG/Saliency](./github_png/20241006_2ppm铬离子污染测试_新版电解槽_ion_gamry_[0, 2, 4, 6]_pred4_attribution_plot.png)
+![5 influence factors across different 2ppm ions in 0-6h](./github_png/20251213b_ions_param_plot.png)
 ![AI ion analysis](./github_png/ai_ion.png)
 
 ---
@@ -297,13 +300,11 @@ These plots can be compared with impedance fitting variations.
 ### AI-Assisted H2SO4 Recovery Analysis
 
 ```bash
-#remove the files in "/ion_detect/output/inference_results/20251213b" ,set 20251213b.yaml `test_folder: "datasets/datasets_for_all_2ppm"
-
-python main.py --config 20251213b.yaml --test 
-python scripts/ml_analysis_code/h2so4_analysis.py --load_run=20251213b
+python scripts/machine_learning_code/main.py --config scripts/machine_learning_code/configs/paper/SWC-PSWM.yaml --test
+python scripts/ml_analysis_code/h2so4_analysis.py --load_run=SWC-PSWM
 ```
 This visualizes 5 key factor changes across pre-contamination (0h), post-contamination (6h), and recovered states.  
-Requires datasets containing `[0,2,4,6]` and `[6,8,10,12]`.  
+Requires windows `[0,2,4,6]` (for baseline/recovery initial state) and `[6,8,10,12]` (for polluted initial state), following the fixed H2SO4 analysis definition.  
 The plots can be compared with impedance fitting results for the same three time points.
 
 ![AI H2SO4 recovery analysis](./github_png/ai_H2SO4.png)

@@ -1,0 +1,101 @@
+# ============================================================
+# 消融实验 D：加入物理分支（无 cross_attn）
+# ============================================================
+# 目的：与 exp_new_a 对比，测试物理分支（电压重建约束）对分类的帮助
+#       注意：分类仍走 cls_output（全时间点），不经过 cross_attn
+#
+# 与 exp_new_a 的区别：
+#   use_physics: false → true
+#   alpha:       0.0   → 0.05（开启电压重建损失）
+#
+# 物理分支数据流：
+#   param_transformer([第1时间点 cls + volt + impe]) → param_raw → 5 个初始状态参数
+#   influence_mlp(cls_output 全时间点) → physic_raw → 5 个影响因子
+#   → 物理公式 → 电压重建 → MSE 损失（alpha=0.05）
+#
+# 分类路径（不变）：
+#   cls_output → Linear → 7 类（和 A 一样走全时间点表示）
+#
+# 预期：
+#   - 物理约束作为辅助任务，提供额外梯度信号，可能帮助 Transformer 学到更好的表示
+#   - 但也增加了参数量和训练复杂度
+#
+# 运行命令：
+#   python scripts/machine_learning_code/main.py \
+#     --config scripts/machine_learning_code/exp_new_d.yaml --train
+
+experiment:
+  name: "exp_new_d"
+  seed: 42
+
+data:
+  num_freq_points: 63
+  num_time_points: 3
+
+train:
+  batch_size: 8
+  num_epochs: 1000
+  learning_rate: 1e-4
+  weight_decay: 1e-3
+  eval_every: 10
+
+  sampler:
+    base_weight: 1.0
+    rapid_weight: 3.0
+
+  trainer:
+    beta: 1.0
+    alpha: 0.05               # ← 开启电压重建损失
+    gamma: 0.0
+    lambda_rule: 0.0
+    lambda_group: 0.0
+    lambda_tree: 0.0
+    lambda_band: 0.0
+    save_every: 50
+    label_smoothing: 0.0
+    grad_clip: 1.0
+
+  train_pairs:
+    lambda_consistency: 0.0
+    eps: 1.0e-9
+    use_log_space: true
+    lambda_monodec: 0.0
+    lambda_polarity: 0.0
+    weight_ratio: 3.0
+
+test:
+  device_str: "cpu"
+  max_workers_factor: 0.5
+
+paths:
+  data_folder: "datasets/datasets_for_all_no_overlap"
+  test_folder: "datasets/datasets_for_all_test_no_overlap"
+  model_save_root: "output/trained_model_save"
+  stats_file: "datasets/stats_dataset.json"
+  label_mapping_json: "label_mapping.json"
+  debug_log_dir: "output/debug_logs"
+  tensorboard_root: "output/tensorboard"
+
+dataset:
+  keep_unpaired: "self"
+  debug: true
+  focus_prefix_contains: "20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_"
+  max_print: 0
+
+# ===== 新模型配置 =====
+new_model:
+  d_model: 64
+  nhead: 4
+  num_layers: 2
+  dropout: 0.1
+  num_classes: 7
+  classify_mode: "linear"
+  use_env: true
+  use_physics: true           # ← 开启物理分支
+  use_cross_attn: false       #    但不开 cross_attn，分类走 cls_output
+  use_hierarchical: false
+  use_rule: false
+  use_band_feat: false
+  use_conc: false
+  use_cosine_lr: true
+  warmup_epochs: 100

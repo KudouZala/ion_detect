@@ -1,0 +1,101 @@
+# ============================================================
+# 消融实验 B：去掉环境参数（测试 env/ep token 的贡献）
+# ============================================================
+# 目的：与 exp_new_a 对比，验证环境参数（温度、流量、电流）和
+#       电解槽参数是否对分类有帮助
+#
+# 与 exp_new_a 的唯一区别：
+#   use_env: true → false
+#
+# 架构影响：
+#   exp_new_a (use_env=true):
+#     Z_encoder: [env_token, ep_token, CLS] → CLS_feat（携带环境信息）
+#     主 Transformer: [volt(3), impe(189), CLS_feat(1)] → 193 tokens
+#
+#   exp_new_b (use_env=false):
+#     无 Z_encoder，CLS 从 trunc_normal 初始化直接进入主 Transformer
+#     主 Transformer: [volt(3), impe(189), CLS(1)] → 193 tokens
+#
+# 预期：
+#   - 如果 B ≈ A：说明环境参数对分类没有显著帮助，后续实验可省略
+#   - 如果 B << A：说明环境参数提供了关键上下文，必须保留
+#
+# 运行命令：
+#   python scripts/machine_learning_code/main.py \
+#     --config scripts/machine_learning_code/exp_new_b.yaml --train
+
+experiment:
+  name: "exp_new_b"
+  seed: 42
+
+data:
+  num_freq_points: 63
+  num_time_points: 3
+
+train:
+  batch_size: 8
+  num_epochs: 1000
+  learning_rate: 1e-4
+  weight_decay: 1e-3
+  eval_every: 10
+
+  sampler:
+    base_weight: 1.0
+    rapid_weight: 3.0
+
+  trainer:
+    beta: 1.0
+    alpha: 0.0
+    gamma: 0.0
+    lambda_rule: 0.0
+    lambda_group: 0.0
+    lambda_tree: 0.0
+    lambda_band: 0.0
+    save_every: 50
+    label_smoothing: 0.0
+    grad_clip: 1.0
+
+  train_pairs:
+    lambda_consistency: 0.0
+    eps: 1.0e-9
+    use_log_space: true
+    lambda_monodec: 0.0
+    lambda_polarity: 0.0
+    weight_ratio: 3.0
+
+test:
+  device_str: "cpu"
+  max_workers_factor: 0.5
+
+paths:
+  data_folder: "datasets/datasets_for_all_no_overlap"
+  test_folder: "datasets/datasets_for_all_test_no_overlap"
+  model_save_root: "output/trained_model_save"
+  stats_file: "datasets/stats_dataset.json"
+  label_mapping_json: "label_mapping.json"
+  debug_log_dir: "output/debug_logs"
+  tensorboard_root: "output/tensorboard"
+
+dataset:
+  keep_unpaired: "self"
+  debug: true
+  focus_prefix_contains: "20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_"
+  max_print: 0
+
+# ===== 新模型配置 =====
+new_model:
+  d_model: 64
+  nhead: 4
+  num_layers: 2
+  dropout: 0.1
+  num_classes: 7
+  classify_mode: "linear"
+  use_env: false          # ← 唯一区别：关闭环境参数
+  use_physics: false
+  use_cross_attn: false
+  use_hierarchical: false
+  use_rule: false
+  use_band_feat: false
+  use_conc: false
+  use_cosine_lr: true
+  warmup_epochs: 100

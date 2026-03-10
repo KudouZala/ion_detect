@@ -1,0 +1,105 @@
+# ============================================================
+# 消融实验 F：全部组件 + 全部辅助损失（上限参考）
+# ============================================================
+# 目的：在 exp_new_e（完整主干）基础上，开启所有辅助组件和损失，
+#       测试辅助任务是否进一步提升分类性能
+#
+# 与 exp_new_e 的区别（模型侧）：
+#   use_hierarchical: false → true（高/低影响组 + 组内 3 类分类头）
+#   use_rule:         false → true（rule-space 回归头）
+#   use_band_feat:    false → true（频段特征增强）
+#   use_conc:         false → true（浓度预测头）
+#
+# 与 exp_new_e 的区别（损失侧）：
+#   gamma:              0.0   → 6e-5（浓度损失）
+#   lambda_rule:        0.0   → 5e-4（rule 损失）
+#   lambda_group:       0.0   → 5e-4（高/低组分类损失）
+#   lambda_tree:        0.0   → 5e-4（组内细分类损失）
+#   lambda_consistency: 0.0   → 5e-4（配对一致性损失）
+#   lambda_monodec:     0.0   → 5e-4（单调衰减约束）
+#   lambda_polarity:    0.0   → 2e-4（极性约束）
+#   label_smoothing:    0.0   → 0.05
+#
+# 注意：F 不是 A-E 的叠加，而是"全开"配置。
+#   A-E 的结果会告诉我们哪些组件有用，F 是作为"全部开启"的参考上限。
+#   如果 F < E，说明某些辅助损失反而有害，需要精简。
+#
+# 运行命令：
+#   python scripts/machine_learning_code/main.py \
+#     --config scripts/machine_learning_code/exp_new_f.yaml --train
+
+experiment:
+  name: "exp_new_f"
+  seed: 42
+
+data:
+  num_freq_points: 63
+  num_time_points: 3
+
+train:
+  batch_size: 8
+  num_epochs: 1000
+  learning_rate: 1e-4
+  weight_decay: 1e-3
+  eval_every: 10
+
+  sampler:
+    base_weight: 1.0
+    rapid_weight: 3.0
+
+  trainer:
+    beta: 1.0
+    alpha: 0.05
+    gamma: 6.0e-5             # ← 浓度损失
+    lambda_rule: 5.0e-4       # ← rule-space 回归损失
+    lambda_group: 5.0e-4      # ← 高/低影响组损失
+    lambda_tree: 5.0e-4       # ← 组内细分类损失
+    lambda_band: 0.0          # band_feat 是特征增强，无独立损失
+    save_every: 50
+    label_smoothing: 0.05
+    grad_clip: 1.0
+
+  train_pairs:
+    lambda_consistency: 5.0e-4  # ← 配对一致性损失
+    eps: 1.0e-9
+    use_log_space: true
+    lambda_monodec: 5.0e-4      # ← 单调衰减约束
+    lambda_polarity: 2.0e-4     # ← 极性约束
+    weight_ratio: 3.0
+
+test:
+  device_str: "cpu"
+  max_workers_factor: 0.5
+
+paths:
+  data_folder: "datasets/datasets_for_all_no_overlap"
+  test_folder: "datasets/datasets_for_all_test_no_overlap"
+  model_save_root: "output/trained_model_save"
+  stats_file: "datasets/stats_dataset.json"
+  label_mapping_json: "label_mapping.json"
+  debug_log_dir: "output/debug_logs"
+  tensorboard_root: "output/tensorboard"
+
+dataset:
+  keep_unpaired: "self"
+  debug: true
+  focus_prefix_contains: "20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_"
+  max_print: 0
+
+# ===== 新模型配置 =====
+new_model:
+  d_model: 64
+  nhead: 4
+  num_layers: 2
+  dropout: 0.1
+  num_classes: 7
+  classify_mode: "clip"
+  use_env: true
+  use_physics: true
+  use_cross_attn: true
+  use_hierarchical: true      # ← 层级分类头
+  use_rule: true              # ← rule-space 回归
+  use_band_feat: true         # ← 频段特征增强
+  use_conc: true              # ← 浓度预测
+  use_cosine_lr: true
+  warmup_epochs: 100

@@ -83,6 +83,7 @@ def main():
     parser = argparse.ArgumentParser(description="Transformer 基线（仅 self-attn，使用 model_datasets 数据）")
     parser.add_argument("--config", type=str, required=True, help="与 main.py 相同的 YAML 配置路径（训练/测试集由其中 paths 指定）")
     parser.add_argument("--epochs", type=int, default=100, help="训练轮数")
+    parser.add_argument("--eval_every", type=int, default=10, help="每 N 个 epoch 在测试集上评估并打印一次准确率/精确率/召回率/F1")
     parser.add_argument("--batch_size", type=int, default=32, help="batch size")
     parser.add_argument("--lr", type=float, default=1e-3, help="学习率")
     parser.add_argument("--d_model", type=int, default=64, help="Transformer 隐藏维度")
@@ -144,6 +145,7 @@ def main():
     ).to(device)
     opt = torch.optim.Adam(model.parameters(), lr=args.lr)
     criterion = nn.CrossEntropyLoss()
+    eval_every = max(1, int(args.eval_every))
 
     for ep in range(args.epochs):
         model.train()
@@ -154,6 +156,27 @@ def main():
             loss = criterion(logits, lab)
             loss.backward()
             opt.step()
+
+        if (ep + 1) % eval_every == 0:
+            model.eval()
+            all_p, all_t = [], []
+            with torch.no_grad():
+                for seq, lab in val_loader:
+                    logits = model(seq.to(device))
+                    pred = logits.argmax(dim=1).cpu().numpy()
+                    all_p.extend(pred)
+                    all_t.extend(lab.numpy().tolist())
+            y_p = np.array(all_p)
+            y_t = np.array(all_t)
+            acc = accuracy_score(y_t, y_p)
+            prec, rec, f1, _ = precision_recall_fscore_support(
+                y_t, y_p, labels=range(num_classes), average="macro", zero_division=0
+            )
+            print("\n--- Transformer 基线 (仅 self-attn, EIS+电压 时序) ---")
+            print(f"  准确率 (Accuracy):  {acc:.4f}")
+            print(f"  精确率 (Precision): {prec:.4f}")
+            print(f"  召回率 (Recall):    {rec:.4f}")
+            print(f"  F1 分数 (F1):       {f1:.4f}")
 
     model.eval()
     all_pred, all_true = [], []
