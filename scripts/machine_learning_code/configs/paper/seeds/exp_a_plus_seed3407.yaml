@@ -1,0 +1,70 @@
+experiment:
+  name: exp_a_plus_seed3407
+  seed: 3407
+data:
+  num_freq_points: 63
+  num_time_points: 3
+train:
+  batch_size: 8
+  num_epochs: 600
+  learning_rate: 1e-4
+  weight_decay: 1e-3
+  eval_every: 10
+  sampler:
+    base_weight: 1.0
+    rapid_weight: 3.0
+  trainer:
+    beta: 1.0
+    alpha: 0.0
+    gamma: 6.0e-05
+    lambda_rule: 0.0
+    lambda_group: 0.0005
+    lambda_tree: 0.0005
+    lambda_band: 0.0
+    save_every: 50
+    label_smoothing: 0.05
+    grad_clip: 1.0
+  train_pairs:
+    lambda_consistency: 0.0005
+    eps: 1.0e-09
+    use_log_space: true
+    lambda_monodec: 0.0005
+    lambda_polarity: 0.0002
+    weight_ratio: 3.0
+test:
+  device_str: cpu
+  max_workers_factor: 0.5
+paths:
+  data_folder: datasets/datasets_for_all_train_no_overlap/SWC-PSWM_plus_seed3407
+  test_folder: datasets/datasets_for_all_test_no_overlap/SWC-PSWM_plus_seed3407
+  model_save_root: output/trained_model_save
+  stats_file: datasets/stats_dataset.json
+  label_mapping_json: label_mapping.json
+  debug_log_dir: output/debug_logs
+  tensorboard_root: output/tensorboard
+dataset:
+  keep_unpaired: self
+  debug: true
+  focus_prefix_contains: 20240915_2ppm铜离子污染测试_旧版电解槽_ion_firecloud_
+  max_print: 0
+new_model:
+  d_model: 64
+  nhead: 4
+  num_layers: 2
+  dropout: 0.1
+  num_classes: 7
+  classify_mode: clip_v2
+  use_env: true
+  use_physics: true
+  use_cross_attn: true
+  use_hierarchical: true
+  use_rule: true
+  use_band_feat: true
+  use_conc: true
+  use_cosine_lr: true
+  warmup_epochs: 100
+  clip_use_chem_only: true
+  clip_preprocess_attrs: true
+  clip_learnable_no_ion: true
+  clip_attr_dropout: 0.0
+  clip_logit_scale_init: 14.2857

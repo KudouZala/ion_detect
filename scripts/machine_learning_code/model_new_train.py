@@ -62,6 +62,8 @@ class TrainerNew:
         log_dir = os.path.join(self.model_save_folder, "runs")
         os.makedirs(log_dir, exist_ok=True)
         self.writer = SummaryWriter(log_dir=log_dir)
+        self.eval_dir = os.path.join(self.model_save_folder, "eval_tables")
+        os.makedirs(self.eval_dir, exist_ok=True)
 
     # ------------------------------------------------------------------
     def _record(self, items: dict):
@@ -196,9 +198,17 @@ class TrainerNew:
             proto = self.model.ion_rule_proto.to(self.device)
             rA = self.mse_none(outA["rule_pred"], proto[labelA]).mean(1)
             rB = self.mse_none(outB["rule_pred"], proto[labelB]).mean(1)
-            rule_loss = rA.mean() + rB.mean()
-            total = total + self.lambda_rule * rule_loss
-            log_dict["rule"] = rule_loss.item()
+            rapidA = (stageA == 1)
+            rapidB = (stageB == 1)
+            rule_terms = []
+            if rapidA.any():
+                rule_terms.append(rA[rapidA].mean())
+            if rapidB.any():
+                rule_terms.append(rB[rapidB].mean())
+            if rule_terms:
+                rule_loss = sum(rule_terms)
+                total = total + self.lambda_rule * rule_loss
+                log_dict["rule"] = rule_loss.item()
 
         # ====== Group / Tree 损失 (optional) ======
         if self.lambda_group > 0 and "group_logits" in outA:
@@ -321,6 +331,96 @@ class TrainerNew:
     # ------------------------------------------------------------------
     # 验证
     # ------------------------------------------------------------------
+    @staticmethod
+    def _confusion_matrix_np(y_true, y_pred, num_classes):
+        cm = np.zeros((num_classes, num_classes), dtype=np.int64)
+        for t, p in zip(y_true, y_pred):
+            if 0 <= int(t) < num_classes and 0 <= int(p) < num_classes:
+                cm[int(t), int(p)] += 1
+        return cm
+
+    @staticmethod
+    def _normalize_class_names(num_classes, class_names=None):
+        if class_names is None:
+            return [f"class_{i}" for i in range(num_classes)]
+        names = list(class_names)
+        if len(names) < num_classes:
+            names.extend([f"class_{i}" for i in range(len(names), num_classes)])
+        return names[:num_classes]
+
+    def _save_eval_tables(self, epoch, y_true, y_pred, num_classes, class_names=None):
+        class_names = self._normalize_class_names(num_classes, class_names)
+        labels = list(range(num_classes))
+        prec_cls, rec_cls, f1_cls, support_cls = precision_recall_fscore_support(
+            y_true, y_pred, labels=labels, average=None, zero_division=0
+        )
+        cm = self._confusion_matrix_np(y_true, y_pred, num_classes)
+
+        rows = []
+        for i in range(num_classes):
+            tp = int(cm[i, i])
+            fn = int(cm[i, :].sum() - tp)
+            fp = int(cm[:, i].sum() - tp)
+            support = int(support_cls[i]) if i < len(support_cls) else int(cm[i, :].sum())
+            row_wo_diag = cm[i, :].copy()
+            row_wo_diag[i] = 0
+            top_j = int(np.argmax(row_wo_diag)) if row_wo_diag.sum() > 0 else -1
+            top_cnt = int(row_wo_diag[top_j]) if top_j >= 0 else 0
+            top_ratio = (top_cnt / support) if support > 0 else 0.0
+            rows.append(
+                {
+                    "epoch": int(epoch),
+                    "class_id": i,
+                    "class_name": class_names[i],
+                    "support": support,
+                    "precision": float(prec_cls[i]),
+                    "recall": float(rec_cls[i]),
+                    "f1": float(f1_cls[i]),
+                    "tp": tp,
+                    "fp": fp,
+                    "fn": fn,
+                    "top_confused_pred_id": top_j if top_j >= 0 else "",
+                    "top_confused_pred_name": class_names[top_j] if top_j >= 0 else "",
+                    "top_confused_count": top_cnt,
+                    "top_confused_ratio": float(top_ratio),
+                }
+            )
+
+        per_class_path = os.path.join(
+            self.eval_dir, f"per_class_metrics_epoch_{int(epoch)}.csv"
+        )
+        pd.DataFrame(rows).to_csv(per_class_path, index=False, encoding="utf-8-sig")
+
+        cm_df = pd.DataFrame(cm, index=class_names, columns=class_names)
+        cm_path = os.path.join(self.eval_dir, f"confusion_matrix_epoch_{int(epoch)}.csv")
+        cm_df.to_csv(cm_path, encoding="utf-8-sig")
+
+        pair_rows = []
+        for i in range(num_classes):
+            for j in range(num_classes):
+                if i == j:
+                    continue
+                cnt = int(cm[i, j])
+                if cnt <= 0:
+                    continue
+                pair_rows.append(
+                    {
+                        "epoch": int(epoch),
+                        "true_id": i,
+                        "true_name": class_names[i],
+                        "pred_id": j,
+                        "pred_name": class_names[j],
+                        "count": cnt,
+                        "ratio_in_true_class": float(cnt / max(int(cm[i, :].sum()), 1)),
+                    }
+                )
+        pair_rows.sort(key=lambda x: x["count"], reverse=True)
+        pair_path = os.path.join(
+            self.eval_dir, f"confusion_pairs_epoch_{int(epoch)}.csv"
+        )
+        pd.DataFrame(pair_rows).to_csv(pair_path, index=False, encoding="utf-8-sig")
+        return per_class_path, cm_path, pair_path
+
     def _eval_val_loader(self, val_loader, num_classes=7):
         if accuracy_score is None:
             return None
@@ -347,7 +447,14 @@ class TrainerNew:
             y_true, y_pred, labels=range(num_classes),
             average="macro", zero_division=0,
         )
-        return acc, prec, rec, f1
+        return {
+            "acc": float(acc),
+            "prec": float(prec),
+            "rec": float(rec),
+            "f1": float(f1),
+            "y_true": y_true,
+            "y_pred": y_pred,
+        }
 
     # ------------------------------------------------------------------
     # 训练循环
@@ -365,6 +472,7 @@ class TrainerNew:
         val_loader=None,
         eval_every=10,
         num_classes=7,
+        class_names=None,
     ):
         scheduler = None
         if hasattr(self, '_scheduler') and self._scheduler is not None:
@@ -422,15 +530,30 @@ class TrainerNew:
             if val_loader is not None and eval_every > 0 and (epoch + 1) % eval_every == 0:
                 metrics = self._eval_val_loader(val_loader, num_classes)
                 if metrics is not None:
-                    acc, prec, rec, f1 = metrics
+                    acc = metrics["acc"]
+                    prec = metrics["prec"]
+                    rec = metrics["rec"]
+                    f1 = metrics["f1"]
                     print(f"--- 验证集 [epoch {epoch+1}] ---")
                     print(f"  准确率 (Accuracy):  {acc:.4f}")
                     print(f"  精确率 (Precision): {prec:.4f}")
                     print(f"  召回率 (Recall):    {rec:.4f}")
                     print(f"  F1 分数 (F1):       {f1:.4f}")
+                    pc_path, cm_path, cp_path = self._save_eval_tables(
+                        epoch=epoch + 1,
+                        y_true=metrics["y_true"],
+                        y_pred=metrics["y_pred"],
+                        num_classes=num_classes,
+                        class_names=class_names,
+                    )
+                    print(f"  📄 每类指标表: {pc_path}")
+                    print(f"  📄 混淆矩阵表: {cm_path}")
+                    print(f"  📄 错分去向表: {cp_path}")
 
                     if self.writer:
                         self.writer.add_scalar("val/accuracy", acc, self.global_step)
+                        self.writer.add_scalar("val/precision_macro", prec, self.global_step)
+                        self.writer.add_scalar("val/recall_macro", rec, self.global_step)
                         self.writer.add_scalar("val/f1", f1, self.global_step)
 
                     if f1 > best_f1:

@@ -14,7 +14,7 @@ import csv
 import numpy as np
 from pathlib import Path
 
-from main import load_config, build_paths, prepare_test_folder, load_label_mapping
+from runtime_core import load_config, build_paths, prepare_test_folder, load_label_mapping
 from model_datasets import Dataset_2_Stable_plus
 from sklearn.svm import SVC
 from sklearn.preprocessing import StandardScaler

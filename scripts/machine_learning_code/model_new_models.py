@@ -24,13 +24,14 @@ model_new_models.py — 模块化离子检测模型（消融实验用）
               → 分类走 cross_pooled（融合了初始标定 + 时序影响因子）
 
 YAML 开关：
-  classify_mode: "linear" | "clip"
+  classify_mode: "linear" | "clip" | "clip_v2"
   use_env / use_physics / use_cross_attn
   use_hierarchical / use_rule / use_band_feat / use_conc
 """
 
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 from model_models import (
     AdjustableMLP,
@@ -72,6 +73,36 @@ def _get_freq_hz(num_freq_points: int) -> torch.Tensor:
         ], dtype=torch.float32)
     else:
         raise ValueError(f"Unsupported num_freq_points: {num_freq_points}")
+
+
+def _zscore_columns(x: torch.Tensor, eps: float = 1e-6) -> torch.Tensor:
+    mean = x.mean(dim=0, keepdim=True)
+    std = x.std(dim=0, keepdim=True, unbiased=False).clamp_min(eps)
+    return (x - mean) / std
+
+
+def _build_clip_v2_attribute_tensor(
+    use_chem_only: bool = True,
+    preprocess_attrs: bool = True,
+) -> torch.Tensor:
+    attr = torch.tensor(ion_attr_list_plus, dtype=torch.float32)
+    chem_dim = 7
+
+    if use_chem_only:
+        clip_attr = attr[:, :chem_dim].clone()
+        if preprocess_attrs:
+            clip_attr = _zscore_columns(clip_attr)
+        return clip_attr
+
+    clip_attr = attr.clone()
+    if preprocess_attrs and clip_attr.size(1) > chem_dim:
+        ratio_part = clip_attr[:, chem_dim:-2]
+        freq_part = clip_attr[:, -2:]
+        ratio_part = torch.sign(ratio_part) * torch.log1p(torch.abs(ratio_part))
+        freq_part = torch.log10(freq_part.clamp_min(1e-6))
+        clip_attr = torch.cat([clip_attr[:, :chem_dim], ratio_part, freq_part], dim=1)
+        clip_attr = _zscore_columns(clip_attr)
+    return clip_attr
 
 
 class IonDetectModel(nn.Module):
@@ -184,6 +215,39 @@ class IonDetectModel(nn.Module):
                 nn.GELU(),
                 nn.Linear(d, d),
             )
+        elif self.classify_mode == "clip_v2":
+            self.clip_use_chem_only = bool(mcfg.get("clip_use_chem_only", True))
+            self.clip_preprocess_attrs = bool(mcfg.get("clip_preprocess_attrs", True))
+            self.clip_learnable_no_ion = bool(mcfg.get("clip_learnable_no_ion", True))
+            self.clip_attr_dropout = float(mcfg.get("clip_attr_dropout", 0.0))
+
+            clip_attr_tensor = _build_clip_v2_attribute_tensor(
+                use_chem_only=self.clip_use_chem_only,
+                preprocess_attrs=self.clip_preprocess_attrs,
+            )
+            self.register_buffer("clip_attr_tensor_v2", clip_attr_tensor)
+
+            attr_dim = int(clip_attr_tensor.size(1))
+            self.clip_attr_embed_v2 = AdjustableMLP(attr_dim, [d], d, 1)
+            self.clip_attr_dropout_layer = nn.Dropout(self.clip_attr_dropout)
+            self.clip_ion_encoder_v2 = MyTransformerWithAttn(d, nhead, 1, dropout)
+            self.clip_ion_post_mlp_v2 = AdjustableMLP(d, [d], d, 1)
+            self.clip_ion_norm_v2 = nn.LayerNorm(d)
+            self.clip_proj_v2 = nn.Sequential(
+                nn.LayerNorm(d),
+                nn.Linear(d, d),
+                nn.GELU(),
+                nn.Linear(d, d),
+            )
+
+            init_temp = float(mcfg.get("clip_logit_scale_init", 1.0 / 0.07))
+            self.logit_scale_v2 = nn.Parameter(
+                torch.log(torch.tensor(init_temp, dtype=torch.float32))
+            )
+
+            if self.clip_learnable_no_ion:
+                self.no_ion_prototype = nn.Parameter(torch.zeros(d))
+                nn.init.trunc_normal_(self.no_ion_prototype, std=0.02)
         else:
             raise ValueError(f"Unknown classify_mode: {self.classify_mode}")
 
@@ -220,10 +284,21 @@ class IonDetectModel(nn.Module):
         ion_raw = self.ion_post_mlp(ion_encoded.squeeze(0))
         return self.ion_norm(ion_encoded.squeeze(0) + ion_raw)
 
+    def _encode_ions_v2(self):
+        ion_proj = self.clip_attr_embed_v2(self.clip_attr_tensor_v2)
+        ion_proj = self.clip_attr_dropout_layer(ion_proj)
+        ion_encoded, _ = self.clip_ion_encoder_v2(ion_proj.unsqueeze(0))
+        ion_raw = self.clip_ion_post_mlp_v2(ion_encoded.squeeze(0))
+        ion_embeddings = self.clip_ion_norm_v2(ion_encoded.squeeze(0) + ion_raw)
+        if self.clip_learnable_no_ion:
+            ion_embeddings = ion_embeddings.clone()
+            ion_embeddings[-1] = self.no_ion_prototype
+        return F.normalize(ion_embeddings, dim=-1)
+
     # ------------------------------------------------------------------
     def forward(self, volt_data, impe_data, env_params,
                 electrolyzer_parameters, concentration):
-        B, T, F, C = impe_data.shape
+        B, T, num_freqs, C = impe_data.shape
         device = volt_data.device
         out = {}
 
@@ -235,14 +310,14 @@ class IonDetectModel(nn.Module):
         time_enc = self.time_encoder(time_input).unsqueeze(0).expand(B, T, -1)
         volt_feat = volt_feat + time_enc
 
-        impe_feat = self.impe_encoder(impe_data.view(B, T * F, C))
-        impe_feat = impe_feat.view(B, T, F, -1)
-        freq_input = self.freq_values_tensor.view(F, 1)
+        impe_feat = self.impe_encoder(impe_data.view(B, T * num_freqs, C))
+        impe_feat = impe_feat.view(B, T, num_freqs, -1)
+        freq_input = self.freq_values_tensor.view(num_freqs, 1)
         freq_enc = self.freq_encoder(freq_input) \
-                       .unsqueeze(0).unsqueeze(0).expand(B, T, F, -1)
-        time_enc_impe = time_enc.unsqueeze(2).expand(B, T, F, -1)
+                       .unsqueeze(0).unsqueeze(0).expand(B, T, num_freqs, -1)
+        time_enc_impe = time_enc.unsqueeze(2).expand(B, T, num_freqs, -1)
         impe_feat = impe_feat + time_enc_impe + freq_enc
-        impe_feat = impe_feat.view(B, T * F, -1)  # (B, T*F, d)
+        impe_feat = impe_feat.view(B, T * num_freqs, -1)  # (B, T*F, d)
 
         # ================================================================
         # 2. CLS Token 预编码
@@ -274,7 +349,7 @@ class IonDetectModel(nn.Module):
             out["cls_attn_mean"] = cls_attn_mean
 
             # 与旧模型保持一致：去掉前 T 个电压 token 和最后 1 个 cls token
-            freq_attn = cls_attn_mean[:, T:-1].view(B, T, F)
+            freq_attn = cls_attn_mean[:, T:-1].view(B, T, num_freqs)
             out["freq_attn"] = freq_attn
 
         # ================================================================
@@ -300,7 +375,7 @@ class IonDetectModel(nn.Module):
         if self.use_physics:
             # 初始状态分支（第一个时间点）→ param_raw
             volt_first = volt_feat[:, 0:1, :]
-            impe_first = impe_feat.view(B, T, F, -1)[:, 0, :, :]
+            impe_first = impe_feat.view(B, T, num_freqs, -1)[:, 0, :, :]
             param_tokens = torch.cat(
                 [cls_token_feat, volt_first, impe_first], dim=1
             )
@@ -371,6 +446,13 @@ class IonDetectModel(nn.Module):
             ion_embeddings = self._encode_ions()
             clip_feat = self.clip_proj(feat_for_classify)
             logits = torch.matmul(clip_feat, ion_embeddings.T)
+        elif self.classify_mode == "clip_v2":
+            clip_feat = self.clip_proj_v2(feat_for_classify)
+            clip_feat = F.normalize(clip_feat, dim=-1)
+            ion_embeddings = self._encode_ions_v2()
+            logit_scale = self.logit_scale_v2.exp().clamp(max=100.0)
+            logits = logit_scale * torch.matmul(clip_feat, ion_embeddings.T)
+            out["clip_logit_scale"] = logit_scale.detach()
 
         out["logits"] = logits
         out["prob"] = torch.softmax(logits, dim=1)

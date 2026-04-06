@@ -39,10 +39,15 @@
 
 
 # ---------- 其他 ----------
-scripts/machine_learning_code/*.log
 scripts/save_three_system
-/logs/**
-scripts/machine_learning_code/logs/*
+
+# ---------- logs（训练/运行日志，不提交）----------
+# 任意路径下的 .log 文件（勿使用 **/logs/ 全库匹配，以免覆盖 /data/logs 的 .gitkeep 例外）
+**/*.log
+/logs/
+scripts/machine_learning_code/logs/
+scripts/machine_learning_code/logs_*/
+scripts/machine_learning_code/debug_logs/
 
 # Python cache / bytecode
 **/__pycache__/
@@ -50,10 +55,6 @@ scripts/machine_learning_code/logs/*
 *.pyo
 
 # Root runtime artifacts
-/*.log
-/exp_new_*.log
-/run_all.log
-/test.log
 /exp_new_.zip
 /exp_new_/
 

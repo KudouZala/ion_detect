@@ -17,7 +17,7 @@ import torch.nn as nn
 from pathlib import Path
 from torch.utils.data import DataLoader
 
-from main import load_config, build_paths, prepare_test_folder, load_label_mapping
+from runtime_core import load_config, build_paths, prepare_test_folder, load_label_mapping
 from model_datasets import Dataset_2_Stable_plus
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 

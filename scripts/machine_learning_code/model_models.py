@@ -11,13 +11,6 @@ import json5
 
 # 获取当前脚本所在目录
 current_dir = Path(__file__).resolve().parent
-# 拼接 label_mapping.json 的完整路径
-json_path = current_dir / "ion_attributes_dict.jsonc"
-# 读取 JSON 文件
-with open(json_path, "r", encoding="utf-8") as f:
-    ion_attr_dict = json5.load(f)
-
-
 # 例如按以下顺序固定排列
 ion_order_plus = ["Ca2+", "Na+", "Ni2+", "Cr3+", "Cu2+", "Fe3+","no_ion"]
 json_path_plus = current_dir / "ion_attributes_dict_plus.jsonc"
@@ -26,8 +19,6 @@ with open(json_path_plus, "r", encoding="utf-8") as f:
 ion_attr_list_plus = [ion_attr_dict_plus[ion] for ion in ion_order_plus]
 
 
-# ion_order = ["Ca2+", "Na+", "Ni2+", "Cr3+", "Cu2+", "Fe3+"]
-# ion_attr_list = [ion_attr_dict[ion] for ion in ion_order]
 # ion_attr_list_plus = [ion_attr_dict_plus[ion] for ion in ion_order]
 
 
